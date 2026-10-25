@@ -1,7 +1,7 @@
 node_modules/
 .next/
 out/
-lib/
+/lib/
 coverage/
 *.tgz
 *.tsbuildinfo
