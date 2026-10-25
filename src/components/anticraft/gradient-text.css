@@ -1,0 +1,50 @@
+.ac-gradient-text {
+  color: var(--ac-gradient-text-fallback, #efb281);
+}
+
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .ac-gradient-text {
+    background-image: linear-gradient(110deg, var(--ac-gradient-text-colors, #ef9b61, #f7e6cf, #b8a0e9, #ef9b61));
+    background-size: 250% 100%;
+    background-position: 0% center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    animation: ac-gradient-text-flow var(--ac-gradient-text-speed, 8s) ease-in-out infinite alternate;
+  }
+}
+
+.ac-gradient-text[data-paused] {
+  animation-play-state: paused;
+}
+
+@keyframes ac-gradient-text-flow {
+  from { background-position: 0% center; }
+  to { background-position: 100% center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-gradient-text {
+    animation: none;
+    background-size: 100% 100%;
+  }
+}
+
+@media (forced-colors: active) {
+  .ac-gradient-text {
+    background: none;
+    color: CanvasText;
+    -webkit-text-fill-color: CanvasText;
+  }
+}
+
+@media print {
+  .ac-gradient-text {
+    background: none;
+    color: currentColor;
+    -webkit-text-fill-color: currentColor;
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "@anticraft-ui/react",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Expressive, open-source React components. Built for the web with character.",
+  "type": "module",
+  "license": "MIT",
+  "main": "./lib/anticraft-ui.js",
+  "module": "./lib/anticraft-ui.js",
+  "types": "./lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "import": "./lib/anticraft-ui.js"
+    },
+    "./styles.css": "./lib/anticraft-ui.css"
+  },
+  "files": [
+    "lib",
+    "src/components/anticraft",
+    "registry.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "dev": "node scripts/build-registry.mjs && next dev --hostname 0.0.0.0 --port 5173",
+    "build": "npm run build:registry && next build",
+    "start": "next start --hostname 0.0.0.0 --port 5173",
+    "typecheck": "next typegen && tsc --noEmit",
+    "build:registry": "node scripts/build-registry.mjs",
+    "build:lib": "vite build --config vite.lib.config.ts && tsc -p tsconfig.lib.json && node scripts/finalize-library.mjs"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "dependencies": {
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.9.0",
+    "vite": "^8.0.0"
+  }
+}

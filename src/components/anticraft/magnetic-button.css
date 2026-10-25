@@ -1,0 +1,60 @@
+.ac-magnetic-button {
+  position: relative;
+  display: inline-grid;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ac-ink, #171914);
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ac-magnetic-button__surface {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75em;
+  min-height: inherit;
+  padding: 0.9em 1.45em;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  background: var(--ac-accent, #d5fa55);
+  color: inherit;
+  font-weight: 600;
+  line-height: 1.15;
+  pointer-events: none;
+  transition: transform 380ms cubic-bezier(0.2, 0.8, 0.2, 1), background-color 180ms ease;
+}
+
+.ac-magnetic-button:hover .ac-magnetic-button__surface {
+  background: var(--ac-accent-hover, #c7ee43);
+}
+
+.ac-magnetic-button:active .ac-magnetic-button__surface {
+  transform: translate3d(0, 0, 0) scale(0.98) !important;
+}
+
+.ac-magnetic-button:focus-visible {
+  outline: 2px solid var(--ac-focus, #6d782e);
+  outline-offset: 5px;
+}
+
+.ac-magnetic-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.ac-magnetic-button:disabled .ac-magnetic-button__surface {
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+  .ac-magnetic-button__surface {
+    transform: none !important;
+    transition: background-color 180ms ease;
+  }
+}

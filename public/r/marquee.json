@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "marquee",
+  "type": "registry:component",
+  "title": "Marquee",
+  "description": "A continuous scrolling strip with a persistent pause control.",
+  "dependencies": [
+    "react"
+  ],
+  "files": [
+    {
+      "path": "src/components/anticraft/Marquee.tsx",
+      "type": "registry:component",
+      "target": "components/anticraft/Marquee.tsx",
+      "content": "'use client';\n\nimport { useState, type CSSProperties, type ReactNode } from 'react';\nimport './marquee.css';\n\nexport interface MarqueeProps {\n  children: ReactNode;\n  /** Duration of one loop, in seconds. */\n  speed?: number;\n  reverse?: boolean;\n  pauseOnHover?: boolean;\n  className?: string;\n}\n\n/** A seamless strip with one accessible copy and a persistent pause control. */\nexport function Marquee({\n  children,\n  speed = 24,\n  reverse = false,\n  pauseOnHover = true,\n  className = '',\n}: MarqueeProps) {\n  const [paused, setPaused] = useState(false);\n  const duration = Number.isFinite(speed) && speed > 0 ? speed : 24;\n  const style = { '--ac-marquee-duration': `${duration}s` } as CSSProperties;\n\n  return (\n    <div\n      className={`ac-marquee ${className}`.trim()}\n      style={style}\n      data-reverse={reverse}\n      data-paused={paused}\n      data-pause-on-hover={pauseOnHover}\n    >\n      <div className=\"ac-marquee__track\">\n        <div className=\"ac-marquee__group\">{children}</div>\n        <div\n          className=\"ac-marquee__group ac-marquee__duplicate\"\n          aria-hidden=\"true\"\n          ref={(element) => { element?.setAttribute('inert', ''); }}\n        >\n          {children}\n        </div>\n      </div>\n      <button\n        className=\"ac-marquee__toggle\"\n        type=\"button\"\n        onClick={() => setPaused((value) => !value)}\n        aria-label={paused ? 'Resume scrolling' : 'Pause scrolling'}\n      >\n        <span aria-hidden=\"true\">{paused ? '↗' : 'Ⅱ'}</span>\n      </button>\n    </div>\n  );\n}\n\nexport default Marquee;\n"
+    },
+    {
+      "path": "src/components/anticraft/marquee.css",
+      "type": "registry:file",
+      "target": "components/anticraft/marquee.css",
+      "content": ".ac-marquee {\n  --ac-marquee-gap: 2rem;\n  position: relative;\n  display: flex;\n  width: 100%;\n  overflow: hidden;\n  color: var(--ac-ink, #171914);\n}\n\n.ac-marquee__track {\n  display: flex;\n  width: max-content;\n  min-width: 100%;\n  animation: ac-marquee-scroll var(--ac-marquee-duration, 24s) linear infinite;\n}\n\n.ac-marquee__group {\n  display: flex;\n  flex: 0 0 auto;\n  align-items: center;\n  justify-content: space-around;\n  gap: var(--ac-marquee-gap);\n  box-sizing: border-box;\n  min-width: 50%;\n  padding-right: var(--ac-marquee-gap);\n}\n\n.ac-marquee__duplicate {\n  pointer-events: none;\n  user-select: none;\n}\n\n.ac-marquee[data-reverse='true'] .ac-marquee__track {\n  animation-direction: reverse;\n}\n\n.ac-marquee[data-paused='true'] .ac-marquee__track,\n.ac-marquee[data-pause-on-hover='true']:hover .ac-marquee__track,\n.ac-marquee:focus-within .ac-marquee__track {\n  animation-play-state: paused;\n}\n\n.ac-marquee__toggle {\n  position: absolute;\n  z-index: 1;\n  top: 50%;\n  right: 0.5rem;\n  display: grid;\n  width: 44px;\n  height: 44px;\n  padding: 0;\n  place-items: center;\n  border: 1px solid var(--ac-border, #d5d7ce);\n  border-radius: 50%;\n  background: var(--ac-surface, #fbfbf5);\n  color: var(--ac-ink, #171914);\n  font: inherit;\n  font-size: 0.875rem;\n  cursor: pointer;\n  transform: translateY(-50%);\n}\n\n.ac-marquee__toggle:focus-visible {\n  outline: 2px solid var(--ac-focus, #6d782e);\n  outline-offset: -5px;\n}\n\n@keyframes ac-marquee-scroll {\n  to { transform: translate3d(-50%, 0, 0); }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .ac-marquee {\n    overflow-x: auto;\n  }\n\n  .ac-marquee__track {\n    animation: none;\n  }\n\n  .ac-marquee__duplicate,\n  .ac-marquee__toggle {\n    display: none;\n  }\n\n  .ac-marquee__group {\n    flex-wrap: wrap;\n    min-width: 100%;\n    padding-right: 0;\n  }\n}\n"
+    }
+  ]
+}

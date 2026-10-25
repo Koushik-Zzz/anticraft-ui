@@ -1,0 +1,20 @@
+"use client";
+
+export { MagneticButton } from './MagneticButton';
+export { SplitText } from './SplitText';
+export { SpotlightCard } from './SpotlightCard';
+export { TiltCard } from './TiltCard';
+export { Marquee } from './Marquee';
+export { EditorialAccordion } from './EditorialAccordion';
+export type { MagneticButtonProps } from './MagneticButton';
+export type { SplitTextProps } from './SplitText';
+export type { SpotlightCardProps } from './SpotlightCard';
+export type { TiltCardProps } from './TiltCard';
+export type { MarqueeProps } from './Marquee';
+export type { EditorialAccordionProps, EditorialAccordionItem } from './EditorialAccordion';
+export { AuroraBackground } from './AuroraBackground';
+export { GradientText } from './GradientText';
+export { BorderBeam } from './BorderBeam';
+export type { AuroraBackgroundProps } from './AuroraBackground';
+export type { GradientTextProps } from './GradientText';
+export type { BorderBeamProps } from './BorderBeam';

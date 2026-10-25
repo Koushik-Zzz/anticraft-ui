@@ -1,0 +1,196 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "anticraft-ui",
+  "homepage": "http://localhost:5173",
+  "items": [
+    {
+      "name": "aurora-background",
+      "type": "registry:component",
+      "title": "Aurora Background",
+      "description": "An atmospheric animated gradient backdrop for expressive sections.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/AuroraBackground.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/AuroraBackground.tsx"
+        },
+        {
+          "path": "src/components/anticraft/aurora-background.css",
+          "type": "registry:file",
+          "target": "components/anticraft/aurora-background.css"
+        }
+      ]
+    },
+    {
+      "name": "magnetic-button",
+      "type": "registry:component",
+      "title": "Magnetic Button",
+      "description": "A pointer-responsive button with a soft magnetic pull.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/MagneticButton.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/MagneticButton.tsx"
+        },
+        {
+          "path": "src/components/anticraft/magnetic-button.css",
+          "type": "registry:file",
+          "target": "components/anticraft/magnetic-button.css"
+        }
+      ]
+    },
+    {
+      "name": "split-text",
+      "type": "registry:component",
+      "title": "Split Text",
+      "description": "Expressive text with a staggered entrance animation.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/SplitText.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/SplitText.tsx"
+        },
+        {
+          "path": "src/components/anticraft/split-text.css",
+          "type": "registry:file",
+          "target": "components/anticraft/split-text.css"
+        }
+      ]
+    },
+    {
+      "name": "gradient-text",
+      "type": "registry:component",
+      "title": "Gradient Text",
+      "description": "An animated color gradient for expressive typography.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/GradientText.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/GradientText.tsx"
+        },
+        {
+          "path": "src/components/anticraft/gradient-text.css",
+          "type": "registry:file",
+          "target": "components/anticraft/gradient-text.css"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-card",
+      "type": "registry:component",
+      "title": "Spotlight Card",
+      "description": "A content card illuminated by a pointer-following spotlight.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/SpotlightCard.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/SpotlightCard.tsx"
+        },
+        {
+          "path": "src/components/anticraft/spotlight-card.css",
+          "type": "registry:file",
+          "target": "components/anticraft/spotlight-card.css"
+        }
+      ]
+    },
+    {
+      "name": "tilt-card",
+      "type": "registry:component",
+      "title": "Tilt Card",
+      "description": "A dimensional card that responds gently to pointer movement.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/TiltCard.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/TiltCard.tsx"
+        },
+        {
+          "path": "src/components/anticraft/tilt-card.css",
+          "type": "registry:file",
+          "target": "components/anticraft/tilt-card.css"
+        }
+      ]
+    },
+    {
+      "name": "border-beam",
+      "type": "registry:component",
+      "title": "Border Beam",
+      "description": "An animated accent that traces the perimeter of a content surface.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/BorderBeam.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/BorderBeam.tsx"
+        },
+        {
+          "path": "src/components/anticraft/border-beam.css",
+          "type": "registry:file",
+          "target": "components/anticraft/border-beam.css"
+        }
+      ]
+    },
+    {
+      "name": "marquee",
+      "type": "registry:component",
+      "title": "Marquee",
+      "description": "A continuous scrolling strip with a persistent pause control.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/Marquee.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/Marquee.tsx"
+        },
+        {
+          "path": "src/components/anticraft/marquee.css",
+          "type": "registry:file",
+          "target": "components/anticraft/marquee.css"
+        }
+      ]
+    },
+    {
+      "name": "editorial-accordion",
+      "type": "registry:component",
+      "title": "Editorial Accordion",
+      "description": "A spacious accordion for stories, services, and frequently asked questions.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/EditorialAccordion.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/EditorialAccordion.tsx"
+        },
+        {
+          "path": "src/components/anticraft/editorial-accordion.css",
+          "type": "registry:file",
+          "target": "components/anticraft/editorial-accordion.css"
+        }
+      ]
+    }
+  ]
+}

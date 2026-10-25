@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tilt-card",
+  "type": "registry:component",
+  "title": "Tilt Card",
+  "description": "A dimensional card that responds gently to pointer movement.",
+  "dependencies": [
+    "react"
+  ],
+  "files": [
+    {
+      "path": "src/components/anticraft/TiltCard.tsx",
+      "type": "registry:component",
+      "target": "components/anticraft/TiltCard.tsx",
+      "content": "'use client'\n\nimport type { CSSProperties, HTMLAttributes, PointerEvent } from 'react'\nimport './tilt-card.css'\n\nexport interface TiltCardProps extends HTMLAttributes<HTMLDivElement> {\n  /** Maximum rotation in degrees, from 0 to 30. */\n  maxRotation?: number\n  /** Distance to the viewer in pixels. */\n  perspective?: number\n}\n\nexport function TiltCard({\n  children,\n  className = '',\n  maxRotation = 8,\n  perspective = 900,\n  style,\n  onPointerMove,\n  onPointerLeave,\n  onPointerCancel,\n  ...props\n}: TiltCardProps) {\n  const rotation = Number.isFinite(maxRotation) ? Math.max(0, Math.min(30, maxRotation)) : 8\n  const depth = Number.isFinite(perspective) ? Math.max(100, perspective) : 900\n\n  function resetTilt(element: HTMLDivElement) {\n    element.style.removeProperty('--ac-tilt-x')\n    element.style.removeProperty('--ac-tilt-y')\n  }\n\n  function tilt(event: PointerEvent<HTMLDivElement>) {\n    onPointerMove?.(event)\n    if (\n      event.defaultPrevented ||\n      event.pointerType !== 'mouse' ||\n      window.matchMedia('(prefers-reduced-motion: reduce), (pointer: coarse)').matches\n    ) return\n\n    const bounds = event.currentTarget.getBoundingClientRect()\n    if (!bounds.width || !bounds.height) return\n    const x = Math.max(-1, Math.min(1, ((event.clientX - bounds.left) / bounds.width - 0.5) * 2))\n    const y = Math.max(-1, Math.min(1, ((event.clientY - bounds.top) / bounds.height - 0.5) * 2))\n    event.currentTarget.style.setProperty('--ac-tilt-x', `${-y * rotation}deg`)\n    event.currentTarget.style.setProperty('--ac-tilt-y', `${x * rotation}deg`)\n  }\n\n  return (\n    <div\n      {...props}\n      className={`ac-tilt-card ${className}`.trim()}\n      style={{ '--ac-tilt-perspective': `${depth}px`, ...style } as CSSProperties}\n      onPointerMove={tilt}\n      onPointerLeave={(event) => {\n        onPointerLeave?.(event)\n        resetTilt(event.currentTarget)\n      }}\n      onPointerCancel={(event) => {\n        onPointerCancel?.(event)\n        resetTilt(event.currentTarget)\n      }}\n    >\n      {children}\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "src/components/anticraft/tilt-card.css",
+      "type": "registry:file",
+      "target": "components/anticraft/tilt-card.css",
+      "content": ".ac-tilt-card {\n  position: relative;\n  border: 1px solid var(--ac-card-border, rgb(255 255 255 / 12%));\n  border-radius: var(--ac-card-radius, 16px);\n  background: var(--ac-card-surface, #191b18);\n  color: var(--ac-card-color, #e9e9df);\n  transform: perspective(var(--ac-tilt-perspective, 900px)) rotateX(var(--ac-tilt-x, 0deg)) rotateY(var(--ac-tilt-y, 0deg));\n  transform-style: preserve-3d;\n  transition: transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1);\n}\n\n.ac-tilt-card:focus-within {\n  outline: 2px solid var(--ac-focus-color, #d7ee9e);\n  outline-offset: 5px;\n}\n\n@media (prefers-reduced-motion: reduce), (pointer: coarse), (hover: none) {\n  .ac-tilt-card {\n    transform: none;\n    transition: none;\n  }\n}\n"
+    }
+  ]
+}

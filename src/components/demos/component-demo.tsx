@@ -1,0 +1,63 @@
+"use client";
+
+import { useState } from 'react';
+import type { CSSProperties } from 'react';
+import { MagneticButton, SplitText, SpotlightCard, TiltCard, Marquee, EditorialAccordion } from '@/components/anticraft';
+import { AuroraBackground } from '@/components/anticraft/AuroraBackground';
+import { GradientText } from '@/components/anticraft/GradientText';
+import { BorderBeam } from '@/components/anticraft/BorderBeam';
+import { Icon } from '@/components/site/icon';
+
+export interface DemoOptions { accent?: string; intensity?: number; paused?: boolean; }
+
+const accordionItems = [
+  { id: 'yours', title: 'Built to be yours', content: 'Copy the source. Change every detail. Make something only you could make.' },
+  { id: 'motion', title: 'Motion with intention', content: 'Considered interactions, with respect for your visitors’ motion preferences.' },
+  { id: 'world', title: 'Ready for your ideas', content: 'Typed React components, ordinary CSS, and no animation dependencies.' },
+];
+
+export function ComponentDemo({ slug, options = {} }: { slug: string; options?: DemoOptions }) {
+  const id = slug;
+  const [replay, setReplay] = useState(0);
+  const [clicked, setClicked] = useState(false);
+  const [ambientPaused, setAmbientPaused] = useState(false);
+  const isPaused = options.paused ?? ambientPaused;
+  const pauseControl = <button className="replay-button ambient-pause" onClick={() => setAmbientPaused(!ambientPaused)} aria-pressed={isPaused}>{isPaused ? 'Play motion' : 'Pause motion'}</button>;
+  if (id === 'aurora-background') return <AuroraBackground className="demo demo-aurora" paused={isPaused} color1={options.accent ?? '#e89c62'}><span className="demo-eyebrow">A LITTLE ATMOSPHERE GOES A LONG WAY</span><div className="aurora-demo-center"><span className="ambient-mini-star" aria-hidden="true">✳</span><p>A space<br/>to <em>dream.</em></p></div><div className="demo-baseline"><span className="demo-hint">Light, with a life of its own.</span>{pauseControl}</div></AuroraBackground>;
+  if (id === 'gradient-text') return <div className="demo demo-gradient"><span className="demo-eyebrow">COLOR OUTSIDE THE ORDINARY</span><p><GradientText paused={isPaused} colors={options.accent ? [options.accent, '#fff1dc', '#b5a2fa', options.accent] : undefined}>Stay a little<br/><em>different.</em></GradientText></p><div className="demo-baseline"><span className="demo-hint">A brighter turn of phrase.</span>{pauseControl}</div></div>;
+  if (id === 'border-beam') return <div className="demo demo-beam"><span className="demo-eyebrow">GOOD IDEAS DESERVE THE SPOTLIGHT</span><BorderBeam className="beam-demo-object" color={options.accent ?? '#f19451'} paused={isPaused}><span className="beam-demo-icon"><Icon name="spark" size={26}/></span><p>Made to<br/><em>stand out.</em></p><span className="beam-demo-note">A little glow. A lot of character.</span></BorderBeam><div className="demo-baseline"><span className="demo-hint">Follow the finer details.</span>{pauseControl}</div></div>;
+  if (id === 'magnetic-button') return <div className="demo demo-magnetic">
+    <span className="demo-eyebrow">AN INVITATION TO INTERACT</span>
+    <div className="magnetic-zone"><div className="orbit orbit-one" /><div className="orbit orbit-two" />
+      <MagneticButton strength={options.intensity ?? 0.2} className="demo-magnetic-button" onClick={() => setClicked(!clicked)}>
+        {clicked ? 'Hello, you.' : 'A little closer'} <Icon name={clicked ? 'check' : 'arrow'} size={20} />
+      </MagneticButton>
+    </div><span className="demo-hint">{clicked ? 'That’s the feeling. Click to reset.' : 'Move your pointer. Feel the pull.'}</span>
+  </div>;
+  if (id === 'split-text') return <div className="demo demo-split">
+    <span className="demo-eyebrow">ONE WORD AT A TIME</span>
+    <SplitText as="p" text="Good things take motion." replayKey={replay} delay={0.12} className="demo-split-text" />
+    <div className="demo-baseline"><span className="demo-hint">A staggered entrance.</span><button className="replay-button" onClick={() => setReplay(replay + 1)} aria-label="Replay text animation"><Icon name="refresh" size={15} /> Replay</button></div>
+  </div>;
+  if (id === 'spotlight-card') return <div className="demo demo-spotlight">
+    <SpotlightCard className="demo-spotlight-object" color={options.accent ?? '#c6efaa'}>
+      <div className="spotlight-top"><span className="demo-eyebrow">A BRIGHTER KIND OF CARD</span><span className="tiny-star">✳</span></div>
+      <div className="spotlight-art" aria-hidden="true">{Array.from({ length: 8 }, (_, i) => <i key={i} style={{ transform: `rotate(${i * 22.5}deg)` }} />)}</div>
+      <div className="spotlight-bottom"><h3>Less ordinary.</h3><span>Find your light. <Icon name="arrow" size={15}/></span></div>
+    </SpotlightCard>
+  </div>;
+  if (id === 'tilt-card') return <div className="demo demo-tilt">
+    <TiltCard className="demo-tilt-object" maxRotation={options.intensity !== undefined ? options.intensity * 30 : 12}>
+      <div className="tilt-top"><b>ANTICRAFT</b><span>DIGITAL OBJECTS<br/>COLLECTION 001</span></div>
+      <div className="sculpture" aria-hidden="true">{Array.from({ length: 12 }, (_, i) => <i key={i} style={{ '--ring': i } as CSSProperties} />)}</div>
+      <div className="tilt-bottom"><span>A different<br/><em>perspective.</em></span><Icon name="arrow" size={24}/></div>
+    </TiltCard><span className="tilt-caption">Move around. See it differently.</span>
+  </div>;
+  if (id === 'marquee') return <div className="demo demo-marquee">
+    <span className="demo-eyebrow">THOUGHTS IN CONSTANT MOTION</span>
+    <div className="marquee-lines"><Marquee speed={24}><span className="marquee-words">STAY CURIOUS <b>✳</b> </span></Marquee>
+    <Marquee speed={28} reverse><span className="marquee-words marquee-outline">MAKE SOMETHING <b>↗</b> </span></Marquee></div>
+    <div className="demo-baseline"><span className="demo-hint">A little momentum goes a long way.</span><span className="demo-hint">Hover to pause.</span></div>
+  </div>;
+  return <div className="demo demo-accordion"><span className="demo-eyebrow">THE ART OF THE DETAILS</span><p className="accordion-intro">Small details.<br/><em>Big difference.</em></p><EditorialAccordion items={accordionItems} defaultValue="yours" /></div>;
+}

@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "rootDir": "src/components/anticraft",
+    "outDir": "lib/types",
+    "incremental": false,
+    "plugins": []
+  },
+  "include": ["src/components/anticraft/**/*.ts", "src/components/anticraft/**/*.tsx", "src/styles.d.ts"],
+  "exclude": ["node_modules", "lib"]
+}

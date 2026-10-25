@@ -1,0 +1,22 @@
+.ac-tilt-card {
+  position: relative;
+  border: 1px solid var(--ac-card-border, rgb(255 255 255 / 12%));
+  border-radius: var(--ac-card-radius, 16px);
+  background: var(--ac-card-surface, #191b18);
+  color: var(--ac-card-color, #e9e9df);
+  transform: perspective(var(--ac-tilt-perspective, 900px)) rotateX(var(--ac-tilt-x, 0deg)) rotateY(var(--ac-tilt-y, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.ac-tilt-card:focus-within {
+  outline: 2px solid var(--ac-focus-color, #d7ee9e);
+  outline-offset: 5px;
+}
+
+@media (prefers-reduced-motion: reduce), (pointer: coarse), (hover: none) {
+  .ac-tilt-card {
+    transform: none;
+    transition: none;
+  }
+}

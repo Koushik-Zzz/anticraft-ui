@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "split-text",
+  "type": "registry:component",
+  "title": "Split Text",
+  "description": "Expressive text with a staggered entrance animation.",
+  "dependencies": [
+    "react"
+  ],
+  "files": [
+    {
+      "path": "src/components/anticraft/SplitText.tsx",
+      "type": "registry:component",
+      "target": "components/anticraft/SplitText.tsx",
+      "content": "'use client';\n\nimport { useEffect, useRef, useState, type CSSProperties } from 'react';\nimport './split-text.css';\n\nexport interface SplitTextProps {\n  text: string;\n  className?: string;\n  /** The stagger between words, in seconds. */\n  delay?: number;\n  /** Change this value to replay the reveal. */\n  replayKey?: number;\n  as?: 'h1' | 'h2' | 'h3' | 'p' | 'span';\n}\n\n/** Reveals words once on entry while preserving one complete screen reader phrase. */\nexport function SplitText({\n  text,\n  className = '',\n  delay = 0.06,\n  replayKey = 0,\n  as: Element = 'p',\n}: SplitTextProps) {\n  const textRef = useRef<HTMLSpanElement>(null);\n  const [visible, setVisible] = useState(false);\n  const stagger = Number.isFinite(delay) ? Math.max(0, delay) : 0.06;\n  let wordIndex = 0;\n\n  useEffect(() => {\n    const element = textRef.current;\n    if (!element) return;\n    setVisible(false);\n\n    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');\n    let frame = 0;\n    let observer: IntersectionObserver | undefined;\n    const reveal = () => {\n      frame = window.requestAnimationFrame(() => setVisible(true));\n      observer?.disconnect();\n    };\n    const handlePreference = () => {\n      if (preference.matches) reveal();\n    };\n\n    if (preference.matches || !('IntersectionObserver' in window)) {\n      reveal();\n    } else {\n      observer = new IntersectionObserver(\n        (entries) => {\n          if (entries.some((entry) => entry.isIntersecting)) reveal();\n        },\n        { threshold: 0.1 },\n      );\n      observer.observe(element);\n    }\n\n    preference.addEventListener('change', handlePreference);\n    return () => {\n      window.cancelAnimationFrame(frame);\n      observer?.disconnect();\n      preference.removeEventListener('change', handlePreference);\n    };\n  }, [text, replayKey]);\n\n  return (\n    <Element className={`ac-split-text ${className}`.trim()} data-visible={visible}>\n      <span className=\"ac-split-text__accessible\">{text}</span>\n      <span ref={textRef} className=\"ac-split-text__visual\" aria-hidden=\"true\">\n        {text.split(/(\\s+)/).map((part, index) => {\n          if (/^\\s+$/.test(part)) return part;\n          if (!part) return null;\n          const style = { '--ac-word-delay': `${wordIndex++ * stagger}s` } as CSSProperties;\n          return (\n            <span className=\"ac-split-text__mask\" key={`${replayKey}-${index}`}>\n              <span className=\"ac-split-text__word\" style={style}>{part}</span>\n            </span>\n          );\n        })}\n      </span>\n    </Element>\n  );\n}\n\nexport default SplitText;\n"
+    },
+    {
+      "path": "src/components/anticraft/split-text.css",
+      "type": "registry:file",
+      "target": "components/anticraft/split-text.css",
+      "content": ".ac-split-text {\n  color: var(--ac-ink, #171914);\n}\n\n.ac-split-text__accessible {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  white-space: nowrap;\n  border: 0;\n}\n\n.ac-split-text__visual {\n  white-space: pre-wrap;\n}\n\n.ac-split-text__mask {\n  display: inline-block;\n  padding-bottom: 0.12em;\n  margin-bottom: -0.12em;\n  overflow: hidden;\n  vertical-align: top;\n}\n\n.ac-split-text__word {\n  display: inline-block;\n  opacity: 0;\n  transform: translate3d(0, 112%, 0) rotate(3deg);\n  transform-origin: left bottom;\n  transition: transform 800ms cubic-bezier(0.2, 0.75, 0.2, 1), opacity 500ms ease;\n  transition-delay: var(--ac-word-delay, 0s);\n}\n\n.ac-split-text[data-visible='true'] .ac-split-text__word {\n  opacity: 1;\n  transform: translate3d(0, 0, 0) rotate(0);\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .ac-split-text__word {\n    opacity: 1;\n    transform: none;\n    transition: none;\n  }\n}\n"
+    }
+  ]
+}

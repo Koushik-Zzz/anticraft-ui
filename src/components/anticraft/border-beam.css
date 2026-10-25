@@ -1,0 +1,61 @@
+@property --ac-border-beam-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.ac-border-beam {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid var(--ac-border-beam-border, rgb(255 255 255 / 13%));
+  border-radius: var(--ac-border-beam-radius, 18px);
+  background: var(--ac-border-beam-surface, #191817);
+  color: var(--ac-border-beam-foreground, #f4efe8);
+}
+
+.ac-border-beam::after {
+  position: absolute;
+  z-index: 1;
+  inset: -1px;
+  padding: var(--ac-border-beam-width, 1px);
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--ac-border-beam-angle),
+    transparent 0deg 220deg,
+    var(--ac-border-beam-color, #f19451) 290deg,
+    #fff4e4 315deg,
+    transparent 320deg 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: ac-border-beam-orbit var(--ac-border-beam-duration, 8s) linear infinite;
+  pointer-events: none;
+  content: '';
+}
+
+.ac-border-beam[data-paused]::after {
+  animation-play-state: paused;
+}
+
+@keyframes ac-border-beam-orbit {
+  to { --ac-border-beam-angle: 360deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-border-beam::after {
+    animation: none;
+    --ac-border-beam-angle: 35deg;
+  }
+}
+
+@media (forced-colors: active) {
+  .ac-border-beam {
+    border-color: CanvasText;
+  }
+
+  .ac-border-beam::after {
+    display: none;
+  }
+}

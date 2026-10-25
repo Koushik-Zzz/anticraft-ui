@@ -1,0 +1,93 @@
+.ac-aurora-background {
+  position: relative;
+  isolation: isolate;
+  border-radius: var(--ac-aurora-radius, 0);
+  background: var(--ac-aurora-surface, #121110);
+  color: var(--ac-aurora-foreground, #f6f2ec);
+}
+
+.ac-aurora-field {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.ac-aurora-field::after {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 2px, rgb(255 255 255 / 2.2%) 2px 3px),
+    radial-gradient(ellipse at 50% 40%, transparent 15%, rgb(5 5 8 / 60%) 100%);
+  content: '';
+}
+
+.ac-aurora-band {
+  position: absolute;
+  display: block;
+  width: 95%;
+  height: 110%;
+  border-radius: 45%;
+  filter: blur(clamp(24px, 5vw, 65px));
+  opacity: 0.46;
+  will-change: transform;
+}
+
+.ac-aurora-band-one {
+  top: -48%;
+  left: -16%;
+  background: radial-gradient(ellipse at center, var(--ac-aurora-color-one), transparent 68%);
+  animation: ac-aurora-drift-one var(--ac-aurora-speed, 16s) ease-in-out infinite alternate;
+}
+
+.ac-aurora-band-two {
+  top: -25%;
+  right: -32%;
+  background: radial-gradient(ellipse at center, var(--ac-aurora-color-two), transparent 68%);
+  animation: ac-aurora-drift-two calc(var(--ac-aurora-speed, 16s) * 1.25) ease-in-out infinite alternate;
+  animation-delay: calc(var(--ac-aurora-speed, 16s) * -0.5);
+}
+
+.ac-aurora-band-three {
+  right: -10%;
+  bottom: -74%;
+  width: 120%;
+  background: radial-gradient(ellipse at center, var(--ac-aurora-color-three), transparent 68%);
+  opacity: 0.28;
+  animation: ac-aurora-drift-three calc(var(--ac-aurora-speed, 16s) * 1.5) ease-in-out infinite alternate;
+  animation-delay: calc(var(--ac-aurora-speed, 16s) * -0.8);
+}
+
+.ac-aurora-content {
+  position: relative;
+  z-index: 1;
+}
+
+.ac-aurora-background[data-paused] .ac-aurora-band {
+  animation-play-state: paused;
+  will-change: auto;
+}
+
+@keyframes ac-aurora-drift-one {
+  from { transform: translate3d(-5%, 2%, 0) rotate(-18deg) scale(1); }
+  to { transform: translate3d(35%, 24%, 0) rotate(18deg) scale(1.2, 0.85); }
+}
+
+@keyframes ac-aurora-drift-two {
+  from { transform: translate3d(8%, -4%, 0) rotate(22deg) scale(1.1); }
+  to { transform: translate3d(-32%, 16%, 0) rotate(-24deg) scale(0.85, 1.2); }
+}
+
+@keyframes ac-aurora-drift-three {
+  from { transform: translate3d(-20%, 6%, 0) rotate(-8deg); }
+  to { transform: translate3d(10%, -30%, 0) rotate(16deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-aurora-background .ac-aurora-band {
+    animation: none;
+    will-change: auto;
+  }
+}

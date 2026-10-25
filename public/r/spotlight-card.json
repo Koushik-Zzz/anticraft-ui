@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spotlight-card",
+  "type": "registry:component",
+  "title": "Spotlight Card",
+  "description": "A content card illuminated by a pointer-following spotlight.",
+  "dependencies": [
+    "react"
+  ],
+  "files": [
+    {
+      "path": "src/components/anticraft/SpotlightCard.tsx",
+      "type": "registry:component",
+      "target": "components/anticraft/SpotlightCard.tsx",
+      "content": "'use client'\n\nimport type { CSSProperties, HTMLAttributes, PointerEvent } from 'react'\nimport './spotlight-card.css'\n\nexport interface SpotlightCardProps extends HTMLAttributes<HTMLDivElement> {\n  /** The accent color of the light that follows the pointer. */\n  color?: string\n}\n\nexport function SpotlightCard({\n  children,\n  className = '',\n  color = '#d7ee9e',\n  style,\n  onPointerMove,\n  onPointerLeave,\n  onPointerCancel,\n  ...props\n}: SpotlightCardProps) {\n  function moveLight(event: PointerEvent<HTMLDivElement>) {\n    onPointerMove?.(event)\n    if (\n      event.defaultPrevented ||\n      event.pointerType !== 'mouse' ||\n      window.matchMedia('(prefers-reduced-motion: reduce)').matches\n    ) return\n\n    const bounds = event.currentTarget.getBoundingClientRect()\n    event.currentTarget.style.setProperty('--ac-spotlight-x', `${event.clientX - bounds.left}px`)\n    event.currentTarget.style.setProperty('--ac-spotlight-y', `${event.clientY - bounds.top}px`)\n  }\n\n  function resetLight(event: PointerEvent<HTMLDivElement>) {\n    onPointerLeave?.(event)\n    event.currentTarget.style.removeProperty('--ac-spotlight-x')\n    event.currentTarget.style.removeProperty('--ac-spotlight-y')\n  }\n\n  return (\n    <div\n      {...props}\n      className={`ac-spotlight-card ${className}`.trim()}\n      style={{ '--ac-spotlight-color': color, ...style } as CSSProperties}\n      onPointerMove={moveLight}\n      onPointerLeave={resetLight}\n      onPointerCancel={(event) => {\n        onPointerCancel?.(event)\n        event.currentTarget.style.removeProperty('--ac-spotlight-x')\n        event.currentTarget.style.removeProperty('--ac-spotlight-y')\n      }}\n    >\n      {children}\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "src/components/anticraft/spotlight-card.css",
+      "type": "registry:file",
+      "target": "components/anticraft/spotlight-card.css",
+      "content": ".ac-spotlight-card {\n  position: relative;\n  isolation: isolate;\n  overflow: hidden;\n  border: 1px solid var(--ac-card-border, rgb(255 255 255 / 12%));\n  border-radius: var(--ac-card-radius, 16px);\n  background: var(--ac-card-surface, #191b18);\n  color: var(--ac-card-color, #e9e9df);\n}\n\n.ac-spotlight-card::before {\n  position: absolute;\n  z-index: -1;\n  inset: 0;\n  border-radius: inherit;\n  background: radial-gradient(\n    480px circle at var(--ac-spotlight-x, 50%) var(--ac-spotlight-y, 50%),\n    color-mix(in srgb, var(--ac-spotlight-color) 20%, transparent),\n    transparent 72%\n  );\n  opacity: 0;\n  transition: opacity 300ms ease;\n  pointer-events: none;\n  content: '';\n}\n\n.ac-spotlight-card:hover::before,\n.ac-spotlight-card:focus-within::before {\n  opacity: 1;\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .ac-spotlight-card {\n    --ac-spotlight-x: 50% !important;\n    --ac-spotlight-y: 50% !important;\n  }\n\n  .ac-spotlight-card::before {\n    transition: none;\n  }\n}\n\n@media (hover: none) {\n  .ac-spotlight-card::before {\n    opacity: 0.65;\n  }\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gradient-text",
+  "type": "registry:component",
+  "title": "Gradient Text",
+  "description": "An animated color gradient for expressive typography.",
+  "dependencies": [
+    "react"
+  ],
+  "files": [
+    {
+      "path": "src/components/anticraft/GradientText.tsx",
+      "type": "registry:component",
+      "target": "components/anticraft/GradientText.tsx",
+      "content": "import type { CSSProperties, HTMLAttributes, ReactNode } from 'react'\nimport './gradient-text.css'\n\nexport interface GradientTextProps extends HTMLAttributes<HTMLSpanElement> {\n  children: ReactNode\n  /** At least two CSS colors, arranged in reading order. */\n  colors?: string[]\n  /** Duration in seconds of one color sweep. */\n  speed?: number\n  paused?: boolean\n}\n\nconst defaultColors = ['#ef9b61', '#f7e6cf', '#b8a0e9', '#ef9b61']\n\n/** Keeps its text in the document while animating only its painted color. */\nexport function GradientText({\n  children,\n  className = '',\n  colors = defaultColors,\n  speed = 8,\n  paused = false,\n  style,\n  ...props\n}: GradientTextProps) {\n  const safeColors = colors\n    .filter((color) => typeof color === 'string' && color.trim() && color.length <= 200 && !/[;{}<>]/.test(color))\n    .slice(0, 8)\n  const palette = safeColors.length >= 2 ? safeColors : defaultColors\n  const duration = Number.isFinite(speed) ? Math.min(180, Math.max(1, speed)) : 8\n\n  return (\n    <span\n      {...props}\n      className={`ac-gradient-text ${className}`.trim()}\n      data-paused={paused || undefined}\n      style={{\n        '--ac-gradient-text-colors': palette.join(', '),\n        '--ac-gradient-text-speed': `${duration}s`,\n        ...style,\n      } as CSSProperties}\n    >\n      {children}\n    </span>\n  )\n}\n"
+    },
+    {
+      "path": "src/components/anticraft/gradient-text.css",
+      "type": "registry:file",
+      "target": "components/anticraft/gradient-text.css",
+      "content": ".ac-gradient-text {\n  color: var(--ac-gradient-text-fallback, #efb281);\n}\n\n@supports ((background-clip: text) or (-webkit-background-clip: text)) {\n  .ac-gradient-text {\n    background-image: linear-gradient(110deg, var(--ac-gradient-text-colors, #ef9b61, #f7e6cf, #b8a0e9, #ef9b61));\n    background-size: 250% 100%;\n    background-position: 0% center;\n    background-clip: text;\n    -webkit-background-clip: text;\n    color: transparent;\n    -webkit-text-fill-color: transparent;\n    box-decoration-break: clone;\n    -webkit-box-decoration-break: clone;\n    animation: ac-gradient-text-flow var(--ac-gradient-text-speed, 8s) ease-in-out infinite alternate;\n  }\n}\n\n.ac-gradient-text[data-paused] {\n  animation-play-state: paused;\n}\n\n@keyframes ac-gradient-text-flow {\n  from { background-position: 0% center; }\n  to { background-position: 100% center; }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .ac-gradient-text {\n    animation: none;\n    background-size: 100% 100%;\n  }\n}\n\n@media (forced-colors: active) {\n  .ac-gradient-text {\n    background: none;\n    color: CanvasText;\n    -webkit-text-fill-color: CanvasText;\n  }\n}\n\n@media print {\n  .ac-gradient-text {\n    background: none;\n    color: currentColor;\n    -webkit-text-fill-color: currentColor;\n  }\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+.ac-spotlight-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid var(--ac-card-border, rgb(255 255 255 / 12%));
+  border-radius: var(--ac-card-radius, 16px);
+  background: var(--ac-card-surface, #191b18);
+  color: var(--ac-card-color, #e9e9df);
+}
+
+.ac-spotlight-card::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    480px circle at var(--ac-spotlight-x, 50%) var(--ac-spotlight-y, 50%),
+    color-mix(in srgb, var(--ac-spotlight-color) 20%, transparent),
+    transparent 72%
+  );
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+  content: '';
+}
+
+.ac-spotlight-card:hover::before,
+.ac-spotlight-card:focus-within::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-spotlight-card {
+    --ac-spotlight-x: 50% !important;
+    --ac-spotlight-y: 50% !important;
+  }
+
+  .ac-spotlight-card::before {
+    transition: none;
+  }
+}
+
+@media (hover: none) {
+  .ac-spotlight-card::before {
+    opacity: 0.65;
+  }
+}
