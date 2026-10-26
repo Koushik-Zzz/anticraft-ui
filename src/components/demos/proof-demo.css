@@ -1,0 +1,11 @@
+.proof-demo { display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 13px; padding: 22px; background: #ece7db; color: #2d352c; }
+.proof-demo-kicker { display: block; font-size: 8px; font-weight: 600; letter-spacing: 1.3px; line-height: 1.5; }
+.proof-demo .ac-proof { flex: 1; padding: 0; gap: 14px; background: transparent; --ac-proof-surface: #ece7db; --ac-proof-ink: #2d352c; --ac-proof-muted: #656e60; --ac-proof-accent: #9a462e; --ac-proof-portrait: #c5ceb7; }
+.proof-demo .ac-proof-title { max-width: 14ch; }
+.proof-demo .ac-proof-story { row-gap: 14px; }
+.proof-demo .ac-proof-controls { padding-top: 8px; }
+.proof-demo-note { margin: 0; font-size: 10px; line-height: 1.5; color: #656e60; }
+.proof-demo .ac-proof-dots { margin-right: -8px; }
+.proof-demo .ac-proof-stage { min-height: 0; }
+.component-playground .proof-demo { padding: 30px; gap: 18px; }
+@media (max-width: 640px) { .component-playground .proof-demo { padding: 22px; gap: 13px; } }

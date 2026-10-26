@@ -1,5 +1,15 @@
 "use client";
 
+export { ProjectGrid } from './ProjectGrid';
+export { ProjectPreviewList } from './ProjectPreviewList';
+export { ServiceShowcase } from './ServiceShowcase';
+export { ArticleRail } from './ArticleRail';
+export { TestimonialSlider } from './TestimonialSlider';
+export type { ProjectGridProps, ProjectGridItem } from './ProjectGrid';
+export type { ProjectPreviewListProps, ProjectPreviewListItem } from './ProjectPreviewList';
+export type { ServiceShowcaseProps, ServiceShowcaseItem } from './ServiceShowcase';
+export type { ArticleRailProps, ArticleRailItem } from './ArticleRail';
+export type { TestimonialSliderProps, TestimonialSliderItem } from './TestimonialSlider';
 export { ScratchReveal } from './ScratchReveal';
 export { PixelSwap } from './PixelSwap';
 export { RippleField } from './RippleField';

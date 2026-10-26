@@ -1,5 +1,13 @@
 .sense-scratch-demo { --ac-scratch-height: 100%; }
 .sense-pixel-demo { --ac-pixel-height: 100%; }
+.sense-product-view { position: relative; width: 100%; height: 100%; padding: 22px; overflow: hidden; background: #e9e0cb; color: #4c4e38; }
+.sense-product-view-inside { background: #cbd3b7; }
+.sense-product-bag { position: absolute; inset: 25px 18px 58px; display: grid; place-items: center; }
+.sense-product-bag svg { height: 100%; width: 100%; max-width: 240px; }
+.sense-product-caption { position: absolute; left: 22px; bottom: 16px; right: 22px; }
+.sense-product-caption h3 { margin: 0 0 3px; font-size: 15px; font-weight: 550; letter-spacing: -.5px; }
+.sense-product-caption p { font-size: 8px; margin: 0 0 6px; }
+.sense-product-caption > span { font-size: 5px; letter-spacing: .8px; }
 .sense-ripple-demo { --ac-ripple-height: 100%; }
 .sense-compare-demo { --ac-compare-height: 100%; }
 .sense-scratch-demo, .sense-pixel-demo, .sense-ripple-demo, .sense-compare-demo { container-type: inline-size; }
@@ -10,13 +18,6 @@
 .sense-scratch-prize h3 { position: relative; margin: auto 0 0; font-size: clamp(46px, 17cqw, 80px); line-height: .8; font-weight: 650; letter-spacing: -.07em; }
 .sense-scratch-prize h3 em { font-family: var(--serif); font-size: 1.3em; font-weight: 400; }
 .sense-scratch-prize p { margin: 13px 0 19px; font-size: 6px; letter-spacing: 1px; }
-.sense-pixel-print { position: relative; display: flex; flex-direction: column; height: 100%; width: 100%; overflow: hidden; padding: 22px; background: #d6e99b; color: #39452f; }
-.sense-pixel-print-back { background: #e8a8b8; color: #633b4d; }
-.sense-pixel-object { position: absolute; top: 15%; right: 2%; width: 62%; aspect-ratio: 1; }
-.sense-pixel-object svg { display: block; width: 100%; height: 100%; }
-.sense-pixel-print h3 { position: relative; font-size: clamp(40px, 13cqw, 66px); line-height: .83; letter-spacing: -.065em; font-weight: 650; margin: auto 0 22px; }
-.sense-pixel-print h3 em { font-family: var(--serif); font-size: 1.22em; font-weight: 400; }
-.sense-pixel-print-back .sense-pixel-object { color: #f4d28a; transform: rotate(15deg); }
 .sense-ripple-demo { color: #ecf0e5; }
 .sense-ripple-copy { position: relative; display: flex; flex-direction: column; height: 100%; width: 100%; padding: 24px; pointer-events: none; }
 .sense-ripple-coordinate { margin-top: 25px; font-size: 5px; line-height: 1.8; letter-spacing: 1.3px; opacity: .55; }
@@ -31,9 +32,6 @@
 .component-playground .sense-scratch-prize { padding: 30px; }
 .component-playground .sense-scratch-prize h3 { font-size: 86px; }
 .component-playground .sense-scratch-prize p { font-size: 8px; }
-.component-playground .sense-pixel-print { padding: 28px; }
-.component-playground .sense-pixel-print h3 { font-size: 85px; }
-.component-playground .sense-pixel-object { width: 47%; top: 5%; right: 8%; }
 .component-playground .sense-ripple-copy { padding: 30px; }
 .component-playground .sense-ripple-copy h3 { font-size: 82px; }
 .component-playground .sense-ripple-coordinate { font-size: 7px; }
@@ -41,10 +39,7 @@
 @media (max-width: 640px) {
   .component-playground .sense-print-top { font-size: 6px; }
   .component-playground .sense-print-edition { font-size: 5px; }
-  .component-playground .sense-scratch-prize, .component-playground .sense-pixel-print, .component-playground .sense-ripple-copy { padding: 22px; }
   .component-playground .sense-scratch-prize h3 { font-size: 64px; }
-  .component-playground .sense-pixel-print h3, .component-playground .sense-ripple-copy h3 { font-size: 55px; }
-  .component-playground .sense-pixel-object { width: 63%; top: 16%; right: 0; }
   .component-playground .sense-ripple-coordinate { font-size: 5px; }
   .component-playground .sense-ripple-copy p { font-size: 8px; }
 }

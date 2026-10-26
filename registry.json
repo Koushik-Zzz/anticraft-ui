@@ -4,6 +4,111 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "project-grid",
+      "type": "registry:component",
+      "title": "Project Grid",
+      "description": "A filterable project gallery with real case-study links.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ProjectGrid.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ProjectGrid.tsx"
+        },
+        {
+          "path": "src/components/anticraft/project-grid.css",
+          "type": "registry:file",
+          "target": "components/anticraft/project-grid.css"
+        }
+      ]
+    },
+    {
+      "name": "project-preview-list",
+      "type": "registry:component",
+      "title": "Project Preview List",
+      "description": "A linked project index with contextual artwork previews.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ProjectPreviewList.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ProjectPreviewList.tsx"
+        },
+        {
+          "path": "src/components/anticraft/project-preview-list.css",
+          "type": "registry:file",
+          "target": "components/anticraft/project-preview-list.css"
+        }
+      ]
+    },
+    {
+      "name": "service-showcase",
+      "type": "registry:component",
+      "title": "Service Showcase",
+      "description": "Accessible service tabs with capabilities, media, and a clear next step.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ServiceShowcase.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ServiceShowcase.tsx"
+        },
+        {
+          "path": "src/components/anticraft/service-showcase.css",
+          "type": "registry:file",
+          "target": "components/anticraft/service-showcase.css"
+        }
+      ]
+    },
+    {
+      "name": "article-rail",
+      "type": "registry:component",
+      "title": "Article Rail",
+      "description": "A responsive scrollable collection of linked articles and resources.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ArticleRail.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ArticleRail.tsx"
+        },
+        {
+          "path": "src/components/anticraft/article-rail.css",
+          "type": "registry:file",
+          "target": "components/anticraft/article-rail.css"
+        }
+      ]
+    },
+    {
+      "name": "testimonial-slider",
+      "type": "registry:component",
+      "title": "Testimonial Slider",
+      "description": "Client quotes, portraits, and explicit browsing controls.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/TestimonialSlider.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/TestimonialSlider.tsx"
+        },
+        {
+          "path": "src/components/anticraft/testimonial-slider.css",
+          "type": "registry:file",
+          "target": "components/anticraft/testimonial-slider.css"
+        }
+      ]
+    },
+    {
       "name": "scratch-reveal",
       "type": "registry:component",
       "title": "Scratch Reveal",
@@ -28,7 +133,7 @@
       "name": "pixel-swap",
       "type": "registry:component",
       "title": "Pixel Swap",
-      "description": "A deterministic block-by-block wipe between two artworks.",
+      "description": "Switch between product views, project images, or campaign artwork with a pixel wipe.",
       "dependencies": [
         "react"
       ],

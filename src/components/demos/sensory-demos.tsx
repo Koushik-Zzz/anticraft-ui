@@ -4,6 +4,7 @@ import { ScratchReveal } from '@/components/anticraft/ScratchReveal';
 import { PixelSwap } from '@/components/anticraft/PixelSwap';
 import { RippleField } from '@/components/anticraft/RippleField';
 import { BeforeAfter } from '@/components/anticraft/BeforeAfter';
+import { BagArt } from './practical-art';
 import './sensory-demos.css';
 
 function Flower({ className = '' }: { className?: string }) {
@@ -15,11 +16,11 @@ export function ScratchRevealDemo() {
 }
 
 function PixelPrint({ back = false }: { back?: boolean }) {
-  return <div className={`sense-pixel-print${back ? ' sense-pixel-print-back' : ''}`}><div className="sense-print-top"><span>ANTICRAFT EXPERIMENTAL PRESS</span><span>{back ? 'B—02' : 'A—01'}</span></div><div className="sense-pixel-object" aria-hidden="true">{back ? <Flower/> : <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="2">{Array.from({length:9},(_,i)=><rect key={i} x={20+i*8} y={20+i*8} width={160-i*16} height={160-i*16} rx="4" transform={`rotate(${i*6} 100 100)`}/>)}</svg>}</div><h3>{back ? 'More' : 'Less'}<br/><em>{back ? 'play.' : 'polish.'}</em></h3><span className="sense-print-edition">A CHANGE IN THE WAY YOU SEE THINGS.</span></div>;
+  return <div className={`sense-product-view${back ? ' sense-product-view-inside' : ''}`}><div className="sense-print-top"><span>KIN. EVERYDAY ESSENTIALS</span><span>{back ? '02 / INTERIOR' : '01 / EXTERIOR'}</span></div><div className="sense-product-bag"><BagArt inside={back}/></div><div className="sense-product-caption"><h3>The Everyday Tote</h3><p>{back ? 'Everything in its own place.' : 'A little room for the everyday.'}</p><span>{back ? 'TWO INNER POCKETS · COTTON LINING' : 'NATURAL CANVAS · BUILT TO STAY'}</span></div></div>;
 }
 
 export function PixelSwapDemo() {
-  return <div className="demo sense-pixel-demo"><PixelSwap front={<PixelPrint/>} back={<PixelPrint back/>} frontLabel="Less polish print" backLabel="More play print" columns={8} rows={6}/></div>;
+  return <div className="demo sense-pixel-demo"><PixelSwap front={<PixelPrint/>} back={<PixelPrint back/>} frontLabel="Exterior view" backLabel="Inside the bag" buttonLabel="Change product view" columns={8} rows={6}/></div>;
 }
 
 export function RippleFieldDemo() {

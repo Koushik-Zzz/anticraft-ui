@@ -10,6 +10,7 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 
 | Category | Components |
 | --- | --- |
+| Sections | Project Grid, Project Preview List, Service Showcase, Article Rail, Testimonial Slider |
 | Navigation | Floating Dock, Sliding Nav, Expanding Menu, Radial Nav, Curtain Menu |
 | Experiments | Scratch Reveal, Pixel Swap, Cursor Trail, Throw Stack, Elastic Type, Peel Reveal, Orbit Gallery, Lenticular Panel, Sticker Field, Spine Archive, Morphing Stage |
 | Backgrounds | Ripple Field, Aurora Background |
@@ -18,7 +19,7 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 | Cards | Before After, Spotlight Card, Tilt Card, Border Beam |
 | Layout | Marquee, Editorial Accordion |
 
-All 28 components are included in the repository and local shadcn registry. The newest additions explore texture and transformation: scratchable foil, a pixel wipe, water-like ripples, a before-and-after comparison, and a mechanical split-flap display. Each includes an original live demo, editable source, and prop documentation. Scratch Reveal has a button alternative to painting; Before After uses a native slider; Split Flap changes only when its text changes. Navigation uses ordinary anchors and keyboard access, and Curtain Menu uses a native modal dialog. Effects honor reduced motion; the marquee also includes a pause control.
+All 33 components are included in the repository and local shadcn registry. Start with the **Sections** category for practical portfolio and marketing content: filterable project cards, a project index, service details, client stories, and a journal rail. Demo project and article links open complete local examples. The example brands and client stories are fictional. Pixel Swap now demonstrates switching between exterior and interior product views, with a customizable button label. Each component has a live demo, source, installation instructions, and prop documentation. Effects honor reduced motion, and interactive sections support keyboard and touch use.
 
 ## Run locally
 
@@ -60,6 +61,11 @@ Each item installs both the component and its stylesheet. Targets resolve throug
 Available registry items:
 
 ```text
+/r/project-grid.json
+/r/project-preview-list.json
+/r/service-showcase.json
+/r/article-rail.json
+/r/testimonial-slider.json
 /r/scratch-reveal.json
 /r/pixel-swap.json
 /r/ripple-field.json
@@ -129,6 +135,14 @@ The first experimental collection studies interactions on sites featured by [Aww
 - **Morphing Stage** draws on the changing geometric compositions of [FORMAT by Obys × DES](https://format.obys.agency/). It adapts that idea to a bounded scroll stage with explicit frame navigation.
 
 Source references also appear on the documentation pages for those three adaptations.
+
+The practical sections study content patterns from other Awwwards-featured sites:
+
+- [Instrument — Work](https://www.instrument.com/work/) informed Project Grid’s discipline filters and linked case-study cards.
+- [Emotion Agency](https://emotion-agency.com/) informed Project Preview List’s numbered index and project metadata.
+- [Whipsaw](https://www.whipsaw.com/) informed the client-story content and linked journal cards. [Whipsaw’s expertise](https://www.whipsaw.com/expertise) and [Instrument’s services](https://www.instrument.com/services/) informed Service Showcase’s descriptions and capabilities.
+
+These adapt the observed content structures. Anticraft’s controls, transitions, source, and example artwork are original. Source notes on each component distinguish the reference from the adaptation.
 
 ## Contributing
 

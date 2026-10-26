@@ -158,6 +158,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .doc-title-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
 .doc-heading h1 { font-size: clamp(38px, 3.8vw, 57px); font-weight: 450; letter-spacing: -.05em; line-height: 1.08; margin: 0 0 16px; }
 .doc-lead { font-size: 14px; line-height: 1.85; color: var(--muted); margin: 0; max-width: 650px; }
+.component-use-cases { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 20px; }
+.component-use-cases > span { padding: 6px 9px; border: 1px solid var(--line); border-radius: 3px; font-size: 9px; color: var(--muted); }
+.component-use-cases > span:first-child { border: 0; padding-left: 0; font-size: 7px; letter-spacing: .9px; }
 .page-toc { display: none; }
 .component-workbench { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
 .workbench-toolbar { min-height: 48px; display: flex; justify-content: space-between; align-items: stretch; gap: 15px; padding: 0 15px; border-bottom: 1px solid var(--line); }

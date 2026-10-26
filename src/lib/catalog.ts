@@ -4,8 +4,11 @@ import { navComponents } from './nav-catalog';
 import { revealComponents } from './reveal-catalog';
 import { surfaceComponents } from './surface-catalog';
 import { flapComponents } from './flap-catalog';
+import { projectComponents } from './project-catalog';
+import { contentComponents } from './content-catalog';
+import { proofComponents } from './proof-catalog';
 
-export type ComponentCategory = 'Navigation' | 'Experiments' | 'Backgrounds' | 'Buttons' | 'Typography' | 'Cards' | 'Layout';
+export type ComponentCategory = 'Sections' | 'Navigation' | 'Experiments' | 'Backgrounds' | 'Buttons' | 'Typography' | 'Cards' | 'Layout';
 
 export type ComponentDefinition = {
   slug: string;
@@ -18,12 +21,16 @@ export type ComponentDefinition = {
   usage: string;
   props: { name: string; type: string; default: string; description: string }[];
   motion: string;
+  useCases?: string[];
   inspiration?: { name: string; url: string; note: string };
 };
 
-export const categories: ComponentCategory[] = ['Experiments', 'Navigation', 'Backgrounds', 'Buttons', 'Typography', 'Cards', 'Layout'];
+export const categories: ComponentCategory[] = ['Sections', 'Experiments', 'Navigation', 'Backgrounds', 'Buttons', 'Typography', 'Cards', 'Layout'];
 
 export const components: ComponentDefinition[] = [
+  ...projectComponents,
+  ...contentComponents,
+  ...proofComponents,
   ...revealComponents,
   ...surfaceComponents,
   ...flapComponents,

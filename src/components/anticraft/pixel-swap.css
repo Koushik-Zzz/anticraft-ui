@@ -19,6 +19,7 @@
 .ac-pixel-face > div,
 .ac-pixel-grid { position: absolute; inset: 0; width: 100%; height: 100%; }
 .ac-pixel-face { pointer-events: none; user-select: none; overflow: hidden; }
+.ac-pixel-face img, .ac-pixel-face video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .ac-pixel-face[hidden] { display: none; }
 .ac-pixel-grid { display: grid; grid-template-columns: repeat(var(--ac-pixel-columns), minmax(0, 1fr)); grid-template-rows: repeat(var(--ac-pixel-rows), minmax(0, 1fr)); pointer-events: none; }
 .ac-pixel-cell { display: block; min-width: 0; min-height: 0; background: var(--ac-pixel-curtain, #e95c3c); transform: scale(0); }

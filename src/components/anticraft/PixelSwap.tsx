@@ -12,6 +12,7 @@ export interface PixelSwapProps {
   back: ReactNode
   frontLabel?: string
   backLabel?: string
+  buttonLabel?: string
   columns?: number
   rows?: number
   duration?: number
@@ -31,6 +32,7 @@ export function PixelSwap({
   back,
   frontLabel = 'First artwork',
   backLabel = 'Second artwork',
+  buttonLabel = 'Swap artwork',
   columns = 8,
   rows = 6,
   duration = 800,
@@ -140,7 +142,7 @@ export function PixelSwap({
       <div className="ac-pixel-footer">
         <span className="ac-pixel-label" aria-live="polite" aria-atomic="true">{currentLabel}</span>
         <button type="button" className="ac-pixel-button" onClick={swap} aria-disabled={phase !== 'idle'}>
-          <span>Swap artwork</span><span aria-hidden="true">⇄</span>
+          <span>{buttonLabel}</span><span aria-hidden="true">⇄</span>
         </button>
       </div>
     </div>

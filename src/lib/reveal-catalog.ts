@@ -30,28 +30,31 @@ export function Example() {
   },
   {
     slug: 'pixel-swap', title: 'Pixel Swap', category: 'Experiments', tag: 'New',
-    description: 'One print gives way to another through a curtain of moving pixels. Small blocks, a big change.',
+    description: 'Switch between product views, project images, or campaign artwork with a pixel wipe.',
     file: 'PixelSwap.tsx', cssFile: 'pixel-swap.css',
     usage: `import { PixelSwap } from '@/components/anticraft/PixelSwap';
 
 export function Example() {
   return (
     <PixelSwap
-      frontLabel="Daylight print"
-      backLabel="After-hours print"
-      front={<div style={{ display: 'grid', placeItems: 'center', width: '100%', height: '100%', background: '#e7efaf', color: '#3d482f', fontSize: 96 }}>☀</div>}
-      back={<div style={{ display: 'grid', placeItems: 'center', width: '100%', height: '100%', background: '#454481', color: '#f0cba4', fontSize: 96 }}>☾</div>}
+      frontLabel="Bag — exterior"
+      backLabel="Bag — interior"
+      buttonLabel="Change product view"
+      front={<img src="/images/bag-exterior.jpg" alt="" />}
+      back={<img src="/images/bag-interior.jpg" alt="" />}
       columns={8}
       rows={6}
       duration={800}
     />
   );
 }`,
+    useCases: ['Product image views', 'Campaign artwork', 'Project image transitions'],
     props: [
       { name: 'front', type: 'ReactNode', default: 'Required', description: 'Decorative artwork shown initially. Nested links, buttons, and inputs are made inert.' },
       { name: 'back', type: 'ReactNode', default: 'Required', description: 'The second decorative artwork. Both faces should fill the available stage.' },
       { name: 'frontLabel', type: 'string', default: "'First artwork'", description: 'The accessible name and visible footer label for the first artwork.' },
       { name: 'backLabel', type: 'string', default: "'Second artwork'", description: 'The accessible name and visible footer label for the second artwork.' },
+      { name: 'buttonLabel', type: 'string', default: "'Swap artwork'", description: 'A visible action label, such as Change product view. Supply your own image files at the paths shown in the example.' },
       { name: 'columns', type: 'number', default: '8', description: 'The number of pixel columns, rounded and clamped between 2 and 20.' },
       { name: 'rows', type: 'number', default: '6', description: 'The number of pixel rows, rounded and clamped between 2 and 16.' },
       { name: 'duration', type: 'number', default: '800', description: 'The complete transition duration in milliseconds, clamped between 240 and 3000.' },
