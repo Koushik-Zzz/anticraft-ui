@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "outline-trace-button",
+  "type": "registry:component",
+  "title": "Outline Trace Button",
+  "description": "A fine accent line draws around a restrained button, with a quiet arrow lift.",
+  "dependencies": [
+    "react"
+  ],
+  "files": [
+    {
+      "path": "src/components/anticraft/OutlineTraceButton.tsx",
+      "type": "registry:component",
+      "target": "components/anticraft/OutlineTraceButton.tsx",
+      "content": "'use client';\n\nimport { forwardRef, type ButtonHTMLAttributes } from 'react';\nimport './outline-trace-button.css';\n\nexport interface OutlineTraceButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}\n\n/** A quiet outline that draws around a stable, native button. */\nexport const OutlineTraceButton = forwardRef<HTMLButtonElement, OutlineTraceButtonProps>(\n  function OutlineTraceButton({ children, className = '', type = 'button', ...props }, ref) {\n    return (\n      <button\n        {...props}\n        ref={ref}\n        type={type}\n        className={`ac-outline-trace-button ${className}`.trim()}\n      >\n        <svg className=\"ac-outline-trace-button__line\" viewBox=\"0 0 100 50\" preserveAspectRatio=\"none\" aria-hidden=\"true\" focusable=\"false\">\n          <rect x=\"1\" y=\"1\" width=\"98\" height=\"48\" rx=\"3\" pathLength=\"100\" />\n        </svg>\n        <span className=\"ac-outline-trace-button__label\">{children}</span>\n        <span className=\"ac-outline-trace-button__mark\" aria-hidden=\"true\">↗</span>\n      </button>\n    );\n  },\n);\n"
+    },
+    {
+      "path": "src/components/anticraft/outline-trace-button.css",
+      "type": "registry:file",
+      "target": "components/anticraft/outline-trace-button.css",
+      "content": ".ac-outline-trace-button {\n  --ac-trace-surface: #282b26;\n  --ac-trace-ink: #f4f4e9;\n  --ac-trace-accent: #d5ef96;\n  --ac-trace-line: #ffffff38;\n  position: relative;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 28px;\n  min-height: 52px;\n  max-width: 100%;\n  padding: 15px 23px;\n  border: 1px solid var(--ac-trace-line);\n  border-radius: 4px;\n  background: var(--ac-trace-surface);\n  color: var(--ac-trace-ink);\n  font: inherit;\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 1.25;\n  text-align: center;\n  cursor: pointer;\n  -webkit-tap-highlight-color: transparent;\n}\n.ac-outline-trace-button,\n.ac-outline-trace-button * { box-sizing: border-box; }\n.ac-outline-trace-button__label { min-width: 0; overflow-wrap: anywhere; }\n.ac-outline-trace-button__line {\n  position: absolute;\n  inset: -1px;\n  width: calc(100% + 2px);\n  height: calc(100% + 2px);\n  overflow: visible;\n  fill: none;\n  stroke: var(--ac-trace-accent);\n  stroke-width: 1.5;\n  pointer-events: none;\n}\n.ac-outline-trace-button__line rect {\n  vector-effect: non-scaling-stroke;\n  stroke-dasharray: 100;\n  stroke-dashoffset: 100;\n  transition: stroke-dashoffset .6s cubic-bezier(.25, .7, .2, 1);\n}\n.ac-outline-trace-button__mark {\n  flex-shrink: 0;\n  font-size: 20px;\n  line-height: 1;\n  transition: color .2s, transform .35s;\n}\n.ac-outline-trace-button:focus-visible { outline: 2px solid var(--ac-trace-accent); outline-offset: 5px; }\n.ac-outline-trace-button:focus-visible:not(:disabled) .ac-outline-trace-button__line rect { stroke-dashoffset: 0; }\n.ac-outline-trace-button:focus-visible:not(:disabled) .ac-outline-trace-button__mark { color: var(--ac-trace-accent); }\n.ac-outline-trace-button:active:not(:disabled) { background: color-mix(in srgb, var(--ac-trace-surface), white 8%); }\n.ac-outline-trace-button:disabled { opacity: .45; cursor: not-allowed; }\n@media (hover: hover) and (pointer: fine) {\n  .ac-outline-trace-button:hover:not(:disabled) .ac-outline-trace-button__line rect { stroke-dashoffset: 0; }\n  .ac-outline-trace-button:hover:not(:disabled) .ac-outline-trace-button__mark { color: var(--ac-trace-accent); transform: translate(2px, -2px); }\n}\n@media (prefers-reduced-motion: reduce) {\n  .ac-outline-trace-button__line rect,\n  .ac-outline-trace-button__mark { transition: none; }\n  .ac-outline-trace-button__mark { transform: none !important; }\n}\n"
+    }
+  ]
+}

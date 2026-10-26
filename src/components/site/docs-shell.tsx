@@ -6,6 +6,8 @@ import { useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { components, categories } from '@/lib/catalog';
 import { Icon } from './icon';
+import { ButtonRail } from './button-rail';
+import './button-collection.css';
 
 function CatalogNavigation({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
@@ -42,5 +44,6 @@ export function DocsShell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const current = components.find((item) => pathname === `/components/${item.slug}`);
-  return <div className="docs-shell"><aside className="docs-sidebar"><CatalogNavigation/></aside><div className="docs-column"><div className="mobile-catalog-bar"><button onClick={() => setOpen(true)}><Icon name="menu" size={17}/>Browse components</button><span>{current?.title ?? (pathname.startsWith('/docs') ? 'Installation' : 'Overview')}</span></div>{children}</div>{open && <MobileCatalog onClose={() => setOpen(false)}/>}</div>;
+  const hasButtons = pathname === '/components' || pathname === '/components/buttons';
+  return <div className={`docs-shell${hasButtons ? ' docs-shell-has-buttons' : ''}`}><aside className="docs-sidebar"><CatalogNavigation/></aside><div className="docs-column"><div className="mobile-catalog-bar"><button onClick={() => setOpen(true)}><Icon name="menu" size={17}/>Browse components</button><span>{current?.title ?? (pathname === '/components/buttons' ? 'Buttons' : pathname.startsWith('/docs') ? 'Installation' : 'Overview')}</span></div>{hasButtons && <ButtonRail/>}{children}</div>{open && <MobileCatalog onClose={() => setOpen(false)}/>}</div>;
 }

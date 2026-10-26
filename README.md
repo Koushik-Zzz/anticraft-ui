@@ -14,12 +14,14 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 | Navigation | Floating Dock, Sliding Nav, Expanding Menu, Radial Nav, Curtain Menu |
 | Experiments | Scratch Reveal, Pixel Swap, Cursor Trail, Throw Stack, Elastic Type, Peel Reveal, Orbit Gallery, Lenticular Panel, Sticker Field, Spine Archive, Morphing Stage |
 | Backgrounds | Ripple Field, Aurora Background |
-| Buttons | Magnetic Button |
+| Buttons | Arrow Capsule Button, Rolling Text Button, Circle Fill Button, Shutter Button, Outline Trace Button, Tactile Button, Magnetic Button |
 | Typography | Split Flap, Split Text, Gradient Text |
 | Cards | Product Gallery, Before After, Spotlight Card, Tilt Card, Border Beam |
 | Layout | Marquee, Editorial Accordion |
 
-All 38 components are included in the repository and local shadcn registry. Start with the **Sections** category for practical product and marketing content: clear pricing plans, feature grids, team profiles, process timelines, portfolio cards, service details, and client stories. Product Gallery in **Cards** adds thumbnails and a larger image viewer. Demo project and article links open complete local examples. The example brands and client stories are fictional. Pixel Swap now demonstrates switching between exterior and interior product views, with a customizable button label. Each component has a live demo, source, installation instructions, and prop documentation. Effects honor reduced motion, and interactive sections support keyboard and touch use.
+All 44 components are included in the repository and local shadcn registry. Start with the **Sections** category for practical product and marketing content: clear pricing plans, feature grids, team profiles, process timelines, portfolio cards, service details, and client stories. Product Gallery in **Cards** adds thumbnails and a larger image viewer. Demo project and article links open complete local examples. The example brands and client stories are fictional. Pixel Swap now demonstrates switching between exterior and interior product views, with a customizable button label. Each component has a live demo, source, installation instructions, and prop documentation. Effects honor reduced motion, and interactive sections support keyboard and touch use.
+
+The [Buttons collection](http://localhost:5173/components/buttons) has seven live button studies with keyboard, touch, disabled, and reduced-motion states. A dedicated button index sits to the right of the component catalog on wide screens and becomes a shortcut strip on smaller screens. Each new button forwards native props and a ref, and defaults to `type="button"`.
 
 ## Run locally
 
@@ -61,6 +63,12 @@ Each item installs both the component and its stylesheet. Targets resolve throug
 Available registry items:
 
 ```text
+/r/arrow-capsule-button.json
+/r/rolling-text-button.json
+/r/circle-fill-button.json
+/r/shutter-button.json
+/r/outline-trace-button.json
+/r/tactile-button.json
 /r/pricing-plans.json
 /r/feature-bento.json
 /r/product-gallery.json
@@ -148,6 +156,8 @@ The practical sections study content patterns from other Awwwards-featured sites
 - [Whipsaw](https://www.whipsaw.com/) informed the client-story content and linked journal cards. [Whipsaw’s expertise](https://www.whipsaw.com/expertise) and [Instrument’s services](https://www.instrument.com/services/) informed Service Showcase’s descriptions and capabilities.
 
 These adapt the observed content structures. Anticraft’s controls, transitions, source, and example artwork are original. Source notes on each component distinguish the reference from the adaptation.
+
+Button studies also reviewed [Form Studio’s submitted button composition](https://www.awwwards.com/inspiration/button-animation-form-studio), [Noomo’s contact CTA](https://noomoagency.com/our-story), and current submissions such as [FD.EXP](https://www.awwwards.com/sites/fd-exp). The six new buttons explore original variations in arrows, typography, color fills, shutters, outlines, and mechanical feedback; they do not reproduce those sites’ source or assets.
 
 ## Contributing
 

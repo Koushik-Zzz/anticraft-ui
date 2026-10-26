@@ -6,12 +6,12 @@ import { components } from '@/lib/catalog';
 import './home.css';
 
 const featuredSlugs = [
-  'pricing-plans',
-  'feature-bento',
-  'product-gallery',
-  'team-grid',
-  'process-timeline',
-  'project-grid',
+  'arrow-capsule-button',
+  'rolling-text-button',
+  'circle-fill-button',
+  'shutter-button',
+  'outline-trace-button',
+  'tactile-button',
 ];
 
 export function HomePage() {
@@ -66,8 +66,8 @@ export function HomePage() {
 
       <section className="ac-home-collection ac-home-container" aria-labelledby="ac-home-collection-title">
         <div className="ac-home-section-heading">
-          <div><span className="ac-home-eyebrow">THE DETAILS THAT MATTER / 008</span><h2 id="ac-home-collection-title">Make it clear.<br className="ac-home-mobile-break" /> <em>Make it yours.</em></h2></div>
-          <div className="ac-home-collection-intro"><p>Plans, products, people, and process.<br />Useful pieces for a considered website.</p><Link href="/components">View all {components.length} components <Icon name="arrow" size={15} /></Link></div>
+          <div><span className="ac-home-eyebrow">THE ART OF THE CLICK / 009</span><h2 id="ac-home-collection-title">Small details.<br className="ac-home-mobile-break" /> <em>Big character.</em></h2></div>
+          <div className="ac-home-collection-intro"><p>Six new ways to make an invitation.<br />Considered motion, right down to the click.</p><Link href="/components/buttons">Explore the button collection <Icon name="arrow" size={15} /></Link></div>
         </div>
         <div className="ac-home-grid">
           {featured.map((component, index) => (

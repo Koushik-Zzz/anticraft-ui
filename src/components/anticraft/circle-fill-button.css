@@ -1,0 +1,128 @@
+.ac-circle-fill-button,
+.ac-circle-fill-button::before,
+.ac-circle-fill-button::after,
+.ac-circle-fill-button *,
+.ac-circle-fill-button *::before,
+.ac-circle-fill-button *::after {
+  box-sizing: border-box;
+}
+
+.ac-circle-fill-button {
+  --ac-fill-background: #f6f5ef;
+  --ac-fill-foreground: #24251f;
+  --ac-fill-accent: #24251f;
+  --ac-fill-active-foreground: #f6f5ef;
+  --ac-fill-border: #24251f;
+  --ac-fill-focus: #e45534;
+
+  position: relative;
+  display: inline-flex;
+  min-height: 48px;
+  max-width: 100%;
+  padding: 0;
+  border: 1px solid var(--ac-fill-border);
+  border-radius: 999px;
+  background: var(--ac-fill-background);
+  color: var(--ac-fill-foreground);
+  font: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ac-circle-fill-button__surface {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+  min-width: 0;
+  min-height: inherit;
+  overflow: hidden;
+  padding: 0.85em 1.35em 0.85em 1.6em;
+  border-radius: inherit;
+}
+
+.ac-circle-fill-button__surface::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--ac-fill-accent);
+  clip-path: circle(0 at 1.15em calc(100% - 0.85em));
+  transition: clip-path 520ms cubic-bezier(0.16, 1, 0.3, 1);
+  content: '';
+}
+
+.ac-circle-fill-button__label,
+.ac-circle-fill-button__arrow {
+  position: relative;
+  transition: color 160ms ease 60ms, transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.ac-circle-fill-button__label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.ac-circle-fill-button__arrow {
+  flex: 0 0 auto;
+}
+
+.ac-circle-fill-button:not(:disabled):is(:hover, :focus-visible, :active)
+  .ac-circle-fill-button__surface::before {
+  clip-path: circle(150% at 1.15em calc(100% - 0.85em));
+}
+
+.ac-circle-fill-button:not(:disabled):is(:hover, :focus-visible, :active)
+  :is(.ac-circle-fill-button__label, .ac-circle-fill-button__arrow) {
+  color: var(--ac-fill-active-foreground);
+}
+
+.ac-circle-fill-button:not(:disabled):is(:hover, :focus-visible)
+  .ac-circle-fill-button__arrow {
+  transform: translateX(3px);
+}
+
+.ac-circle-fill-button:not(:disabled):active .ac-circle-fill-button__arrow {
+  transform: translateX(5px);
+}
+
+.ac-circle-fill-button:focus-visible {
+  outline: 2px solid var(--ac-fill-focus);
+  outline-offset: 4px;
+}
+
+.ac-circle-fill-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (hover: none) {
+  .ac-circle-fill-button:not(:disabled):hover:not(:active):not(:focus-visible)
+    .ac-circle-fill-button__surface::before {
+    clip-path: circle(0 at 1.15em calc(100% - 0.85em));
+  }
+
+  .ac-circle-fill-button:not(:disabled):hover:not(:active):not(:focus-visible)
+    :is(.ac-circle-fill-button__label, .ac-circle-fill-button__arrow) {
+    color: var(--ac-fill-foreground);
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-circle-fill-button__surface::before,
+  .ac-circle-fill-button__label,
+  .ac-circle-fill-button__arrow {
+    transition: none;
+  }
+
+  .ac-circle-fill-button .ac-circle-fill-button__arrow {
+    transform: none !important;
+  }
+}

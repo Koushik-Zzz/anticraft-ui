@@ -76,3 +76,16 @@ export { MorphingStage } from './MorphingStage';
 export type { StickerFieldProps, StickerFieldItem, StickerFieldPosition } from './StickerField';
 export type { SpineArchiveProps, SpineArchiveItem } from './SpineArchive';
 export type { MorphingStageProps, MorphingStageFrame } from './MorphingStage';
+
+export { ArrowCapsuleButton } from './ArrowCapsuleButton';
+export type { ArrowCapsuleButtonProps } from './ArrowCapsuleButton';
+export { RollingTextButton } from './RollingTextButton';
+export type { RollingTextButtonProps } from './RollingTextButton';
+export { CircleFillButton } from './CircleFillButton';
+export type { CircleFillButtonProps } from './CircleFillButton';
+export { ShutterButton } from './ShutterButton';
+export type { ShutterButtonProps } from './ShutterButton';
+export { OutlineTraceButton } from './OutlineTraceButton';
+export type { OutlineTraceButtonProps } from './OutlineTraceButton';
+export { TactileButton } from './TactileButton';
+export type { TactileButtonProps } from './TactileButton';

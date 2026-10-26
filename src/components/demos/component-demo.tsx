@@ -18,6 +18,7 @@ import { ServiceShowcaseDemo, ArticleRailDemo } from './content-demos';
 import { TestimonialSliderDemo } from './proof-demo';
 import { PricingPlansDemo, FeatureBentoDemo } from './marketing-demos';
 import { ProductGalleryDemo, TeamGridDemo } from './people-product-demos';
+import { ButtonDemo, isButtonDemoSlug } from './button-demos';
 import { ProcessTimelineDemo } from './process-demo';
 
 export interface DemoOptions { accent?: string; intensity?: number; paused?: boolean; }
@@ -35,6 +36,7 @@ export function ComponentDemo({ slug, options = {} }: { slug: string; options?: 
   const [ambientPaused, setAmbientPaused] = useState(false);
   const isPaused = options.paused ?? ambientPaused;
   const pauseControl = <button className="replay-button ambient-pause" onClick={() => setAmbientPaused(!ambientPaused)} aria-pressed={isPaused}>{isPaused ? 'Play motion' : 'Pause motion'}</button>;
+  if (isButtonDemoSlug(id)) return <ButtonDemo slug={id}/>;
   if (id === 'sticker-field') return <StickerFieldDemo/>;
   if (id === 'pricing-plans') return <PricingPlansDemo/>;
   if (id === 'feature-bento') return <FeatureBentoDemo/>;

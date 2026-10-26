@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tactile-button",
+  "type": "registry:component",
+  "title": "Tactile Button",
+  "description": "A raised key with a mechanical press, a steady base, and a satisfying release.",
+  "dependencies": [
+    "react"
+  ],
+  "files": [
+    {
+      "path": "src/components/anticraft/TactileButton.tsx",
+      "type": "registry:component",
+      "target": "components/anticraft/TactileButton.tsx",
+      "content": "'use client';\n\nimport { forwardRef, type ButtonHTMLAttributes } from 'react';\nimport './tactile-button.css';\n\nexport interface TactileButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}\n\n/** A raised key with a fixed hit area and a mechanical pressed surface. */\nexport const TactileButton = forwardRef<HTMLButtonElement, TactileButtonProps>(\n  function TactileButton({ children, className = '', type = 'button', ...props }, ref) {\n    return (\n      <button {...props} ref={ref} type={type} className={`ac-tactile-button ${className}`.trim()}>\n        <span className=\"ac-tactile-button__surface\">\n          <span className=\"ac-tactile-button__label\">{children}</span>\n          <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" focusable=\"false\">\n            <path d=\"M19 5v9H5m5-5-5 5 5 5\" stroke=\"currentColor\" strokeWidth=\"1.5\" strokeLinecap=\"round\" strokeLinejoin=\"round\" />\n          </svg>\n        </span>\n      </button>\n    );\n  },\n);\n"
+    },
+    {
+      "path": "src/components/anticraft/tactile-button.css",
+      "type": "registry:file",
+      "target": "components/anticraft/tactile-button.css",
+      "content": ".ac-tactile-button {\n  --ac-tactile-surface: #e9a17f;\n  --ac-tactile-ink: #33271f;\n  --ac-tactile-base: #5f3a2c;\n  --ac-tactile-line: #5f3a2c;\n  position: relative;\n  display: inline-grid;\n  min-height: 56px;\n  max-width: 100%;\n  padding: 0 0 6px;\n  border: 1px solid var(--ac-tactile-line);\n  border-radius: 7px;\n  background: var(--ac-tactile-base);\n  color: var(--ac-tactile-ink);\n  font: inherit;\n  font-size: 14px;\n  line-height: 1.25;\n  text-align: center;\n  cursor: pointer;\n  -webkit-tap-highlight-color: transparent;\n}\n.ac-tactile-button,\n.ac-tactile-button * { box-sizing: border-box; }\n.ac-tactile-button__surface {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 24px;\n  min-height: 48px;\n  padding: 14px 22px;\n  border-bottom: 1px solid var(--ac-tactile-line);\n  border-radius: 6px;\n  background: var(--ac-tactile-surface);\n  font-weight: 600;\n  pointer-events: none;\n  transition: transform .18s cubic-bezier(.2, .8, .2, 1), background .18s;\n}\n.ac-tactile-button__label { min-width: 0; overflow-wrap: anywhere; }\n.ac-tactile-button__surface svg { flex-shrink: 0; }\n.ac-tactile-button:focus-visible { outline: 2px solid var(--ac-tactile-base); outline-offset: 5px; }\n.ac-tactile-button:active:not(:disabled) .ac-tactile-button__surface { transform: translateY(6px); }\n.ac-tactile-button:disabled { opacity: .45; cursor: not-allowed; }\n@media (hover: hover) and (pointer: fine) {\n  .ac-tactile-button:hover:not(:disabled):not(:active) .ac-tactile-button__surface { transform: translateY(2px); background: color-mix(in srgb, var(--ac-tactile-surface), white 7%); }\n}\n@media (prefers-reduced-motion: reduce) {\n  .ac-tactile-button__surface { transition: none; transform: none !important; }\n  .ac-tactile-button:active:not(:disabled) .ac-tactile-button__surface { background: color-mix(in srgb, var(--ac-tactile-surface), black 9%); }\n}\n"
+    }
+  ]
+}

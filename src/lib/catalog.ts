@@ -1,3 +1,4 @@
+import { buttonComponents } from './button-catalog';
 import { objectComponents } from './object-catalog';
 import { playComponents } from './play-catalog';
 import { navComponents } from './nav-catalog';
@@ -28,9 +29,10 @@ export type ComponentDefinition = {
   inspiration?: { name: string; url: string; note: string };
 };
 
-export const categories: ComponentCategory[] = ['Sections', 'Experiments', 'Navigation', 'Backgrounds', 'Buttons', 'Typography', 'Cards', 'Layout'];
+export const categories: ComponentCategory[] = ['Buttons', 'Sections', 'Experiments', 'Navigation', 'Backgrounds', 'Typography', 'Cards', 'Layout'];
 
 export const components: ComponentDefinition[] = [
+  ...buttonComponents,
   ...marketingComponents,
   ...peopleProductComponents,
   ...processComponents,

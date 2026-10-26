@@ -4,6 +4,132 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "arrow-capsule-button",
+      "type": "registry:component",
+      "title": "Arrow Capsule Button",
+      "description": "A clear call to action with a circular arrow that slides into its next direction.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ArrowCapsuleButton.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ArrowCapsuleButton.tsx"
+        },
+        {
+          "path": "src/components/anticraft/arrow-capsule-button.css",
+          "type": "registry:file",
+          "target": "components/anticraft/arrow-capsule-button.css"
+        }
+      ]
+    },
+    {
+      "name": "rolling-text-button",
+      "type": "registry:component",
+      "title": "Rolling Text Button",
+      "description": "A typographic button whose letters roll into place, one small detail at a time.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/RollingTextButton.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/RollingTextButton.tsx"
+        },
+        {
+          "path": "src/components/anticraft/rolling-text-button.css",
+          "type": "registry:file",
+          "target": "components/anticraft/rolling-text-button.css"
+        }
+      ]
+    },
+    {
+      "name": "circle-fill-button",
+      "type": "registry:component",
+      "title": "Circle Fill Button",
+      "description": "An outlined pill that fills with color from a small point at its edge.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/CircleFillButton.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/CircleFillButton.tsx"
+        },
+        {
+          "path": "src/components/anticraft/circle-fill-button.css",
+          "type": "registry:file",
+          "target": "components/anticraft/circle-fill-button.css"
+        }
+      ]
+    },
+    {
+      "name": "shutter-button",
+      "type": "registry:component",
+      "title": "Shutter Button",
+      "description": "Two diagonal panels meet behind the label for a confident, architectural click.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ShutterButton.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ShutterButton.tsx"
+        },
+        {
+          "path": "src/components/anticraft/shutter-button.css",
+          "type": "registry:file",
+          "target": "components/anticraft/shutter-button.css"
+        }
+      ]
+    },
+    {
+      "name": "outline-trace-button",
+      "type": "registry:component",
+      "title": "Outline Trace Button",
+      "description": "A fine accent line draws around a restrained button, with a quiet arrow lift.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/OutlineTraceButton.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/OutlineTraceButton.tsx"
+        },
+        {
+          "path": "src/components/anticraft/outline-trace-button.css",
+          "type": "registry:file",
+          "target": "components/anticraft/outline-trace-button.css"
+        }
+      ]
+    },
+    {
+      "name": "tactile-button",
+      "type": "registry:component",
+      "title": "Tactile Button",
+      "description": "A raised key with a mechanical press, a steady base, and a satisfying release.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/TactileButton.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/TactileButton.tsx"
+        },
+        {
+          "path": "src/components/anticraft/tactile-button.css",
+          "type": "registry:file",
+          "target": "components/anticraft/tactile-button.css"
+        }
+      ]
+    },
+    {
       "name": "pricing-plans",
       "type": "registry:component",
       "title": "Pricing Plans",

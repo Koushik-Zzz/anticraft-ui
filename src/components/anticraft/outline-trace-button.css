@@ -1,0 +1,65 @@
+.ac-outline-trace-button {
+  --ac-trace-surface: #282b26;
+  --ac-trace-ink: #f4f4e9;
+  --ac-trace-accent: #d5ef96;
+  --ac-trace-line: #ffffff38;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  min-height: 52px;
+  max-width: 100%;
+  padding: 15px 23px;
+  border: 1px solid var(--ac-trace-line);
+  border-radius: 4px;
+  background: var(--ac-trace-surface);
+  color: var(--ac-trace-ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.ac-outline-trace-button,
+.ac-outline-trace-button * { box-sizing: border-box; }
+.ac-outline-trace-button__label { min-width: 0; overflow-wrap: anywhere; }
+.ac-outline-trace-button__line {
+  position: absolute;
+  inset: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  overflow: visible;
+  fill: none;
+  stroke: var(--ac-trace-accent);
+  stroke-width: 1.5;
+  pointer-events: none;
+}
+.ac-outline-trace-button__line rect {
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset .6s cubic-bezier(.25, .7, .2, 1);
+}
+.ac-outline-trace-button__mark {
+  flex-shrink: 0;
+  font-size: 20px;
+  line-height: 1;
+  transition: color .2s, transform .35s;
+}
+.ac-outline-trace-button:focus-visible { outline: 2px solid var(--ac-trace-accent); outline-offset: 5px; }
+.ac-outline-trace-button:focus-visible:not(:disabled) .ac-outline-trace-button__line rect { stroke-dashoffset: 0; }
+.ac-outline-trace-button:focus-visible:not(:disabled) .ac-outline-trace-button__mark { color: var(--ac-trace-accent); }
+.ac-outline-trace-button:active:not(:disabled) { background: color-mix(in srgb, var(--ac-trace-surface), white 8%); }
+.ac-outline-trace-button:disabled { opacity: .45; cursor: not-allowed; }
+@media (hover: hover) and (pointer: fine) {
+  .ac-outline-trace-button:hover:not(:disabled) .ac-outline-trace-button__line rect { stroke-dashoffset: 0; }
+  .ac-outline-trace-button:hover:not(:disabled) .ac-outline-trace-button__mark { color: var(--ac-trace-accent); transform: translate(2px, -2px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ac-outline-trace-button__line rect,
+  .ac-outline-trace-button__mark { transition: none; }
+  .ac-outline-trace-button__mark { transform: none !important; }
+}

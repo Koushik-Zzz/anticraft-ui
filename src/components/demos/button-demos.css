@@ -1,0 +1,55 @@
+.button-demo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 25px;
+  overflow: auto;
+  color: #333d31;
+  background: #e7ecd9;
+  text-align: left;
+  isolation: isolate;
+  container-type: inline-size;
+}
+.button-demo-top,
+.button-demo-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: currentColor;
+  font-size: 7px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: .08em;
+}
+.button-demo-top { opacity: .7; }
+.button-demo-top span:last-child { font-variant-numeric: tabular-nums; }
+.button-demo-center { display: grid; justify-items: center; gap: 26px; width: 100%; margin-block: auto; padding-block: 20px; text-align: center; }
+.button-demo-title { margin: 0; font-family: var(--serif, Georgia, serif); font-size: clamp(28px, 8cqw, 44px); font-weight: 400; letter-spacing: -.045em; line-height: 1.08; }
+.button-demo-action { display: flex; justify-content: center; width: 100%; padding: 6px; }
+.button-demo-feedback { min-height: 14px; margin: 0; font-size: 9px; line-height: 1.5; opacity: .7; }
+.button-demo-bottom { margin-top: auto; }
+.button-demo-bottom label { display: inline-flex; align-items: center; min-height: 36px; gap: 7px; font-size: 9px; letter-spacing: 0; cursor: pointer; }
+.button-demo-bottom input { margin: 0; width: 13px; height: 13px; accent-color: currentColor; cursor: pointer; }
+.button-demo-bottom input:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.button-demo--rolling-text-button { background: #dbd7ec; color: #413851; }
+.button-demo--circle-fill-button { background: #ede8de; color: #444138; }
+.button-demo--shutter-button { background: #d9e0e3; color: #354147; }
+.button-demo--outline-trace-button { background: #252923; color: #e2e8d9; }
+.button-demo--tactile-button { background: #f0d7c4; color: #634335; }
+.button-demo--tactile-button .button-demo-title { font-family: var(--sans, Arial, sans-serif); font-size: clamp(26px, 7cqw, 38px); font-weight: 500; }
+.button-demo--shutter-button .button-demo-title { font-family: var(--sans, Arial, sans-serif); font-size: clamp(26px, 7cqw, 38px); font-weight: 500; }
+.button-collection-page .button-demo { gap: 12px; padding: 18px 22px; }
+.button-collection-page .button-demo-center { gap: 14px; padding-block: 4px; }
+.button-collection-page .button-demo-title { font-size: clamp(25px, 7cqw, 34px); }
+.component-workbench .button-demo { padding: 32px; }
+.component-workbench .button-demo-center { gap: 32px; }
+.component-workbench .button-demo-title { font-size: clamp(32px, 7cqw, 58px); }
+@media (max-width: 640px) {
+  .button-demo, .component-workbench .button-demo { padding: 22px; gap: 18px; }
+  .button-demo-top { font-size: 6px; }
+  .button-demo-top span:last-child { display: none; }
+  .component-workbench .button-demo-title { font-size: 36px; }
+}
