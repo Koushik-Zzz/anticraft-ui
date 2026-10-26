@@ -10,13 +10,14 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 
 | Category | Components |
 | --- | --- |
+| Experiments | Sticker Field, Spine Archive, Morphing Stage |
 | Backgrounds | Aurora Background |
 | Buttons | Magnetic Button |
 | Typography | Split Text, Gradient Text |
 | Cards | Spotlight Card, Tilt Card, Border Beam |
 | Layout | Marquee, Editorial Accordion |
 
-All nine components are included in the repository and local shadcn registry. Effects honor the reduced-motion preference; the marquee also includes a pause control. Pointer effects have static alternatives for touch input.
+All 12 components are included in the repository and local shadcn registry. The newest collection focuses on exploratory interactions: a movable sticker collage, an unfolding project archive, and a scroll-driven stage that changes geometric format. Each includes a live demo, editable source, prop documentation, and keyboard and touch controls. Effects honor the reduced-motion preference; the marquee also includes a pause control.
 
 ## Run locally
 
@@ -58,6 +59,9 @@ Each item installs both the component and its stylesheet. Targets resolve throug
 Available registry items:
 
 ```text
+/r/sticker-field.json
+/r/spine-archive.json
+/r/morphing-stage.json
 /r/aurora-background.json
 /r/magnetic-button.json
 /r/split-text.json
@@ -98,6 +102,16 @@ import '@anticraft-ui/react/styles.css';
 ```
 
 `@anticraft-ui/react` is an unpublished local package. After `npm run build:lib`, run `npm pack ./lib` to create an archive you can install in another project. The built package has React peer dependencies and does not install the documentation app or Next.js.
+
+## Inspiration
+
+The experimental collection studies interactions on sites featured by [Awwwards](https://www.awwwards.com/websites/). These are original React implementations with original demo artwork, adapting interaction ideas rather than copying site source or brand assets.
+
+- **Sticker Field** draws on the draggable collage at [Studio Alphonse — About](https://www.studioalphonse.com/about). It adds bounded momentum, keyboard positioning and rotation, and reset controls.
+- **Spine Archive** draws on the physical VHS shelf at [Studio Alphonse — Productions](https://www.studioalphonse.com/productions). The Anticraft adaptation expands a spine into its front cover and project details.
+- **Morphing Stage** draws on the changing geometric compositions of [FORMAT by Obys × DES](https://format.obys.agency/). It adapts that idea to a bounded scroll stage with explicit frame navigation.
+
+Source references also appear on each component’s documentation page.
 
 ## Contributing
 

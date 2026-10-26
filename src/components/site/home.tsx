@@ -6,12 +6,9 @@ import { components } from '@/lib/catalog';
 import './home.css';
 
 const featuredSlugs = [
-  'magnetic-button',
-  'aurora-background',
-  'tilt-card',
-  'gradient-text',
-  'spotlight-card',
-  'border-beam',
+  'sticker-field',
+  'spine-archive',
+  'morphing-stage',
 ];
 
 export function HomePage() {
@@ -30,7 +27,7 @@ export function HomePage() {
           </div>
           <h1 id="ac-home-title">Interfaces<br />with <em>feeling.</em><span className="ac-home-title-star" aria-hidden="true">✳</span></h1>
           <div className="ac-home-hero-bottom">
-            <p>Expressive React components for a web with character.<br className="ac-home-desktop-break" /> Considered motion. Beautiful details. All yours.</p>
+            <p>Unexpected interactions for a web with character.<br className="ac-home-desktop-break" /> Original experiments. Considered motion. Free source.</p>
             <Link className="ac-home-explore" href="/components">
               Explore components
               <span><Icon name="arrow" size={20} /></span>
@@ -66,8 +63,8 @@ export function HomePage() {
 
       <section className="ac-home-collection ac-home-container" aria-labelledby="ac-home-collection-title">
         <div className="ac-home-section-heading">
-          <div><span className="ac-home-eyebrow">THE COMPONENT COLLECTION / 001</span><h2 id="ac-home-collection-title">Small details.<br className="ac-home-mobile-break" /> <em>Big energy.</em></h2></div>
-          <div className="ac-home-collection-intro"><p>Good ingredients make great interfaces.<br />Pick a feeling. Find your starting point.</p><Link href="/components">View all {components.length} components <Icon name="arrow" size={15} /></Link></div>
+          <div><span className="ac-home-eyebrow">THE EXPERIMENTS / 002</span><h2 id="ac-home-collection-title">Objects to move.<br className="ac-home-mobile-break" /> <em>Ideas to play with.</em></h2></div>
+          <div className="ac-home-collection-intro"><p>Drag a collage. Browse a physical archive.<br />Let a changing frame tell your story.</p><Link href="/components">View all {components.length} components <Icon name="arrow" size={15} /></Link></div>
         </div>
         <div className="ac-home-grid">
           {featured.map((component, index) => (

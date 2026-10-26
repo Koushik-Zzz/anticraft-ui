@@ -4,6 +4,69 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "sticker-field",
+      "type": "registry:component",
+      "title": "Sticker Field",
+      "description": "A draggable, throwable collage with bounded movement and keyboard controls.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/StickerField.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/StickerField.tsx"
+        },
+        {
+          "path": "src/components/anticraft/sticker-field.css",
+          "type": "registry:file",
+          "target": "components/anticraft/sticker-field.css"
+        }
+      ]
+    },
+    {
+      "name": "spine-archive",
+      "type": "registry:component",
+      "title": "Spine Archive",
+      "description": "A physical project shelf that unfolds narrow spines into expressive front covers.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/SpineArchive.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/SpineArchive.tsx"
+        },
+        {
+          "path": "src/components/anticraft/spine-archive.css",
+          "type": "registry:file",
+          "target": "components/anticraft/spine-archive.css"
+        }
+      ]
+    },
+    {
+      "name": "morphing-stage",
+      "type": "registry:component",
+      "title": "Morphing Stage",
+      "description": "A bounded-scroll composition that shifts between geometric formats.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/MorphingStage.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/MorphingStage.tsx"
+        },
+        {
+          "path": "src/components/anticraft/morphing-stage.css",
+          "type": "registry:file",
+          "target": "components/anticraft/morphing-stage.css"
+        }
+      ]
+    },
+    {
       "name": "aurora-background",
       "type": "registry:component",
       "title": "Aurora Background",

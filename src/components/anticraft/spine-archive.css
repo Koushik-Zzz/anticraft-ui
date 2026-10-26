@@ -1,0 +1,299 @@
+.ac-spine-archive {
+  container-type: inline-size;
+  display: grid;
+  grid-template-rows: auto minmax(238px, 1fr) auto;
+  gap: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--ac-spine-height, 100%);
+  min-height: var(--ac-spine-min-height, 320px);
+  padding: var(--ac-spine-padding, 18px 20px 16px);
+  background: var(--ac-spine-background, #eeece5);
+  color: var(--ac-spine-color, #24251f);
+  text-align: left;
+}
+
+.ac-spine-heading,
+.ac-spine-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.ac-spine-heading {
+  padding-bottom: 5px;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+}
+
+.ac-spine-footer {
+  color: color-mix(in srgb, currentColor 64%, transparent);
+  font-size: 8px;
+  letter-spacing: 0.01em;
+}
+
+.ac-spine-rack {
+  display: flex;
+  align-items: stretch;
+  gap: var(--ac-spine-gap, 7px);
+  min-width: 0;
+  min-height: 0;
+  padding: 17px 12px 16px;
+  margin-inline: -12px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-padding-inline: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: #77796d transparent;
+  perspective: 1400px;
+}
+
+.ac-spine-sleeve {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  width: max(44px, var(--ac-spine-width, 56px));
+  min-height: 208px;
+  border-radius: 4px 7px 7px 4px;
+  background: var(--ac-spine-cover-color);
+  box-shadow: 3px 3px 0 color-mix(in srgb, var(--ac-spine-cover-color) 45%, #111), 7px 10px 10px #16170e26, inset 1px 0 0 #fff5;
+  transform: rotateY(-12deg) translateY(3px);
+  transform-style: preserve-3d;
+  transition: width 460ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 460ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.ac-spine-sleeve[data-active='true'] {
+  width: var(--ac-spine-open-width, clamp(190px, 37cqw, 264px));
+  transform: rotateY(-5deg) translateY(-5px);
+}
+
+.ac-spine-trigger {
+  position: relative;
+  display: block;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 4px 7px 7px 4px;
+  background: var(--ac-spine-cover-color);
+  color: var(--ac-spine-ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ac-spine-trigger::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #0003;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #fff2, transparent 5%, #0002 8%, transparent 13%, transparent 95%, #0002);
+  pointer-events: none;
+  content: '';
+}
+
+.ac-spine-trigger:focus-visible {
+  outline: 2px solid var(--ac-spine-focus, #293feb);
+  outline-offset: 5px;
+}
+
+.ac-spine-surface {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.ac-spine-artwork {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 29%;
+  overflow: hidden;
+  background: var(--ac-spine-ink);
+  color: var(--ac-spine-cover-color);
+  transition: height 460ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.ac-spine-artwork > * {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ac-spine-sleeve[data-active='true'] .ac-spine-artwork {
+  height: 48%;
+}
+
+.ac-spine-default-art {
+  position: relative;
+  background: repeating-linear-gradient(125deg, transparent 0 9px, currentColor 9px 12px, transparent 12px 18px);
+}
+
+.ac-spine-default-art::after {
+  position: absolute;
+  inset: 16% 26%;
+  border: 10px solid var(--ac-spine-cover-color);
+  border-radius: 50%;
+  background: var(--ac-spine-ink);
+  content: '';
+}
+
+.ac-spine-case-line {
+  position: absolute;
+  inset: 29% 0 auto;
+  height: 6px;
+  border-block: 1px solid currentColor;
+  opacity: 0.45;
+  transition: top 460ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.ac-spine-sleeve[data-active='true'] .ac-spine-case-line {
+  top: 48%;
+}
+
+.ac-spine-title {
+  position: absolute;
+  top: calc(29% + 19px);
+  bottom: 38px;
+  left: 50%;
+  overflow: hidden;
+  max-height: calc(71% - 58px);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  transform: translateX(-50%);
+}
+
+.ac-spine-sleeve[data-active='true'] .ac-spine-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  inset: calc(48% + 12px) 17px auto;
+  max-height: calc(52% - 18px);
+  font-size: clamp(22px, 4.3cqw, 30px);
+  line-height: 0.95;
+  white-space: normal;
+  writing-mode: horizontal-tb;
+  transform: none;
+}
+
+.ac-spine-serial,
+.ac-spine-year {
+  position: absolute;
+  bottom: 12px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.ac-spine-serial {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ac-spine-year {
+  right: 17px;
+  display: none;
+}
+
+.ac-spine-sleeve[data-active='true'] .ac-spine-serial {
+  top: 10px;
+  bottom: auto;
+  left: 10px;
+  color: var(--ac-spine-cover-color);
+  text-shadow: 0 1px 3px var(--ac-spine-ink);
+  transform: none;
+}
+
+.ac-spine-sleeve[data-active='true'] .ac-spine-year {
+  display: block;
+  top: 10px;
+  right: 10px;
+  bottom: auto;
+  color: var(--ac-spine-cover-color);
+  text-shadow: 0 1px 3px var(--ac-spine-ink);
+}
+
+.ac-spine-details {
+  position: relative;
+  flex: 0 0 auto;
+  z-index: 1;
+  padding: 2px 17px 14px;
+  color: var(--ac-spine-ink);
+}
+
+.ac-spine-details[hidden] {
+  display: none;
+}
+
+.ac-spine-category {
+  margin: 0 0 5px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.ac-spine-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin: 0 0 8px;
+  font-size: 10px;
+  line-height: 1.45;
+  opacity: 0.8;
+}
+
+.ac-spine-link {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  gap: 16px;
+  color: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  pointer-events: auto;
+}
+
+.ac-spine-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 1px;
+}
+
+@container (max-width: 360px) {
+  .ac-spine-footer span:first-child {
+    max-width: 148px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-spine-sleeve,
+  .ac-spine-artwork,
+  .ac-spine-case-line {
+    transition: none;
+  }
+}

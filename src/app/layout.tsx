@@ -14,5 +14,5 @@ export const metadata: Metadata = {
 const themeScript = `(function(){try{document.documentElement.dataset.theme=localStorage.getItem('anticraft-theme')==='dark'?'dark':'light'}catch(e){document.documentElement.dataset.theme='light'}})()`;
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  return <html lang="en" suppressHydrationWarning><head><link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/><script dangerouslySetInnerHTML={{ __html: themeScript }}/></head><body><SiteHeader/>{children}<SiteFooter/></body></html>;
+  return <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning><head><link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/><script dangerouslySetInnerHTML={{ __html: themeScript }}/></head><body><SiteHeader/>{children}<SiteFooter/></body></html>;
 }

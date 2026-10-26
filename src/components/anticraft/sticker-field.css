@@ -1,0 +1,86 @@
+.ac-sticker-field {
+  position: relative;
+  isolation: isolate;
+  min-height: var(--ac-sticker-min-height, 360px);
+  height: var(--ac-sticker-field-height, auto);
+  width: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.ac-sticker-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.ac-sticker-item {
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  width: var(--ac-sticker-width, 160px);
+  height: var(--ac-sticker-height, 160px);
+  max-width: calc(100% - 16px);
+  max-height: calc(100% - 16px);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--ac-sticker-radius, 10px);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transform: translate(-50%, -50%) rotate(var(--ac-sticker-rotation, 0deg));
+  transition: filter 180ms ease, transform 110ms ease;
+  filter: drop-shadow(0 3px 2px rgb(18 17 12 / 15%)) drop-shadow(0 10px 9px rgb(18 17 12 / 9%));
+}
+
+.ac-sticker-item:hover {
+  filter: drop-shadow(0 4px 2px rgb(18 17 12 / 15%)) drop-shadow(0 13px 12px rgb(18 17 12 / 14%));
+}
+
+.ac-sticker-item[data-dragging] {
+  cursor: grabbing;
+  filter: drop-shadow(0 8px 4px rgb(18 17 12 / 12%)) drop-shadow(0 22px 16px rgb(18 17 12 / 18%));
+}
+
+.ac-sticker-item:focus-visible {
+  outline: 3px solid var(--ac-sticker-focus, #6563ff);
+  outline-offset: 7px;
+}
+
+.ac-sticker-content {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ac-sticker-content > img,
+.ac-sticker-content > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  -webkit-user-drag: none;
+}
+
+.ac-sticker-help {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-sticker-item {
+    transition: none;
+  }
+}

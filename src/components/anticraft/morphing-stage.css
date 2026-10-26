@@ -1,0 +1,256 @@
+.ac-morph-stage {
+  position: relative;
+  width: 100%;
+  height: var(--ac-morph-height, 400px);
+  min-height: 260px;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--ac-morph-ink, #252620);
+  background: var(--ac-morph-surface, #eeece1);
+  border: 1px solid var(--ac-morph-line, rgb(37 38 32 / 16%));
+  font-family: inherit;
+}
+
+.ac-morph-stage *,
+.ac-morph-stage *::before,
+.ac-morph-stage *::after {
+  box-sizing: border-box;
+}
+
+.ac-morph-scroll {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ac-morph-scrollbar, #aaa99f) transparent;
+}
+
+.ac-morph-scroll:focus-visible {
+  outline: 2px solid var(--ac-morph-focus, #be3f24);
+  outline-offset: -4px;
+}
+
+.ac-morph-track {
+  position: relative;
+}
+
+.ac-morph-pin {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-rows: 56px minmax(0, 1fr) 48px;
+  overflow: hidden;
+  background: var(--ac-morph-surface, #eeece1);
+}
+
+.ac-morph-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 22px 0;
+}
+
+.ac-morph-heading-copy {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.ac-morph-kicker {
+  overflow: hidden;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.58;
+}
+
+.ac-morph-title {
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ac-morph-count {
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 5px;
+  font-family: monospace;
+  font-size: 10px;
+  line-height: 1.4;
+  opacity: 0.55;
+}
+
+.ac-morph-canvas {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.ac-morph-artwork,
+.ac-morph-outline {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  transform-origin: center;
+  will-change: width, height, border-radius, transform;
+}
+
+.ac-morph-artwork {
+  z-index: 2;
+  border: 1px solid rgb(0 0 0 / 16%);
+  background: #e8613d;
+  box-shadow: 0 12px 20px -12px rgb(30 29 21 / 30%);
+}
+
+.ac-morph-artwork-layer {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ac-morph-outline {
+  z-index: 1;
+  border: 1px solid currentColor;
+  pointer-events: none;
+}
+
+.ac-morph-outline-back {
+  margin: 8px 0 0 -17px;
+  opacity: 0.16;
+}
+
+.ac-morph-outline-front {
+  margin: -9px 0 0 16px;
+  opacity: 0.1;
+}
+
+.ac-morph-crosshair {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  color: currentColor;
+  opacity: 0.25;
+}
+
+.ac-morph-crosshair::before,
+.ac-morph-crosshair::after {
+  position: absolute;
+  content: '';
+  background: currentColor;
+}
+
+.ac-morph-crosshair::before { top: 5px; width: 12px; height: 1px; }
+.ac-morph-crosshair::after { left: 5px; width: 1px; height: 12px; }
+.ac-morph-crosshair-top { top: 16px; left: 22px; }
+.ac-morph-crosshair-bottom { right: 22px; bottom: 16px; }
+
+.ac-morph-format-label {
+  position: absolute;
+  right: 19px;
+  top: 50%;
+  z-index: 3;
+  writing-mode: vertical-rl;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transform: translateY(-50%);
+  opacity: 0.45;
+}
+
+.ac-morph-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 14px 9px 22px;
+}
+
+.ac-morph-scroll-hint {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  line-height: 1.2;
+  opacity: 0.6;
+}
+
+.ac-morph-scroll-hint > span {
+  font-size: 16px;
+}
+
+.ac-morph-chapters {
+  display: flex;
+  gap: 2px;
+  max-width: 65%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.ac-morph-chapter {
+  display: grid;
+  flex: 0 0 36px;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  font-family: monospace;
+  font-size: 10px;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.ac-morph-chapter:hover {
+  background: rgb(100 100 80 / 9%);
+}
+
+.ac-morph-chapter[aria-current='step'] {
+  border-color: currentColor;
+}
+
+.ac-morph-chapter:focus-visible {
+  outline: 2px solid var(--ac-morph-focus, #be3f24);
+  outline-offset: -4px;
+}
+
+.ac-morph-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 420px) {
+  .ac-morph-heading { padding-right: 15px; padding-left: 15px; }
+  .ac-morph-footer { padding-right: 9px; padding-left: 15px; }
+  .ac-morph-scroll-hint { max-width: 76px; font-size: 9px; }
+  .ac-morph-chapters { max-width: 70%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-morph-chapter { transition: none; }
+  .ac-morph-artwork,
+  .ac-morph-outline { will-change: auto; }
+}

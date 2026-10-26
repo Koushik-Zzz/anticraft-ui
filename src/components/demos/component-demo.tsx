@@ -7,6 +7,7 @@ import { AuroraBackground } from '@/components/anticraft/AuroraBackground';
 import { GradientText } from '@/components/anticraft/GradientText';
 import { BorderBeam } from '@/components/anticraft/BorderBeam';
 import { Icon } from '@/components/site/icon';
+import { StickerFieldDemo, SpineArchiveDemo, MorphingStageDemo } from './experimental-demos';
 
 export interface DemoOptions { accent?: string; intensity?: number; paused?: boolean; }
 
@@ -23,6 +24,9 @@ export function ComponentDemo({ slug, options = {} }: { slug: string; options?: 
   const [ambientPaused, setAmbientPaused] = useState(false);
   const isPaused = options.paused ?? ambientPaused;
   const pauseControl = <button className="replay-button ambient-pause" onClick={() => setAmbientPaused(!ambientPaused)} aria-pressed={isPaused}>{isPaused ? 'Play motion' : 'Pause motion'}</button>;
+  if (id === 'sticker-field') return <StickerFieldDemo/>;
+  if (id === 'spine-archive') return <SpineArchiveDemo/>;
+  if (id === 'morphing-stage') return <MorphingStageDemo/>;
   if (id === 'aurora-background') return <AuroraBackground className="demo demo-aurora" paused={isPaused} color1={options.accent ?? '#e89c62'}><span className="demo-eyebrow">A LITTLE ATMOSPHERE GOES A LONG WAY</span><div className="aurora-demo-center"><span className="ambient-mini-star" aria-hidden="true">✳</span><p>A space<br/>to <em>dream.</em></p></div><div className="demo-baseline"><span className="demo-hint">Light, with a life of its own.</span>{pauseControl}</div></AuroraBackground>;
   if (id === 'gradient-text') return <div className="demo demo-gradient"><span className="demo-eyebrow">COLOR OUTSIDE THE ORDINARY</span><p><GradientText paused={isPaused} colors={options.accent ? [options.accent, '#fff1dc', '#b5a2fa', options.accent] : undefined}>Stay a little<br/><em>different.</em></GradientText></p><div className="demo-baseline"><span className="demo-hint">A brighter turn of phrase.</span>{pauseControl}</div></div>;
   if (id === 'border-beam') return <div className="demo demo-beam"><span className="demo-eyebrow">GOOD IDEAS DESERVE THE SPOTLIGHT</span><BorderBeam className="beam-demo-object" color={options.accent ?? '#f19451'} paused={isPaused}><span className="beam-demo-icon"><Icon name="spark" size={26}/></span><p>Made to<br/><em>stand out.</em></p><span className="beam-demo-note">A little glow. A lot of character.</span></BorderBeam><div className="demo-baseline"><span className="demo-hint">Follow the finer details.</span>{pauseControl}</div></div>;
