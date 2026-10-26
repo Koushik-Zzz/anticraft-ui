@@ -1,0 +1,21 @@
+.ac-flap, .ac-flap * { box-sizing: border-box; }
+.ac-flap { container-type: inline-size; width: 100%; min-width: 0; color: var(--ac-flap-color, #f3efdc); }
+.ac-flap__tiles { --ac-flap-width: var(--ac-flap-tile-width, clamp(20px, 10.5cqw, 44px)); --ac-flap-height: var(--ac-flap-tile-height, calc(var(--ac-flap-width) * 1.35)); display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ac-flap-gap, 4px); width: 100%; }
+.ac-flap__tile { position: relative; flex: 0 0 var(--ac-flap-width); width: var(--ac-flap-width); height: var(--ac-flap-height); overflow: hidden; border-radius: 4px; background: var(--ac-flap-surface, #292b29); box-shadow: inset 0 1px 0 #ffffff12, 0 2px 1px #0004; perspective: 160px; font-family: var(--ac-flap-font, 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif); font-size: calc(var(--ac-flap-height) * .71); font-weight: 650; line-height: 1; text-align: center; }
+.ac-flap__letter, .ac-flap__half > span { display: grid; place-items: center; width: 100%; height: var(--ac-flap-height); white-space: pre; }
+.ac-flap__half { position: absolute; left: 0; width: 100%; height: 50%; overflow: hidden; background: var(--ac-flap-surface, #292b29); backface-visibility: hidden; animation-duration: var(--ac-flap-duration, 500ms); animation-delay: var(--ac-flap-delay, 0ms); animation-fill-mode: both; animation-timing-function: linear; }
+.ac-flap__half > span { position: absolute; left: 0; }
+.ac-flap__old-top { top: 0; z-index: 3; transform-origin: center bottom; animation-name: ac-flap-fold; }
+.ac-flap__old-top > span { top: 0; }
+.ac-flap__old-bottom { bottom: 0; z-index: 1; animation-name: ac-flap-retire; }
+.ac-flap__old-bottom > span, .ac-flap__new-bottom > span { bottom: 0; }
+.ac-flap__new-bottom { bottom: 0; z-index: 2; transform-origin: center top; animation-name: ac-flap-unfold; }
+.ac-flap__seam { position: absolute; top: 50%; left: 0; right: 0; z-index: 4; height: 1px; background: #000a; box-shadow: 0 1px 0 #ffffff0b; pointer-events: none; }
+.ac-flap__seam::before, .ac-flap__seam::after { position: absolute; content: ''; top: -3px; width: 2px; height: 6px; border-radius: 1px; background: #111512; box-shadow: 0 0 0 1px #ffffff0d; }
+.ac-flap__seam::before { left: 1px; }
+.ac-flap__seam::after { right: 1px; }
+.ac-flap__break { flex: 0 0 100%; width: 0; height: 0; }
+@keyframes ac-flap-fold { 0% { transform: rotateX(0); filter: brightness(1); } 49.9% { opacity: 1; transform: rotateX(-90deg); filter: brightness(.4); } 50%, 100% { opacity: 0; transform: rotateX(-90deg); } }
+@keyframes ac-flap-retire { 0%, 49.9% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes ac-flap-unfold { 0%, 49.9% { transform: rotateX(90deg); filter: brightness(.45); } 50% { transform: rotateX(90deg); } 100% { transform: rotateX(0); filter: brightness(1); } }
+@media (prefers-reduced-motion: reduce) { .ac-flap__half { display: none; animation: none; } }

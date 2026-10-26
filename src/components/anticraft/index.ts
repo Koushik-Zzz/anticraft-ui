@@ -1,5 +1,15 @@
 "use client";
 
+export { ScratchReveal } from './ScratchReveal';
+export { PixelSwap } from './PixelSwap';
+export { RippleField } from './RippleField';
+export { BeforeAfter } from './BeforeAfter';
+export { SplitFlap } from './SplitFlap';
+export type { ScratchRevealProps } from './ScratchReveal';
+export type { PixelSwapProps, PixelSwapSide } from './PixelSwap';
+export type { RippleFieldProps } from './RippleField';
+export type { BeforeAfterProps } from './BeforeAfter';
+export type { SplitFlapProps } from './SplitFlap';
 export { FloatingDock } from './FloatingDock';
 export { SlidingNav } from './SlidingNav';
 export { ExpandingMenu } from './ExpandingMenu';

@@ -4,6 +4,111 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "scratch-reveal",
+      "type": "registry:component",
+      "title": "Scratch Reveal",
+      "description": "A scratchable foil print with a button alternative and a reset control.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ScratchReveal.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ScratchReveal.tsx"
+        },
+        {
+          "path": "src/components/anticraft/scratch-reveal.css",
+          "type": "registry:file",
+          "target": "components/anticraft/scratch-reveal.css"
+        }
+      ]
+    },
+    {
+      "name": "pixel-swap",
+      "type": "registry:component",
+      "title": "Pixel Swap",
+      "description": "A deterministic block-by-block wipe between two artworks.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/PixelSwap.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/PixelSwap.tsx"
+        },
+        {
+          "path": "src/components/anticraft/pixel-swap.css",
+          "type": "registry:file",
+          "target": "components/anticraft/pixel-swap.css"
+        }
+      ]
+    },
+    {
+      "name": "ripple-field",
+      "type": "registry:component",
+      "title": "Ripple Field",
+      "description": "Finite water-like ripples around pointer movement, taps, and keyboard activation.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/RippleField.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/RippleField.tsx"
+        },
+        {
+          "path": "src/components/anticraft/ripple-field.css",
+          "type": "registry:file",
+          "target": "components/anticraft/ripple-field.css"
+        }
+      ]
+    },
+    {
+      "name": "before-after",
+      "type": "registry:component",
+      "title": "Before After",
+      "description": "A before-and-after artwork comparison with a native range control.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/BeforeAfter.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/BeforeAfter.tsx"
+        },
+        {
+          "path": "src/components/anticraft/before-after.css",
+          "type": "registry:file",
+          "target": "components/anticraft/before-after.css"
+        }
+      ]
+    },
+    {
+      "name": "split-flap",
+      "type": "registry:component",
+      "title": "Split Flap",
+      "description": "Mechanical character tiles that flip when their text changes.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/SplitFlap.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/SplitFlap.tsx"
+        },
+        {
+          "path": "src/components/anticraft/split-flap.css",
+          "type": "registry:file",
+          "target": "components/anticraft/split-flap.css"
+        }
+      ]
+    },
+    {
       "name": "floating-dock",
       "type": "registry:component",
       "title": "Floating Dock",
@@ -113,7 +218,9 @@
       "type": "registry:component",
       "title": "Cursor Trail",
       "description": "A trail of art prints that follows the pointer, with a manual stamping control.",
-      "dependencies": ["react"],
+      "dependencies": [
+        "react"
+      ],
       "files": [
         {
           "path": "src/components/anticraft/CursorTrail.tsx",
@@ -132,7 +239,9 @@
       "type": "registry:component",
       "title": "Throw Stack",
       "description": "A tactile deck of posters that can be picked up and thrown aside to reveal the next artwork.",
-      "dependencies": ["react"],
+      "dependencies": [
+        "react"
+      ],
       "files": [
         {
           "path": "src/components/anticraft/ThrowStack.tsx",
@@ -151,7 +260,9 @@
       "type": "registry:component",
       "title": "Elastic Type",
       "description": "Kinetic letterforms that squash, stretch, and spring back around the pointer.",
-      "dependencies": ["react"],
+      "dependencies": [
+        "react"
+      ],
       "files": [
         {
           "path": "src/components/anticraft/ElasticType.tsx",

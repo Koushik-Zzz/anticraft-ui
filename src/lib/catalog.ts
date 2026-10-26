@@ -1,6 +1,9 @@
 import { objectComponents } from './object-catalog';
 import { playComponents } from './play-catalog';
 import { navComponents } from './nav-catalog';
+import { revealComponents } from './reveal-catalog';
+import { surfaceComponents } from './surface-catalog';
+import { flapComponents } from './flap-catalog';
 
 export type ComponentCategory = 'Navigation' | 'Experiments' | 'Backgrounds' | 'Buttons' | 'Typography' | 'Cards' | 'Layout';
 
@@ -18,9 +21,12 @@ export type ComponentDefinition = {
   inspiration?: { name: string; url: string; note: string };
 };
 
-export const categories: ComponentCategory[] = ['Navigation', 'Experiments', 'Backgrounds', 'Buttons', 'Typography', 'Cards', 'Layout'];
+export const categories: ComponentCategory[] = ['Experiments', 'Navigation', 'Backgrounds', 'Buttons', 'Typography', 'Cards', 'Layout'];
 
 export const components: ComponentDefinition[] = [
+  ...revealComponents,
+  ...surfaceComponents,
+  ...flapComponents,
   ...navComponents,
   ...playComponents,
   ...objectComponents,

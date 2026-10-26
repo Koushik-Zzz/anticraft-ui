@@ -11,14 +11,14 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 | Category | Components |
 | --- | --- |
 | Navigation | Floating Dock, Sliding Nav, Expanding Menu, Radial Nav, Curtain Menu |
-| Experiments | Cursor Trail, Throw Stack, Elastic Type, Peel Reveal, Orbit Gallery, Lenticular Panel, Sticker Field, Spine Archive, Morphing Stage |
-| Backgrounds | Aurora Background |
+| Experiments | Scratch Reveal, Pixel Swap, Cursor Trail, Throw Stack, Elastic Type, Peel Reveal, Orbit Gallery, Lenticular Panel, Sticker Field, Spine Archive, Morphing Stage |
+| Backgrounds | Ripple Field, Aurora Background |
 | Buttons | Magnetic Button |
-| Typography | Split Text, Gradient Text |
-| Cards | Spotlight Card, Tilt Card, Border Beam |
+| Typography | Split Flap, Split Text, Gradient Text |
+| Cards | Before After, Spotlight Card, Tilt Card, Border Beam |
 | Layout | Marquee, Editorial Accordion |
 
-All 23 components are included in the repository and local shadcn registry: five navigation components, nine experiments, and the original core collection. The newest additions explore entrances and destinations: a magnifying dock, a shared sliding indicator, an expanding index, a radial disclosure, and a full-screen curtain. Navigation uses ordinary anchors, controlled current-page indicators, and keyboard access. Disclosures hide closed links; Curtain Menu uses a native modal dialog with focus containment and restoration. Each component includes a live demo, editable source, and prop documentation. Interactive objects have keyboard and touch controls; Elastic Type stays readable and static on touch screens. Effects honor the reduced-motion preference; the marquee also includes a pause control.
+All 28 components are included in the repository and local shadcn registry. The newest additions explore texture and transformation: scratchable foil, a pixel wipe, water-like ripples, a before-and-after comparison, and a mechanical split-flap display. Each includes an original live demo, editable source, and prop documentation. Scratch Reveal has a button alternative to painting; Before After uses a native slider; Split Flap changes only when its text changes. Navigation uses ordinary anchors and keyboard access, and Curtain Menu uses a native modal dialog. Effects honor reduced motion; the marquee also includes a pause control.
 
 ## Run locally
 
@@ -60,6 +60,11 @@ Each item installs both the component and its stylesheet. Targets resolve throug
 Available registry items:
 
 ```text
+/r/scratch-reveal.json
+/r/pixel-swap.json
+/r/ripple-field.json
+/r/before-after.json
+/r/split-flap.json
 /r/floating-dock.json
 /r/sliding-nav.json
 /r/expanding-menu.json
@@ -117,7 +122,7 @@ import '@anticraft-ui/react/styles.css';
 
 ## Inspiration
 
-The first experimental collection studies interactions on sites featured by [Awwwards](https://www.awwwards.com/websites/). These are original React implementations with original demo artwork, adapting interaction ideas rather than copying site source or brand assets. Later additions explore folded paper, spatial displays, angle-dependent prints, pointer trails, throwable posters, and elastic typography with original code and artwork.
+The first experimental collection studies interactions on sites featured by [Awwwards](https://www.awwwards.com/websites/). These are original React implementations with original demo artwork, adapting interaction ideas rather than copying site source or brand assets. Later additions explore folded paper, spatial displays, angle-dependent prints, pointer trails, throwable posters, elastic typography, scratchable foil, pixel wipes, ripple fields, and mechanical type with original code and artwork.
 
 - **Sticker Field** draws on the draggable collage at [Studio Alphonse — About](https://www.studioalphonse.com/about). It adds bounded momentum, keyboard positioning and rotation, and reset controls.
 - **Spine Archive** draws on the physical VHS shelf at [Studio Alphonse — Productions](https://www.studioalphonse.com/productions). The Anticraft adaptation expands a spine into its front cover and project details.

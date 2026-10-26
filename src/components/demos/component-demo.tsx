@@ -11,6 +11,8 @@ import { StickerFieldDemo, SpineArchiveDemo, MorphingStageDemo } from './experim
 import { PeelRevealDemo, OrbitGalleryDemo, LenticularPanelDemo } from './object-demos';
 import { CursorTrailDemo, ThrowStackDemo, ElasticTypeDemo } from './play-demos';
 import { FloatingDockDemo, SlidingNavDemo, ExpandingMenuDemo, RadialNavDemo, CurtainMenuDemo } from './nav-demos';
+import { ScratchRevealDemo, PixelSwapDemo, RippleFieldDemo, BeforeAfterDemo } from './sensory-demos';
+import { SplitFlapDemo } from './flap-demo';
 
 export interface DemoOptions { accent?: string; intensity?: number; paused?: boolean; }
 
@@ -28,6 +30,11 @@ export function ComponentDemo({ slug, options = {} }: { slug: string; options?: 
   const isPaused = options.paused ?? ambientPaused;
   const pauseControl = <button className="replay-button ambient-pause" onClick={() => setAmbientPaused(!ambientPaused)} aria-pressed={isPaused}>{isPaused ? 'Play motion' : 'Pause motion'}</button>;
   if (id === 'sticker-field') return <StickerFieldDemo/>;
+  if (id === 'scratch-reveal') return <ScratchRevealDemo/>;
+  if (id === 'pixel-swap') return <PixelSwapDemo/>;
+  if (id === 'ripple-field') return <RippleFieldDemo/>;
+  if (id === 'before-after') return <BeforeAfterDemo/>;
+  if (id === 'split-flap') return <SplitFlapDemo/>;
   if (id === 'floating-dock') return <FloatingDockDemo/>;
   if (id === 'sliding-nav') return <SlidingNavDemo/>;
   if (id === 'expanding-menu') return <ExpandingMenuDemo/>;

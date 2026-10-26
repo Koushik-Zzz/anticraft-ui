@@ -1,0 +1,36 @@
+.ac-pixel-swap,
+.ac-pixel-swap * { box-sizing: border-box; }
+.ac-pixel-swap {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  position: relative;
+  width: 100%;
+  height: var(--ac-pixel-height, 300px);
+  min-height: 230px;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--ac-pixel-paper, #e8e4d9);
+  color: var(--ac-pixel-ink, #34352d);
+  border: 1px solid var(--ac-pixel-border, rgb(52 53 45 / 14%));
+  border-radius: var(--ac-pixel-radius, 8px);
+}
+.ac-pixel-stage { position: relative; min-height: 0; overflow: hidden; }
+.ac-pixel-face,
+.ac-pixel-face > div,
+.ac-pixel-grid { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ac-pixel-face { pointer-events: none; user-select: none; overflow: hidden; }
+.ac-pixel-face[hidden] { display: none; }
+.ac-pixel-grid { display: grid; grid-template-columns: repeat(var(--ac-pixel-columns), minmax(0, 1fr)); grid-template-rows: repeat(var(--ac-pixel-rows), minmax(0, 1fr)); pointer-events: none; }
+.ac-pixel-cell { display: block; min-width: 0; min-height: 0; background: var(--ac-pixel-curtain, #e95c3c); transform: scale(0); }
+.ac-pixel-cell[data-tone="1"] { background: var(--ac-pixel-curtain-secondary, var(--ac-pixel-curtain, #e95c3c)); }
+.ac-pixel-cell[data-tone="2"] { background: var(--ac-pixel-curtain-tertiary, var(--ac-pixel-curtain, #e95c3c)); }
+.ac-pixel-swap[data-phase="covering"] .ac-pixel-cell { transform: scale(1.04); transition: transform var(--ac-pixel-cell-duration) cubic-bezier(.6, 0, .2, 1) var(--ac-pixel-delay); }
+.ac-pixel-swap[data-phase="clearing"] .ac-pixel-cell { transform: scale(0); transition: transform var(--ac-pixel-cell-duration) cubic-bezier(.6, 0, .2, 1) var(--ac-pixel-delay); }
+.ac-pixel-footer { position: relative; z-index: 1; display: flex; min-height: 56px; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 10px 6px 16px; border-top: 1px solid var(--ac-pixel-border, rgb(52 53 45 / 14%)); background: var(--ac-pixel-paper, #e8e4d9); }
+.ac-pixel-label { font: 500 10px/1.4 system-ui, sans-serif; overflow-wrap: anywhere; }
+.ac-pixel-button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 12px; flex-shrink: 0; padding: 10px 12px; border: 1px solid currentColor; border-radius: 999px; background: transparent; color: inherit; font: 500 10px/1.2 system-ui, sans-serif; cursor: pointer; }
+.ac-pixel-button > span:last-child { font-size: 22px; line-height: 1; }
+.ac-pixel-button:hover { background: rgb(52 53 45 / 6%); }
+.ac-pixel-button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.ac-pixel-button[aria-disabled="true"] { cursor: progress; }
+@media (prefers-reduced-motion: reduce) { .ac-pixel-cell { transition: none !important; } }
