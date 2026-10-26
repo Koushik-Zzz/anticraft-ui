@@ -8,6 +8,7 @@ import { GradientText } from '@/components/anticraft/GradientText';
 import { BorderBeam } from '@/components/anticraft/BorderBeam';
 import { Icon } from '@/components/site/icon';
 import { StickerFieldDemo, SpineArchiveDemo, MorphingStageDemo } from './experimental-demos';
+import { PeelRevealDemo, OrbitGalleryDemo, LenticularPanelDemo } from './object-demos';
 
 export interface DemoOptions { accent?: string; intensity?: number; paused?: boolean; }
 
@@ -25,6 +26,9 @@ export function ComponentDemo({ slug, options = {} }: { slug: string; options?: 
   const isPaused = options.paused ?? ambientPaused;
   const pauseControl = <button className="replay-button ambient-pause" onClick={() => setAmbientPaused(!ambientPaused)} aria-pressed={isPaused}>{isPaused ? 'Play motion' : 'Pause motion'}</button>;
   if (id === 'sticker-field') return <StickerFieldDemo/>;
+  if (id === 'peel-reveal') return <PeelRevealDemo/>;
+  if (id === 'orbit-gallery') return <OrbitGalleryDemo/>;
+  if (id === 'lenticular-panel') return <LenticularPanelDemo/>;
   if (id === 'spine-archive') return <SpineArchiveDemo/>;
   if (id === 'morphing-stage') return <MorphingStageDemo/>;
   if (id === 'aurora-background') return <AuroraBackground className="demo demo-aurora" paused={isPaused} color1={options.accent ?? '#e89c62'}><span className="demo-eyebrow">A LITTLE ATMOSPHERE GOES A LONG WAY</span><div className="aurora-demo-center"><span className="ambient-mini-star" aria-hidden="true">✳</span><p>A space<br/>to <em>dream.</em></p></div><div className="demo-baseline"><span className="demo-hint">Light, with a life of its own.</span>{pauseControl}</div></AuroraBackground>;

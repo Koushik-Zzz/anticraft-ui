@@ -6,6 +6,9 @@ import { components } from '@/lib/catalog';
 import './home.css';
 
 const featuredSlugs = [
+  'peel-reveal',
+  'orbit-gallery',
+  'lenticular-panel',
   'sticker-field',
   'spine-archive',
   'morphing-stage',
@@ -18,7 +21,7 @@ export function HomePage() {
   });
 
   return (
-    <main className="home-page">
+    <main className="home-page" id="main-content">
       <section className="ac-home-hero ac-home-container" aria-labelledby="ac-home-title">
         <div className="ac-home-hero-copy">
           <div className="ac-home-eyebrow ac-home-release">
@@ -63,8 +66,8 @@ export function HomePage() {
 
       <section className="ac-home-collection ac-home-container" aria-labelledby="ac-home-collection-title">
         <div className="ac-home-section-heading">
-          <div><span className="ac-home-eyebrow">THE EXPERIMENTS / 002</span><h2 id="ac-home-collection-title">Objects to move.<br className="ac-home-mobile-break" /> <em>Ideas to play with.</em></h2></div>
-          <div className="ac-home-collection-intro"><p>Drag a collage. Browse a physical archive.<br />Let a changing frame tell your story.</p><Link href="/components">View all {components.length} components <Icon name="arrow" size={15} /></Link></div>
+          <div><span className="ac-home-eyebrow">THE EXPERIMENTS / 003</span><h2 id="ac-home-collection-title">Objects to move.<br className="ac-home-mobile-break" /> <em>Ideas to play with.</em></h2></div>
+          <div className="ac-home-collection-intro"><p>Peel back a print. Spin a gallery.<br />Change your angle. Discover another view.</p><Link href="/components">View all {components.length} components <Icon name="arrow" size={15} /></Link></div>
         </div>
         <div className="ac-home-grid">
           {featured.map((component, index) => (

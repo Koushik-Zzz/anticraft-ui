@@ -10,14 +10,14 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 
 | Category | Components |
 | --- | --- |
-| Experiments | Sticker Field, Spine Archive, Morphing Stage |
+| Experiments | Peel Reveal, Orbit Gallery, Lenticular Panel, Sticker Field, Spine Archive, Morphing Stage |
 | Backgrounds | Aurora Background |
 | Buttons | Magnetic Button |
 | Typography | Split Text, Gradient Text |
 | Cards | Spotlight Card, Tilt Card, Border Beam |
 | Layout | Marquee, Editorial Accordion |
 
-All 12 components are included in the repository and local shadcn registry. The newest collection focuses on exploratory interactions: a movable sticker collage, an unfolding project archive, and a scroll-driven stage that changes geometric format. Each includes a live demo, editable source, prop documentation, and keyboard and touch controls. Effects honor the reduced-motion preference; the marquee also includes a pause control.
+All 15 components are included in the repository and local shadcn registry. The newest collection explores tactile objects: peel back a print, spin a gallery through space, and change a lenticular panel’s viewing angle to discover another artwork. These join the movable sticker collage, unfolding project archive, and geometric scroll stage. Each includes a live demo, editable source, prop documentation, and keyboard and touch controls. Effects honor the reduced-motion preference; the marquee also includes a pause control.
 
 ## Run locally
 
@@ -59,6 +59,9 @@ Each item installs both the component and its stylesheet. Targets resolve throug
 Available registry items:
 
 ```text
+/r/peel-reveal.json
+/r/orbit-gallery.json
+/r/lenticular-panel.json
 /r/sticker-field.json
 /r/spine-archive.json
 /r/morphing-stage.json
@@ -105,13 +108,13 @@ import '@anticraft-ui/react/styles.css';
 
 ## Inspiration
 
-The experimental collection studies interactions on sites featured by [Awwwards](https://www.awwwards.com/websites/). These are original React implementations with original demo artwork, adapting interaction ideas rather than copying site source or brand assets.
+The first experimental collection studies interactions on sites featured by [Awwwards](https://www.awwwards.com/websites/). These are original React implementations with original demo artwork, adapting interaction ideas rather than copying site source or brand assets. The latest additions—Peel Reveal, Orbit Gallery, and Lenticular Panel—explore the behavior of folded paper, spatial displays, and angle-dependent prints with original code and artwork.
 
 - **Sticker Field** draws on the draggable collage at [Studio Alphonse — About](https://www.studioalphonse.com/about). It adds bounded momentum, keyboard positioning and rotation, and reset controls.
 - **Spine Archive** draws on the physical VHS shelf at [Studio Alphonse — Productions](https://www.studioalphonse.com/productions). The Anticraft adaptation expands a spine into its front cover and project details.
 - **Morphing Stage** draws on the changing geometric compositions of [FORMAT by Obys × DES](https://format.obys.agency/). It adapts that idea to a bounded scroll stage with explicit frame navigation.
 
-Source references also appear on each component’s documentation page.
+Source references also appear on the documentation pages for those three adaptations.
 
 ## Contributing
 

@@ -1,0 +1,208 @@
+.ac-lenticular-panel {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: auto minmax(120px, 1fr) auto;
+  gap: 11px;
+  width: 100%;
+  height: var(--ac-lenticular-height, 360px);
+  min-height: 280px;
+  padding: var(--ac-lenticular-padding, 17px 20px 12px);
+  overflow: hidden;
+  background: var(--ac-lenticular-background, #eae7de);
+  color: var(--ac-lenticular-color, #252722);
+  text-align: left;
+}
+
+.ac-lenticular-heading,
+.ac-lenticular-control-heading,
+.ac-lenticular-endpoints,
+.ac-lenticular-instructions {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.ac-lenticular-heading,
+.ac-lenticular-control-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ac-lenticular-heading {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ac-lenticular-print {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid #151712;
+  background: var(--ac-lenticular-groove, #252722);
+  box-shadow: 3px 4px 0 #2527221a, 0 8px 18px #25272212;
+  perspective: 1800px;
+  touch-action: pan-y;
+  cursor: ew-resize;
+}
+
+.ac-lenticular-lenses {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--ac-lenticular-segments), minmax(0, 1fr));
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.ac-lenticular-lens {
+  position: relative;
+  min-width: 0;
+  height: 100%;
+  transform: rotateY(calc(var(--ac-lenticular-angle) + var(--ac-lenticular-phase) * var(--ac-lenticular-wave)));
+  transform-style: preserve-3d;
+  transition: transform 100ms linear;
+}
+
+.ac-lenticular-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: var(--ac-lenticular-groove, #252722);
+  transform: translateZ(0.5px);
+}
+
+.ac-lenticular-face-back {
+  transform: rotateY(180deg) translateZ(0.5px);
+}
+
+.ac-lenticular-artwork {
+  position: relative;
+  width: calc(100% * var(--ac-lenticular-segments));
+  height: 100%;
+  overflow: hidden;
+  transform: translateX(calc(var(--ac-lenticular-index) * -100% / var(--ac-lenticular-segments)));
+  pointer-events: none;
+  user-select: none;
+}
+
+.ac-lenticular-artwork > * {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.ac-lenticular-artwork img,
+.ac-lenticular-artwork video {
+  object-fit: cover;
+}
+
+.ac-lenticular-face::after {
+  position: absolute;
+  inset: 0;
+  border-inline: 1px solid #14161024;
+  background: linear-gradient(90deg, #ffffff14, transparent 20%, transparent 70%, #0000001c);
+  content: '';
+}
+
+.ac-lenticular-glass {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, #ffffff45 50%, transparent 70%);
+  opacity: calc(0.05 + var(--ac-lenticular-glint) * 0.25);
+  pointer-events: none;
+}
+
+.ac-lenticular-controls {
+  min-width: 0;
+}
+
+.ac-lenticular-control-heading {
+  gap: 10px;
+}
+
+.ac-lenticular-control-heading label {
+  font-weight: 600;
+}
+
+.ac-lenticular-range {
+  display: block;
+  width: 100%;
+  height: 22px;
+  margin: 0;
+  accent-color: var(--ac-lenticular-accent, #df5b39);
+  cursor: ew-resize;
+}
+
+.ac-lenticular-range:focus-visible,
+.ac-lenticular-endpoints button:focus-visible {
+  outline: 2px solid var(--ac-lenticular-focus, #293feb);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.ac-lenticular-endpoints {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.ac-lenticular-endpoints button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 44px;
+  min-height: 44px;
+  max-width: calc(50% - 7px);
+  padding: 3px 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  text-wrap: balance;
+  cursor: pointer;
+  opacity: 0.67;
+}
+
+.ac-lenticular-endpoints button[aria-pressed='true'] {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ac-lenticular-instructions {
+  margin: 2px 0 0;
+  font-size: 8px;
+  opacity: 0.62;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-lenticular-lens {
+    transform: rotateY(0deg);
+    transition: none;
+  }
+
+  .ac-lenticular-face-back {
+    transform: translateZ(0.5px);
+    visibility: hidden;
+  }
+
+  .ac-lenticular-panel[data-side='back'] .ac-lenticular-face-front {
+    visibility: hidden;
+  }
+
+  .ac-lenticular-panel[data-side='back'] .ac-lenticular-face-back {
+    visibility: visible;
+  }
+
+  .ac-lenticular-print {
+    cursor: default;
+  }
+}

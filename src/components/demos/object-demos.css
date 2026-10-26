@@ -1,0 +1,28 @@
+.obj-peel-demo { --ac-peel-height: 100%; container-type: inline-size; }
+.obj-peel-front { position: relative; display: flex; flex-direction: column; height: 100%; width: 100%; padding: 23px; overflow: hidden; background: #e77c4e; color: #422f22; text-align: left; }
+.obj-peel-top { display: flex; justify-content: space-between; gap: 14px; font-size: 6px; line-height: 1.4; letter-spacing: 1px; }
+.obj-peel-asterisk { position: absolute; top: 21%; right: 8%; font-size: clamp(88px, 30cqw, 160px); line-height: 1; font-family: Arial, sans-serif; font-weight: 300; color: #f1b16b; transform: rotate(-15deg); }
+.obj-peel-front strong { position: relative; margin-top: auto; margin-bottom: 26px; font-size: clamp(32px, 10cqw, 65px); font-weight: 750; letter-spacing: -.065em; line-height: .86; }
+.obj-peel-front strong em { font-family: var(--serif); font-weight: 400; font-size: 1.12em; }
+.obj-peel-foot { font-size: 6px; letter-spacing: 1px; padding-right: 75px; }
+.obj-peel-secret { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%; padding: 29px 24px; background: #d8e5b7; color: #31432b; text-align: center; }
+.obj-peel-secret > span { font-size: 6px; letter-spacing: 1.1px; }
+.obj-peel-secret > svg { width: 150px; height: 95px; margin: 12px 0 4px; }
+.obj-peel-secret h3 { font-size: clamp(27px, 8cqw, 48px); line-height: .94; letter-spacing: -.05em; font-weight: 500; margin: 0; }
+.obj-peel-secret h3 em { font-family: var(--serif); font-weight: 400; font-size: 1.2em; }
+.obj-peel-secret p { margin: 12px 0 14px; font-size: 9px; line-height: 1.5; }
+.obj-peel-secret a { font-size: 9px; text-underline-offset: 4px; text-decoration: underline; padding: 5px; }
+.obj-orbit-demo { --ac-orbit-height: 100%; }
+.obj-lenticular-demo { --ac-lenticular-height: 100%; }
+.catalog-card-preview:has(.obj-peel-demo, .obj-orbit-demo, .obj-lenticular-demo),
+.home-preview:has(.obj-peel-demo, .obj-orbit-demo, .obj-lenticular-demo) { height: 360px; }
+.component-playground .obj-peel-front { padding: 28px; }
+.component-playground .obj-peel-front strong { max-width: 510px; margin-bottom: 34px; }
+.component-playground .obj-peel-secret > svg { width: 190px; height: 120px; }
+.component-playground .obj-peel-secret > span { font-size: 8px; }
+.component-playground .obj-peel-secret p, .component-playground .obj-peel-secret a { font-size: 11px; }
+@media (max-width: 640px) {
+  .component-playground .obj-peel-front strong { font-size: 48px; }
+  .component-playground .obj-peel-secret > svg { width: 150px; height: 95px; }
+  .component-playground .obj-peel-secret p, .component-playground .obj-peel-secret a { font-size: 9px; }
+}

@@ -1,3 +1,5 @@
+import { objectComponents } from './object-catalog';
+
 export type ComponentCategory = 'Experiments' | 'Backgrounds' | 'Buttons' | 'Typography' | 'Cards' | 'Layout';
 
 export type ComponentDefinition = {
@@ -17,6 +19,7 @@ export type ComponentDefinition = {
 export const categories: ComponentCategory[] = ['Experiments', 'Backgrounds', 'Buttons', 'Typography', 'Cards', 'Layout'];
 
 export const components: ComponentDefinition[] = [
+  ...objectComponents,
   {
     slug: 'sticker-field',
     title: 'Sticker Field',

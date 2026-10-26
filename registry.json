@@ -4,6 +4,69 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "peel-reveal",
+      "type": "registry:component",
+      "title": "Peel Reveal",
+      "description": "A tactile corner peel that uncovers a second artwork beneath the surface.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/PeelReveal.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/PeelReveal.tsx"
+        },
+        {
+          "path": "src/components/anticraft/peel-reveal.css",
+          "type": "registry:file",
+          "target": "components/anticraft/peel-reveal.css"
+        }
+      ]
+    },
+    {
+      "name": "orbit-gallery",
+      "type": "registry:component",
+      "title": "Orbit Gallery",
+      "description": "A spatial gallery of artwork arranged around a draggable three-dimensional orbit.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/OrbitGallery.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/OrbitGallery.tsx"
+        },
+        {
+          "path": "src/components/anticraft/orbit-gallery.css",
+          "type": "registry:file",
+          "target": "components/anticraft/orbit-gallery.css"
+        }
+      ]
+    },
+    {
+      "name": "lenticular-panel",
+      "type": "registry:component",
+      "title": "Lenticular Panel",
+      "description": "A two-sided print that changes artwork as its vertical lenses turn with the viewing angle.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/LenticularPanel.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/LenticularPanel.tsx"
+        },
+        {
+          "path": "src/components/anticraft/lenticular-panel.css",
+          "type": "registry:file",
+          "target": "components/anticraft/lenticular-panel.css"
+        }
+      ]
+    },
+    {
       "name": "sticker-field",
       "type": "registry:component",
       "title": "Sticker Field",

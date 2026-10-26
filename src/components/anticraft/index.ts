@@ -1,5 +1,11 @@
 "use client";
 
+export { PeelReveal } from './PeelReveal';
+export { OrbitGallery } from './OrbitGallery';
+export { LenticularPanel } from './LenticularPanel';
+export type { PeelRevealProps } from './PeelReveal';
+export type { OrbitGalleryProps, OrbitGalleryItem } from './OrbitGallery';
+export type { LenticularPanelProps } from './LenticularPanel';
 export { MagneticButton } from './MagneticButton';
 export { SplitText } from './SplitText';
 export { SpotlightCard } from './SpotlightCard';
