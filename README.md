@@ -10,14 +10,14 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 
 | Category | Components |
 | --- | --- |
-| Experiments | Peel Reveal, Orbit Gallery, Lenticular Panel, Sticker Field, Spine Archive, Morphing Stage |
+| Experiments | Cursor Trail, Throw Stack, Elastic Type, Peel Reveal, Orbit Gallery, Lenticular Panel, Sticker Field, Spine Archive, Morphing Stage |
 | Backgrounds | Aurora Background |
 | Buttons | Magnetic Button |
 | Typography | Split Text, Gradient Text |
 | Cards | Spotlight Card, Tilt Card, Border Beam |
 | Layout | Marquee, Editorial Accordion |
 
-All 15 components are included in the repository and local shadcn registry. The newest collection explores tactile objects: peel back a print, spin a gallery through space, and change a lenticular panel’s viewing angle to discover another artwork. These join the movable sticker collage, unfolding project archive, and geometric scroll stage. Each includes a live demo, editable source, prop documentation, and keyboard and touch controls. Effects honor the reduced-motion preference; the marquee also includes a pause control.
+All 18 components are included in the repository and local shadcn registry, including nine experiments. The newest collection explores gestures: leave a trail of art prints, throw a poster aside, and stretch letterforms around the pointer. These join the peelable print, spatial gallery, lenticular panel, movable sticker collage, unfolding project archive, and geometric scroll stage. Each includes a live demo, editable source, and prop documentation. Interactive objects have keyboard and touch controls; Elastic Type stays readable and static on touch screens. Effects honor the reduced-motion preference; the marquee also includes a pause control.
 
 ## Run locally
 
@@ -59,6 +59,9 @@ Each item installs both the component and its stylesheet. Targets resolve throug
 Available registry items:
 
 ```text
+/r/cursor-trail.json
+/r/throw-stack.json
+/r/elastic-type.json
 /r/peel-reveal.json
 /r/orbit-gallery.json
 /r/lenticular-panel.json
@@ -108,7 +111,7 @@ import '@anticraft-ui/react/styles.css';
 
 ## Inspiration
 
-The first experimental collection studies interactions on sites featured by [Awwwards](https://www.awwwards.com/websites/). These are original React implementations with original demo artwork, adapting interaction ideas rather than copying site source or brand assets. The latest additions—Peel Reveal, Orbit Gallery, and Lenticular Panel—explore the behavior of folded paper, spatial displays, and angle-dependent prints with original code and artwork.
+The first experimental collection studies interactions on sites featured by [Awwwards](https://www.awwwards.com/websites/). These are original React implementations with original demo artwork, adapting interaction ideas rather than copying site source or brand assets. Later additions explore folded paper, spatial displays, angle-dependent prints, pointer trails, throwable posters, and elastic typography with original code and artwork.
 
 - **Sticker Field** draws on the draggable collage at [Studio Alphonse — About](https://www.studioalphonse.com/about). It adds bounded momentum, keyboard positioning and rotation, and reset controls.
 - **Spine Archive** draws on the physical VHS shelf at [Studio Alphonse — Productions](https://www.studioalphonse.com/productions). The Anticraft adaptation expands a spine into its front cover and project details.

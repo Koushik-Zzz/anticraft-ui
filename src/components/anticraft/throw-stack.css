@@ -1,0 +1,225 @@
+.ac-throw-stack {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 9px;
+  width: 100%;
+  height: var(--ac-throw-height, 360px);
+  min-height: 280px;
+  overflow: hidden;
+  padding: 17px 20px 18px;
+  border-radius: var(--ac-throw-radius, 0);
+  background: var(--ac-throw-background, #d5dfd2);
+  color: var(--ac-throw-color, #26372f);
+  font-family: inherit;
+  text-align: left;
+  isolation: isolate;
+}
+
+.ac-throw-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 9px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ac-throw-divider { padding-inline: 5px; opacity: 0.4; }
+
+.ac-throw-stage {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  perspective: 900px;
+  container-type: size;
+  outline-offset: -3px;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: grab;
+}
+
+.ac-throw-stage:focus-visible { outline: 2px solid var(--ac-throw-focus, #2b684d); }
+.ac-throw-stack[data-phase='dragging'] .ac-throw-stage { cursor: grabbing; }
+.ac-throw-stack[data-phase='flying'] .ac-throw-stage { cursor: default; }
+
+.ac-throw-guide {
+  position: absolute;
+  top: 42%;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px dashed currentColor;
+  border-radius: 50%;
+  font-size: 14px;
+  opacity: 0.26;
+  pointer-events: none;
+}
+
+.ac-throw-guide-left { left: 0; }
+.ac-throw-guide-right { right: 0; }
+
+.ac-throw-shadow {
+  position: absolute;
+  right: 25%;
+  bottom: 8%;
+  left: 25%;
+  height: 13%;
+  border-radius: 50%;
+  background: #13251c3b;
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.ac-throw-posters { position: absolute; inset: 0; perspective: inherit; pointer-events: none; }
+
+.ac-throw-poster {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  width: min(61cqh, 62cqw, 190px);
+  height: min(77cqh, 242px);
+  overflow: hidden;
+  border: 1px solid #fff6;
+  border-radius: 2px;
+  background: var(--ac-throw-card-color);
+  box-shadow: 0 3px 6px #14251c24, 0 12px 17px #14251c1c;
+  transform-origin: 50% 75%;
+  backface-visibility: hidden;
+  transition: transform 340ms cubic-bezier(0.22, 0.75, 0.25, 1);
+}
+
+.ac-throw-poster::after {
+  position: absolute;
+  inset: 0;
+  border: 4px solid #fff2;
+  background: linear-gradient(125deg, #fff2, transparent 45%, #0001);
+  content: '';
+  pointer-events: none;
+}
+
+.ac-throw-poster[data-depth='0'] {
+  transform: translate(-50%, -50%) translate3d(var(--ac-throw-x, 0px), var(--ac-throw-y, 0px), 0) rotate(var(--ac-throw-turn, 0deg)) rotateY(var(--ac-throw-tilt, 0deg));
+}
+.ac-throw-poster[data-depth='1'] { transform: translate(-50%, -50%) translate(9px, 7px) rotate(5deg) scale(0.98); }
+.ac-throw-poster[data-depth='2'] { transform: translate(-50%, -50%) translate(-7px, 13px) rotate(-7deg) scale(0.96); }
+.ac-throw-poster[data-depth='3'] { transform: translate(-50%, -50%) translate(4px, 19px) rotate(10deg) scale(0.94); }
+.ac-throw-stack[data-phase='dragging'] .ac-throw-poster[data-depth='0'] { transition: none; }
+.ac-throw-stack[data-phase='flying'] .ac-throw-poster[data-depth='0'] { transition: transform 280ms cubic-bezier(0.4, 0, 0.8, 0.55); }
+
+.ac-throw-artwork { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.ac-throw-artwork > * { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.ac-throw-number {
+  position: absolute;
+  right: 9px;
+  bottom: 9px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #fff6;
+  border-radius: 50%;
+  background: #16251b80;
+  color: #fff;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 8px;
+  line-height: 1;
+}
+
+.ac-throw-hint {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.6;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 8px;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.ac-throw-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 45px;
+  padding-top: 10px;
+  border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+}
+
+.ac-throw-caption { min-width: 0; }
+.ac-throw-title {
+  overflow: hidden;
+  margin: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ac-throw-subtitle {
+  overflow: hidden;
+  margin: 5px 0 0;
+  opacity: 0.6;
+  font-size: 10px;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ac-throw-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 24px;
+  margin-top: 4px;
+  color: inherit;
+  font-size: 10px;
+  line-height: 1.3;
+  text-underline-offset: 3px;
+}
+.ac-throw-controls { display: flex; flex: 0 0 auto; gap: 5px; }
+.ac-throw-controls > button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 19px;
+  line-height: 1;
+  touch-action: manipulation;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+.ac-throw-controls > button:disabled,
+.ac-throw-controls > button[aria-disabled='true'] { opacity: 0.3; cursor: default; }
+.ac-throw-controls > button:focus-visible,
+.ac-throw-link:focus-visible { outline: 2px solid var(--ac-throw-focus, #2b684d); outline-offset: 3px; }
+@media (hover: hover) {
+  .ac-throw-controls > button:hover:enabled:not([aria-disabled='true']) { background: var(--ac-throw-color, #26372f); color: var(--ac-throw-background, #d5dfd2); }
+}
+.ac-throw-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+@media (prefers-reduced-motion: reduce) {
+  .ac-throw-stack .ac-throw-poster,
+  .ac-throw-controls > button { transition: none; }
+}

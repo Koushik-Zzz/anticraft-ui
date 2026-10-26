@@ -1,0 +1,47 @@
+.ac-elastic-type {
+  position: relative;
+  min-width: 0;
+  max-width: 100%;
+  color: inherit;
+  overflow-wrap: anywhere;
+}
+
+.ac-elastic-type__accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ac-elastic-type__visual {
+  display: block;
+  white-space: pre-wrap;
+}
+
+.ac-elastic-type__word {
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+  vertical-align: baseline;
+}
+
+.ac-elastic-type__letter,
+.ac-elastic-type__glyph {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.ac-elastic-type__glyph {
+  transform-origin: 50% 75%;
+}
+
+@media (prefers-reduced-motion: reduce), (hover: none) {
+  .ac-elastic-type__glyph {
+    transform: none !important;
+    will-change: auto !important;
+  }
+}

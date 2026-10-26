@@ -1,5 +1,11 @@
 "use client";
 
+export { CursorTrail } from './CursorTrail';
+export { ThrowStack } from './ThrowStack';
+export { ElasticType } from './ElasticType';
+export type { CursorTrailProps, CursorTrailItem } from './CursorTrail';
+export type { ThrowStackProps, ThrowStackItem } from './ThrowStack';
+export type { ElasticTypeProps } from './ElasticType';
 export { PeelReveal } from './PeelReveal';
 export { OrbitGallery } from './OrbitGallery';
 export { LenticularPanel } from './LenticularPanel';

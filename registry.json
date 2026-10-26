@@ -4,6 +4,63 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "cursor-trail",
+      "type": "registry:component",
+      "title": "Cursor Trail",
+      "description": "A trail of art prints that follows the pointer, with a manual stamping control.",
+      "dependencies": ["react"],
+      "files": [
+        {
+          "path": "src/components/anticraft/CursorTrail.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/CursorTrail.tsx"
+        },
+        {
+          "path": "src/components/anticraft/cursor-trail.css",
+          "type": "registry:file",
+          "target": "components/anticraft/cursor-trail.css"
+        }
+      ]
+    },
+    {
+      "name": "throw-stack",
+      "type": "registry:component",
+      "title": "Throw Stack",
+      "description": "A tactile deck of posters that can be picked up and thrown aside to reveal the next artwork.",
+      "dependencies": ["react"],
+      "files": [
+        {
+          "path": "src/components/anticraft/ThrowStack.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ThrowStack.tsx"
+        },
+        {
+          "path": "src/components/anticraft/throw-stack.css",
+          "type": "registry:file",
+          "target": "components/anticraft/throw-stack.css"
+        }
+      ]
+    },
+    {
+      "name": "elastic-type",
+      "type": "registry:component",
+      "title": "Elastic Type",
+      "description": "Kinetic letterforms that squash, stretch, and spring back around the pointer.",
+      "dependencies": ["react"],
+      "files": [
+        {
+          "path": "src/components/anticraft/ElasticType.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ElasticType.tsx"
+        },
+        {
+          "path": "src/components/anticraft/elastic-type.css",
+          "type": "registry:file",
+          "target": "components/anticraft/elastic-type.css"
+        }
+      ]
+    },
+    {
       "name": "peel-reveal",
       "type": "registry:component",
       "title": "Peel Reveal",

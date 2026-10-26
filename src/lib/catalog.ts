@@ -1,4 +1,5 @@
 import { objectComponents } from './object-catalog';
+import { playComponents } from './play-catalog';
 
 export type ComponentCategory = 'Experiments' | 'Backgrounds' | 'Buttons' | 'Typography' | 'Cards' | 'Layout';
 
@@ -19,6 +20,7 @@ export type ComponentDefinition = {
 export const categories: ComponentCategory[] = ['Experiments', 'Backgrounds', 'Buttons', 'Typography', 'Cards', 'Layout'];
 
 export const components: ComponentDefinition[] = [
+  ...playComponents,
   ...objectComponents,
   {
     slug: 'sticker-field',

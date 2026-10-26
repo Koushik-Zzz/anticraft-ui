@@ -1,0 +1,31 @@
+.play-trail-demo { --ac-trail-height: 100%; --ac-trail-background: #e4e7d8; --ac-trail-color: #34412d; --ac-trail-accent: #495f3c; container-type: inline-size; }
+.play-trail-backdrop { position: absolute; inset: 0; display: flex; align-items: center; flex-direction: column; justify-content: center; padding: 23px; background-image: radial-gradient(#a9b49b 0.6px, transparent 0.6px); background-size: 20px 20px; pointer-events: none; }
+.play-trail-backdrop > span:first-child { position: absolute; left: 22px; top: 23px; font-size: 7px; letter-spacing: 1px; }
+.play-trail-backdrop p { margin: -4px 0 0; font-size: clamp(39px, 13cqw, 78px); line-height: .93; font-weight: 550; letter-spacing: -.065em; text-align: center; }
+.play-trail-backdrop em { font-family: var(--serif); font-weight: 400; font-size: 1.18em; }
+.play-trail-note { position: absolute; bottom: 18px; font-size: 5px; letter-spacing: .8px; text-align: center; }
+.play-trail-coordinate { position: absolute; font-size: 24px; font-weight: 300; color: #788969; line-height: 1; }
+.play-trail-coordinate small { display: block; margin-top: 5px; font: 5px ui-monospace, monospace; letter-spacing: .4px; }
+.play-trail-coordinate-a { left: 26px; top: 33%; }
+.play-trail-coordinate-b { right: 26px; bottom: 28%; }
+.play-stack-demo { --ac-throw-height: 100%; }
+.play-type-demo { container-type: inline-size; background: #3445c6; color: #ebefb7; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
+.play-type-eyebrow { font-size: 6px; letter-spacing: 1px; color: #ccd1ed; }
+.play-type-words { align-self: center; width: 100%; padding: 12px 0; }
+.play-type-word { margin: 0; font-family: var(--sans); font-size: clamp(45px, 22cqw, 115px); line-height: .96; letter-spacing: -.065em; font-weight: 800; text-align: center; }
+.play-type-outline { color: transparent; -webkit-text-stroke: 1px #ebefb7; }
+.play-type-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #d6daf2; }
+.play-type-footer > span { font-size: 8px; }
+.play-type-footer > div { display: flex; gap: 3px; }
+.play-type-footer button { background: transparent; color: inherit; border: 1px solid #d6daf23a; padding: 7px 6px; border-radius: 3px; font-size: 7px; }
+.play-type-footer button[aria-pressed='true'] { background: #ebefb7; border-color: #ebefb7; color: #303eaa; }
+.catalog-card-preview:has(.play-trail-demo, .play-stack-demo, .play-type-demo),
+.home-preview:has(.play-trail-demo, .play-stack-demo, .play-type-demo) { height: 360px; }
+.component-playground .play-type-demo { padding: 28px; }
+.component-playground .play-type-eyebrow { font-size: 8px; }
+.component-playground .play-type-footer > span { font-size: 10px; }
+.component-playground .play-type-footer button { font-size: 9px; padding: 8px 10px; }
+@container (max-width: 330px) {
+  .play-type-footer { align-items: flex-start; flex-direction: column; gap: 9px; }
+  .play-trail-note { max-width: 190px; line-height: 1.6; }
+}
