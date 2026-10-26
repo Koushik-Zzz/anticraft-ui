@@ -6,12 +6,12 @@ import { components } from '@/lib/catalog';
 import './home.css';
 
 const featuredSlugs = [
+  'floating-dock',
+  'sliding-nav',
+  'expanding-menu',
+  'radial-nav',
+  'curtain-menu',
   'cursor-trail',
-  'throw-stack',
-  'elastic-type',
-  'peel-reveal',
-  'orbit-gallery',
-  'lenticular-panel',
 ];
 
 export function HomePage() {
@@ -66,8 +66,8 @@ export function HomePage() {
 
       <section className="ac-home-collection ac-home-container" aria-labelledby="ac-home-collection-title">
         <div className="ac-home-section-heading">
-          <div><span className="ac-home-eyebrow">THE EXPERIMENTS / 004</span><h2 id="ac-home-collection-title">Follow your curiosity.<br className="ac-home-mobile-break" /> <em>Leave a little motion.</em></h2></div>
-          <div className="ac-home-collection-intro"><p>Leave a trail. Throw a poster.<br />Stretch a word. See where it takes you.</p><Link href="/components">View all {components.length} components <Icon name="arrow" size={15} /></Link></div>
+          <div><span className="ac-home-eyebrow">THE COLLECTION / 005</span><h2 id="ac-home-collection-title">Find your way.<br className="ac-home-mobile-break" /> <em>Make an entrance.</em></h2></div>
+          <div className="ac-home-collection-intro"><p>A floating dock. An unfolding index.<br />Five new ways to get somewhere good.</p><Link href="/components">View all {components.length} components <Icon name="arrow" size={15} /></Link></div>
         </div>
         <div className="ac-home-grid">
           {featured.map((component, index) => (

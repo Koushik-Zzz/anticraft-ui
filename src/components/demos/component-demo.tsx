@@ -10,6 +10,7 @@ import { Icon } from '@/components/site/icon';
 import { StickerFieldDemo, SpineArchiveDemo, MorphingStageDemo } from './experimental-demos';
 import { PeelRevealDemo, OrbitGalleryDemo, LenticularPanelDemo } from './object-demos';
 import { CursorTrailDemo, ThrowStackDemo, ElasticTypeDemo } from './play-demos';
+import { FloatingDockDemo, SlidingNavDemo, ExpandingMenuDemo, RadialNavDemo, CurtainMenuDemo } from './nav-demos';
 
 export interface DemoOptions { accent?: string; intensity?: number; paused?: boolean; }
 
@@ -27,6 +28,11 @@ export function ComponentDemo({ slug, options = {} }: { slug: string; options?: 
   const isPaused = options.paused ?? ambientPaused;
   const pauseControl = <button className="replay-button ambient-pause" onClick={() => setAmbientPaused(!ambientPaused)} aria-pressed={isPaused}>{isPaused ? 'Play motion' : 'Pause motion'}</button>;
   if (id === 'sticker-field') return <StickerFieldDemo/>;
+  if (id === 'floating-dock') return <FloatingDockDemo/>;
+  if (id === 'sliding-nav') return <SlidingNavDemo/>;
+  if (id === 'expanding-menu') return <ExpandingMenuDemo/>;
+  if (id === 'radial-nav') return <RadialNavDemo/>;
+  if (id === 'curtain-menu') return <CurtainMenuDemo/>;
   if (id === 'cursor-trail') return <CursorTrailDemo/>;
   if (id === 'throw-stack') return <ThrowStackDemo/>;
   if (id === 'elastic-type') return <ElasticTypeDemo/>;

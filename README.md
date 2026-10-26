@@ -10,6 +10,7 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 
 | Category | Components |
 | --- | --- |
+| Navigation | Floating Dock, Sliding Nav, Expanding Menu, Radial Nav, Curtain Menu |
 | Experiments | Cursor Trail, Throw Stack, Elastic Type, Peel Reveal, Orbit Gallery, Lenticular Panel, Sticker Field, Spine Archive, Morphing Stage |
 | Backgrounds | Aurora Background |
 | Buttons | Magnetic Button |
@@ -17,7 +18,7 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 | Cards | Spotlight Card, Tilt Card, Border Beam |
 | Layout | Marquee, Editorial Accordion |
 
-All 18 components are included in the repository and local shadcn registry, including nine experiments. The newest collection explores gestures: leave a trail of art prints, throw a poster aside, and stretch letterforms around the pointer. These join the peelable print, spatial gallery, lenticular panel, movable sticker collage, unfolding project archive, and geometric scroll stage. Each includes a live demo, editable source, and prop documentation. Interactive objects have keyboard and touch controls; Elastic Type stays readable and static on touch screens. Effects honor the reduced-motion preference; the marquee also includes a pause control.
+All 23 components are included in the repository and local shadcn registry: five navigation components, nine experiments, and the original core collection. The newest additions explore entrances and destinations: a magnifying dock, a shared sliding indicator, an expanding index, a radial disclosure, and a full-screen curtain. Navigation uses ordinary anchors, controlled current-page indicators, and keyboard access. Disclosures hide closed links; Curtain Menu uses a native modal dialog with focus containment and restoration. Each component includes a live demo, editable source, and prop documentation. Interactive objects have keyboard and touch controls; Elastic Type stays readable and static on touch screens. Effects honor the reduced-motion preference; the marquee also includes a pause control.
 
 ## Run locally
 
@@ -59,6 +60,11 @@ Each item installs both the component and its stylesheet. Targets resolve throug
 Available registry items:
 
 ```text
+/r/floating-dock.json
+/r/sliding-nav.json
+/r/expanding-menu.json
+/r/radial-nav.json
+/r/curtain-menu.json
 /r/cursor-trail.json
 /r/throw-stack.json
 /r/elastic-type.json

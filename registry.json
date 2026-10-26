@@ -4,6 +4,111 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "floating-dock",
+      "type": "registry:component",
+      "title": "Floating Dock",
+      "description": "A magnifying icon dock with neighboring lift, labels, and ordinary navigation links.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/FloatingDock.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/FloatingDock.tsx"
+        },
+        {
+          "path": "src/components/anticraft/floating-dock.css",
+          "type": "registry:file",
+          "target": "components/anticraft/floating-dock.css"
+        }
+      ]
+    },
+    {
+      "name": "sliding-nav",
+      "type": "registry:component",
+      "title": "Sliding Nav",
+      "description": "A measured shared indicator that follows hover and focus before returning to the current destination.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/SlidingNav.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/SlidingNav.tsx"
+        },
+        {
+          "path": "src/components/anticraft/sliding-nav.css",
+          "type": "registry:file",
+          "target": "components/anticraft/sliding-nav.css"
+        }
+      ]
+    },
+    {
+      "name": "expanding-menu",
+      "type": "registry:component",
+      "title": "Expanding Menu",
+      "description": "A compact navigation capsule that unfolds into an editorial index.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ExpandingMenu.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ExpandingMenu.tsx"
+        },
+        {
+          "path": "src/components/anticraft/expanding-menu.css",
+          "type": "registry:file",
+          "target": "components/anticraft/expanding-menu.css"
+        }
+      ]
+    },
+    {
+      "name": "radial-nav",
+      "type": "registry:component",
+      "title": "Radial Nav",
+      "description": "An accessible disclosure with destinations arranged around a central trigger.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/RadialNav.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/RadialNav.tsx"
+        },
+        {
+          "path": "src/components/anticraft/radial-nav.css",
+          "type": "registry:file",
+          "target": "components/anticraft/radial-nav.css"
+        }
+      ]
+    },
+    {
+      "name": "curtain-menu",
+      "type": "registry:component",
+      "title": "Curtain Menu",
+      "description": "A full-screen editorial navigation sheet with a native modal dialog and curtain entrance.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/CurtainMenu.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/CurtainMenu.tsx"
+        },
+        {
+          "path": "src/components/anticraft/curtain-menu.css",
+          "type": "registry:file",
+          "target": "components/anticraft/curtain-menu.css"
+        }
+      ]
+    },
+    {
       "name": "cursor-trail",
       "type": "registry:component",
       "title": "Cursor Trail",

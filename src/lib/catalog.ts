@@ -1,7 +1,8 @@
 import { objectComponents } from './object-catalog';
 import { playComponents } from './play-catalog';
+import { navComponents } from './nav-catalog';
 
-export type ComponentCategory = 'Experiments' | 'Backgrounds' | 'Buttons' | 'Typography' | 'Cards' | 'Layout';
+export type ComponentCategory = 'Navigation' | 'Experiments' | 'Backgrounds' | 'Buttons' | 'Typography' | 'Cards' | 'Layout';
 
 export type ComponentDefinition = {
   slug: string;
@@ -17,9 +18,10 @@ export type ComponentDefinition = {
   inspiration?: { name: string; url: string; note: string };
 };
 
-export const categories: ComponentCategory[] = ['Experiments', 'Backgrounds', 'Buttons', 'Typography', 'Cards', 'Layout'];
+export const categories: ComponentCategory[] = ['Navigation', 'Experiments', 'Backgrounds', 'Buttons', 'Typography', 'Cards', 'Layout'];
 
 export const components: ComponentDefinition[] = [
+  ...navComponents,
   ...playComponents,
   ...objectComponents,
   {

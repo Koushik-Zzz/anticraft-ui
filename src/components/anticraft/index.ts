@@ -1,5 +1,15 @@
 "use client";
 
+export { FloatingDock } from './FloatingDock';
+export { SlidingNav } from './SlidingNav';
+export { ExpandingMenu } from './ExpandingMenu';
+export { RadialNav } from './RadialNav';
+export { CurtainMenu } from './CurtainMenu';
+export type { FloatingDockProps, FloatingDockItem } from './FloatingDock';
+export type { SlidingNavProps, SlidingNavItem } from './SlidingNav';
+export type { ExpandingMenuProps, ExpandingMenuItem } from './ExpandingMenu';
+export type { RadialNavProps, RadialNavItem } from './RadialNav';
+export type { CurtainMenuProps, CurtainMenuItem } from './CurtainMenu';
 export { CursorTrail } from './CursorTrail';
 export { ThrowStack } from './ThrowStack';
 export { ElasticType } from './ElasticType';
