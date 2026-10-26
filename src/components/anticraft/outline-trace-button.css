@@ -12,7 +12,7 @@
   max-width: 100%;
   padding: 15px 23px;
   border: 1px solid var(--ac-trace-line);
-  border-radius: 4px;
+  border-radius: var(--ac-trace-radius, 4px);
   background: var(--ac-trace-surface);
   color: var(--ac-trace-ink);
   font: inherit;
@@ -38,6 +38,9 @@
   pointer-events: none;
 }
 .ac-outline-trace-button__line rect {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  rx: max(0px, calc(var(--ac-trace-radius, 4px) - 1px));
   vector-effect: non-scaling-stroke;
   stroke-dasharray: 100;
   stroke-dashoffset: 100;

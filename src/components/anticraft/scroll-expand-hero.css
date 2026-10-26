@@ -1,0 +1,144 @@
+.ac-scroll-expand-hero {
+  --ac-scroll-expand-progress: 0;
+  --ac-scroll-expand-view: 800px;
+  --ac-scroll-expand-paper: #18382e;
+  --ac-scroll-expand-ink: #f3f0e5;
+  --ac-scroll-expand-muted: #d3ddd0;
+  --ac-scroll-expand-start-top: 310px;
+  --ac-scroll-expand-start-bottom: 50px;
+  --ac-scroll-expand-content-height: 0px;
+  --ac-scroll-expand-pin-height: max(440px, calc(var(--ac-scroll-expand-view) * .96), var(--ac-scroll-expand-content-height));
+  position: relative;
+  min-height: calc(var(--ac-scroll-expand-pin-height) + var(--ac-scroll-expand-view) * .85);
+  background: var(--ac-scroll-expand-paper);
+  color: var(--ac-scroll-expand-ink);
+  font-family: inherit;
+  container-type: inline-size;
+  isolation: isolate;
+}
+
+.ac-scroll-expand-hero * { box-sizing: border-box; }
+
+.ac-scroll-expand-pin {
+  position: sticky;
+  top: 0;
+  display: block;
+  gap: clamp(18px, 3cqw, 40px);
+  height: var(--ac-scroll-expand-pin-height);
+  padding-top: clamp(25px, 5cqw, 64px);
+  padding-bottom: 17px;
+}
+
+.ac-scroll-expand-copy {
+  position: relative;
+  z-index: 2;
+  padding-inline: clamp(20px, 5cqw, 72px);
+  text-align: center;
+  transform: translateY(calc(var(--ac-scroll-expand-progress) * -14px));
+}
+
+.ac-scroll-expand-eyebrow {
+  margin: 0 0 17px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.ac-scroll-expand-copy h2 {
+  max-width: 14ch;
+  margin: 0 auto;
+  font-family: var(--ac-scroll-expand-heading-font, Georgia, serif);
+  font-size: clamp(42px, 9.8cqw, 138px);
+  font-weight: 400;
+  line-height: .93;
+  letter-spacing: -.065em;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.ac-scroll-expand-description {
+  max-width: 42ch;
+  margin: 19px auto 0;
+  color: var(--ac-scroll-expand-muted);
+  font-size: clamp(12px, 1.25cqw, 16px);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.ac-scroll-expand-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  min-height: 44px;
+  margin-top: 20px;
+  padding: 10px 19px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: inherit;
+  font-size: 12px;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.ac-scroll-expand-action:hover { background: var(--ac-scroll-expand-ink); color: var(--ac-scroll-expand-paper); }
+.ac-scroll-expand-action:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+.ac-scroll-expand-action span { font-size: 17px; }
+
+.ac-scroll-expand-media {
+  position: absolute;
+  z-index: 0;
+  top: calc(var(--ac-scroll-expand-start-top) * (1 - var(--ac-scroll-expand-progress)));
+  bottom: calc(var(--ac-scroll-expand-start-bottom) * (1 - var(--ac-scroll-expand-progress)));
+  left: 50%;
+  width: calc(68% + var(--ac-scroll-expand-progress) * 32%);
+  min-height: 0;
+  overflow: hidden;
+  border-radius: calc((1 - var(--ac-scroll-expand-progress)) * 28px);
+  background: #29483b;
+  transform: translateX(-50%);
+}
+
+.ac-scroll-expand-media::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background: linear-gradient(180deg, #0c2018cc 0%, #0c2018b3 43%, #0c20182e 75%, #0c201880 100%);
+  pointer-events: none;
+}
+
+.ac-scroll-expand-media > * { display: block; width: 100%; height: 100%; }
+.ac-scroll-expand-media img, .ac-scroll-expand-media video { object-fit: cover; }
+
+.ac-scroll-expand-caption {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 17px;
+  left: 0;
+  margin: 0;
+  padding-inline: 20px;
+  color: var(--ac-scroll-expand-muted);
+  font-size: 9px;
+  line-height: 1.5;
+  letter-spacing: .08em;
+  text-align: center;
+}
+
+@container (max-width: 520px) {
+  .ac-scroll-expand-pin { gap: 19px; padding-top: 25px; }
+  .ac-scroll-expand-eyebrow { margin-bottom: 14px; font-size: 8px; }
+  .ac-scroll-expand-description { margin-top: 14px; }
+  .ac-scroll-expand-action { margin-top: 15px; font-size: 11px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-scroll-expand-hero { min-height: 0; }
+  .ac-scroll-expand-pin { position: relative; height: auto; min-height: max(440px, var(--ac-scroll-expand-content-height)); padding-bottom: 220px; }
+  .ac-scroll-expand-copy { transform: none; }
+  .ac-scroll-expand-media { top: 0; bottom: 0; width: 100%; border-radius: 0; }
+  .ac-scroll-expand-action { transition: none; }
+}

@@ -1,0 +1,65 @@
+.ac-showreel-hero,
+.ac-showreel-hero *,
+.ac-showreel-dialog,
+.ac-showreel-dialog * { box-sizing: border-box; }
+
+.ac-showreel-hero {
+  --ac-showreel-paper: #f5f3e9;
+  --ac-showreel-ink: #172420;
+  position: relative;
+  isolation: isolate;
+  container-type: inline-size;
+  min-height: 560px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--ac-showreel-ink);
+  color: var(--ac-showreel-paper);
+  font-family: inherit;
+}
+
+.ac-showreel-poster,
+.ac-showreel-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ac-showreel-poster { object-fit: cover; z-index: -2; }
+.ac-showreel-shade { z-index: -1; background: linear-gradient(180deg, rgb(7 24 24 / 42%), rgb(7 24 24 / 5%) 45%, rgb(7 24 24 / 72%)); }
+.ac-showreel-content { min-height: inherit; padding: clamp(28px, 5vw, 64px); display: flex; flex-direction: column; justify-content: space-between; gap: 80px; }
+.ac-showreel-eyebrow { margin: 0 0 26px; font-size: 10px; line-height: 1.5; letter-spacing: .2em; text-transform: uppercase; }
+.ac-showreel-intro h2 { max-width: 13ch; margin: 0; font-size: clamp(48px, 7.4vw, 98px); font-family: var(--serif, Georgia, serif); font-weight: 400; line-height: .99; letter-spacing: -.055em; white-space: pre-line; text-wrap: balance; }
+.ac-showreel-bottom { display: flex; justify-content: space-between; align-items: end; gap: 28px; }
+.ac-showreel-description { max-width: 34ch; margin: 0; font-size: 14px; line-height: 1.65; text-wrap: pretty; }
+.ac-showreel-play { display: inline-flex; flex-shrink: 0; align-items: center; gap: 16px; min-height: 58px; padding: 7px 20px 7px 7px; border: 1px solid rgb(255 255 255 / 55%); border-radius: 99px; background: rgb(246 245 239 / 96%); color: var(--ac-showreel-ink); font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; transition: background 180ms ease, transform 180ms ease; }
+.ac-showreel-play-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--ac-showreel-ink); color: var(--ac-showreel-paper); }
+.ac-showreel-play-arrow { margin-left: 14px; font-size: 20px; font-weight: 400; }
+.ac-showreel-play:focus-visible { outline: 3px solid white; outline-offset: 5px; }
+.ac-showreel-dialog { width: min(960px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); margin: auto; padding: 0; overflow: auto; border: 1px solid #454b46; border-radius: 12px; background: #192420; color: #f5f3e9; font-family: inherit; overscroll-behavior: contain; }
+.ac-showreel-dialog::backdrop { background: rgb(6 12 10 / 84%); }
+.ac-showreel-dialog-header { padding: 12px 18px 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.ac-showreel-dialog-header h2 { margin: 0; font-size: 14px; font-weight: 500; }
+.ac-showreel-dialog-header button { min-width: 88px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 16px; border: 1px solid #556059; border-radius: 99px; background: transparent; color: inherit; font: inherit; font-size: 12px; cursor: pointer; }
+.ac-showreel-dialog-header button span { font-size: 24px; font-weight: 300; }
+.ac-showreel-video { display: block; width: 100%; max-height: 65dvh; aspect-ratio: 16 / 9; background: #080d0b; object-fit: contain; }
+.ac-showreel-dialog-copy { padding: 16px 24px 24px; }
+.ac-showreel-play-note { margin: 0; color: #bac6bd; font-size: 12px; line-height: 1.6; }
+.ac-showreel-transcript { margin-top: 16px; padding-top: 16px; border-top: 1px solid #46534b; }
+.ac-showreel-transcript summary { width: fit-content; min-height: 44px; align-content: center; cursor: pointer; font-size: 13px; }
+.ac-showreel-transcript p { max-width: 70ch; margin: 6px 0 0; font-size: 13px; line-height: 1.75; white-space: pre-line; }
+.ac-showreel-error { margin: 18px 24px 0; padding: 14px; border: 1px solid #b58969; border-radius: 6px; color: #f3d4bd; font-size: 13px; line-height: 1.7; }
+.ac-showreel-error a { color: inherit; text-underline-offset: 3px; }
+.ac-showreel-dialog :is(button, summary, a):focus-visible { outline: 2px solid #e9c39d; outline-offset: 4px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .ac-showreel-play:hover { background: #fff; transform: translateY(-3px); }
+  .ac-showreel-dialog-header button:hover { background: #35463b; }
+}
+
+@container (max-width: 600px) {
+  .ac-showreel-content { padding: 28px; gap: 64px; }
+  .ac-showreel-intro h2 { font-size: clamp(46px, 12cqi, 72px); }
+  .ac-showreel-bottom { flex-direction: column; align-items: start; gap: 24px; }
+  .ac-showreel-description { font-size: 13px; }
+  .ac-showreel-play { min-height: 54px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-showreel-play { transition: none; }
+  .ac-showreel-play:hover { transform: none; }
+}

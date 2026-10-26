@@ -37,9 +37,11 @@ export function ButtonRail() {
           </Link>
         ))}
       </nav>
+      <Link href="/components/buttons/playground" className="button-rail-playground">Customize <Icon name="arrow" size={12}/></Link>
       <Link href="/components/buttons" className="button-rail-collection-link">
         Explore the collection <Icon name="arrow" size={12}/>
       </Link>
+      <Link href="/components/heroes" className="button-rail-heroes">Explore hero sections <Icon name="arrow" size={12}/></Link>
       <p className="button-rail-note">A little personality,<br/>where it counts.</p>
     </aside>
   );

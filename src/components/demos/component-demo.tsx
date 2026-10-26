@@ -18,6 +18,9 @@ import { ServiceShowcaseDemo, ArticleRailDemo } from './content-demos';
 import { TestimonialSliderDemo } from './proof-demo';
 import { PricingPlansDemo, FeatureBentoDemo } from './marketing-demos';
 import { ProductGalleryDemo, TeamGridDemo } from './people-product-demos';
+import { ScrollExpandHeroDemo, EditorialHeroDemo } from './visual-hero-demos';
+import { ShowreelHeroDemo, ProductSpotlightHeroDemo } from './interactive-hero-demos';
+import './hero-demos.css';
 import { ButtonDemo, isButtonDemoSlug } from './button-demos';
 import { ProcessTimelineDemo } from './process-demo';
 
@@ -36,6 +39,10 @@ export function ComponentDemo({ slug, options = {} }: { slug: string; options?: 
   const [ambientPaused, setAmbientPaused] = useState(false);
   const isPaused = options.paused ?? ambientPaused;
   const pauseControl = <button className="replay-button ambient-pause" onClick={() => setAmbientPaused(!ambientPaused)} aria-pressed={isPaused}>{isPaused ? 'Play motion' : 'Pause motion'}</button>;
+  if (id === 'scroll-expand-hero') return <ScrollExpandHeroDemo/>;
+  if (id === 'editorial-hero') return <EditorialHeroDemo/>;
+  if (id === 'showreel-hero') return <ShowreelHeroDemo/>;
+  if (id === 'product-spotlight-hero') return <ProductSpotlightHeroDemo/>;
   if (isButtonDemoSlug(id)) return <ButtonDemo slug={id}/>;
   if (id === 'sticker-field') return <StickerFieldDemo/>;
   if (id === 'pricing-plans') return <PricingPlansDemo/>;

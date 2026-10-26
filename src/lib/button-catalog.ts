@@ -270,7 +270,7 @@ export const buttonComponents: ComponentDefinition[] = [
         "name": "className / style",
         "type": "string / CSSProperties",
         "default": "'' / undefined",
-        "description": "Additional classes and native inline styles. Theme with --ac-trace-surface, --ac-trace-ink, --ac-trace-accent, and --ac-trace-line."
+        "description": "Additional classes and native inline styles. Theme with --ac-trace-surface, --ac-trace-ink, --ac-trace-accent, --ac-trace-line, and --ac-trace-radius."
       },
       {
         "name": "Native button props / ref",
@@ -324,7 +324,7 @@ export const buttonComponents: ComponentDefinition[] = [
         "name": "className / style",
         "type": "string / CSSProperties",
         "default": "'' / undefined",
-        "description": "Additional classes and native inline styles. Theme with --ac-tactile-surface, --ac-tactile-ink, --ac-tactile-base, and --ac-tactile-line."
+        "description": "Additional classes and native inline styles. Theme with --ac-tactile-surface, --ac-tactile-ink, --ac-tactile-base, --ac-tactile-line, and --ac-tactile-radius."
       },
       {
         "name": "Native button props / ref",

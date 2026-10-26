@@ -9,7 +9,7 @@
   max-width: 100%;
   padding: 0 0 6px;
   border: 1px solid var(--ac-tactile-line);
-  border-radius: 7px;
+  border-radius: var(--ac-tactile-radius, 7px);
   background: var(--ac-tactile-base);
   color: var(--ac-tactile-ink);
   font: inherit;
@@ -29,7 +29,7 @@
   min-height: 48px;
   padding: 14px 22px;
   border-bottom: 1px solid var(--ac-tactile-line);
-  border-radius: 6px;
+  border-radius: max(0px, calc(var(--ac-tactile-radius, 7px) - 1px));
   background: var(--ac-tactile-surface);
   font-weight: 600;
   pointer-events: none;

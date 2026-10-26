@@ -4,6 +4,90 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "scroll-expand-hero",
+      "type": "registry:component",
+      "title": "Scroll Expand Hero",
+      "description": "Native-scroll imagery that grows from a frame into the page.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ScrollExpandHero.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ScrollExpandHero.tsx"
+        },
+        {
+          "path": "src/components/anticraft/scroll-expand-hero.css",
+          "type": "registry:file",
+          "target": "components/anticraft/scroll-expand-hero.css"
+        }
+      ]
+    },
+    {
+      "name": "editorial-hero",
+      "type": "registry:component",
+      "title": "Editorial Hero",
+      "description": "Oversized type, an asymmetric image, and a clear next step.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/EditorialHero.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/EditorialHero.tsx"
+        },
+        {
+          "path": "src/components/anticraft/editorial-hero.css",
+          "type": "registry:file",
+          "target": "components/anticraft/editorial-hero.css"
+        }
+      ]
+    },
+    {
+      "name": "showreel-hero",
+      "type": "registry:component",
+      "title": "Showreel Hero",
+      "description": "A cinematic poster with an explicitly opened native video player.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ShowreelHero.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ShowreelHero.tsx"
+        },
+        {
+          "path": "src/components/anticraft/showreel-hero.css",
+          "type": "registry:file",
+          "target": "components/anticraft/showreel-hero.css"
+        }
+      ]
+    },
+    {
+      "name": "product-spotlight-hero",
+      "type": "registry:component",
+      "title": "Product Spotlight Hero",
+      "description": "A product opening with accessible feature hotspots and readable details.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ProductSpotlightHero.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ProductSpotlightHero.tsx"
+        },
+        {
+          "path": "src/components/anticraft/product-spotlight-hero.css",
+          "type": "registry:file",
+          "target": "components/anticraft/product-spotlight-hero.css"
+        }
+      ]
+    },
+    {
       "name": "arrow-capsule-button",
       "type": "registry:component",
       "title": "Arrow Capsule Button",

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="720" viewBox="0 0 720 720" fill="none">
+<defs>
+  <linearGradient id="case" x1="170" y1="130" x2="530" y2="570" gradientUnits="userSpaceOnUse"><stop stop-color="#dce3cf"/><stop offset=".5" stop-color="#aab79a"/><stop offset="1" stop-color="#7b8c6d"/></linearGradient>
+  <linearGradient id="front" x1="225" y1="250" x2="505" y2="540" gradientUnits="userSpaceOnUse"><stop stop-color="#d1d9be"/><stop offset="1" stop-color="#abb998"/></linearGradient>
+  <radialGradient id="grille"><stop stop-color="#44503c"/><stop offset="1" stop-color="#293627"/></radialGradient>
+  <linearGradient id="knob" x1="434" y1="162" x2="470" y2="200" gradientUnits="userSpaceOnUse"><stop stop-color="#e6e4d5"/><stop offset=".5" stop-color="#a9afa0"/><stop offset="1" stop-color="#737e6c"/></linearGradient>
+  <pattern id="holes" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.45" fill="#a7b399" opacity=".5"/><circle cx="6" cy="6" r="1.45" fill="#a7b399" opacity=".5"/></pattern>
+  <filter id="shadow" x="40" y="60" width="640" height="640" filterUnits="userSpaceOnUse"><feDropShadow dx="8" dy="22" stdDeviation="18" flood-color="#3e4834" flood-opacity=".2"/></filter>
+  <filter id="floor"><feGaussianBlur stdDeviation="10"/></filter>
+</defs>
+<rect width="720" height="720" fill="#e9e9dc"/>
+<ellipse cx="368" cy="625" rx="205" ry="22" fill="#58664a" opacity=".16" filter="url(#floor)"/>
+<g filter="url(#shadow)">
+  <path d="M280 143v-26c0-24 20-44 44-44h73c25 0 45 20 45 44v26" stroke="#59664e" stroke-width="20"/>
+  <path d="M280 139v-22c0-24 20-44 44-44h73c25 0 45 20 45 44v22" stroke="#7d8b6d" stroke-width="10"/>
+  <rect x="233" y="565" width="64" height="40" rx="12" fill="#78614b"/>
+  <rect x="433" y="565" width="64" height="40" rx="12" fill="#78614b"/>
+  <rect x="170" y="130" width="380" height="453" rx="45" fill="url(#case)"/>
+  <rect x="181" y="141" width="358" height="426" rx="36" stroke="#eff2e5" stroke-opacity=".48" stroke-width="2"/>
+  <rect x="192" y="214" width="336" height="332" rx="28" fill="url(#front)" stroke="#768568" stroke-opacity=".55"/>
+  <circle cx="360" cy="377" r="135" fill="#6b785c"/>
+  <circle cx="360" cy="377" r="128" fill="url(#grille)" stroke="#283624" stroke-width="2"/>
+  <circle cx="360" cy="377" r="126" fill="url(#holes)"/>
+  <circle cx="360" cy="377" r="78" stroke="#a2ae90" stroke-opacity=".13" stroke-width="2"/>
+  <circle cx="360" cy="377" r="44" fill="#1e2c20" fill-opacity=".15"/>
+  <rect x="222" y="168" width="94" height="24" rx="12" fill="#758568"/>
+  <circle cx="235" cy="180" r="5" fill="#e2e6d4"/>
+  <path d="M255 180h9m16-4v8m-4-4h8m15-4v8" stroke="#e5e8da" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="456" cy="180" r="23" fill="#768269"/>
+  <circle cx="454" cy="178" r="19" fill="url(#knob)" stroke="#e6e7d8" stroke-opacity=".55"/>
+  <path d="m454 163 0 8" stroke="#4c5a42" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="409" cy="180" r="3" fill="#d7dfaf"/>
+  <text x="360" y="532" fill="#40503a" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" letter-spacing="5">FORMA / S1</text>
+</g>
+</svg>

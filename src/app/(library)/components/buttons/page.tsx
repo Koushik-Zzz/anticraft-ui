@@ -29,6 +29,7 @@ export default function ButtonsPage() {
           {buttons.length} buttons. Plenty of possibilities.
           <span>FREE SOURCE</span>
         </div>
+        <Link href="/components/buttons/playground" className="collection-action">Open the button playground <Icon name="arrow" size={14}/></Link>
       </div>
       <div className="catalog-grid button-collection-grid">
         {buttons.map((button) => (

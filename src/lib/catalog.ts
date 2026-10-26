@@ -1,3 +1,5 @@
+import { visualHeroComponents } from './visual-hero-catalog';
+import { interactiveHeroComponents } from './interactive-hero-catalog';
 import { buttonComponents } from './button-catalog';
 import { objectComponents } from './object-catalog';
 import { playComponents } from './play-catalog';
@@ -12,7 +14,7 @@ import { marketingComponents } from './marketing-catalog';
 import { peopleProductComponents } from './people-product-catalog';
 import { processComponents } from './process-catalog';
 
-export type ComponentCategory = 'Sections' | 'Navigation' | 'Experiments' | 'Backgrounds' | 'Buttons' | 'Typography' | 'Cards' | 'Layout';
+export type ComponentCategory = 'Heroes' | 'Sections' | 'Navigation' | 'Experiments' | 'Backgrounds' | 'Buttons' | 'Typography' | 'Cards' | 'Layout';
 
 export type ComponentDefinition = {
   slug: string;
@@ -29,9 +31,11 @@ export type ComponentDefinition = {
   inspiration?: { name: string; url: string; note: string };
 };
 
-export const categories: ComponentCategory[] = ['Buttons', 'Sections', 'Experiments', 'Navigation', 'Backgrounds', 'Typography', 'Cards', 'Layout'];
+export const categories: ComponentCategory[] = ['Heroes', 'Buttons', 'Sections', 'Experiments', 'Navigation', 'Backgrounds', 'Typography', 'Cards', 'Layout'];
 
 export const components: ComponentDefinition[] = [
+  ...visualHeroComponents,
+  ...interactiveHeroComponents,
   ...buttonComponents,
   ...marketingComponents,
   ...peopleProductComponents,

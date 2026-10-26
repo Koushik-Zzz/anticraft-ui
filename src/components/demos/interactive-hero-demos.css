@@ -1,0 +1,26 @@
+.showreel-hero-demo,
+.product-spotlight-hero-demo { display: block !important; padding: 0 !important; background: #eeece4; }
+.interactive-hero-brand { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 58px; margin: 0; padding: 17px 28px; color: #303a31; }
+.interactive-hero-brand > strong { flex-shrink: 0; font-size: 17px; line-height: 1.3; letter-spacing: -.055em; }
+.interactive-hero-brand > strong > span { font-size: 8px; font-weight: 400; letter-spacing: .05em; }
+.interactive-hero-brand > span { max-width: 25ch; font-size: 7px; line-height: 1.6; letter-spacing: .08em; text-align: right; }
+.interactive-hero-footnote { display: flex; justify-content: space-between; gap: 16px; margin: 0; padding: 15px 28px; color: #6a7066; font-size: 7px; line-height: 1.7; letter-spacing: .06em; }
+.interactive-hero-footnote > span:last-child { text-align: right; }
+.showreel-hero-demo { background: #192420; }
+.showreel-hero-demo .interactive-hero-brand { color: #eceee3; }
+.showreel-hero-demo .interactive-hero-footnote { color: #bdc8bc; }
+.showreel-hero-demo .ac-showreel-hero { border-radius: 0; }
+.product-spotlight-hero-demo .ac-product-spotlight-hero { border-radius: 0; }
+
+@container (max-width: 600px) {
+  .product-spotlight-hero-demo .ac-product-spotlight-layout { gap: 18px; padding: 22px; }
+  .product-spotlight-hero-demo .ac-product-spotlight-eyebrow { margin-bottom: 14px; font-size: 8px; }
+  .product-spotlight-hero-demo .ac-product-spotlight-copy h2 { font-size: clamp(36px, 10cqi, 54px); }
+  .product-spotlight-hero-demo .ac-product-spotlight-description { max-width: 42ch; margin-top: 15px; font-size: 11px; line-height: 1.65; }
+}
+
+@media (max-width: 480px) {
+  .interactive-hero-brand { padding: 16px 22px; }
+  .interactive-hero-brand > span { max-width: 20ch; font-size: 6px; }
+  .interactive-hero-footnote { padding: 15px 22px; font-size: 6px; }
+}

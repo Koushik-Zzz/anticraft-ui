@@ -89,3 +89,13 @@ export { OutlineTraceButton } from './OutlineTraceButton';
 export type { OutlineTraceButtonProps } from './OutlineTraceButton';
 export { TactileButton } from './TactileButton';
 export type { TactileButtonProps } from './TactileButton';
+
+export { ScrollExpandHero } from './ScrollExpandHero';
+export type { ScrollExpandHeroProps } from './ScrollExpandHero';
+export { EditorialHero } from './EditorialHero';
+export type { EditorialHeroProps } from './EditorialHero';
+export { ShowreelHero } from './ShowreelHero';
+export type { ShowreelHeroProps } from './ShowreelHero';
+export { ProductSpotlightHero } from './ProductSpotlightHero';
+export type { ProductSpotlightHeroProps } from './ProductSpotlightHero';
+export type { ProductSpotlightFeature } from './ProductSpotlightHero';

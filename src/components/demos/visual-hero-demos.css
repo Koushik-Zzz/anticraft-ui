@@ -1,0 +1,60 @@
+.visual-scroll-demo { background: #f0eee5; color: #293d36; }
+.visual-editorial-demo { background: #e6e5da; color: #28342a; }
+.visual-scroll-demo:focus-visible, .visual-editorial-demo:focus-visible { outline: 2px solid #526650; outline-offset: -4px; }
+
+.visual-hero-demo-masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 55px;
+  padding: 14px 23px;
+  border-bottom: 1px solid #293d361c;
+}
+
+.visual-hero-demo-masthead > b { font-size: 22px; font-weight: 500; line-height: 1; letter-spacing: -.07em; }
+.visual-hero-demo-masthead > b span { vertical-align: top; margin-left: 3px; font-size: 9px; }
+.visual-hero-demo-masthead > span { font-size: 7px; line-height: 1.5; letter-spacing: .09em; text-align: right; }
+.visual-scroll-demo .ac-scroll-expand-hero { --ac-scroll-expand-heading-font: var(--serif, Georgia, serif); }
+.visual-scroll-demo .ac-scroll-expand-pin { padding-top: clamp(24px, 4cqw, 40px); gap: 20px; }
+.visual-scroll-demo .ac-scroll-expand-copy h2 { max-width: 15ch; font-size: clamp(39px, 9cqw, 106px); }
+.visual-scroll-demo .ac-scroll-expand-eyebrow { margin-bottom: 13px; font-size: 8px; }
+.visual-scroll-demo .ac-scroll-expand-description { margin-top: 15px; font-size: clamp(11px, 1.6cqw, 14px); }
+.visual-scroll-demo .ac-scroll-expand-action { margin-top: 15px; min-height: 44px; font-size: 11px; }
+.visual-scroll-demo .ac-scroll-expand-caption { font-size: 7px; }
+.visual-scroll-demo .ac-scroll-expand-media img { object-position: 50% 58%; }
+
+.visual-scroll-continuation { padding: 50px clamp(24px, 6cqw, 65px); background: #dbe0ce; }
+.visual-scroll-continuation > span, .visual-editorial-continuation > span { font-size: 8px; line-height: 1.5; letter-spacing: .1em; }
+.visual-scroll-continuation h3 { margin: 20px 0; font-family: var(--serif, Georgia, serif); font-size: clamp(34px, 6cqw, 65px); font-weight: 400; line-height: .98; letter-spacing: -.04em; }
+.visual-scroll-continuation h3 em { font-weight: 400; }
+.visual-scroll-continuation p { max-width: 43ch; margin: 0; color: #62715e; font-size: 12px; line-height: 1.65; }
+.visual-scroll-continuation a, .visual-editorial-continuation a { display: flex; align-items: center; justify-content: space-between; gap: 25px; width: fit-content; min-height: 44px; margin-top: 20px; border-bottom: 1px solid currentColor; color: inherit; font-size: 10px; line-height: 1.4; text-decoration: none; }
+.visual-scroll-continuation a:focus-visible, .visual-editorial-continuation a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+.visual-scroll-continuation small { display: block; margin-top: 40px; font-size: 9px; color: #697760; }
+
+.visual-editorial-demo .ac-editorial-hero { --ac-editorial-heading-font: var(--serif, Georgia, serif); padding: 26px clamp(22px, 4cqw, 40px) 36px; }
+.visual-editorial-demo .ac-editorial-topline { margin-bottom: 32px; font-size: 7px; }
+.visual-editorial-demo .ac-editorial-title { font-size: clamp(44px, 11cqw, 116px); }
+.visual-editorial-demo .ac-editorial-image { min-height: 210px; }
+.visual-editorial-demo .ac-editorial-image img { object-position: 62% 50%; }
+.visual-editorial-demo .ac-editorial-copy p { font-size: 11px; }
+.visual-editorial-demo .ac-editorial-copy a { min-width: 130px; font-size: 10px; }
+.visual-editorial-demo .ac-editorial-marker { margin-bottom: 28px; font-size: 35px; }
+.visual-editorial-continuation { padding: 34px clamp(22px, 4cqw, 40px) 44px; background: #d4d9c9; }
+.visual-editorial-continuation > div { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 21px; }
+.visual-editorial-continuation h3 { margin: 0; font-family: var(--serif, Georgia, serif); font-size: clamp(25px, 4cqw, 40px); font-weight: 400; line-height: 1.1; letter-spacing: -.035em; }
+.visual-editorial-continuation p { margin: 0; color: #606d5b; font-size: 11px; line-height: 1.7; }
+
+@container (max-width: 600px) {
+  .visual-editorial-demo .ac-editorial-topline { margin-bottom: 27px; }
+  .visual-editorial-demo .ac-editorial-title { font-size: clamp(42px, 12.5cqw, 70px); }
+  .visual-editorial-demo .ac-editorial-marker { margin: 2px 0 0; font-size: 27px; }
+  .visual-editorial-demo .ac-editorial-image { min-height: 210px; }
+  .visual-editorial-continuation > div { grid-template-columns: 1fr; gap: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visual-scroll-demo .visual-hero-demo-masthead > span { font-size: 0; }
+  .visual-scroll-demo .visual-hero-demo-masthead > span::after { content: 'A DIFFERENT WAY OUT'; font-size: 7px; }
+}
