@@ -4,6 +4,111 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "pricing-plans",
+      "type": "registry:component",
+      "title": "Pricing Plans",
+      "description": "Responsive plans with clear monthly and annual totals.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/PricingPlans.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/PricingPlans.tsx"
+        },
+        {
+          "path": "src/components/anticraft/pricing-plans.css",
+          "type": "registry:file",
+          "target": "components/anticraft/pricing-plans.css"
+        }
+      ]
+    },
+    {
+      "name": "feature-bento",
+      "type": "registry:component",
+      "title": "Feature Bento",
+      "description": "An editorial grid for product features, artwork, and useful links.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/FeatureBento.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/FeatureBento.tsx"
+        },
+        {
+          "path": "src/components/anticraft/feature-bento.css",
+          "type": "registry:file",
+          "target": "components/anticraft/feature-bento.css"
+        }
+      ]
+    },
+    {
+      "name": "product-gallery",
+      "type": "registry:component",
+      "title": "Product Gallery",
+      "description": "Product views with thumbnails and a larger image viewer.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ProductGallery.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ProductGallery.tsx"
+        },
+        {
+          "path": "src/components/anticraft/product-gallery.css",
+          "type": "registry:file",
+          "target": "components/anticraft/product-gallery.css"
+        }
+      ]
+    },
+    {
+      "name": "team-grid",
+      "type": "registry:component",
+      "title": "Team Grid",
+      "description": "A responsive team section with complete profile dialogs.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/TeamGrid.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/TeamGrid.tsx"
+        },
+        {
+          "path": "src/components/anticraft/team-grid.css",
+          "type": "registry:file",
+          "target": "components/anticraft/team-grid.css"
+        }
+      ]
+    },
+    {
+      "name": "process-timeline",
+      "type": "registry:component",
+      "title": "Process Timeline",
+      "description": "A readable process with scroll-following artwork and visible deliverables.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ProcessTimeline.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ProcessTimeline.tsx"
+        },
+        {
+          "path": "src/components/anticraft/process-timeline.css",
+          "type": "registry:file",
+          "target": "components/anticraft/process-timeline.css"
+        }
+      ]
+    },
+    {
       "name": "project-grid",
       "type": "registry:component",
       "title": "Project Grid",

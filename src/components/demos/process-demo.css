@@ -1,0 +1,78 @@
+.process-timeline-demo {
+  display: block !important;
+  overflow-y: auto !important;
+  overscroll-behavior-y: contain;
+  padding: 25px !important;
+  background: #f1f0e6;
+  color: #343a2c;
+  text-align: left;
+}
+.process-timeline-demo:focus-visible { outline: 2px solid #607b42; outline-offset: -4px; }
+.process-demo-scroll-hint { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin: 0 0 27px; color: #78806b; font-size: 7px; line-height: 1.5; letter-spacing: .1em; }
+.process-demo-scroll-hint span:last-child { color: #536b3a; letter-spacing: .02em; }
+.process-timeline-demo .ac-process { --ac-process-ink: #343a2c; --ac-process-muted: #787e6e; --ac-process-line: #d8d9cc; --ac-process-accent: #5c763d; --ac-process-surface: #e8e9da; }
+.process-timeline-demo .ac-process-heading h2 { max-width: 14ch; }
+.process-demo-art { container-type: inline-size; position: relative; width: 100%; height: 100%; overflow: hidden; background: #bfcba5; color: #39482e; font-family: var(--sans, Arial, sans-serif); }
+.process-demo-art-top, .process-demo-art-bottom { position: absolute; left: 7%; right: 7%; display: flex; align-items: center; justify-content: space-between; gap: 5px; font-size: 2.4cqw; letter-spacing: .08em; }
+.process-demo-art-top { top: 7%; }
+.process-demo-art-bottom { bottom: 6%; font-size: 2cqw; }
+.process-demo-art-bottom span:last-child { font-size: 6cqw; }
+.process-demo-art-title { position: absolute; top: 20%; left: 8%; right: 8%; font-size: clamp(22px, 12.4cqw, 52px); line-height: .96; font-weight: 500; letter-spacing: -.06em; }
+.process-demo-art-title em { font-family: var(--serif, Georgia, serif); font-weight: 400; }
+.process-demo-strategy { position: absolute; top: 45%; left: 8%; width: 62%; height: 37%; padding: 6%; background: #f4f3e8; color: #59614d; transform: rotate(-4deg); box-shadow: 0 4px 10px #3a4c2720; }
+.process-demo-strategy > span { display: block; font-size: 2.7cqw; letter-spacing: .08em; }
+.process-demo-strategy strong { display: block; margin-block: 6%; font-size: 6.6cqw; font-weight: 500; letter-spacing: -.045em; line-height: 1.1; }
+.process-demo-strategy > div { display: flex; gap: 5px; margin-block: 8%; }
+.process-demo-strategy i { width: 12%; aspect-ratio: 1; border-radius: 50%; background: #bbc8a4; }
+.process-demo-strategy i:nth-child(2) { background: #8c9b75; }
+.process-demo-strategy i:nth-child(3) { background: #4f6340; }
+.process-demo-sticky-note { position: absolute; right: 5%; top: 56%; display: grid; align-content: center; width: 34%; aspect-ratio: 1; padding: 6%; transform: rotate(8deg); background: #e8ec91; box-shadow: 0 4px 10px #3a4c2715; color: #4b582f; font-size: 8cqw; line-height: .95; letter-spacing: -.06em; }
+.process-demo-sticky-note em { font-family: var(--serif, Georgia, serif); }
+.process-demo-sticky-note > span { margin-top: 10%; font-size: 9cqw; }
+.process-demo-art-design { background: #d47b5c; color: #573829; }
+.process-demo-type { position: absolute; top: 43%; left: 8%; right: 8%; display: flex; align-items: center; justify-content: space-between; padding-bottom: 5%; border-bottom: 1px solid #57382940; }
+.process-demo-type > span:first-child { font-family: var(--serif, Georgia, serif); font-size: 23cqw; line-height: 1; letter-spacing: -.08em; }
+.process-demo-type > span:last-child { font-size: 2.8cqw; line-height: 1.6; }
+.process-demo-swatches { position: absolute; top: 68%; left: 8%; display: flex; width: 38%; }
+.process-demo-swatches i { flex: 1; aspect-ratio: 1; background: #f4e8ce; }
+.process-demo-swatches i:nth-child(2) { background: #c6cb8a; }.process-demo-swatches i:nth-child(3) { background: #c06642; }.process-demo-swatches i:nth-child(4) { background: #4b472f; }
+.process-demo-wireframe { position: absolute; top: 65%; right: 8%; display: grid; gap: 5%; width: 35%; height: 18%; padding: 4%; border: 1px solid #57382970; }
+.process-demo-wireframe span { display: block; background: #57382930; }.process-demo-wireframe span:first-child { width: 60%; }
+.process-demo-art-build { background: #dad7cd; color: #373c35; }
+.process-demo-code { position: absolute; top: 45%; left: 7%; right: 7%; padding: 5%; background: #343d34; color: #eff1e4; border-radius: 4px; transform: rotate(-2deg); box-shadow: 0 5px 12px #252b2520; }
+.process-demo-code > div { display: flex; align-items: center; gap: 3px; margin-bottom: 8%; }.process-demo-code i { width: 3cqw; aspect-ratio: 1; border-radius: 50%; background: #9aa98d; }.process-demo-code i:nth-child(2) { background: #c1c68e; }.process-demo-code i:nth-child(3) { background: #d08f72; }.process-demo-code > div > span { margin-left: auto; color: #a5b39c; font-size: 2.7cqw; }
+.process-demo-code code { display: block; font-size: 3.4cqw; line-height: 1.5; }.process-demo-code code > span { display: block; white-space: pre; }.process-demo-code code b { color: #c8d79f; font-weight: 400; }.process-demo-code code em { color: #e6b69b; font-style: normal; }.process-demo-code p { margin: 8% 0 0; padding-top: 5%; border-top: 1px solid #ffffff20; color: #c8d79f; font-size: 3cqw; }.process-demo-code p span { margin-right: 5%; }
+.process-demo-art-launch { background: #cecee0; color: #44415e; }
+.process-demo-launch-check { position: absolute; top: 43%; left: 8%; right: 8%; display: flex; align-items: center; gap: 7%; padding-bottom: 7%; border-bottom: 1px solid #44415e40; }.process-demo-launch-check > span { display: grid; place-items: center; width: 26%; aspect-ratio: 1; border: 1px solid #44415e70; border-radius: 50%; font-size: 13cqw; }.process-demo-launch-check strong { font-size: 6cqw; line-height: 1.1; font-weight: 500; letter-spacing: -.04em; }
+.process-demo-launch-list { position: absolute; left: 8%; right: 8%; top: 65%; display: grid; gap: 12%; height: 15%; }.process-demo-launch-list > span { display: flex; justify-content: space-between; align-items: center; font-size: 2.8cqw; letter-spacing: .04em; }.process-demo-launch-list b { font-size: 4cqw; font-weight: 400; }
+.process-demo-end { display: flex; justify-content: space-between; gap: 15px; margin: 6px 0 0; padding-top: 18px; border-top: 1px solid #d8d9cc; color: #7b816f; font-size: 8px; letter-spacing: .08em; }
+.component-workbench .process-timeline-demo { padding: 30px !important; }
+@container ac-process (max-width: 560px) {
+  .process-timeline-demo .process-demo-art { max-width: 100%; }
+  .process-timeline-demo .process-demo-art-title { top: 18%; left: 6%; right: 48%; font-size: 9.5cqw; }
+  .process-timeline-demo .process-demo-art-top { top: 6%; left: 6%; right: 6%; font-size: 1.8cqw; }
+  .process-timeline-demo .process-demo-art-bottom { bottom: 5%; left: 6%; right: 6%; font-size: 1.65cqw; }
+  .process-timeline-demo .process-demo-art-bottom span:last-child { font-size: 5cqw; }
+  .process-timeline-demo .process-demo-strategy { top: 21%; left: 53%; width: 38%; height: 54%; padding: 4%; }
+  .process-timeline-demo .process-demo-strategy > span { font-size: 1.6cqw; }
+  .process-timeline-demo .process-demo-strategy strong { font-size: 4.3cqw; }
+  .process-timeline-demo .process-demo-sticky-note { right: 4%; top: 53%; width: 22%; padding: 3%; font-size: 5cqw; }
+  .process-timeline-demo .process-demo-sticky-note > span { font-size: 5cqw; }
+  .process-timeline-demo .process-demo-type { top: 20%; left: 57%; right: 7%; padding-bottom: 3%; }
+  .process-timeline-demo .process-demo-type > span:first-child { font-size: 18cqw; }
+  .process-timeline-demo .process-demo-type > span:last-child { font-size: 1.6cqw; }
+  .process-timeline-demo .process-demo-swatches { top: 72%; left: 7%; width: 30%; }
+  .process-timeline-demo .process-demo-wireframe { top: 66%; right: 7%; height: 20%; width: 36%; padding: 3%; }
+  .process-timeline-demo .process-demo-code { top: 20%; left: 51%; right: 5%; padding: 4%; }
+  .process-timeline-demo .process-demo-code code { font-size: 2.2cqw; }
+  .process-timeline-demo .process-demo-code i { width: 2cqw; }
+  .process-timeline-demo .process-demo-code > div > span { font-size: 1.7cqw; }
+  .process-timeline-demo .process-demo-code p { font-size: 1.9cqw; }
+  .process-timeline-demo .process-demo-launch-check { top: 23%; left: 54%; right: 7%; gap: 8%; }
+  .process-timeline-demo .process-demo-launch-check > span { width: 29%; font-size: 7cqw; }
+  .process-timeline-demo .process-demo-launch-check strong { font-size: 3.6cqw; }
+  .process-timeline-demo .process-demo-launch-list { top: 55%; left: 54%; right: 7%; height: 23%; }
+  .process-timeline-demo .process-demo-launch-list > span { font-size: 1.8cqw; }
+  .process-timeline-demo .process-demo-launch-list b { font-size: 3cqw; }
+}
+@media (max-width: 640px) { .process-timeline-demo, .component-workbench .process-timeline-demo { padding: 22px !important; } }

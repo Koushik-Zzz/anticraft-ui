@@ -7,6 +7,9 @@ import { flapComponents } from './flap-catalog';
 import { projectComponents } from './project-catalog';
 import { contentComponents } from './content-catalog';
 import { proofComponents } from './proof-catalog';
+import { marketingComponents } from './marketing-catalog';
+import { peopleProductComponents } from './people-product-catalog';
+import { processComponents } from './process-catalog';
 
 export type ComponentCategory = 'Sections' | 'Navigation' | 'Experiments' | 'Backgrounds' | 'Buttons' | 'Typography' | 'Cards' | 'Layout';
 
@@ -28,6 +31,9 @@ export type ComponentDefinition = {
 export const categories: ComponentCategory[] = ['Sections', 'Experiments', 'Navigation', 'Backgrounds', 'Buttons', 'Typography', 'Cards', 'Layout'];
 
 export const components: ComponentDefinition[] = [
+  ...marketingComponents,
+  ...peopleProductComponents,
+  ...processComponents,
   ...projectComponents,
   ...contentComponents,
   ...proofComponents,

@@ -16,6 +16,9 @@ import { SplitFlapDemo } from './flap-demo';
 import { ProjectGridDemo, ProjectPreviewListDemo } from './project-demos';
 import { ServiceShowcaseDemo, ArticleRailDemo } from './content-demos';
 import { TestimonialSliderDemo } from './proof-demo';
+import { PricingPlansDemo, FeatureBentoDemo } from './marketing-demos';
+import { ProductGalleryDemo, TeamGridDemo } from './people-product-demos';
+import { ProcessTimelineDemo } from './process-demo';
 
 export interface DemoOptions { accent?: string; intensity?: number; paused?: boolean; }
 
@@ -33,6 +36,11 @@ export function ComponentDemo({ slug, options = {} }: { slug: string; options?: 
   const isPaused = options.paused ?? ambientPaused;
   const pauseControl = <button className="replay-button ambient-pause" onClick={() => setAmbientPaused(!ambientPaused)} aria-pressed={isPaused}>{isPaused ? 'Play motion' : 'Pause motion'}</button>;
   if (id === 'sticker-field') return <StickerFieldDemo/>;
+  if (id === 'pricing-plans') return <PricingPlansDemo/>;
+  if (id === 'feature-bento') return <FeatureBentoDemo/>;
+  if (id === 'product-gallery') return <ProductGalleryDemo/>;
+  if (id === 'team-grid') return <TeamGridDemo/>;
+  if (id === 'process-timeline') return <ProcessTimelineDemo/>;
   if (id === 'project-grid') return <ProjectGridDemo/>;
   if (id === 'project-preview-list') return <ProjectPreviewListDemo/>;
   if (id === 'service-showcase') return <ServiceShowcaseDemo/>;

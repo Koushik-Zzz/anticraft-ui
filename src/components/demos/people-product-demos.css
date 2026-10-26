@@ -1,0 +1,66 @@
+.product-gallery-demo,
+.team-grid-demo {
+  display: block!important;
+  height: 100%!important;
+  overflow: auto!important;
+  padding: 0!important;
+  text-align: left;
+  isolation: isolate;
+  background: #ede9de;
+  color: #3d4434;
+}
+.people-product-kicker {
+  margin: 0;
+  padding: 15px 20px 0;
+  font-size: 7px;
+  line-height: 10px;
+  letter-spacing: .13em;
+  color: #7b806e;
+}
+.product-gallery-demo .ac-product-gallery { padding: 10px 20px 15px; --ac-product-surface:#ede9de; --ac-product-stage:#e1ddcf; }
+.product-gallery-demo .ac-product-gallery-heading { display: block; margin-bottom: 10px; }
+.product-gallery-demo .ac-product-gallery-heading > span { display: none; }
+.product-gallery-demo .ac-product-gallery-heading h2 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1; }
+.product-gallery-demo .ac-product-gallery-stage { height: 220px; }
+.product-gallery-demo .ac-product-gallery-figure figcaption { margin-top: 6px; font-size: 9px; line-height: 1.5; }
+.product-gallery-demo .ac-product-gallery-controls { margin: 5px 0 8px; }
+.product-gallery-demo .ac-product-gallery-count { font-size: 9px; }
+.product-gallery-demo .ac-product-gallery-arrows button { min-width: 44px; min-height: 44px; font-size: 20px; }
+.product-gallery-demo .ac-product-gallery-thumbnails { gap: 7px; }
+.product-gallery-demo .ac-product-gallery-thumbnails button { flex-basis: 58px; height: 50px; }
+.team-grid-demo { background: #e7eadf; }
+.team-grid-demo .ac-team-grid { padding: 15px 20px 20px; --ac-team-surface:#e7eadf; --ac-team-ink:#303d2f; --ac-team-muted:#71806a; --ac-team-line:#303d2f30; }
+.team-grid-demo .ac-team-grid-heading { display: block; margin-bottom: 18px; }
+.team-grid-demo .ac-team-grid-heading > span { display: none; }
+.team-grid-demo .ac-team-grid-heading h2 { max-width: none; font-family: var(--serif); font-size: 30px; font-weight: 400; }
+.team-grid-demo .ac-team-grid-cards { display: flex; gap: 14px; padding: 4px; margin: -4px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: thin; }
+.team-grid-demo .ac-team-grid-card { flex: 0 0 min(73cqw, 190px); scroll-snap-align: start; }
+.team-grid-demo .ac-team-grid-portrait { aspect-ratio: 5/4; }
+.team-grid-demo .ac-team-grid-person { margin-top: 11px; }
+.team-grid-demo .ac-team-grid-person h3 { font-size: 19px; margin-bottom: 4px; }
+.team-grid-demo .ac-team-grid-person > span { font-size: 9px; }
+.team-grid-demo .ac-team-grid-preview { -webkit-line-clamp: 2; margin: 9px 0; font-size: 10px; line-height: 1.5; }
+.team-grid-demo .ac-team-grid-meet { font-size: 10px!important; }
+.component-workbench .product-gallery-demo .people-product-kicker,
+.component-workbench .team-grid-demo .people-product-kicker { padding: 20px 28px 0; font-size: 8px; }
+.component-workbench .product-gallery-demo .ac-product-gallery { padding: 12px 28px 20px; }
+.component-workbench .product-gallery-demo .ac-product-gallery-heading h2 { font-size: 34px; }
+.component-workbench .product-gallery-demo .ac-product-gallery-stage { height: 330px; }
+.component-workbench .product-gallery-demo .ac-product-gallery-figure figcaption { font-size: 11px; }
+.component-workbench .product-gallery-demo .ac-product-gallery-thumbnails button { flex-basis: 67px; height: 56px; }
+.component-workbench .team-grid-demo .ac-team-grid { padding: 18px 28px 25px; }
+.component-workbench .team-grid-demo .ac-team-grid-heading h2 { font-size: 39px; }
+.component-workbench .team-grid-demo .ac-team-grid-card { flex-basis: min(65cqw, 240px); }
+.component-workbench .team-grid-demo .ac-team-grid-portrait { aspect-ratio: 1; }
+.component-workbench .team-grid-demo .ac-team-grid-person h3 { font-size: 23px; }
+.component-workbench .team-grid-demo .ac-team-grid-person > span { font-size: 11px; }
+.component-workbench .team-grid-demo .ac-team-grid-preview { font-size: 12px; }
+.component-workbench .team-grid-demo .ac-team-grid-meet { font-size: 12px!important; }
+@media (max-width: 640px) {
+  .component-workbench .product-gallery-demo .people-product-kicker,
+  .component-workbench .team-grid-demo .people-product-kicker { padding-inline: 20px; }
+  .component-workbench .product-gallery-demo .ac-product-gallery,
+  .component-workbench .team-grid-demo .ac-team-grid { padding-inline: 20px; }
+  .component-workbench .product-gallery-demo .ac-product-gallery-stage { height: 280px; }
+  .component-workbench .team-grid-demo .ac-team-grid-heading h2 { font-size: 33px; }
+}

@@ -1,5 +1,15 @@
 "use client";
 
+export { PricingPlans } from './PricingPlans';
+export { FeatureBento } from './FeatureBento';
+export { ProductGallery } from './ProductGallery';
+export { TeamGrid } from './TeamGrid';
+export { ProcessTimeline } from './ProcessTimeline';
+export type { PricingPlansProps, PricingPlan, BillingPeriod } from './PricingPlans';
+export type { FeatureBentoProps, FeatureBentoItem } from './FeatureBento';
+export type { ProductGalleryProps, ProductGalleryItem } from './ProductGallery';
+export type { TeamGridProps, TeamGridItem } from './TeamGrid';
+export type { ProcessTimelineProps, ProcessTimelineStep } from './ProcessTimeline';
 export { ProjectGrid } from './ProjectGrid';
 export { ProjectPreviewList } from './ProjectPreviewList';
 export { ServiceShowcase } from './ServiceShowcase';
