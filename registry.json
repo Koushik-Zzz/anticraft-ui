@@ -6,8 +6,8 @@
     {
       "name": "scroll-expand-hero",
       "type": "registry:component",
-      "title": "Scroll Expand Hero",
-      "description": "Native-scroll imagery that grows from a frame into the page.",
+      "title": "Frame Morph Hero",
+      "description": "Coordinated portrait, panorama, and full-scene compositions driven by native scroll.",
       "dependencies": [
         "react"
       ],
@@ -70,7 +70,7 @@
       "name": "product-spotlight-hero",
       "type": "registry:component",
       "title": "Product Spotlight Hero",
-      "description": "A product opening with accessible feature hotspots and readable details.",
+      "description": "An image-led product configurator with finish-specific views, model options, price, and dimensions.",
       "dependencies": [
         "react"
       ],

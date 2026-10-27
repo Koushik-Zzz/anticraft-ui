@@ -3,10 +3,10 @@ import type { ComponentDefinition } from './catalog'
 export const visualHeroComponents: ComponentDefinition[] = [
   {
     slug: 'scroll-expand-hero',
-    title: 'Scroll Expand Hero',
+    title: 'Frame Morph Hero',
     category: 'Heroes',
     tag: 'New',
-    description: 'A considered first impression: expressive type, a real next step, and an image that opens into the page as you scroll.',
+    description: 'One composition, three perspectives. A portrait window becomes a panorama, then the whole scene, while type, crop and project details move with it.',
     file: 'ScrollExpandHero.tsx',
     cssFile: 'scroll-expand-hero.css',
     usage: `import { ScrollExpandHero } from '@/components/anticraft/ScrollExpandHero';
@@ -14,26 +14,29 @@ export const visualHeroComponents: ComponentDefinition[] = [
 export function Example() {
   return (
     <ScrollExpandHero
-      eyebrow="A DIFFERENT WAY OUT"
-      title={'A little further.\\nA little closer.'}
-      description="Thoughtful journeys for people who like to take the long way."
-      media={<img src="/images/coast.jpg" alt="" />}
-      action={{ label: 'Explore our journeys', href: '/journeys' }}
-      caption="MORE TIME OUT THERE. LESS TIME PLANNING."
+      eyebrow="SPACES FOR THE SENSES"
+      title={'Space to\\nfeel more.'}
+      description="Architecture that makes room for a different way of being."
+      media={<img src="/images/architecture.jpg" alt="" />}
+      action={{ label: 'Explore the project', href: '/projects/casa-forma' }}
+      caption={'Casa Forma / Portugal\\nA study in living slowly.'}
+      chapters={['The approach', 'A wider view', 'Feel at home']}
     />
   );
 }`,
-    useCases: ['Travel landing pages', 'Hospitality websites', 'Brand introductions', 'Campaign openings'],
+    useCases: ['Architecture portfolios', 'Hotel and destination launches', 'Real estate project pages', 'Editorial brand introductions'],
+    inspiration: { name: 'FORMAT by Obys', url: 'https://format.obys.agency/', note: 'FORMAT’s changing canvases informed the coordinated treatment of frame, crop, typography, and annotations. The STILL architecture composition, imagery, and component implementation are original Anticraft work.' },
     props: [
       { name: 'title', type: 'string', default: 'Required', description: 'The visible h2 and section name. Newline characters create intentional line breaks; keep the title concise. Place your page’s h1 elsewhere or adjust the copied source to match your heading hierarchy.' },
-      { name: 'media', type: 'ReactNode', default: 'Required', description: 'Decorative artwork or an image with alt="". The media wrapper is aria-hidden and inert, so keep all links, controls and meaningful information outside it. Images and videos fill the frame with object-fit: cover. Supply your own local image; /images/coast.jpg is an example path.' },
+      { name: 'media', type: 'ReactNode', default: 'Required', description: 'Decorative artwork or an image with alt="". The media wrapper is aria-hidden and inert, so keep all links, controls and meaningful information outside it. Images and videos fill the frame with object-fit: cover. Supply your own local image; /images/architecture.jpg is an example path. Wide artwork with a strong subject near the center-right works well across all three crops.' },
       { name: 'eyebrow', type: 'string', default: 'undefined', description: 'A short category or brand introduction above the title.' },
-      { name: 'description', type: 'string', default: 'undefined', description: 'Supporting text, kept visible throughout the scene.' },
-      { name: 'action', type: '{ label: string; href: string }', default: 'undefined', description: 'An ordinary anchor with a visible label and a real destination. It supports keyboard activation, modified clicks and opening in a new tab. Replace the sample /journeys URL with a route on your site.' },
-      { name: 'caption', type: 'string', default: 'undefined', description: 'A short visible line at the foot of the scene. It begins below the framed artwork and overlays the image once it fills the scene. Put essential image information here or in the description.' },
-      { name: 'className', type: 'string', default: "''", description: 'Additional classes. Customize --ac-scroll-expand-paper, --ac-scroll-expand-ink, --ac-scroll-expand-muted and --ac-scroll-expand-heading-font. The bounded scene uses roughly 1.8 viewport heights; allow native vertical scrolling and avoid clipping its ancestors. Keep enough viewport height for the title and image.' },
+      { name: 'description', type: 'string', default: 'undefined', description: 'Supporting introduction at the start of the scene. It translates and fades as the image enters the panorama chapter; it stays in the accessible document throughout.' },
+      { name: 'action', type: '{ label: string; href: string }', default: 'undefined', description: 'An ordinary anchor with a visible label and a real destination. It supports keyboard activation, modified clicks and opening in a new tab. Replace the sample project URL with a route on your site. The link stays above the imagery and operable throughout the transition.' },
+      { name: 'caption', type: 'string', default: 'undefined', description: 'Project name and context in the lower rail. Newlines create a second line. Its type gently grows in the full-scene chapter; it stays visible throughout.' },
+      { name: 'chapters', type: 'readonly [string, string, string]', default: "['Approach', 'Perspective', 'Place']", description: 'Three short chapter labels in the persistent lower rail. The active list item uses aria-current=step. A native progress element reports scene progress without live announcements.' },
+      { name: 'className', type: 'string', default: "''", description: 'Additional classes. Customize --ac-scroll-expand-paper, --ac-scroll-expand-ink, --ac-scroll-expand-muted, --ac-scroll-expand-accent, --ac-scroll-expand-font and --ac-scroll-expand-heading-font. The scene uses roughly 2.3 viewport heights; allow native vertical scrolling and avoid clipping its ancestors. Long text increases the scene height to preserve legibility. At 600px component width, the initial portrait moves beneath the title.' },
     ],
-    motion: 'Native vertical scrolling grows the decorative image from a 68%-wide frame beneath the copy into the entire sticky scene, expanding both its width and height. Its corners move from 28px to 0 and the text rises by at most 14px. Light text stays above a dark green background and a dark image gradient throughout the transition. The scene follows the nearest actual vertical scroll container or the page, measuring at most once per animation frame, and its sticky content stops at the end of the section. Resizing the copy, caption or viewport recalculates the initial image frame. No wheel or touch events are intercepted. All text and the CTA remain visible and operable. Reduced motion shows a complete static image behind readable copy without a sticky scroll scene. The demo is a keyboard-focusable scroll region, and its links open a complete local case study.',
+    motion: 'Native scrolling coordinates a right-side portrait window, a wide central panorama and a full-bleed final scene. The title moves and scales behind the opening frame, the image crop moves with it, the introduction fades, and the project caption grows. Frame annotations and a persistent three-chapter progress rail track the composition. Smoothstep interpolation follows actual scroll position; no wheel or touch events are intercepted and no autonomous animation runs. Measurements are batched to one animation frame and follow the nearest real vertical scroll container. The CTA and caption remain above the image throughout. Reduced motion presents a static full scene with readable title, introduction and CTA, without sticky scrolling. The demo region supports keyboard scrolling and the project action opens a complete local architecture case study.',
   },
   {
     slug: 'editorial-hero',

@@ -10,7 +10,7 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 
 | Category | Components |
 | --- | --- |
-| Heroes | Scroll Expand Hero, Showreel Hero, Product Spotlight Hero, Editorial Hero |
+| Heroes | Frame Morph Hero, Showreel Hero, Product Spotlight Hero, Editorial Hero |
 | Sections | Pricing Plans, Feature Bento, Team Grid, Process Timeline, Project Grid, Project Preview List, Service Showcase, Article Rail, Testimonial Slider |
 | Navigation | Floating Dock, Sliding Nav, Expanding Menu, Radial Nav, Curtain Menu |
 | Experiments | Scratch Reveal, Pixel Swap, Cursor Trail, Throw Stack, Elastic Type, Peel Reveal, Orbit Gallery, Lenticular Panel, Sticker Field, Spine Archive, Morphing Stage |
@@ -24,7 +24,7 @@ All 48 components are included in the repository and local shadcn registry. Star
 
 The [Buttons collection](http://localhost:5173/components/buttons) has seven live button studies with keyboard, touch, disabled, and reduced-motion states. A dedicated button index sits to the right of the component catalog on wide screens and becomes a shortcut strip on smaller screens. Each new button forwards native props and a ref, and defaults to `type="button"`.
 
-The [Heroes collection](http://localhost:5173/components/heroes) adds four complete openings with real calls to action, native scrolling, optional video playback, and product feature callouts. The travel imagery is original generated artwork; the speaker artwork and eight-second silent camera study are original demo assets.
+The [Heroes collection](http://localhost:5173/components/heroes) includes a product configurator with finish-specific renders, alternate views, model choices, and live dimensions/pricing. Frame Morph Hero coordinates a portrait window, panorama, and full scene with typography and chapter progress; its existing `ScrollExpandHero` export and `scroll-expand-hero` registry URL remain compatible. Gallery previews fit the complete composition, and each hero has a full-width live preview at `/preview/<slug>`. The speaker renders, architectural image, coastal artwork, and eight-second silent camera study are original demo assets. Product models, prices, and dimensions are fictional example data.
 
 The [Button playground](http://localhost:5173/components/buttons/playground) lets you change the interaction, label, palette, background/text/accent colors, size, corner radius, and disabled state. The preview and copyable React example update together.
 

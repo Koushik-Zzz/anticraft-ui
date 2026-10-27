@@ -7,23 +7,23 @@ import './visual-hero-demos.css'
 
 export function ScrollExpandHeroDemo() {
   return (
-    <div className="demo hero-demo visual-scroll-demo" tabIndex={0} role="region" aria-label="Scrollable Atlas hero preview">
+    <div className="demo hero-demo visual-scroll-demo" tabIndex={0} role="region" aria-label="Scrollable STILL architecture hero preview">
       <DemoStory>
-        <div className="visual-hero-demo-masthead"><b>atlas<span>®</span></b><span>SCROLL TO OPEN THE VIEW ↓</span></div>
+        <div className="visual-scroll-masthead"><b>STILL<span>®</span></b><span>ARCHITECTURE &amp; OTHER WAYS OF LIVING</span><span>EST. 2016 <i aria-hidden="true">↗</i></span></div>
         <ScrollExpandHero
-          eyebrow="A DIFFERENT WAY OUT"
-          title={'A little further.\nA little closer.'}
-          description="Thoughtful journeys for people who like to take the long way."
-          action={{ label: 'Explore the Atlas story', href: '#demo-story-atlas' }}
-          caption="MORE TIME OUT THERE. LESS TIME PLANNING."
-          media={<img src="/images/demos/atlas-coast.webp" alt="" decoding="async" />}
+          eyebrow="SPACES FOR THE SENSES"
+          title={'Space to\nfeel more.'}
+          description="Architecture that makes room for a different way of being. Less noise. More life."
+          action={{ label: 'Explore the project', href: '#demo-story-still' }}
+          caption={'Casa Forma / Portugal\nA study in living slowly.'}
+          chapters={['The approach', 'A wider view', 'Feel at home']}
+          media={<img src="/images/demos/forma-house.webp" alt="" decoding="async" />}
         />
-        <section className="visual-scroll-continuation" aria-label="Atlas introduction">
-          <span>THE GOOD KIND OF GETTING LOST</span>
-          <h3>Make room for<br /><em>the unexpected.</em></h3>
-          <p>A quiet coast. A new favorite place. A day with a little less on the itinerary. Start with a direction and leave room for the rest.</p>
-          <a href="#demo-story-atlas">Read the example case study <span aria-hidden="true">↗</span></a>
-          <small>The hero ends here. Your page keeps going.</small>
+        <section className="visual-scroll-continuation" aria-label="About the STILL architecture study">
+          <div><span>SELECTED WORK / 2026</span><span>01 — CASA FORMA</span></div>
+          <h3>Space is a feeling.<br />We design for it.</h3>
+          <div className="visual-scroll-continuation-bottom"><p>A considered relationship between light, material and the everyday. Casa Forma is a fictional architectural study in making a little more room for life.</p><a href="#demo-story-still">Open the architecture case study <span aria-hidden="true">↗</span></a></div>
+          <small>Original architecture concept. An Anticraft UI interaction study.</small>
         </section>
       </DemoStory>
     </div>

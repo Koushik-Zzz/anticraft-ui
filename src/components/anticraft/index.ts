@@ -98,4 +98,4 @@ export { ShowreelHero } from './ShowreelHero';
 export type { ShowreelHeroProps } from './ShowreelHero';
 export { ProductSpotlightHero } from './ProductSpotlightHero';
 export type { ProductSpotlightHeroProps } from './ProductSpotlightHero';
-export type { ProductSpotlightFeature } from './ProductSpotlightHero';
+export type { ProductSpotlightFeature, ProductSpotlightImage, ProductSpotlightView, ProductSpotlightVariant, ProductSpotlightSize, ProductSpotlightSelection } from './ProductSpotlightHero';

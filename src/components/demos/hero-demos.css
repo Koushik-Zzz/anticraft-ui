@@ -17,6 +17,39 @@
 .hero-collection-heading-links a:hover { color: var(--accent-ink); }
 .hero-collection-grid { margin-top: 30px; }
 .hero-collection-page .catalog-heading > p { max-width: 560px; }
+.hero-collection-grid .hero-featured-card { grid-column: 1 / -1; }
+.hero-thumbnail { position: relative; width: 100%; aspect-ratio: 10 / 7; overflow: hidden; background: #e7e6e2; isolation: isolate; }
+.hero-thumbnail-stage { position: absolute; inset: 0 auto auto 0; width: 1200px; height: 840px; transform: scale(var(--hero-thumbnail-scale, .333333)); transform-origin: 0 0; pointer-events: none; }
+.hero-thumbnail-stage .hero-demo { height: 840px !important; overflow: hidden !important; }
+.hero-thumbnail-stage .ac-scroll-expand-hero { --ac-scroll-expand-pin-height: 760px; }
+.hero-thumbnail-stage .ac-product-spotlight-hero { --ac-spotlight-stage-height: 480px; }
+.hero-thumbnail-open { position: absolute; inset: 0; display: flex; justify-content: flex-end; align-items: flex-end; padding: 18px; }
+.hero-thumbnail-open > span { display: inline-flex; gap: 14px; align-items: center; padding: 12px 16px; border-radius: 3px; background: #fcfcf5; color: #202220; box-shadow: 0 2px 15px #0001; font-size: 10px; opacity: 0; transform: translateY(5px); transition: opacity 180ms, transform 180ms; }
+.hero-thumbnail-open:hover > span, .hero-thumbnail-open:focus-visible > span { opacity: 1; transform: none; }
+.hero-thumbnail-open:focus-visible { outline: 3px solid #2851e3; outline-offset: -3px; }
+.catalog-card-preview:has(> .hero-thumbnail), .home-preview:has(> .hero-thumbnail) { height: auto; }
+.hero-workbench-expand { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; min-height: 45px; padding: 12px 20px; border-bottom: 1px solid var(--line); font-size: 10px; }
+.hero-workbench-expand > span:last-child { display: inline-flex; align-items: center; gap: 12px; color: var(--accent-ink); }
+body:has(.hero-standalone-preview) > :is(.site-header, .site-footer, .skip-link) { display: none; }
+.hero-standalone-preview { min-height: 100dvh; background: #e7e6e2; }
+.hero-preview-bar { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 40px; padding: 10px 25px; border-bottom: 1px solid #20222022; background: #f7f7f2; color: #292b26; font-size: 10px; }
+.hero-preview-bar > span { display: flex; gap: 12px; }
+.hero-preview-bar > span > span { color: #74766c; font-size: 8px; letter-spacing: .04em; }
+.hero-preview-bar > a:last-child { display: inline-flex; align-items: center; gap: 13px; }
+.hero-standalone-preview > .hero-demo, .hero-standalone-preview > .practical-story-host > .hero-demo { height: auto !important; overflow: visible !important; }
+.hero-standalone-preview .hero-demo { border-radius: 0; }
+.hero-standalone-preview .visual-scroll-demo .ac-scroll-expand-hero { --ac-scroll-expand-pin-height: max(580px, calc(100svh - 108px), var(--ac-scroll-expand-content-height)); }
+.hero-standalone-preview .hero-demo .interactive-hero-footnote { font-size: 9px; }
+.hero-standalone-preview .product-spotlight-hero-demo .interactive-hero-footnote { min-height: 36px; }
+@media (hover: none) { .hero-thumbnail-open > span { opacity: 1; transform: none; } }
+@media (max-width: 640px) {
+  .hero-standalone-preview .visual-scroll-demo .ac-scroll-expand-hero { --ac-scroll-expand-pin-height: max(610px, calc(100svh - 99px), var(--ac-scroll-expand-content-height)); }
+  .hero-preview-bar { padding-inline: 16px; font-size: 9px; }
+  .hero-preview-bar > span { display: none; }
+  .hero-thumbnail-open { padding: 10px; }
+  .hero-thumbnail-open > span { padding: 8px 10px; font-size: 8px; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-thumbnail-open > span { transition: none; } }
 .collection-action { display: inline-flex; align-items: center; gap: 18px; margin-top: 22px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 5px; font-size: 11px; background: var(--surface); }
 .collection-action:hover { border-color: var(--muted); }
 .button-rail { grid-template-columns: auto minmax(0, 1fr) auto; }
@@ -30,5 +63,6 @@
 @media (max-width: 640px) {
   .component-playground:has(.hero-demo) { height: 560px; }
   .catalog-card-preview:has(.hero-demo), .home-preview:has(.hero-demo) { height: 440px; }
+  .catalog-card-preview:has(> .hero-thumbnail), .home-preview:has(> .hero-thumbnail) { height: auto; }
   .hero-collection-heading-links a { font-size: 10px; }
 }

@@ -1,7 +1,8 @@
 'use client';
 
 import { ShowreelHero } from '@/components/anticraft/ShowreelHero';
-import { ProductSpotlightHero } from '@/components/anticraft/ProductSpotlightHero';
+import { useState } from 'react';
+import { ProductSpotlightHero, type ProductSpotlightSelection } from '@/components/anticraft/ProductSpotlightHero';
 import { DemoStory } from './practical-art';
 import './interactive-hero-demos.css';
 
@@ -23,20 +24,33 @@ export function ShowreelHeroDemo() {
 }
 
 export function ProductSpotlightHeroDemo() {
+  const [selection, setSelection] = useState<ProductSpotlightSelection | null>(null);
   return <DemoStory><div className="demo hero-demo product-spotlight-hero-demo">
-    <header className="interactive-hero-brand"><strong>FORMA<span> / SOUND</span></strong><span>A LITTLE MORE LISTENING.</span></header>
     <ProductSpotlightHero
-      eyebrow="THE EVERYDAY SPEAKER / FORM 01"
-      title={'Sound, with\na softer side.'}
-      description="Warm, room-filling sound. Natural textures. The kind of object that feels at home before the first note."
-      image={{ src: '/images/demos/forma-speaker.svg', alt: 'A compact olive green speaker with tactile top controls, a woven front grille, and low wooden feet' }}
-      features={[
-        { id: 'controls', label: 'A satisfying little turn.', detail: 'Tactile top controls keep volume and playback close to hand.', x: .63, y: .25 },
-        { id: 'grille', label: 'Soft on the eyes. Full of sound.', detail: 'A woven front grille gives the room a softer focal point.', x: .50, y: .52 },
-        { id: 'feet', label: 'Grounded in the details.', detail: 'Low wooden feet lift the form and leave a little breathing room.', x: .37, y: .83 },
+      productName="MONO"
+      productNumber="01"
+      kicker="DESIGNED TO FEEL DIFFERENT"
+      note="FORM. FUNCTION. NOTHING EXTRA."
+      eyebrow="SOUND OBJECTS / COLLECTION 01"
+      title={'Sound.\nIn its purest form.'}
+      description="One considered object. A quieter presence. Made for the spaces where life happens."
+      image={{ src: '/images/demos/mono-graphite.webp', alt: 'MONO 01, a graphite speaker with a sculpted aluminum body, acoustic front grille, and a circular volume control' }}
+      variants={[
+        { id: 'graphite', label: 'Graphite', color: '#343936', image: { src: '/images/demos/mono-graphite.webp', alt: 'MONO 01 speaker in Graphite, shown in a three-quarter view' }, views: [{ id: 'detail', label: 'Detail', image: { src: '/images/demos/mono-detail.webp', alt: 'A closer look at the Graphite speaker’s top volume control and fine acoustic mesh' } }] },
+        { id: 'chalk', label: 'Chalk', color: '#e8e5dd', image: { src: '/images/demos/mono-chalk.webp', alt: 'MONO 01 speaker in Chalk, shown in a three-quarter view' } },
+        { id: 'copper', label: 'Copper', color: '#ad7153', image: { src: '/images/demos/mono-copper.webp', alt: 'MONO 01 speaker in Copper, shown in a three-quarter view' } },
       ]}
-      action={{ label: 'A study in simplicity', href: '#demo-story-sound' }}
+      sizes={[
+        { id: 'mono-01', label: 'MONO 01', dimensions: '270 × 140 × 130 mm', price: '$390' },
+        { id: 'mono-01-plus', label: '01 PLUS', dimensions: '340 × 170 × 150 mm', price: '$540' },
+      ]}
+      features={[
+        { id: 'control', label: 'A tactile point of contact.', detail: 'A single top dial keeps volume within easy reach.', x: .80, y: .20 },
+        { id: 'mesh', label: 'Quietly precise.', detail: 'An acoustic grille wraps the front in a continuous, considered surface.', x: .42, y: .55 },
+      ]}
+      onSelectionChange={setSelection}
+      action={{ label: 'Explore the object', href: '#demo-story-sound' }}
     />
-    <p className="interactive-hero-footnote"><span>FORMA 01 / A PRODUCT DESIGN STUDY</span><span>TOUCH A POINT. GET CLOSER.</span></p>
+    <p className="interactive-hero-footnote"><span>MONO / A FICTIONAL PRODUCT DESIGN STUDY</span><span aria-label="Current configuration">{selection?.size?.label ?? 'MONO 01'} / {selection?.variant?.label ?? 'Graphite'} / {selection?.size?.price ?? '$390'}</span></p>
   </div></DemoStory>;
 }

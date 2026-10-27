@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react';
 import Link from 'next/link';
 import { ComponentDemo } from '@/components/demos/component-demo';
+import { HeroThumbnail } from './hero-thumbnail';
 import { Icon } from '@/components/site/icon';
 import { components } from '@/lib/catalog';
 import './home.css';
@@ -72,7 +73,7 @@ export function HomePage() {
         <div className="ac-home-grid">
           {featured.map((component, index) => (
             <article key={component.slug} className="ac-home-component">
-              <div className="ac-home-preview home-preview"><ComponentDemo slug={component.slug} /></div>
+              <div className="ac-home-preview home-preview">{component.category === 'Heroes' ? <HeroThumbnail slug={component.slug} title={component.title}/> : <ComponentDemo slug={component.slug} />}</div>
               <div className="ac-home-component-info">
                 <div><Link className="ac-home-component-title" href={`/components/${component.slug}`}>{component.title}<Icon name="arrow" size={15} /></Link><p>{component.description}</p></div>
                 <span className="ac-home-component-category">{component.category}</span>

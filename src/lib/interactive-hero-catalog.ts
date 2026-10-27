@@ -46,39 +46,63 @@ export function Example() {
     title: 'Product Spotlight Hero',
     category: 'Heroes',
     tag: 'New',
-    description: 'Put one considered product in focus. Numbered image points connect its form to useful, readable feature details.',
+    description: 'An image-led product configurator. Change the finish, inspect another view, and compare models with a live price and dimensions.',
     file: 'ProductSpotlightHero.tsx',
     cssFile: 'product-spotlight-hero.css',
-    usage: `import { ProductSpotlightHero } from '@/components/anticraft/ProductSpotlightHero';
+    usage: `'use client';
+
+import { ProductSpotlightHero } from '@/components/anticraft/ProductSpotlightHero';
 
 export function Example() {
   return (
     <ProductSpotlightHero
-      eyebrow="FORMA / SOUND"
-      title={'Sound, with\\na softer side.'}
-      description="Warm sound, natural textures, and the details that make an object feel at home."
-      image={{ src: '/images/speaker.jpg', alt: 'An olive speaker with top controls, a woven grille, and wooden feet' }}
-      features={[
-        { id: 'controls', label: 'Tactile controls', detail: 'Volume and playback stay close to hand.', x: 0.63, y: 0.25 },
-        { id: 'grille', label: 'A softer texture', detail: 'A woven front grille gives the room a softer focal point.', x: 0.50, y: 0.52 },
-        { id: 'feet', label: 'Grounded in detail', detail: 'Low wooden feet give the form a little breathing room.', x: 0.37, y: 0.83 },
+      productName="MONO"
+      productNumber="01"
+      kicker="DESIGNED TO FEEL DIFFERENT"
+      note="FORM. FUNCTION. NOTHING EXTRA."
+      eyebrow="SOUND OBJECTS / COLLECTION 01"
+      title={'Sound.\\nIn its purest form.'}
+      description="One considered object. A quieter presence. Made for the spaces where life happens."
+      image={{ src: '/images/speaker-graphite.webp', alt: 'A graphite speaker in three-quarter view' }}
+      variants={[
+        { id: 'graphite', label: 'Graphite', color: '#343936', image: { src: '/images/speaker-graphite.webp', alt: 'The speaker in Graphite' }, views: [{ id: 'detail', label: 'Detail', image: { src: '/images/speaker-detail.webp', alt: 'A closer look at the Graphite volume dial' } }] },
+        { id: 'chalk', label: 'Chalk', color: '#e8e5dd', image: { src: '/images/speaker-chalk.webp', alt: 'The speaker in Chalk' } },
       ]}
-      action={{ label: 'Explore the speaker', href: '/products/speaker' }}
+      sizes={[
+        { id: 'standard', label: 'MONO 01', dimensions: '270 × 140 × 130 mm', price: '$390' },
+        { id: 'plus', label: '01 PLUS', dimensions: '340 × 170 × 150 mm', price: '$540' },
+      ]}
+      features={[
+        { id: 'control', label: 'Tactile control', detail: 'A single top dial keeps volume within easy reach.', x: 0.80, y: 0.20 },
+      ]}
+      onSelectionChange={({ variant, size, view, image }) => {
+        // Connect the selected IDs and price to your own product flow.
+        console.log(variant?.id, size?.id, size?.price, view.id, image.src);
+      }}
+      action={{ label: 'Explore the object', href: '/products/speaker' }}
     />
   );
 }`,
-    useCases: ['Product launches', 'Furniture and design objects', 'Material details', 'Hardware feature introductions'],
+    useCases: ['Product launches', 'Furniture and design objects', 'Finish and model selection', 'Hardware product pages'],
+    inspiration: { name: 'Oakâme product configurator', url: 'https://www.awwwards.com/inspiration/product-configurator-oakame', note: 'The large product stage and compact configuration panel draw on Oakâme’s product experience. MONO is Anticraft’s original fictional design study, with its own renders and example product data.' },
     props: [
-      { name: 'title', type: 'string', default: 'Required', description: 'The visible product introduction heading. Newlines preserve intentional line breaks.' },
-      { name: 'image', type: '{ src: string; alt: string }', default: 'Required', description: 'Your product image and a meaningful accessible description. The stage follows the image’s natural aspect ratio without cropping or letterboxing, so points align directly with both wide and square source images.' },
-      { name: 'features', type: 'ProductSpotlightFeature[]', default: 'Required', description: 'An ordered list with unique id, label, detail, x, and y for every feature. Each feature has a numbered image button and a matching text button. An empty list leaves a simple product hero without feature controls.' },
-      { name: 'features[].x / y', type: 'number', default: 'Required', description: 'Normalized coordinates from 0 to 1 measured from the top-left corner of the source image: x is horizontal, y vertical. Values outside the range are clamped; non-finite values fall back to 0.5. Keep points at least 44px apart at the smallest intended size.' },
-      { name: 'features[].label / detail', type: 'string', default: 'Required', description: 'A short feature name and useful description. Both stay readable in the text list, including on touch and small screens; selecting one also repeats its detail beneath the image.' },
-      { name: 'eyebrow', type: 'string', default: 'undefined', description: 'Optional small context above the heading, such as a product family or edition.' },
-      { name: 'description', type: 'string', default: 'undefined', description: 'Optional introductory copy beneath the heading.' },
-      { name: 'action', type: '{ label: string; href: string }', default: 'undefined', description: 'Optional ordinary link to a real product page, collection, or story. Replace the usage example path with your own destination.' },
-      { name: 'className', type: 'string', default: "''", description: 'Additional classes. Customize --ac-spotlight-surface, --ac-spotlight-ink, --ac-spotlight-muted, --ac-spotlight-line, and --ac-spotlight-accent on the root.' },
+      { name: 'title', type: 'string', default: 'Required', description: 'The visible section heading. Newlines preserve intentional line breaks; text can still wrap naturally. Use a suitable heading level for your page hierarchy when adapting the source.' },
+      { name: 'image', type: 'ProductSpotlightImage', default: 'Required', description: 'A fallback product image with src and meaningful alt. With no variants it is the main view. Transparent product images work especially well against the stage. Main images preserve their natural aspect ratio so normalized feature points stay aligned. After the image loads, its natural ratio constrains the actual image frame to the available desktop stage height; no letterboxing is added around hotspot coordinates.' },
+      { name: 'features', type: 'ProductSpotlightFeature[]', default: 'Required', description: 'A list with unique id, label, detail, x, and y. Each point opens one compact description, without a repeated accordion. An empty list removes points and the detail strip.' },
+      { name: 'features[].x / y', type: 'number', default: 'Required', description: 'Coordinates from 0 to 1 measured from the complete main source image’s top-left corner. Values outside the range are clamped; non-finite values fall back to 0.5. Use equivalent compositions across finishes and keep points at least 44px apart at the smallest intended size. Points appear only in the main view.' },
+      { name: 'productName', type: 'string', default: "'OBJECT / 01'", description: 'The compact product wordmark in the masthead. The selected model appears separately in the configuration summary.' },
+      { name: 'productNumber', type: 'string', default: "'01'", description: 'A short decorative collection number. It appears in the masthead index and as large background typography, hidden from assistive technology.' },
+      { name: 'variants', type: 'ProductSpotlightVariant[]', default: '[]', description: 'Finish options with unique id, label, CSS color, and image {src,alt}. The first is selected initially. Choosing a finish changes the main image and resets its view to Object. Removing a selected option falls back to the first available option without firing the callback.' },
+      { name: 'variants[].views', type: 'ProductSpotlightView[]', default: '[]', description: 'Optional additional images of this finish, each with unique id, label, and image {src,alt}. The reserved main ID is automatically supplied for the main image. Only views belonging to the current finish are shown, so a detail never accidentally displays a different finish. Extra images use a 3:2 cover crop; supply suitable detail compositions.' },
+      { name: 'sizes', type: 'ProductSpotlightSize[]', default: '[]', description: 'Model options with unique id, label, dimensions, and formatted price including currency. Selection updates the live summary. Dimensions and prices are supplied by you; changing a model does not distort or rescale the product image.' },
+      { name: 'onSelectionChange', type: '(selection: ProductSpotlightSelection) => void', default: 'undefined', description: 'Called in the finish, model, or view button’s event handler. Receives {variant,size,view,image}: current full option objects, a view with its ID, and the exact displayed image. Variant and size are null when their lists are empty. It never fires on initial mount or prop changes. Use it to connect your own cart, URL, pricing, or product flow.' },
+      { name: 'eyebrow', type: 'string', default: "'AN OBJECT, CONSIDERED.'", description: 'Short context in the masthead, such as a product family or collection.' },
+      { name: 'description', type: 'string', default: 'undefined', description: 'Optional short introduction below the display heading. Keep it concise so the product stays prominent.' },
+      { name: 'kicker', type: 'string', default: 'undefined', description: 'Optional small label above the heading. Omitted entirely when not supplied.' },
+      { name: 'note', type: 'string', default: 'undefined', description: 'Optional compact line beneath the introduction. Hidden in compact containers to keep the product prominent.' },
+      { name: 'action', type: '{ label: string; href: string }', default: 'undefined', description: 'An ordinary link to your product page, collection, or story. Selection does not alter its URL or perform a purchase. Connect onSelectionChange to your own application if the destination needs the chosen configuration.' },
+      { name: 'className', type: 'string', default: "''", description: 'Additional classes. Theme --ac-spotlight-surface, --ac-spotlight-ink, --ac-spotlight-muted, --ac-spotlight-line, and --ac-spotlight-accent on the root. Override --ac-spotlight-stage-height to set the desktop image stage; its default is clamp(320px, calc(100svh - 375px), 560px). Compact phone layouts use natural height.' },
     ],
-    motion: 'Choose a numbered point or its matching text row to select a feature. Native buttons support click, touch, Enter, and Space; aria-pressed communicates selection in both places, and a polite detail region announces the selected description. All feature descriptions remain visible in the list without hovering or opening a point. There is no automatic cycling or moving product image. The layout switches from two columns to one according to its own container width. Selection remains local to each instance; removing a selected feature returns the detail panel to its instruction. Subtle color and ring transitions disappear for reduced motion. The FORMA speaker in the demo is original example artwork; the story link opens a local example design case study. Supply your own source image and destination for the usage example.',
+    motion: 'Finish swatches replace the product image. Image thumbnail buttons switch views belonging to that finish; changing finishes resets to the main view. Model buttons update dimensions, formatted price, and model name in a polite live summary. Native buttons support click, touch, Enter, and Space, with aria-pressed selection and visible keyboard focus. Image points expose one concise, politely announced detail; activating the selected point closes it. Feature points are hidden for alternate detail views. Options are stored by ID and derived from current props, so removing or replacing selected data safely falls back to the first option. Configuration callbacks run only in user event handlers. On small containers the product comes directly after the heading and the price/action row moves above the finish and model controls. A brief image fade and tiny vertical entrance disappear for reduced motion. MONO is an original fictional product study; the model dimensions and prices are illustrative, and the action opens a local design story. Supply your own images, product data, and destination.',
   },
 ];
