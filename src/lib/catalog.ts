@@ -13,6 +13,10 @@ import { proofComponents } from './proof-catalog';
 import { marketingComponents } from './marketing-catalog';
 import { peopleProductComponents } from './people-product-catalog';
 import { processComponents } from './process-catalog';
+import { briefComponents } from './brief-catalog';
+import { editorialSectionComponents } from './editorial-section-catalog';
+import { commerceComponents } from './commerce-catalog';
+import { comparisonComponents } from './comparison-catalog';
 
 export type ComponentCategory = 'Heroes' | 'Sections' | 'Navigation' | 'Experiments' | 'Backgrounds' | 'Buttons' | 'Typography' | 'Cards' | 'Layout';
 
@@ -34,6 +38,10 @@ export type ComponentDefinition = {
 export const categories: ComponentCategory[] = ['Heroes', 'Buttons', 'Sections', 'Experiments', 'Navigation', 'Backgrounds', 'Typography', 'Cards', 'Layout'];
 
 export const components: ComponentDefinition[] = [
+  ...briefComponents,
+  ...editorialSectionComponents,
+  ...commerceComponents,
+  ...comparisonComponents,
   ...visualHeroComponents,
   ...interactiveHeroComponents,
   ...buttonComponents,
@@ -373,6 +381,10 @@ export function Example() {
     motion: 'Uses native buttons with expanded state and linked content regions. Reduced motion removes the icon and text transitions.',
   },
 ];
+
+export function hasFullPreview(item: Pick<ComponentDefinition, 'slug' | 'category'>) {
+  return item.category === 'Heroes' || ['project-brief-builder', 'reveal-footer', 'product-quick-view', 'feature-comparison', 'case-study-story'].includes(item.slug);
+}
 
 export function getComponent(slug: string): ComponentDefinition | undefined {
   return components.find((component) => component.slug === slug);

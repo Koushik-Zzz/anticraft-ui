@@ -1,0 +1,7 @@
+.demo.website-demo { display:block; height:100%; min-height:0; padding:0; overflow:auto; overscroll-behavior:contain; container-type:inline-size; scrollbar-width:thin; }
+.component-playground:has(.website-demo) { height:680px; }
+.hero-thumbnail-stage .website-demo { height:840px !important; overflow:hidden !important; }
+.hero-thumbnail-stage .reveal-demo-work { display:none; }
+.hero-standalone-preview .website-demo { height:auto !important; min-height:calc(100svh - 40px); overflow:visible !important; border-radius:0; }
+.hero-standalone-preview .website-demo > :is(.ac-brief,.ac-feature-comparison) { min-height:calc(100svh - 40px); }
+@media (max-width:640px) { .component-playground:has(.website-demo) { height:650px; } }

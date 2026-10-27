@@ -1,5 +1,16 @@
 "use client";
 
+export { ProjectBriefBuilder } from './ProjectBriefBuilder';
+export type { ProjectBriefBuilderProps, ProjectBriefOption, ProjectBrief } from './ProjectBriefBuilder';
+export { RevealFooter } from './RevealFooter';
+export type { RevealFooterProps, RevealFooterLink } from './RevealFooter';
+export { CaseStudyStory } from './CaseStudyStory';
+export type { CaseStudyStoryProps, CaseStudyImage, CaseStudyFact, CaseStudyChapter, CaseStudyOutcome, CaseStudyNextProject } from './CaseStudyStory';
+export { ProductQuickView } from './ProductQuickView';
+export type { ProductQuickViewProps, ProductQuickViewImage, ProductQuickViewVariant, ProductQuickViewSpecification, ProductQuickViewSelection } from './ProductQuickView';
+export { FeatureComparison } from './FeatureComparison';
+export type { FeatureComparisonProps, FeatureComparisonProduct, FeatureComparisonRow, FeatureComparisonSelection } from './FeatureComparison';
+
 export { PricingPlans } from './PricingPlans';
 export { FeatureBento } from './FeatureBento';
 export { ProductGallery } from './ProductGallery';

@@ -23,6 +23,11 @@ import { ShowreelHeroDemo, ProductSpotlightHeroDemo } from './interactive-hero-d
 import './hero-demos.css';
 import { ButtonDemo, isButtonDemoSlug } from './button-demos';
 import { ProcessTimelineDemo } from './process-demo';
+import { ProjectBriefBuilderDemo } from './brief-demos';
+import { RevealFooterDemo, CaseStudyStoryDemo } from './editorial-section-demos';
+import { ProductQuickViewDemo } from './commerce-demos';
+import { FeatureComparisonDemo } from './comparison-demos';
+import './website-demos.css';
 
 export interface DemoOptions { accent?: string; intensity?: number; paused?: boolean; }
 
@@ -39,6 +44,11 @@ export function ComponentDemo({ slug, options = {} }: { slug: string; options?: 
   const [ambientPaused, setAmbientPaused] = useState(false);
   const isPaused = options.paused ?? ambientPaused;
   const pauseControl = <button className="replay-button ambient-pause" onClick={() => setAmbientPaused(!ambientPaused)} aria-pressed={isPaused}>{isPaused ? 'Play motion' : 'Pause motion'}</button>;
+  if (id === 'project-brief-builder') return <ProjectBriefBuilderDemo/>;
+  if (id === 'reveal-footer') return <RevealFooterDemo/>;
+  if (id === 'product-quick-view') return <ProductQuickViewDemo/>;
+  if (id === 'feature-comparison') return <FeatureComparisonDemo/>;
+  if (id === 'case-study-story') return <CaseStudyStoryDemo/>;
   if (id === 'scroll-expand-hero') return <ScrollExpandHeroDemo/>;
   if (id === 'editorial-hero') return <EditorialHeroDemo/>;
   if (id === 'showreel-hero') return <ShowreelHeroDemo/>;

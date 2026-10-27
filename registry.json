@@ -4,6 +4,111 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "project-brief-builder",
+      "type": "registry:component",
+      "title": "Project Brief Builder",
+      "description": "A guided project enquiry with validation, editable review and asynchronous submission states.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ProjectBriefBuilder.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ProjectBriefBuilder.tsx"
+        },
+        {
+          "path": "src/components/anticraft/project-brief-builder.css",
+          "type": "registry:file",
+          "target": "components/anticraft/project-brief-builder.css"
+        }
+      ]
+    },
+    {
+      "name": "reveal-footer",
+      "type": "registry:component",
+      "title": "Reveal Footer",
+      "description": "A large editorial invitation uncovered by native scrolling, with compact and reduced-motion fallbacks.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/RevealFooter.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/RevealFooter.tsx"
+        },
+        {
+          "path": "src/components/anticraft/reveal-footer.css",
+          "type": "registry:file",
+          "target": "components/anticraft/reveal-footer.css"
+        }
+      ]
+    },
+    {
+      "name": "product-quick-view",
+      "type": "registry:component",
+      "title": "Product Quick View",
+      "description": "A product card that opens a detailed image gallery with finish choices and specifications.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ProductQuickView.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ProductQuickView.tsx"
+        },
+        {
+          "path": "src/components/anticraft/product-quick-view.css",
+          "type": "registry:file",
+          "target": "components/anticraft/product-quick-view.css"
+        }
+      ]
+    },
+    {
+      "name": "feature-comparison",
+      "type": "registry:component",
+      "title": "Feature Comparison",
+      "description": "Two-option comparison with grouped specifications and a differences filter.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/FeatureComparison.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/FeatureComparison.tsx"
+        },
+        {
+          "path": "src/components/anticraft/feature-comparison.css",
+          "type": "registry:file",
+          "target": "components/anticraft/feature-comparison.css"
+        }
+      ]
+    },
+    {
+      "name": "case-study-story",
+      "type": "registry:component",
+      "title": "Case Study Story",
+      "description": "An image-led project story with useful context, chapters, outcomes and a next project.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/CaseStudyStory.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/CaseStudyStory.tsx"
+        },
+        {
+          "path": "src/components/anticraft/case-study-story.css",
+          "type": "registry:file",
+          "target": "components/anticraft/case-study-story.css"
+        }
+      ]
+    },
+    {
       "name": "scroll-expand-hero",
       "type": "registry:component",
       "title": "Frame Morph Hero",

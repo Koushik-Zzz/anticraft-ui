@@ -1,0 +1,12 @@
+.comparison-demo { background:#f4f3ed; color:#272d29; }
+.comparison-demo-masthead { display:flex; justify-content:space-between; align-items:center; gap:24px; max-width:1600px; margin-inline:auto; padding:28px clamp(24px,4%,64px); border-bottom:1px solid #cbd0c4; }
+.comparison-demo-masthead strong { font-size:31px; letter-spacing:-2px; font-weight:600; }.comparison-demo-masthead strong span { font-size:11px; vertical-align:top; letter-spacing:0; }
+.comparison-demo-masthead > span { text-align:right; font-size:8px; letter-spacing:.09em; }
+.comparison-demo-plan-notes { max-width:1600px; margin-inline:auto; padding:24px clamp(24px,4%,64px) 40px; border-top:1px solid #cbd0c4; }
+.comparison-demo-plan-notes > p { display:flex; align-items:center; justify-content:space-between; margin:0 0 25px; font-size:9px; letter-spacing:.08em; }.comparison-demo-plan-notes > p > span { font-size:24px; }
+.comparison-demo-plan-notes > div { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:30px; }.comparison-demo-plan-notes section { scroll-margin:30px; }
+.comparison-demo-plan-notes section:target { outline:2px solid #345c35; outline-offset:10px; }
+.comparison-demo-plan-notes section > span { font-size:9px; text-transform:uppercase; letter-spacing:.06em; }
+.comparison-demo-plan-notes h3 { margin:12px 0; font-size:21px; font-weight:500; letter-spacing:-.04em; }.comparison-demo-plan-notes section > p { margin:0; max-width:40ch; font-size:12px; line-height:1.7; color:#626b63; }
+.comparison-demo-plan-notes > small { display:block; margin-top:35px; font-size:9px; color:#626b63; line-height:1.7; }
+@container (width < 600px) { .comparison-demo-plan-notes > div { grid-template-columns:1fr; gap:30px; }.comparison-demo-masthead > span { max-width:20ch; line-height:1.6; } }
