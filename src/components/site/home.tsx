@@ -7,10 +7,10 @@ import { components } from '@/lib/catalog';
 import './home.css';
 
 const featuredSlugs = [
-  'scroll-expand-hero',
-  'showreel-hero',
+  'editor-canvas-hero',
+  'notes-workflow-hero',
+  'revenue-dashboard-hero',
   'product-spotlight-hero',
-  'editorial-hero',
   'arrow-capsule-button',
   'rolling-text-button',
 ];
@@ -67,8 +67,8 @@ export function HomePage() {
 
       <section className="ac-home-collection ac-home-container" aria-labelledby="ac-home-collection-title">
         <div className="ac-home-section-heading">
-          <div><span className="ac-home-eyebrow">FIRST IMPRESSIONS, WITH FEELING / 010</span><h2 id="ac-home-collection-title">A strong start.<br className="ac-home-mobile-break" /> <em>A lasting feeling.</em></h2></div>
-          <div className="ac-home-collection-intro"><p>Four heroes. A whole new beginning.<br />Considered layouts for stories worth telling.</p><Link href="/components/heroes">Explore the hero collection <Icon name="arrow" size={15} /></Link></div>
+          <div><span className="ac-home-eyebrow">FROM THE COLLECTION</span><h2 id="ac-home-collection-title">Featured components</h2></div>
+          <div className="ac-home-collection-intro"><p>SaaS heroes, a product configurator, and interactive buttons.</p><Link href="/components/heroes">Explore the hero collection <Icon name="arrow" size={15} /></Link></div>
         </div>
         <div className="ac-home-grid">
           {featured.map((component, index) => (

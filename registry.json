@@ -4,6 +4,69 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "editor-canvas-hero",
+      "type": "registry:component",
+      "title": "Editor Canvas Hero",
+      "description": "A SaaS hero with selectable documents and a working section outline.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/EditorCanvasHero.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/EditorCanvasHero.tsx"
+        },
+        {
+          "path": "src/components/anticraft/editor-canvas-hero.css",
+          "type": "registry:file",
+          "target": "components/anticraft/editor-canvas-hero.css"
+        }
+      ]
+    },
+    {
+      "name": "notes-workflow-hero",
+      "type": "registry:component",
+      "title": "Notes Workflow Hero",
+      "description": "A meeting-notes hero with reviewable decisions, editable owners, and a copyable task summary.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/NotesWorkflowHero.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/NotesWorkflowHero.tsx"
+        },
+        {
+          "path": "src/components/anticraft/notes-workflow-hero.css",
+          "type": "registry:file",
+          "target": "components/anticraft/notes-workflow-hero.css"
+        }
+      ]
+    },
+    {
+      "name": "revenue-dashboard-hero",
+      "type": "registry:component",
+      "title": "Revenue Dashboard Hero",
+      "description": "A finance hero with linked date, channel, chart, and transaction views.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/RevenueDashboardHero.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/RevenueDashboardHero.tsx"
+        },
+        {
+          "path": "src/components/anticraft/revenue-dashboard-hero.css",
+          "type": "registry:file",
+          "target": "components/anticraft/revenue-dashboard-hero.css"
+        }
+      ]
+    },
+    {
       "name": "image-hotspots",
       "type": "registry:component",
       "title": "Image Hotspots",

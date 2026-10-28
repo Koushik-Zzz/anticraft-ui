@@ -31,6 +31,9 @@ import { ImageHotspotsDemo } from './image-hotspots-demo';
 import { ExpandableGalleryDemo } from './expandable-gallery-demo';
 import { FileDropzoneDemo } from './file-dropzone-demo';
 import { SearchableFAQDemo } from './searchable-faq-demo';
+import { EditorCanvasHeroDemo } from './editor-canvas-hero-demo';
+import { NotesWorkflowHeroDemo } from './notes-workflow-hero-demo';
+import { RevenueDashboardHeroDemo } from './revenue-dashboard-hero-demo';
 import './website-demos.css';
 
 export interface DemoOptions { accent?: string; intensity?: number; paused?: boolean; }
@@ -48,6 +51,9 @@ export function ComponentDemo({ slug, options = {} }: { slug: string; options?: 
   const [ambientPaused, setAmbientPaused] = useState(false);
   const isPaused = options.paused ?? ambientPaused;
   const pauseControl = <button className="replay-button ambient-pause" onClick={() => setAmbientPaused(!ambientPaused)} aria-pressed={isPaused}>{isPaused ? 'Play motion' : 'Pause motion'}</button>;
+  if (id === 'editor-canvas-hero') return <EditorCanvasHeroDemo/>;
+  if (id === 'notes-workflow-hero') return <NotesWorkflowHeroDemo/>;
+  if (id === 'revenue-dashboard-hero') return <RevenueDashboardHeroDemo/>;
   if (id === 'image-hotspots') return <ImageHotspotsDemo/>;
   if (id === 'expandable-gallery') return <ExpandableGalleryDemo/>;
   if (id === 'file-dropzone') return <FileDropzoneDemo/>;

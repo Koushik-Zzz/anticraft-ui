@@ -10,7 +10,7 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 
 | Category | Components |
 | --- | --- |
-| Heroes | Frame Morph Hero, Showreel Hero, Product Spotlight Hero, Editorial Hero |
+| Heroes | Editor Canvas Hero, Notes Workflow Hero, Revenue Dashboard Hero, Frame Morph Hero, Showreel Hero, Product Spotlight Hero, Editorial Hero |
 | Sections | Image Hotspots, Expandable Gallery, Searchable FAQ, Project Brief Builder, Reveal Footer, Feature Comparison, Case Study Story, Pricing Plans, Feature Bento, Team Grid, Process Timeline, Project Grid, Project Preview List, Service Showcase, Article Rail, Testimonial Slider |
 | Navigation | Floating Dock, Sliding Nav, Expanding Menu, Radial Nav, Curtain Menu |
 | Experiments | Scratch Reveal, Pixel Swap, Cursor Trail, Throw Stack, Elastic Type, Peel Reveal, Orbit Gallery, Lenticular Panel, Sticker Field, Spine Archive, Morphing Stage |
@@ -21,9 +21,11 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 | Cards | Product Quick View, Product Gallery, Before After, Spotlight Card, Tilt Card, Border Beam |
 | Layout | Marquee, Editorial Accordion |
 
-All 57 components are included in the repository and local shadcn registry. Start with the **Sections** category for practical product and marketing content: clear pricing plans, feature grids, team profiles, process timelines, portfolio cards, service details, and client stories. Product Gallery in **Cards** adds thumbnails and a larger image viewer. Demo project and article links open complete local examples. The example brands and client stories are fictional. Pixel Swap now demonstrates switching between exterior and interior product views, with a customizable button label. Each component has a live demo, source, installation instructions, and prop documentation. Effects honor reduced motion, and interactive sections support keyboard and touch use.
+All 60 components are included in the repository and local shadcn registry. Start with the **Sections** category for practical product and marketing content: clear pricing plans, feature grids, team profiles, process timelines, portfolio cards, service details, and client stories. Product Gallery in **Cards** adds thumbnails and a larger image viewer. Demo project and article links open complete local examples. The example brands and client stories are fictional. Pixel Swap now demonstrates switching between exterior and interior product views, with a customizable button label. Each component has a live demo, source, installation instructions, and prop documentation. Effects honor reduced motion, and interactive sections support keyboard and touch use.
 
-The latest additions are Image Hotspots (clickable image annotations), Expandable Gallery (selectable image panels), File Dropzone (local file selection, validation and removal), and Searchable FAQ (search and category filtering). Each has a focused documentation demo and a standalone `/preview/<slug>` page. File Dropzone selects local files and calls `onFilesChange`; connect your own upload service when needed.
+The latest additions are three SaaS heroes: Editor Canvas (selectable documents and outline sections), Notes Workflow (source notes, reviewable tasks, owner edits, and copyable output), and Revenue Dashboard (linked range/channel filters, chart, metrics, and transactions). Each has a live documentation preview, full-width preview, typed props, and a standalone React/CSS registry item.
+
+Other recent additions are Image Hotspots (clickable image annotations), Expandable Gallery (selectable image panels), File Dropzone (local file selection, validation and removal), and Searchable FAQ (search and category filtering). Each has a focused documentation demo and a standalone `/preview/<slug>` page. File Dropzone selects local files and calls `onFilesChange`; connect your own upload service when needed.
 
 Other website components include a guided project brief with validation and review, a native-scroll reveal footer, a product quick-view dialog with real image/finish changes, a two-option feature comparison with a differences filter, and a complete editorial case study. Each has an interactive documentation preview and a full-width page at `/preview/<slug>`. The brief demo runs entirely in memory; connect its required `onSubmit` callback to your own service in a real project. Product links lead to local example stories, and all sample brands, prices, and results are illustrative.
 
@@ -73,6 +75,9 @@ Each item installs both the component and its stylesheet. Targets resolve throug
 Available registry items:
 
 ```text
+/r/editor-canvas-hero.json
+/r/notes-workflow-hero.json
+/r/revenue-dashboard-hero.json
 /r/project-brief-builder.json
 /r/reveal-footer.json
 /r/product-quick-view.json

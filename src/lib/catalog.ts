@@ -1,4 +1,7 @@
 import { visualHeroComponents } from './visual-hero-catalog';
+import { editorCanvasHeroComponents } from './editor-canvas-hero-catalog';
+import { notesWorkflowHeroComponents } from './notes-workflow-hero-catalog';
+import { revenueDashboardHeroComponents } from './revenue-dashboard-hero-catalog';
 import { interactiveHeroComponents } from './interactive-hero-catalog';
 import { buttonComponents } from './button-catalog';
 import { objectComponents } from './object-catalog';
@@ -42,6 +45,9 @@ export type ComponentDefinition = {
 export const categories: ComponentCategory[] = ['Heroes', 'Buttons', 'Sections', 'Forms', 'Experiments', 'Navigation', 'Backgrounds', 'Typography', 'Cards', 'Layout'];
 
 export const components: ComponentDefinition[] = [
+  ...editorCanvasHeroComponents,
+  ...notesWorkflowHeroComponents,
+  ...revenueDashboardHeroComponents,
   ...hotspotsComponents,
   ...expandableGalleryComponents,
   ...uploadComponents,

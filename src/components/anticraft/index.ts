@@ -111,6 +111,12 @@ export { TactileButton } from './TactileButton';
 export type { TactileButtonProps } from './TactileButton';
 
 export { ScrollExpandHero } from './ScrollExpandHero';
+export { EditorCanvasHero } from './EditorCanvasHero';
+export { NotesWorkflowHero } from './NotesWorkflowHero';
+export { RevenueDashboardHero } from './RevenueDashboardHero';
+export type { EditorCanvasHeroProps, EditorCanvasDocument, EditorCanvasSection, EditorCanvasItem } from './EditorCanvasHero';
+export type { NotesWorkflowHeroProps, NotesWorkflowSample, NotesWorkflowSourceNote, NotesWorkflowDecision, NotesWorkflowTask } from './NotesWorkflowHero';
+export type { RevenueDashboardHeroProps, RevenueDashboardTransaction } from './RevenueDashboardHero';
 export type { ScrollExpandHeroProps } from './ScrollExpandHero';
 export { EditorialHero } from './EditorialHero';
 export type { EditorialHeroProps } from './EditorialHero';
