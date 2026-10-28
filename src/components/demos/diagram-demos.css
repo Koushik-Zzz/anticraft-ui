@@ -7,6 +7,7 @@
 .diagram-thumbnail-stage > .diagram-demo { height: 640px !important; min-height: 640px !important; padding: 20px; }
 .diagram-thumbnail-stage .ac-orbit-network { max-width: 540px; }
 .diagram-thumbnail-stage .ac-converging-streams { min-height: 640px; }
+.diagram-thumbnail-stage :is(.ac-orbit-network-pause, .ac-signal-funnel__motion, .ac-routing-motion, .ac-converging-streams-motion) { visibility: hidden; }
 .diagram-thumbnail-motion { position: absolute; z-index: 3; top: 10px; right: 10px; min-height: 36px; padding: 7px 10px; border: 1px solid #d3d0c5; border-radius: 3px; background: #faf9f6; color: #30312c; font: 10px/1.2 ui-monospace, monospace; cursor: pointer; }
 .diagram-thumbnail-motion:focus-visible { outline: 2px solid #5d43ee; outline-offset: 3px; }
 .diagram-thumbnail-motion:disabled { cursor: default; opacity: .65; }
