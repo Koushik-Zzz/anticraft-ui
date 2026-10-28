@@ -4,6 +4,90 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "orbit-network",
+      "type": "registry:component",
+      "title": "Orbit Network",
+      "description": "A rotating integration network with selectable nodes and traveling packets.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/OrbitNetwork.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/OrbitNetwork.tsx"
+        },
+        {
+          "path": "src/components/anticraft/orbit-network.css",
+          "type": "registry:file",
+          "target": "components/anticraft/orbit-network.css"
+        }
+      ]
+    },
+    {
+      "name": "signal-funnel",
+      "type": "registry:component",
+      "title": "Signal Funnel",
+      "description": "An animated particle pipeline with configurable processing gates.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/SignalFunnel.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/SignalFunnel.tsx"
+        },
+        {
+          "path": "src/components/anticraft/signal-funnel.css",
+          "type": "registry:file",
+          "target": "components/anticraft/signal-funnel.css"
+        }
+      ]
+    },
+    {
+      "name": "routing-scorecard",
+      "type": "registry:component",
+      "title": "Routing Scorecard",
+      "description": "A routing diagram with adjustable scoring thresholds and animated signal streams.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/RoutingScorecard.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/RoutingScorecard.tsx"
+        },
+        {
+          "path": "src/components/anticraft/routing-scorecard.css",
+          "type": "registry:file",
+          "target": "components/anticraft/routing-scorecard.css"
+        }
+      ]
+    },
+    {
+      "name": "converging-streams",
+      "type": "registry:component",
+      "title": "Converging Streams",
+      "description": "Curved signal paths and moving packets frame a call to action.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ConvergingStreams.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ConvergingStreams.tsx"
+        },
+        {
+          "path": "src/components/anticraft/converging-streams.css",
+          "type": "registry:file",
+          "target": "components/anticraft/converging-streams.css"
+        }
+      ]
+    },
+    {
       "name": "editor-canvas-hero",
       "type": "registry:component",
       "title": "Editor Canvas Hero",

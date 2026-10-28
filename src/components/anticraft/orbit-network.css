@@ -1,0 +1,60 @@
+.ac-orbit-network, .ac-orbit-network * { box-sizing: border-box; }
+.ac-orbit-network {
+  --ac-orbit-paper: #faf9f6;
+  --ac-orbit-ink: #303127;
+  --ac-orbit-muted: #72736d;
+  --ac-orbit-line: #b6b4bf;
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin-inline: auto;
+  color: var(--ac-orbit-ink);
+  background: var(--ac-orbit-paper);
+  container-type: inline-size;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.ac-orbit-network-stage { position: relative; width: 100%; aspect-ratio: 1; isolation: isolate; overflow: hidden; background-image: radial-gradient(var(--ac-orbit-color, #5d43ee) .4px, transparent .5px); background-size: 7.5px 7.5px; }
+.ac-orbit-network-field { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--ac-orbit-color, #5d43ee); background: var(--ac-orbit-paper); }
+.ac-orbit-network-geometry { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.ac-orbit-network-rotor { transform: rotate(var(--ac-orbit-turn, 0deg)); transform-origin: 50% 50%; }
+.ac-orbit-network-ring { stroke: var(--ac-orbit-line); stroke-width: .65; opacity: .55; }
+.ac-orbit-network-polygon { stroke: var(--ac-orbit-line); stroke-width: .8; }
+.ac-orbit-network-spoke { stroke: var(--ac-orbit-line); stroke-width: .8; }
+.ac-orbit-network-spoke.is-selected { stroke: var(--ac-orbit-color, #5d43ee); stroke-width: 1; }
+.ac-orbit-network-junction { fill: var(--ac-orbit-paper); stroke: #85848b; stroke-width: .8; }
+.ac-orbit-network-packet { fill: var(--ac-orbit-color, #5d43ee); }
+.ac-orbit-network-nodes { position: absolute; inset: 0; pointer-events: none; }
+.ac-orbit-network-node {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ac-orbit-paper);
+  transform: translate(-50%, -50%) rotate(calc(-1 * var(--ac-orbit-turn, 0deg)));
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.ac-orbit-network-tile { display: grid; place-items: center; width: clamp(28px, 7.1cqi, 38px); height: clamp(28px, 7.1cqi, 38px); padding: 5px; background: var(--ac-orbit-ink); outline: 4px solid var(--ac-orbit-paper); color: #ebeade; font-size: 19px; line-height: 1; }
+.ac-orbit-network-tile svg { display: block; width: 100%; height: 100%; }
+.ac-orbit-network-node[aria-pressed='true'] .ac-orbit-network-tile { background: var(--ac-orbit-color, #5d43ee); color: #fff; }
+.ac-orbit-network-node:hover .ac-orbit-network-tile { box-shadow: 0 0 0 5px color-mix(in srgb, var(--ac-orbit-color, #5d43ee) 20%, transparent); }
+.ac-orbit-network-node:focus-visible { outline: 2px solid var(--ac-orbit-color, #5d43ee); outline-offset: 2px; }
+.ac-orbit-network-center { position: absolute; inset: 50% auto auto 50%; display: grid; place-items: center; width: 15%; aspect-ratio: 1; padding: 3.1%; border: 1px solid #9692ba; background: var(--ac-orbit-paper); color: var(--ac-orbit-ink); transform: translate(-50%, -50%); font-size: clamp(22px, 6cqi, 34px); overflow: hidden; }
+.ac-orbit-network-center svg { width: 100%; height: 100%; display: block; }
+.ac-orbit-network-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0 12px; min-height: 56px; padding: 5px 18px; border-top: 1px solid #d9d7d4; font: 10px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.ac-orbit-network-footer p { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 5px 0; }
+.ac-orbit-network-footer strong { font-weight: 500; }
+.ac-orbit-network-footer p > span:last-child { color: var(--ac-orbit-muted); }
+.ac-orbit-network-status { width: 4px; height: 4px; background: var(--ac-orbit-color, #5d43ee); }
+.ac-orbit-network-pause { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.ac-orbit-network-pause:hover:not(:disabled) { text-decoration: underline; text-underline-offset: 4px; }
+.ac-orbit-network-pause:focus-visible { outline: 2px solid var(--ac-orbit-color, #5d43ee); outline-offset: 3px; }
+.ac-orbit-network-pause:disabled { color: var(--ac-orbit-muted); cursor: default; }
+@container (max-width: 350px) { .ac-orbit-network-footer { padding-inline: 12px; font-size: 9px; } .ac-orbit-network-footer p { gap: 6px; } }

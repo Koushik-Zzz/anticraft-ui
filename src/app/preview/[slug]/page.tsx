@@ -18,7 +18,7 @@ export default async function ComponentPreviewPage({ params }: Props) {
   if (!item || !hasFullPreview(item)) notFound();
   return <main id="main-content" className="hero-standalone-preview">
     <h1 className="sr-only">{item.title} live preview</h1>
-    <nav className="hero-preview-bar" aria-label="Preview navigation"><Link href={item.category === 'Heroes' ? '/components/heroes' : '/components'}>{item.category === 'Heroes' ? '← All heroes' : '← All components'}</Link><span>{item.title}<span> / LIVE PREVIEW</span></span><Link href={`/components/${item.slug}`}>Get the component <Icon name="arrow" size={12}/></Link></nav>
+    <nav className="hero-preview-bar" aria-label="Preview navigation"><Link href={item.category === 'Diagrams' ? '/components/diagrams' : item.category === 'Heroes' ? '/components/heroes' : '/components'}>{item.category === 'Diagrams' ? '← All diagrams' : item.category === 'Heroes' ? '← All heroes' : '← All components'}</Link><span>{item.title}<span> / LIVE PREVIEW</span></span><Link href={`/components/${item.slug}`}>Get the component <Icon name="arrow" size={12}/></Link></nav>
     <ComponentDemo slug={item.slug}/>
   </main>;
 }
