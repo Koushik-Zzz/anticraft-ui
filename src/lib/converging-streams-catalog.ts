@@ -8,7 +8,7 @@ export const convergingStreamsComponents: ComponentDefinition[] = [{
 
 export function Example() {
   return (
-    <ConvergingStreams duration={8}>
+    <ConvergingStreams duration={8} interactive>
       <h2>Connect your workflow</h2>
       <a href="/integrations">Explore integrations</a>
     </ConvergingStreams>
@@ -22,9 +22,10 @@ export function Example() {
     { name: 'paused', type: 'boolean', default: 'false', description: 'External pause override. The built-in motion button is disabled while true.' },
     { name: 'defaultPaused', type: 'boolean', default: 'false', description: 'Initial state of the built-in motion control.' },
     { name: 'tone', type: "'dark' | 'light'", default: "'dark'", description: 'Surface and text palette; override CSS variables for your brand.' },
+    { name: 'interactive', type: 'boolean', default: 'true', description: 'Shows a soft ASCII field following a mouse or hovering pen. Set false to keep only the animated lines. Touch and reduced motion skip the field.' },
     { name: 'className', type: 'string', default: "''", description: 'Additional classes on the container.' },
   ],
-  motion: 'The native pause button freezes packet movement. Reduced motion shows static paths and packets. Animation also pauses when the component is offscreen or the document is hidden. The decorative SVG does not intercept content or keyboard focus.',
+  motion: 'The native pause button freezes packets and clears the pointer field. Reduced motion shows static paths and packets. Animation also pauses when the component is offscreen or the document is hidden. The optional canvas field responds to mouse or pen movement, fades on exit, and ignores touch. Both decorative layers leave links and keyboard focus available.',
   useCases: ['Integration sections', 'Product CTAs', 'Workflow pages'],
-  inspiration: { name: 'RouterPlus', url: 'https://routerplus.com/', note: 'The live CTA’s quiet center, curved paths, and traveling signals informed this original SVG composition. Content, colors, direction, and timing are configurable.' },
+  inspiration: { name: 'RouterPlus', url: 'https://routerplus.com/', note: 'The live CTA’s curved paths, traveling signals, and pointer-following ASCII cloud informed this original SVG and Canvas 2D composition. Content, colors, direction, timing, and pointer interaction are configurable.' },
 }];

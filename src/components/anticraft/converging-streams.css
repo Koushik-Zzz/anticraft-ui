@@ -1,17 +1,18 @@
-.ac-converging-streams { --ac-stream-surface: #2d2e24; --ac-stream-ink: #f7f6ef; position: relative; isolation: isolate; display: grid; place-items: center; width: 100%; min-width: 0; min-height: 440px; padding: 88px 24px; overflow: hidden; background: var(--ac-stream-surface); color: var(--ac-stream-ink); font-family: Arial, Helvetica, sans-serif; }
+.ac-converging-streams { --ac-stream-surface: #2d2e24; --ac-stream-ink: #f7f6ef; position: relative; isolation: isolate; display: grid; place-items: center; width: 100%; min-width: 0; min-height: 400px; padding: 76px 24px; overflow: hidden; background: var(--ac-stream-surface); color: var(--ac-stream-ink); font-family: Arial, Helvetica, sans-serif; }
 .ac-converging-streams, .ac-converging-streams * { box-sizing: border-box; }
 .ac-converging-streams[data-tone="light"] { --ac-stream-surface: #f7f7f2; --ac-stream-ink: #282a26; }
 .ac-converging-streams-art { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .ac-converging-streams-track, .ac-converging-streams-packet { fill: none; stroke: currentColor; vector-effect: non-scaling-stroke; }
-.ac-converging-streams-track { stroke-width: .8; opacity: .26; }
-.ac-converging-streams-packet { stroke-width: 2; opacity: .8; animation: ac-converging-packet var(--ac-stream-duration) linear var(--ac-stream-delay) infinite; animation-play-state: paused; }
+.ac-converging-streams-track { stroke-width: 1; opacity: .56; }
+.ac-converging-streams-packet { stroke-width: 2; opacity: .95; animation: ac-converging-packet var(--ac-stream-duration) linear var(--ac-stream-delay) infinite; animation-play-state: paused; }
 .ac-converging-streams[data-running="true"] .ac-converging-streams-packet { animation-play-state: running; }
 .ac-converging-streams[data-direction="outward"] .ac-converging-streams-packet { animation-direction: reverse; }
-.ac-converging-streams-content { width: min(100%, 490px); position: relative; text-align: center; padding: 20px 8px; background: var(--ac-stream-surface); box-shadow: 0 0 45px 22px var(--ac-stream-surface); }
-.ac-converging-streams-motion { position: absolute; top: 18px; right: 20px; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; border: 1px solid currentColor; border-radius: 2px; padding: 8px 10px; background: var(--ac-stream-surface); color: inherit; opacity: .72; font: 11px/1.2 ui-monospace, monospace; cursor: pointer; }
+.ac-converging-streams-field { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.ac-converging-streams-content { width: min(100%, 490px); position: relative; z-index: 1; text-align: center; padding: 12px 8px; }
+.ac-converging-streams-motion { position: absolute; z-index: 2; top: 14px; right: 20px; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; border: 1px solid currentColor; border-radius: 2px; padding: 8px 10px; background: var(--ac-stream-surface); color: inherit; opacity: .72; font: 11px/1.2 ui-monospace, monospace; cursor: pointer; }
 .ac-converging-streams-motion:hover { opacity: 1; }
 .ac-converging-streams-motion:disabled { cursor: default; opacity: .55; }
 .ac-converging-streams :focus-visible { outline: 2px solid #a5baff; outline-offset: 5px; }
 @keyframes ac-converging-packet { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
-@media (max-width: 540px) { .ac-converging-streams { min-height: 420px; padding: 90px 28px; } .ac-converging-streams-content { padding: 16px 0; box-shadow: 0 0 34px 14px var(--ac-stream-surface); } .ac-converging-streams-art { width: 180%; max-width: none; left: -40%; opacity: .75; } }
+@media (max-width: 540px) { .ac-converging-streams { padding: 74px 24px 52px; } .ac-converging-streams-content { padding: 12px 0; } .ac-converging-streams-art { width: 180%; max-width: none; left: -40%; } .ac-converging-streams-motion { right: 14px; font-size: 10px; } }
 @media (prefers-reduced-motion: reduce) { .ac-converging-streams-packet { animation: none !important; } }
