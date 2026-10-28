@@ -11,18 +11,21 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 | Category | Components |
 | --- | --- |
 | Heroes | Frame Morph Hero, Showreel Hero, Product Spotlight Hero, Editorial Hero |
-| Sections | Project Brief Builder, Reveal Footer, Feature Comparison, Case Study Story, Pricing Plans, Feature Bento, Team Grid, Process Timeline, Project Grid, Project Preview List, Service Showcase, Article Rail, Testimonial Slider |
+| Sections | Image Hotspots, Expandable Gallery, Searchable FAQ, Project Brief Builder, Reveal Footer, Feature Comparison, Case Study Story, Pricing Plans, Feature Bento, Team Grid, Process Timeline, Project Grid, Project Preview List, Service Showcase, Article Rail, Testimonial Slider |
 | Navigation | Floating Dock, Sliding Nav, Expanding Menu, Radial Nav, Curtain Menu |
 | Experiments | Scratch Reveal, Pixel Swap, Cursor Trail, Throw Stack, Elastic Type, Peel Reveal, Orbit Gallery, Lenticular Panel, Sticker Field, Spine Archive, Morphing Stage |
 | Backgrounds | Ripple Field, Aurora Background |
 | Buttons | Arrow Capsule Button, Rolling Text Button, Circle Fill Button, Shutter Button, Outline Trace Button, Tactile Button, Magnetic Button |
 | Typography | Split Flap, Split Text, Gradient Text |
+| Forms | File Dropzone |
 | Cards | Product Quick View, Product Gallery, Before After, Spotlight Card, Tilt Card, Border Beam |
 | Layout | Marquee, Editorial Accordion |
 
-All 53 components are included in the repository and local shadcn registry. Start with the **Sections** category for practical product and marketing content: clear pricing plans, feature grids, team profiles, process timelines, portfolio cards, service details, and client stories. Product Gallery in **Cards** adds thumbnails and a larger image viewer. Demo project and article links open complete local examples. The example brands and client stories are fictional. Pixel Swap now demonstrates switching between exterior and interior product views, with a customizable button label. Each component has a live demo, source, installation instructions, and prop documentation. Effects honor reduced motion, and interactive sections support keyboard and touch use.
+All 57 components are included in the repository and local shadcn registry. Start with the **Sections** category for practical product and marketing content: clear pricing plans, feature grids, team profiles, process timelines, portfolio cards, service details, and client stories. Product Gallery in **Cards** adds thumbnails and a larger image viewer. Demo project and article links open complete local examples. The example brands and client stories are fictional. Pixel Swap now demonstrates switching between exterior and interior product views, with a customizable button label. Each component has a live demo, source, installation instructions, and prop documentation. Effects honor reduced motion, and interactive sections support keyboard and touch use.
 
-The latest website components add a guided project brief with validation and review, a native-scroll reveal footer, a product quick-view dialog with real image/finish changes, a two-option feature comparison with a differences filter, and a complete editorial case study. Each has an interactive documentation preview and a full-width page at `/preview/<slug>`. The brief demo runs entirely in memory; connect its required `onSubmit` callback to your own service in a real project. Product links lead to local example stories, and all sample brands, prices, and results are illustrative.
+The latest additions are Image Hotspots (clickable image annotations), Expandable Gallery (selectable image panels), File Dropzone (local file selection, validation and removal), and Searchable FAQ (search and category filtering). Each has a focused documentation demo and a standalone `/preview/<slug>` page. File Dropzone selects local files and calls `onFilesChange`; connect your own upload service when needed.
+
+Other website components include a guided project brief with validation and review, a native-scroll reveal footer, a product quick-view dialog with real image/finish changes, a two-option feature comparison with a differences filter, and a complete editorial case study. Each has an interactive documentation preview and a full-width page at `/preview/<slug>`. The brief demo runs entirely in memory; connect its required `onSubmit` callback to your own service in a real project. Product links lead to local example stories, and all sample brands, prices, and results are illustrative.
 
 The [Buttons collection](http://localhost:5173/components/buttons) has seven live button studies with keyboard, touch, disabled, and reduced-motion states. A dedicated button index sits to the right of the component catalog on wide screens and becomes a shortcut strip on smaller screens. Each new button forwards native props and a ref, and defaults to `type="button"`.
 

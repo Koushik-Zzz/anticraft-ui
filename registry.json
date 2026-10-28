@@ -4,6 +4,90 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "image-hotspots",
+      "type": "registry:component",
+      "title": "Image Hotspots",
+      "description": "Image annotations with selectable, keyboard-accessible detail cards.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ImageHotspots.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ImageHotspots.tsx"
+        },
+        {
+          "path": "src/components/anticraft/image-hotspots.css",
+          "type": "registry:file",
+          "target": "components/anticraft/image-hotspots.css"
+        }
+      ]
+    },
+    {
+      "name": "expandable-gallery",
+      "type": "registry:component",
+      "title": "Expandable Gallery",
+      "description": "Selectable image panels with keyboard navigation and responsive layouts.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ExpandableGallery.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ExpandableGallery.tsx"
+        },
+        {
+          "path": "src/components/anticraft/expandable-gallery.css",
+          "type": "registry:file",
+          "target": "components/anticraft/expandable-gallery.css"
+        }
+      ]
+    },
+    {
+      "name": "file-dropzone",
+      "type": "registry:component",
+      "title": "File Dropzone",
+      "description": "Native file selection and drag-and-drop with validation and removable attachments.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/FileDropzone.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/FileDropzone.tsx"
+        },
+        {
+          "path": "src/components/anticraft/file-dropzone.css",
+          "type": "registry:file",
+          "target": "components/anticraft/file-dropzone.css"
+        }
+      ]
+    },
+    {
+      "name": "searchable-faq",
+      "type": "registry:component",
+      "title": "Searchable FAQ",
+      "description": "Questions with full-text search, category filters, and expandable answers.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/SearchableFAQ.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/SearchableFAQ.tsx"
+        },
+        {
+          "path": "src/components/anticraft/searchable-faq.css",
+          "type": "registry:file",
+          "target": "components/anticraft/searchable-faq.css"
+        }
+      ]
+    },
+    {
       "name": "project-brief-builder",
       "type": "registry:component",
       "title": "Project Brief Builder",

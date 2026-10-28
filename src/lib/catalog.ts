@@ -17,8 +17,12 @@ import { briefComponents } from './brief-catalog';
 import { editorialSectionComponents } from './editorial-section-catalog';
 import { commerceComponents } from './commerce-catalog';
 import { comparisonComponents } from './comparison-catalog';
+import { hotspotsComponents } from './hotspots-catalog';
+import { expandableGalleryComponents } from './expandable-gallery-catalog';
+import { uploadComponents } from './upload-catalog';
+import { faqComponents } from './faq-catalog';
 
-export type ComponentCategory = 'Heroes' | 'Sections' | 'Navigation' | 'Experiments' | 'Backgrounds' | 'Buttons' | 'Typography' | 'Cards' | 'Layout';
+export type ComponentCategory = 'Heroes' | 'Sections' | 'Forms' | 'Navigation' | 'Experiments' | 'Backgrounds' | 'Buttons' | 'Typography' | 'Cards' | 'Layout';
 
 export type ComponentDefinition = {
   slug: string;
@@ -35,9 +39,13 @@ export type ComponentDefinition = {
   inspiration?: { name: string; url: string; note: string };
 };
 
-export const categories: ComponentCategory[] = ['Heroes', 'Buttons', 'Sections', 'Experiments', 'Navigation', 'Backgrounds', 'Typography', 'Cards', 'Layout'];
+export const categories: ComponentCategory[] = ['Heroes', 'Buttons', 'Sections', 'Forms', 'Experiments', 'Navigation', 'Backgrounds', 'Typography', 'Cards', 'Layout'];
 
 export const components: ComponentDefinition[] = [
+  ...hotspotsComponents,
+  ...expandableGalleryComponents,
+  ...uploadComponents,
+  ...faqComponents,
   ...briefComponents,
   ...editorialSectionComponents,
   ...commerceComponents,
@@ -383,7 +391,11 @@ export function Example() {
 ];
 
 export function hasFullPreview(item: Pick<ComponentDefinition, 'slug' | 'category'>) {
-  return item.category === 'Heroes' || ['project-brief-builder', 'reveal-footer', 'product-quick-view', 'feature-comparison', 'case-study-story'].includes(item.slug);
+  return item.category === 'Heroes' || ['project-brief-builder', 'reveal-footer', 'product-quick-view', 'feature-comparison', 'case-study-story', 'image-hotspots', 'expandable-gallery', 'file-dropzone', 'searchable-faq'].includes(item.slug);
+}
+
+export function hasFittedPreview(item: Pick<ComponentDefinition, 'slug' | 'category'>) {
+  return hasFullPreview(item) && !['file-dropzone', 'searchable-faq'].includes(item.slug);
 }
 
 export function getComponent(slug: string): ComponentDefinition | undefined {
