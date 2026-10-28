@@ -20,7 +20,7 @@ export interface TeamGridProps {
 }
 
 /** Portrait cards with a full, keyboard-accessible profile for each person. */
-export function TeamGrid({ items, title = 'Good people. Different perspectives.', className = '' }: TeamGridProps) {
+export function TeamGrid({ items, title = 'Meet our team.', className = '' }: TeamGridProps) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const selected = items.find(item => item.id === selectedId);
   const isOpen = Boolean(selected);

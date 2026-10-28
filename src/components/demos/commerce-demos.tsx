@@ -46,7 +46,7 @@ export function ProductQuickViewDemo() {
         <section id="form-mono-story" tabIndex={-1}><span>DESIGN NOTES / 01</span><h3>A sound object.<br />A softer presence.</h3><p>MONO studies how a speaker can belong to a room without becoming its focal point. The restrained body and one precise dial make listening feel simple. Graphite, Chalk, and Copper explore three different material moods.</p><p className="commerce-demo-story-note">A fictional design study. Specifications and prices are example content.</p></section>
         <section id="form-tote-story" tabIndex={-1}><span>DESIGN NOTES / 02</span><h3>Everything<br />in its place.</h3><p>The KIN Everyday Tote starts with a familiar shape. A wider base creates room, an outer pocket keeps the essentials close, and two inside compartments bring a little order to a full day.</p><p className="commerce-demo-story-note">Original illustrated product concept. Specifications and prices are example content.</p></section>
       </div>
-      <footer className="commerce-demo-footer"><strong>FORM / OBJECTS</strong><span>GOOD THINGS. GIVEN A CLOSER LOOK.</span></footer>
+      <footer className="commerce-demo-footer"><strong>FORM / OBJECTS</strong><span>EVERYDAY OBJECTS. EXPLORED IN DETAIL.</span></footer>
     </div>
   </div>;
 }

@@ -11,7 +11,7 @@ export function Example() {
   return (
     <ScratchReveal coverText="A little curiosity pays off" coverColor="#a7bcb0">
       <div style={{ display: 'grid', placeItems: 'center', width: '100%', height: '100%', background: '#f2a06d', color: '#41332c', textAlign: 'center' }}>
-        <div><span style={{ fontSize: 72 }} aria-hidden="true">✳</span><h2>Good things are underneath.</h2></div>
+        <div><span style={{ fontSize: 72 }} aria-hidden="true">✳</span><h2>Another layer to explore.</h2></div>
       </div>
     </ScratchReveal>
   );

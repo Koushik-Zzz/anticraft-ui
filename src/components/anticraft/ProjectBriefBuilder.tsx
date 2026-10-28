@@ -46,9 +46,9 @@ const steps = [{ label: 'The project', note: 'A little about your idea' }, { lab
 
 /** A three-step enquiry form. Submission runs only through the required callback. */
 export function ProjectBriefBuilder({
-  services, budgets, timelines, onSubmit, studioName = 'Your studio', eyebrow = 'GOOD THINGS START WITH A CONVERSATION',
-  title = 'Something in mind?', description = 'Tell us a little about it. We’ll take it from there.', availability = 'Open for new collaborations',
-  submitLabel = 'Send your brief', successTitle = 'A good beginning.', successMessage = 'Your brief has been submitted. Thank you for the introduction.', className = '',
+  services, budgets, timelines, onSubmit, studioName = 'Your studio', eyebrow = 'LET’S DEFINE YOUR NEXT PROJECT',
+  title = 'Your next project.', description = 'Tell us what you’re planning, what you need, and when you’d like to begin.', availability = 'Open for new collaborations',
+  submitLabel = 'Send your brief', successTitle = 'Brief received.', successMessage = 'Your brief has been submitted. Thank you for the introduction.', className = '',
 }: ProjectBriefBuilderProps) {
   const uid = useId();
   const [brief, setBrief] = useState<ProjectBrief>(blankBrief);
@@ -151,7 +151,7 @@ export function ProjectBriefBuilder({
             <dl className="ac-brief-receipt"><div><dt>Project</dt><dd>{availableServices.map(id => labelFor(services, id)).join(' + ')}</dd></div><div><dt>From</dt><dd>{brief.name}<span>{brief.email}</span></dd></div><div><dt>Budget / timing</dt><dd>{labelFor(budgets, brief.budget)}<span>{labelFor(timelines, brief.timeline)}</span></dd></div><div><dt>The idea</dt><dd className="ac-brief-receipt-idea">{brief.description}</dd></div></dl>
             <button className="ac-brief-text-button" type="button" onClick={reset}>Start another brief <span aria-hidden="true">↗</span></button>
           </div> : <form ref={form} noValidate onSubmit={submit} aria-labelledby={`${uid}-step-title`} aria-busy={status === 'pending'}>
-            <header className="ac-brief-panel-heading"><p className="ac-brief-eyebrow">0{step + 1} / 03 — {step === 0 ? 'THE POSSIBILITIES' : step === 1 ? 'THE PRACTICALITIES' : 'THE FIRST HELLO'}</p><h3 id={`${uid}-step-title`} ref={heading} tabIndex={-1}>{step === 0 ? 'What are we making?' : step === 1 ? 'Make it a little more real.' : 'Does this feel right?'}</h3><p>{step === 0 ? 'One thing or a few. Choose what you have in mind.' : step === 1 ? 'A rough idea is a perfectly good place to start.' : 'Here’s your brief. A small beginning to something good.'}</p></header>
+            <header className="ac-brief-panel-heading"><p className="ac-brief-eyebrow">0{step + 1} / 03 — {step === 0 ? 'THE POSSIBILITIES' : step === 1 ? 'THE PRACTICALITIES' : 'THE FIRST HELLO'}</p><h3 id={`${uid}-step-title`} ref={heading} tabIndex={-1}>{step === 0 ? 'What are we making?' : step === 1 ? 'Make it a little more real.' : 'Does this feel right?'}</h3><p>{step === 0 ? 'One thing or a few. Choose what you have in mind.' : step === 1 ? 'Estimates are fine. We can refine the budget and timing together.' : 'Review the scope, timing, and contact details before you send.'}</p></header>
             <fieldset className="ac-brief-fields" disabled={status === 'pending'}>
               <legend className="ac-brief-sr-only">{steps[step].label}</legend>
               {step === 0 && <>

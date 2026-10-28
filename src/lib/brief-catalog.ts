@@ -25,9 +25,9 @@ export function Example() {
 
   return (
     <ProjectBriefBuilder
-      studioName="Goodform"
-      title="Something good in mind?"
-      description="Tell us about the idea you would love to make real."
+      studioName="northline"
+      title="Your next project."
+      description="A new identity, a website, or a shift in direction. Tell us where you’re headed."
       availability="Open for new collaborations"
       services={[
         { id: 'brand', label: 'Brand identity', description: 'A clear point of view' },
@@ -47,6 +47,7 @@ export function Example() {
         { id: 'exploring', label: 'Just exploring' },
       ]}
       submitLabel="Preview the brief"
+      successTitle="Your brief, assembled."
       successMessage="Your preview is ready. This example does not send or save your details."
       onSubmit={previewBrief}
     />

@@ -16,11 +16,11 @@ function ProcessArt({ phase }: { phase: 'discover' | 'design' | 'build' | 'launc
       <div className="process-demo-swatches"><i /><i /><i /><i /></div>
       <div className="process-demo-wireframe"><span /><span /><span /></div>
     </> : phase === 'build' ? <>
-      <div className="process-demo-art-title">Good design.<br /><em>Made real.</em></div>
+      <div className="process-demo-art-title">Design files.<br /><em>Now in code.</em></div>
       <div className="process-demo-code"><div><i /><i /><i /><span>page.tsx</span></div><code><span><b>export default</b> function Page() {'{'}</span><span>  <b>return</b> (</span><span>    &lt;<em>main</em>&gt;</span><span>      &lt;<em>Hero</em> /&gt;</span><span>      &lt;<em>SelectedWork</em> /&gt;</span><span>      &lt;<em>Contact</em> /&gt;</span><span>    &lt;/<em>main</em>&gt;</span><span>  )</span><span>{'}'}</span></code><p><span>✓</span> Build successful</p></div>
     </> : <>
       <div className="process-demo-art-title">Ready for<br /><em>what’s next.</em></div>
-      <div className="process-demo-launch-check"><span>✓</span><strong>All systems<br />looking good.</strong></div>
+      <div className="process-demo-launch-check"><span>✓</span><strong>All checks<br />passed.</strong></div>
       <div className="process-demo-launch-list"><span>QUALITY CHECKED <b>✓</b></span><span>TEAM HANDED OVER <b>✓</b></span><span>READY TO GO LIVE <b>✓</b></span></div>
     </>}
     <div className="process-demo-art-bottom"><span>FROM FIRST THOUGHT TO LAUNCH</span><span>↗</span></div>
@@ -37,7 +37,7 @@ const steps = [
 export function ProcessTimelineDemo() {
   return <div className="demo practical-demo process-timeline-demo" tabIndex={0} role="region" aria-label="Agency process preview. Scroll through the four stages.">
     <p className="process-demo-scroll-hint"><span>HOW WE GET THERE, TOGETHER.</span><span>Scroll through the four stages ↓</span></p>
-    <ProcessTimeline steps={steps} title="A good process. A better outcome." />
+    <ProcessTimeline steps={steps} title="From first question to launch." />
     <p className="process-demo-end">ONE CLEAR DIRECTION. EVERY STEP OF THE WAY. <span>↗</span></p>
   </div>
 }

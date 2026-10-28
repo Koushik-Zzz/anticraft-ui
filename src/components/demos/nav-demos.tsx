@@ -12,10 +12,10 @@ import './nav-demos.css';
 
 const destinations = [
   { id: 'home', label: 'Home', description: 'A place to begin', icon: <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m3 10 9-7 9 7v10H3V10Zm6 10v-7h6v7"/></svg>, eyebrow: 'AN INDEPENDENT STUDIO', first: 'Somewhere', second: 'unexpected.', note: 'Small studio. Expansive ideas.' },
-  { id: 'work', label: 'Work', description: 'A few things we’ve made', icon: <Icon name="grid" size={20}/>, eyebrow: 'SELECTED WORK / 2026', first: 'Good work.', second: 'Great company.', note: 'Identities, experiences, and other good things.' },
+  { id: 'work', label: 'Work', description: 'A few things we’ve made', icon: <Icon name="grid" size={20}/>, eyebrow: 'SELECTED WORK / 2026', first: 'Brands built.', second: 'Ideas in use.', note: 'Identities, digital experiences, and printed matter.' },
   { id: 'about', label: 'About', description: 'The people behind the work', icon: <Icon name="spark" size={20}/>, eyebrow: 'A LITTLE ABOUT US', first: 'Curious minds.', second: 'Open doors.', note: 'Independent by nature. Different by design.' },
   { id: 'notes', label: 'Notes', description: 'Thoughts from the studio', icon: <Icon name="book" size={20}/>, eyebrow: 'FIELD NOTES / 004', first: 'Keep looking.', second: 'Stay curious.', note: 'Observations from the spaces in between.' },
-  { id: 'contact', label: 'Hello', description: 'Start a conversation', icon: <Icon name="arrow" size={20}/>, eyebrow: 'SOMETHING GOOD STARTS HERE', first: 'Your next idea.', second: 'Our next hello.', note: 'There’s always room for a new perspective.' },
+  { id: 'contact', label: 'Hello', description: 'Start a conversation', icon: <Icon name="arrow" size={20}/>, eyebrow: 'BRING US YOUR NEXT PROJECT', first: 'Your next idea.', second: 'Our next hello.', note: 'There’s always room for a new perspective.' },
 ];
 
 function useNavScene(ids: string[], initial = ids[0]) {

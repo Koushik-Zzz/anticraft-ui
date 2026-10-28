@@ -6,11 +6,11 @@ import { LenticularPanel } from '@/components/anticraft/LenticularPanel';
 import './object-demos.css';
 
 function PeelFront() {
-  return <span className="obj-peel-front"><span className="obj-peel-top"><span>ANTICRAFT INDEPENDENT PRESS</span><span>NO. 003</span></span><span className="obj-peel-asterisk" aria-hidden="true">✳</span><strong>A GOOD<br/>FIRST<br/><em>impression.</em></strong><span className="obj-peel-foot">THERE’S ALWAYS ANOTHER SIDE. ↘</span></span>;
+  return <span className="obj-peel-front"><span className="obj-peel-top"><span>ANTICRAFT INDEPENDENT PRESS</span><span>NO. 003</span></span><span className="obj-peel-asterisk" aria-hidden="true">✳</span><strong>PAPER<br/>WITH<br/><em>a secret.</em></strong><span className="obj-peel-foot">THERE’S ALWAYS ANOTHER SIDE. ↘</span></span>;
 }
 
 export function PeelRevealDemo() {
-  return <div className="demo obj-peel-demo"><PeelReveal front={<PeelFront/>} label="Peel to discover the other side"><div className="obj-peel-secret"><span>A LITTLE CURIOSITY PAYS OFF.</span><svg viewBox="0 0 200 125" aria-hidden="true"><g fill="none" stroke="currentColor" strokeWidth="1.5">{Array.from({length:9},(_,i)=><ellipse key={i} cx="100" cy="63" rx={18+i*7} ry="48" transform={`rotate(${i*20} 100 63)`}/>)}</g></svg><h3>There’s more<br/><em>to the story.</em></h3><p>The good stuff is just beneath the surface.</p><a href="https://github.com/Koushik-Zzz/anticraft-ui" target="_blank" rel="noreferrer">Keep exploring ↗</a></div></PeelReveal></div>;
+  return <div className="demo obj-peel-demo"><PeelReveal front={<PeelFront/>} label="Peel to discover the other side"><div className="obj-peel-secret"><span>A LITTLE CURIOSITY PAYS OFF.</span><svg viewBox="0 0 200 125" aria-hidden="true"><g fill="none" stroke="currentColor" strokeWidth="1.5">{Array.from({length:9},(_,i)=><ellipse key={i} cx="100" cy="63" rx={18+i*7} ry="48" transform={`rotate(${i*20} 100 63)`}/>)}</g></svg><h3>There’s more<br/><em>to the story.</em></h3><p>An alternate print, revealed one corner at a time.</p><a href="https://github.com/Koushik-Zzz/anticraft-ui" target="_blank" rel="noreferrer">Keep exploring ↗</a></div></PeelReveal></div>;
 }
 
 function OrbitPoster({ variant }: { variant: number }) {
@@ -48,10 +48,10 @@ function LightPrint({ night = false }: { night?: boolean }) {
     <rect width="600" height="400" fill={night ? '#28377f' : '#ef8b58'}/>
     <g fill="none" stroke={night ? '#7085ba' : '#c1603c'} strokeWidth="1">{Array.from({length:14},(_,i)=><path key={i} d={`M${i*70-300} 400 600 ${i*45-100}`}/>)}</g>
     {night ? <><circle cx="361" cy="162" r="109" fill="#eee2b3"/><circle cx="404" cy="131" r="100" fill="#28377f"/><g fill="#eee2b3">{[[89,103],[172,186],[466,268],[527,85],[112,287],[240,62]].map(([x,y],i)=><path key={i} d={`M${x} ${y-6}v12m-6-6h12`} stroke="#eee2b3" strokeWidth="1.5"/>)}</g></> : <><circle cx="324" cy="160" r="97" fill="#f4d87e"/><g stroke="#f4d87e" strokeWidth="3">{Array.from({length:18},(_,i)=><path key={i} d="M324 33V14M324 287v19" transform={`rotate(${i*10} 324 160)`}/>)}</g></>}
-    <g fill={night ? '#eee2b3' : '#52382a'} fontFamily="Arial, sans-serif"><text x="28" y="33" fontSize="10" letterSpacing="2">ANTICRAFT EDITIONS / {night ? 'AFTER DARK' : 'DAYLIGHT STUDY'}</text><text x="28" y="344" fontSize={night ? '92' : '114'} fontWeight="800" letterSpacing="-7">{night ? 'NIGHT SHIFT.' : 'GOOD DAY.'}</text><text x="31" y="374" fontSize="9" letterSpacing="2">A CHANGE OF ANGLE. A WHOLE NEW FEELING.</text></g>
+    <g fill={night ? '#eee2b3' : '#52382a'} fontFamily="Arial, sans-serif"><text x="28" y="33" fontSize="10" letterSpacing="2">ANTICRAFT EDITIONS / {night ? 'AFTER DARK' : 'DAYLIGHT STUDY'}</text><text x="28" y="344" fontSize={night ? '92' : '114'} fontWeight="800" letterSpacing="-7">{night ? 'NIGHT SHIFT.' : 'SUNRISE.'}</text><text x="31" y="374" fontSize="9" letterSpacing="2">A CHANGE OF ANGLE. A WHOLE NEW FEELING.</text></g>
   </svg>;
 }
 
 export function LenticularPanelDemo() {
-  return <div className="demo obj-lenticular-demo"><LenticularPanel front={<LightPrint/>} back={<LightPrint night/>} frontLabel="Good Day" backLabel="Night Shift" segments={12}/></div>;
+  return <div className="demo obj-lenticular-demo"><LenticularPanel front={<LightPrint/>} back={<LightPrint night/>} frontLabel="Sunrise" backLabel="Night Shift" segments={12}/></div>;
 }

@@ -74,7 +74,7 @@ export function Example() {
       items={[
         { id: 'work', label: 'Selected work', href: '/#work', description: 'A few things we put into the world.' },
         { id: 'about', label: 'The studio', href: '/#about', description: 'People, process, and a point of view.' },
-        { id: 'contact', label: 'Start something', href: '/#contact', description: 'Good things begin with a conversation.' },
+        { id: 'contact', label: 'Start something', href: '/#contact', description: 'Tell us what you’re planning.' },
       ]}
     />
   );
@@ -129,8 +129,8 @@ export function Example() {
       footer={<a href="mailto:hello@example.com">Have a project in mind? Say hello ↗</a>}
       items={[
         { id: 'work', label: 'Selected work', href: '/#work', description: 'Made with a point of view.' },
-        { id: 'about', label: 'The studio', href: '/#about', description: 'A few good people and a lot of curiosity.' },
-        { id: 'contact', label: 'Let’s talk', href: '/#contact', description: 'Your next good idea starts here.' },
+        { id: 'about', label: 'The studio', href: '/#about', description: 'Designers, developers, and independent thinkers.' },
+        { id: 'contact', label: 'Let’s talk', href: '/#contact', description: 'Let’s discuss the shape of your project.' },
       ]}
     />
   );

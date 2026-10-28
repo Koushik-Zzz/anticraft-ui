@@ -90,7 +90,7 @@ export function Example() {
         {
           id: 'search', eyebrow: 'FIND YOUR FLOW',
           title: 'Less looking. More doing.',
-          description: 'Find the document you need, then get back to the good part.',
+          description: 'Search across project notes, briefs, and shared documents.',
           span: 'wide',
           media: <img src="/images/workspace-search.jpg" alt="" />,
           href: '/features/search', linkLabel: 'Explore search',

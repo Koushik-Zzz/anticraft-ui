@@ -25,7 +25,7 @@ export interface TestimonialSliderProps {
 /** Client stories that advance only when a visitor asks. Portraits are decorative. */
 export function TestimonialSlider({
   items,
-  title = 'Good words. Real partnerships.',
+  title = 'In our clients’ words.',
   defaultValue,
   onValueChange,
   className = '',

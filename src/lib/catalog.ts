@@ -76,8 +76,8 @@ export function Example() {
           content: <span style={{ display: 'grid', placeItems: 'center', width: '100%', height: '100%', background: '#e45534', color: '#fff', borderRadius: '50%', fontSize: 70 }}>✳</span>,
         },
         {
-          id: 'note', label: 'Make something good note', x: 0.68, y: 0.6, rotation: 8,
-          content: <span style={{ display: 'grid', placeItems: 'center', width: '100%', height: '100%', background: '#e3f491', color: '#24251f', fontSize: 24, textAlign: 'center' }}>Make<br />something<br />good.</span>,
+          id: 'note', label: 'Cut, paste, repeat note', x: 0.68, y: 0.6, rotation: 8,
+          content: <span style={{ display: 'grid', placeItems: 'center', width: '100%', height: '100%', background: '#e3f491', color: '#24251f', fontSize: 24, textAlign: 'center' }}>Cut.<br />Paste.<br />Repeat.</span>,
         },
       ]}
     >

@@ -10,7 +10,7 @@ export const contentComponents: ComponentDefinition[] = [
 export function Example() {
   return (
     <ServiceShowcase
-      title="Good ideas. Built together."
+      title="Strategy through delivery."
       defaultValue="strategy"
       items={[
         {

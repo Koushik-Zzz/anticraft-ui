@@ -43,7 +43,7 @@ export function Example() {
 export function Example() {
   return (
     <TeamGrid
-      title="Good people. Different perspectives."
+      title="One studio. Three disciplines."
       items={[
         {
           id: 'mira', name: 'Mira Patel', role: 'Strategy & direction',
@@ -71,7 +71,7 @@ export function Example() {
       { name: 'items[].portrait', type: 'ReactNode', default: 'Required', description: 'A decorative portrait or illustration, rendered inert and hidden from assistive technology because the adjacent heading identifies the person. Keep links and controls out of portraits. Supply your own image files for the example paths.' },
       { name: 'items[].bio', type: 'string', default: 'Required', description: 'The complete introduction. Cards show a preview of up to three lines; the profile shows the whole text and preserves paragraph breaks.' },
       { name: 'items[].links', type: '{ label: string; href: string }[]', default: 'undefined', description: 'Optional ordinary profile links with descriptive visible labels. Links appear outside the decorative portrait. Replace example paths with real destinations in your site; omit links when no destination exists.' },
-      { name: 'title', type: 'string', default: "'Good people. Different perspectives.'", description: 'Visible heading and accessible section name. An empty string hides the heading while retaining an Our team accessible label.' },
+      { name: 'title', type: 'string', default: "'Meet our team.'", description: 'Visible heading and accessible section name. An empty string hides the heading while retaining an Our team accessible label.' },
       { name: 'className', type: 'string', default: "''", description: 'Additional classes. Customize --ac-team-surface, --ac-team-ink, --ac-team-muted, --ac-team-line, and --ac-team-accent on this element.' },
     ],
     motion: 'Every card keeps its name, role, introduction, and Meet button visible on pointer and touch screens. A gentle portrait scale on hover is decorative and removed for reduced motion. Meet opens a native modal with the complete bio and optional profile links. Normal Tab navigation stays inside the open modal; Escape and the visible Close button dismiss it and return focus to the opener. Background scrolling is restored on close or unmount. Removing an open person from items closes their profile safely. The grid responds to its own container, moving from three to two to one column; the compact live demo uses a horizontal rail to keep the full controls visible. All example people and biographies are fictional.',

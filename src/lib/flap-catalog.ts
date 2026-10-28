@@ -3,7 +3,7 @@ import type { ComponentDefinition } from './catalog';
 export const flapComponents: ComponentDefinition[] = [
   {
     slug: 'split-flap', title: 'Split Flap', category: 'Typography', tag: 'New',
-    description: 'Good things are on their way. A mechanical departure board with hinged letters and a cascading flip.',
+    description: 'A departure-board display with hinged letters and a cascading flip.',
     file: 'SplitFlap.tsx', cssFile: 'split-flap.css',
     usage: `'use client';
 

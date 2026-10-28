@@ -85,7 +85,7 @@ export function ComponentDemo({ slug, options = {} }: { slug: string; options?: 
   if (id === 'morphing-stage') return <MorphingStageDemo/>;
   if (id === 'aurora-background') return <AuroraBackground className="demo demo-aurora" paused={isPaused} color1={options.accent ?? '#e89c62'}><span className="demo-eyebrow">A LITTLE ATMOSPHERE GOES A LONG WAY</span><div className="aurora-demo-center"><span className="ambient-mini-star" aria-hidden="true">✳</span><p>A space<br/>to <em>dream.</em></p></div><div className="demo-baseline"><span className="demo-hint">Light, with a life of its own.</span>{pauseControl}</div></AuroraBackground>;
   if (id === 'gradient-text') return <div className="demo demo-gradient"><span className="demo-eyebrow">COLOR OUTSIDE THE ORDINARY</span><p><GradientText paused={isPaused} colors={options.accent ? [options.accent, '#fff1dc', '#b5a2fa', options.accent] : undefined}>Stay a little<br/><em>different.</em></GradientText></p><div className="demo-baseline"><span className="demo-hint">A brighter turn of phrase.</span>{pauseControl}</div></div>;
-  if (id === 'border-beam') return <div className="demo demo-beam"><span className="demo-eyebrow">GOOD IDEAS DESERVE THE SPOTLIGHT</span><BorderBeam className="beam-demo-object" color={options.accent ?? '#f19451'} paused={isPaused}><span className="beam-demo-icon"><Icon name="spark" size={26}/></span><p>Made to<br/><em>stand out.</em></p><span className="beam-demo-note">A little glow. A lot of character.</span></BorderBeam><div className="demo-baseline"><span className="demo-hint">Follow the finer details.</span>{pauseControl}</div></div>;
+  if (id === 'border-beam') return <div className="demo demo-beam"><span className="demo-eyebrow">A MOVING EDGE. A FOCUSED FRAME.</span><BorderBeam className="beam-demo-object" color={options.accent ?? '#f19451'} paused={isPaused}><span className="beam-demo-icon"><Icon name="spark" size={26}/></span><p>Made to<br/><em>stand out.</em></p><span className="beam-demo-note">A little glow. A lot of character.</span></BorderBeam><div className="demo-baseline"><span className="demo-hint">Follow the finer details.</span>{pauseControl}</div></div>;
   if (id === 'magnetic-button') return <div className="demo demo-magnetic">
     <span className="demo-eyebrow">AN INVITATION TO INTERACT</span>
     <div className="magnetic-zone"><div className="orbit orbit-one" /><div className="orbit orbit-two" />
@@ -96,7 +96,7 @@ export function ComponentDemo({ slug, options = {} }: { slug: string; options?: 
   </div>;
   if (id === 'split-text') return <div className="demo demo-split">
     <span className="demo-eyebrow">ONE WORD AT A TIME</span>
-    <SplitText as="p" text="Good things take motion." replayKey={replay} delay={0.12} className="demo-split-text" />
+    <SplitText as="p" text="Every word has its moment." replayKey={replay} delay={0.12} className="demo-split-text" />
     <div className="demo-baseline"><span className="demo-hint">A staggered entrance.</span><button className="replay-button" onClick={() => setReplay(replay + 1)} aria-label="Replay text animation"><Icon name="refresh" size={15} /> Replay</button></div>
   </div>;
   if (id === 'spotlight-card') return <div className="demo demo-spotlight">

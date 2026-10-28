@@ -73,12 +73,12 @@ export function PricingPlansDemo() {
 function WorkspacePreview() {
   return <div className="marketing-workspace-art">
     <div className="marketing-workspace-sidebar"><b>f.</b><span className="marketing-art-active">Overview</span><span>Projects</span><span>People</span><span>Calendar</span><i>AS</i></div>
-    <div className="marketing-workspace-main"><span>YOUR WORKSPACE / THURSDAY</span><strong>Good morning, Alex.</strong><p>A little clarity goes a long way.</p><div className="marketing-project-mock"><span><i/>Website refresh<small>12 tasks · Design</small></span><b>In progress ↗</b></div><div className="marketing-project-mock"><span><i/>Summer campaign<small>8 tasks · Strategy</small></span><b>Planning ↗</b></div><div className="marketing-workspace-progress"><span>THIS WEEK</span><strong>Small steps.<br/>Good progress.</strong><div><i/><i/><i/><i/><i/><i/><i/></div></div></div>
+    <div className="marketing-workspace-main"><span>YOUR WORKSPACE / THURSDAY</span><strong>Your week, Alex.</strong><p>Two projects. Your next steps in view.</p><div className="marketing-project-mock"><span><i/>Website refresh<small>12 tasks · Design</small></span><b>In progress ↗</b></div><div className="marketing-project-mock"><span><i/>Summer campaign<small>8 tasks · Strategy</small></span><b>Planning ↗</b></div><div className="marketing-workspace-progress"><span>THIS WEEK</span><strong>7 tasks.<br/>Checked off.</strong><div><i/><i/><i/><i/><i/><i/><i/></div></div></div>
   </div>;
 }
 
 function SharePreview() {
-  return <div className="marketing-share-art"><div className="marketing-share-avatars"><i>AL</i><i>JS</i><i>MK</i><i>+2</i></div><strong>Good work takes company.</strong><div className="marketing-share-line"><span>team@your.studio</span><b>Invited ✓</b></div><span className="marketing-share-permission">PROJECT ACCESS <span>Can edit <i>⌄</i></span></span></div>;
+  return <div className="marketing-share-art"><div className="marketing-share-avatars"><i>AL</i><i>JS</i><i>MK</i><i>+2</i></div><strong>Invite your project team.</strong><div className="marketing-share-line"><span>team@your.studio</span><b>Invited ✓</b></div><span className="marketing-share-permission">PROJECT ACCESS <span>Can edit <i>⌄</i></span></span></div>;
 }
 
 function CalendarPreview() {
@@ -99,7 +99,7 @@ export function FeatureBentoDemo() {
           { id: 'overview', eyebrow: 'ONE SHARED HOME', title: 'See the work, at a glance.', description: 'Bring projects, notes, and next steps into one calm workspace.', span: 'wide', media: <WorkspacePreview/> },
           { id: 'sharing', eyebrow: 'BETTER TOGETHER', title: 'Make room for your team.', description: 'Share a project and keep everyone working from the same page.', media: <SharePreview/> },
           { id: 'calendar', eyebrow: 'A CLEARER WEEK', title: 'Know what’s coming next.', description: 'Keep reviews and milestones close to the work they belong to.', media: <CalendarPreview/> },
-          { id: 'search', eyebrow: 'FIND YOUR FLOW', title: 'Less looking. More doing.', description: 'Find the document you need, then get back to the good part.', span: 'wide', media: <SearchPreview/> },
+          { id: 'search', eyebrow: 'FIND YOUR FLOW', title: 'Less looking. More doing.', description: 'Search across project notes, briefs, and shared documents.', span: 'wide', media: <SearchPreview/> },
         ]}
       />
       <p className="marketing-demo-caption">Product benefits, with a preview of how they work.</p>

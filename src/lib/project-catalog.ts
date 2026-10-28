@@ -60,7 +60,7 @@ export function Example() {
 export function Example() {
   return (
     <ProjectPreviewList
-      title="Good work. Good people."
+      title="Brands, products & places."
       items={[
         {
           id: 'kin', title: 'KIN', category: 'Ecommerce website', year: '2026', href: '/work/kin',

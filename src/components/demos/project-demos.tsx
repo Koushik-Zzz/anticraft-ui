@@ -29,7 +29,7 @@ export function ProjectPreviewListDemo() {
     <div className="demo practical-demo project-preview-demo">
       <DemoStory>
         <p className="project-demo-eyebrow">A FEW THINGS WE HAVE PUT INTO THE WORLD</p>
-        <ProjectPreviewList items={demoProjects} title="Good work. Good people." />
+        <ProjectPreviewList items={demoProjects} title="Brands, products & places." />
         <p className="project-demo-hint">Explore the work. Open a case study. ↗</p>
       </DemoStory>
     </div>

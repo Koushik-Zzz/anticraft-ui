@@ -4,9 +4,9 @@ import { FeatureComparison } from '@/components/anticraft/FeatureComparison';
 import './comparison-demos.css';
 
 export function FeatureComparisonDemo() {
-  return <div className="demo website-demo comparison-demo"><div className="comparison-demo-masthead"><strong>folio<span>®</span></strong><span>A LITTLE MORE ROOM FOR GOOD WORK.</span></div><FeatureComparison
+  return <div className="demo website-demo comparison-demo"><div className="comparison-demo-masthead"><strong>folio<span>®</span></strong><span>PROJECTS, NOTES, AND PEOPLE. TOGETHER.</span></div><FeatureComparison
     eyebrow="YOUR TEAM. YOUR PACE."
-    title={'Good work.\nRoom to grow.'}
+    title={'One team.\nA shared space.'}
     description="One shared home for your projects, notes, and next steps. Find the right amount of room for the way you work."
     defaultProductIds={['independent','studio']}
     products={[

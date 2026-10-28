@@ -19,7 +19,7 @@ export function RevealFooterDemo() {
     >
       <div className="reveal-demo-work">
         <header className="reveal-demo-masthead"><strong>AFTERHOURS<span>®</span></strong><span>INDEPENDENT DESIGN STUDIO</span><span>01 / SELECTED WORK</span></header>
-        <div className="reveal-demo-intro" id={`${id}-about`}><span>GOOD WORK. GOOD PEOPLE.</span><p>We turn a different point of view<br />into something worth looking at.</p></div>
+        <div className="reveal-demo-intro" id={`${id}-about`}><span>BRAND STRATEGY. DIGITAL EXPRESSION.</span><p>We turn a different point of view<br />into something worth looking at.</p></div>
         <section className="reveal-demo-project" id={`${id}-notes`} aria-labelledby={`${id}-project`}>
           <div className="reveal-demo-project-image"><img src="/images/demos/atlas-coast.webp" alt="A sunlit coastline with pale cliffs and turquoise water" /><div className="reveal-demo-travel-stamp" aria-hidden="true"><span>A DIFFERENT WAY OUT</span><strong>out of<br /><em>office.</em></strong><span>GO SOMEWHERE YOU FEEL SOMETHING. ↗</span></div><span className="reveal-demo-image-note">ATLAS / A NEW PERSPECTIVE ON TRAVEL</span></div>
           <div className="reveal-demo-project-caption"><div><span>BRAND STRATEGY / DIGITAL EXPERIENCE</span><h2 id={`${id}-project`}>A little further from ordinary.</h2></div><p>A fresh identity for a slower kind of travel.<br />Fictional project. Very real wanderlust.</p></div>

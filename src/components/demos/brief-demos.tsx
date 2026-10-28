@@ -7,15 +7,15 @@ import './brief-demos.css';
 export function ProjectBriefBuilderDemo() {
   return <div className="demo website-demo project-brief-builder-demo">
     <ProjectBriefBuilder
-      studioName="goodform"
-      title="Something good in mind?"
-      description="Ambitious ideas. Thoughtful execution. Tell us what you’re imagining."
-      availability="Taking on good projects"
+      studioName="northline"
+      title="Your next project."
+      description="A new identity, a website, or a shift in direction. Tell us where you’re headed."
+      availability="Open for brand & web work"
       services={[
         { id: 'brand', label: 'Brand identity', description: 'A clear point of view' },
         { id: 'website', label: 'Digital experience', description: 'A place that feels like you' },
         { id: 'strategy', label: 'Creative strategy', description: 'The thinking before the making' },
-        { id: 'something-else', label: 'Something else', description: 'We like a good surprise' },
+        { id: 'something-else', label: 'Something else', description: 'Tell us what you have in mind' },
       ]}
       budgets={[
         { id: '5-10k', label: '$5,000 – $10,000' },
@@ -31,10 +31,10 @@ export function ProjectBriefBuilderDemo() {
         { id: 'exploring', label: 'Just exploring for now' },
       ]}
       submitLabel="Preview your brief"
-      successTitle="That’s a good start."
+      successTitle="Your brief, assembled."
       successMessage="Here’s your completed brief. This is a local preview: nothing was sent or saved."
       onSubmit={async () => { await new Promise<void>(resolve => window.setTimeout(resolve, 500)); }}
     />
-    <p className="brief-demo-caption"><span>GOODFORM IS A FICTIONAL INDEPENDENT STUDIO.</span><span>INTERACTIVE PREVIEW · NOTHING IS SENT OR SAVED.</span></p>
+    <p className="brief-demo-caption"><span>NORTHLINE IS A FICTIONAL INDEPENDENT STUDIO.</span><span>INTERACTIVE PREVIEW · NOTHING IS SENT OR SAVED.</span></p>
   </div>;
 }

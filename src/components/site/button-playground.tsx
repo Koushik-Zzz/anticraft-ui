@@ -117,7 +117,7 @@ function generateCode(component: string, label: string, style: CSSProperties, di
 
 export function ButtonPlayground() {
   const [variant, setVariant] = useState<Variant>('arrow-capsule-button');
-  const [label, setLabel] = useState('Make something good');
+  const [label, setLabel] = useState('Explore the collection');
   const [background, setBackground] = useState(palettes[0].background);
   const [text, setText] = useState(palettes[0].text);
   const [accent, setAccent] = useState(palettes[0].accent);
@@ -139,7 +139,7 @@ export function ButtonPlayground() {
 
   function reset() {
     setVariant('arrow-capsule-button');
-    setLabel('Make something good');
+    setLabel('Explore the collection');
     setBackground(palettes[0].background);
     setText(palettes[0].text);
     setAccent(palettes[0].accent);

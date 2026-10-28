@@ -17,10 +17,10 @@ export const buttonDemoSlugs = [
 type ButtonDemoSlug = typeof buttonDemoSlugs[number];
 
 const details: Record<ButtonDemoSlug, { number: string; eyebrow: string; title: string; label: string; hint: string }> = {
-  'arrow-capsule-button': { number: '01', eyebrow: 'A LITTLE FORWARD MOMENTUM', title: 'Good things ahead.', label: 'Let’s work together', hint: 'One label. A new direction.' },
+  'arrow-capsule-button': { number: '01', eyebrow: 'A LITTLE FORWARD MOMENTUM', title: 'A project in mind?', label: 'Let’s work together', hint: 'One label. A new direction.' },
   'rolling-text-button': { number: '02', eyebrow: 'TYPE, WITH A LITTLE PERSONALITY', title: 'Words worth moving.', label: 'Make your move', hint: 'A small shift in perspective.' },
   'circle-fill-button': { number: '03', eyebrow: 'LET THE COLOR IN', title: 'Room for a little more.', label: 'Open possibilities', hint: 'A tiny point. A full invitation.' },
-  'shutter-button': { number: '04', eyebrow: 'AN OPENING FOR GOOD IDEAS', title: 'Make an entrance.', label: 'Start something', hint: 'Two panels. One clear action.' },
+  'shutter-button': { number: '04', eyebrow: 'FROM FIRST HELLO TO FIRST DRAFT', title: 'Make an entrance.', label: 'Start something', hint: 'Two panels. One clear action.' },
   'outline-trace-button': { number: '05', eyebrow: 'ATTENTION TO THE FINER DETAILS', title: 'Follow the feeling.', label: 'Explore the details', hint: 'A line that finishes the thought.' },
   'tactile-button': { number: '06', eyebrow: 'A LITTLE MORE HANDS ON', title: 'Made to be pressed.', label: 'Give it a push', hint: 'Press it. Feel the difference.' },
 };

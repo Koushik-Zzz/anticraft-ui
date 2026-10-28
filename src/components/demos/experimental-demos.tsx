@@ -45,11 +45,11 @@ function ArchiveArt({ variant }: { variant: number }) {
 }
 
 const archiveItems = [
-  { id: 'off-hours', title: 'Off Hours', year: '2026', category: 'After-dark experiments', color: '#dbeaa5', foreground: '#283c31', artwork: <ArchiveArt variant={0}/>, description: 'Good ideas rarely keep office hours.' },
+  { id: 'off-hours', title: 'Off Hours', year: '2026', category: 'After-dark experiments', color: '#dbeaa5', foreground: '#283c31', artwork: <ArchiveArt variant={0}/>, description: 'Sketchbook experiments from beyond the nine-to-five.' },
   { id: 'soft-signal', title: 'Soft Signal', year: '2025', category: 'Visual identity', color: '#d6c1fa', foreground: '#44375d', artwork: <ArchiveArt variant={1}/>, description: 'A different frequency. A softer kind of noise.' },
   { id: 'future-memory', title: 'Future Memory', year: '2025', category: 'Moving images', color: '#f17c55', foreground: '#4e2924', artwork: <ArchiveArt variant={2}/>, description: 'A little nostalgia from a place we haven’t been.' },
   { id: 'wild-type', title: 'Wild Type', year: '2024', category: 'Type in motion', color: '#eee6d3', foreground: '#35372b', artwork: <ArchiveArt variant={3}/>, description: 'Letters with a mind of their own.' },
-  { id: 'slow-radio', title: 'Slow Radio', year: '2024', category: 'Sound & vision', color: '#bfcfee', foreground: '#304b72', artwork: <ArchiveArt variant={4}/>, description: 'Tune out the rush. Tune into something good.' },
+  { id: 'slow-radio', title: 'Slow Radio', year: '2024', category: 'Sound & vision', color: '#bfcfee', foreground: '#304b72', artwork: <ArchiveArt variant={4}/>, description: 'An unhurried mix of ambient sound and moving image.' },
   { id: 'open-circuit', title: 'Open Circuit', year: '2023', category: 'Digital playground', color: '#e9b5a2', foreground: '#3f3330', artwork: <ArchiveArt variant={0}/>, description: 'Connect the unexpected. Follow the spark.' },
   { id: 'odd-company', title: 'Odd Company', year: '2023', category: 'Independent culture', color: '#dacdec', foreground: '#433353', artwork: <ArchiveArt variant={3}/>, description: 'A gathering of beautifully different minds.' },
   { id: 'paper-planets', title: 'Paper Planets', year: '2022', category: 'Printed matter', color: '#ddd8b4', foreground: '#3e4930', artwork: <ArchiveArt variant={4}/>, description: 'Small worlds. Endless ways to see them.' },

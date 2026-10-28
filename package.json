@@ -1,6 +1,6 @@
 {
   "name": "@anticraft-ui/react",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "private": true,
   "description": "Expressive, open-source React components. Built for the web with character.",
   "type": "module",

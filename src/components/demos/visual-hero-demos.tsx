@@ -45,7 +45,7 @@ export function EditorialHeroDemo() {
         />
         <section className="visual-editorial-continuation" aria-label="About Field journal">
           <span>FIELD NOTES / NO. 008</span>
-          <div><h3>Good places change<br />how we see.</h3><p>A journal about considered spaces and useful ideas. Open the example architecture story to see how a quiet first impression leads into a fuller project.</p></div>
+          <div><h3>Light, space,<br />and the in-between.</h3><p>A journal about considered spaces and useful ideas. Open the example architecture story to see how a quiet first impression leads into a fuller project.</p></div>
           <a href="#demo-story-mono">Read the architecture case study <span aria-hidden="true">↗</span></a>
         </section>
       </DemoStory>

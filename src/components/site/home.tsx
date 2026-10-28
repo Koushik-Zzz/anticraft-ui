@@ -60,7 +60,7 @@ export function HomePage() {
       </section>
 
       <div className="ac-home-principles ac-home-container" aria-label="Library features">
-        <span className="ac-home-principles-label">GOOD DESIGN IS FOR EVERYONE.</span>
+        <span className="ac-home-principles-label">YOUR PROJECT. YOUR SOURCE.</span>
         <div><span>React + TypeScript</span><i aria-hidden="true" /><span>Free source</span><i aria-hidden="true" /><span>MIT licensed</span></div>
         <a href="https://github.com/Koushik-Zzz/anticraft-ui" target="_blank" rel="noreferrer">Made to be yours <Icon name="arrow" size={12} /></a>
       </div>
@@ -96,7 +96,7 @@ export function HomePage() {
 
       <section className="ac-home-open ac-home-container" aria-labelledby="ac-home-open-title">
         <div className="ac-home-open-symbol" aria-hidden="true">a<span>✳</span></div>
-        <div><span className="ac-home-eyebrow">MADE WITH CARE. SHARED WITH EVERYONE.</span><h2 id="ac-home-open-title">Good craft.<br /><em>Wide open.</em></h2></div>
+        <div><span className="ac-home-eyebrow">MADE WITH CARE. SHARED WITH EVERYONE.</span><h2 id="ac-home-open-title">The source.<br /><em>All yours.</em></h2></div>
         <div className="ac-home-open-copy"><p>Beautiful components should be a head start for everyone. Anticraft UI is free and MIT licensed, for your side project and your next big launch.</p><a href="https://github.com/Koushik-Zzz/anticraft-ui" target="_blank" rel="noreferrer"><Icon name="github" size={17} /> Explore the source <Icon name="arrow" size={15} /></a></div>
       </section>
 
