@@ -1,74 +1,89 @@
-.demo.snap-delete-demo {
-  container-type: inline-size;
-  width: 100%;
-  min-height: 620px;
-  height: auto;
-  padding: 44px 36px 30px;
-  color: #252821;
-  background: #edece6;
-  overflow: hidden;
-}
-
-.snap-delete-demo__inner { width: 100%; max-width: 1120px; margin: 0 auto; }
-.snap-delete-demo__header { margin-bottom: 48px; }
-.snap-delete-demo__eyebrow { display: block; color: #73786b; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; }
-.snap-delete-demo__header h2 { margin: 17px 0 11px; font-size: clamp(35px, 4.4cqi, 57px); line-height: 1.05; font-weight: 450; letter-spacing: -2.4px; }
-.snap-delete-demo__header p { margin: 0; color: #72766a; font-size: 13px; line-height: 1.5; }
-.snap-delete-demo__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; }
-.snap-delete-demo__example { min-width: 0; }
-.snap-delete-demo__label { display: flex; align-items: center; gap: 10px; margin: 0 0 18px; padding: 0 0 13px; border-bottom: 1px solid #cecec1; }
-.snap-delete-demo__label > span { color: #929789; font-size: 9px; font-variant-numeric: tabular-nums; }
-.snap-delete-demo__label h3 { margin: 0; font-size: 12px; line-height: 1.4; font-weight: 500; }
-.snap-delete-demo__delete { width: 100%; min-width: 0; }
-
-.snap-delete-demo__text,
-.snap-delete-demo__image,
-.snap-delete-demo__asset { width: 100%; height: 252px; margin: 0; box-sizing: border-box; }
-
-.snap-delete-demo__text { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 18px 8px 18px 2px; }
-.snap-delete-demo__draft { color: #858a7a; font-size: 9px; line-height: 1.5; text-transform: uppercase; letter-spacing: 1px; }
-.snap-delete-demo__message { max-width: 290px; margin: 18px 0 14px; color: #3b4431; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(30px, 3.3cqi, 43px); line-height: 1.08; letter-spacing: -1.6px; }
-.snap-delete-demo__message-note { margin: 0; max-width: 220px; color: #7f846f; font-size: 12px; line-height: 1.6; }
-
-.snap-delete-demo__image { display: flex; flex-direction: column; overflow: hidden; border-radius: 7px; background: #dddacb; }
-.snap-delete-demo__image img { display: block; flex: 1; width: 100%; min-height: 0; height: 211px; object-fit: cover; object-position: 60% center; }
-.snap-delete-demo__image figcaption { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 15px; color: #676a5e; font-size: 9px; line-height: 1.3; }
-.snap-delete-demo__image figcaption span:last-child { color: #959687; font-size: 8px; }
-
-.snap-delete-demo__asset { display: flex; flex-direction: column; justify-content: space-between; padding: 23px; border-radius: 7px; background: #273137; color: #f3efe5; }
-.snap-delete-demo__asset-top { display: flex; justify-content: space-between; align-items: flex-start; }
-.snap-delete-demo__asset-icon { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #627176; border-radius: 9px; color: #eec794; font-family: Georgia, 'Times New Roman', serif; font-size: 27px; font-style: italic; }
-.snap-delete-demo__asset-type { margin-top: 2px; padding: 5px 6px; border: 1px solid #48565b; border-radius: 3px; color: #a7b3b6; font-size: 8px; letter-spacing: .6px; }
-.snap-delete-demo__asset-name h4 { margin: 0 0 7px; font-size: 27px; line-height: 1.1; font-weight: 450; letter-spacing: -.9px; }
-.snap-delete-demo__asset-name p { margin: 0; color: #a8b4b6; font-size: 11px; line-height: 1.4; }
-.snap-delete-demo__asset-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #465257; padding-top: 14px; color: #93a1a6; font-size: 9px; }
-.snap-delete-demo__footnote { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 30px 0 0; color: #8a8e80; font-size: 10px; line-height: 1.5; }
-.snap-delete-demo__footnote > span { font-size: 14px; }
-
-.component-playground:has(> .snap-delete-demo) { height: auto; min-height: 620px; overflow: visible; }
+.demo.snap-delete-demo { container-type: inline-size; position: relative; isolation: isolate; display: grid; place-items: center; width: 100%; min-height: 600px; height: auto; padding: 36px 28px; overflow: hidden; background: #15191c; background-image: radial-gradient(ellipse at 50% 0%, #34453e33, transparent 65%); color: #e2e6e2; font-family: Arial, Helvetica, sans-serif; }
+.snap-board { width: 100%; max-width: 920px; min-width: 0; position: relative; border: 1px solid #40494b; border-radius: 15px; background: #23292c; box-shadow: 0 25px 65px #0005, 0 2px 8px #0002; }
+.snap-board__toolbar { position: relative; z-index: 5; display: flex; align-items: center; gap: 13px; height: 58px; padding: 0 20px; border-bottom: 1px solid #3a4245; border-radius: 15px 15px 0 0; background: #282f32; }
+.snap-board__mark { display: grid; grid-template-columns: repeat(2, 5px); gap: 3px; flex-shrink: 0; transform: rotate(-9deg); }
+.snap-board__mark i { width: 5px; height: 5px; border-radius: 1px; background: #d6e2b7; }
+.snap-board__mark i:last-child { background: #d6e2b744; }
+.snap-board__title { display: flex; align-items: center; gap: 13px; min-width: 0; }
+.snap-board__title > span { color: #939e9f; font-size: 11px; }
+.snap-board__title > span:nth-child(2) { color: #536064; }
+.snap-board__title h2 { margin: 0; overflow: hidden; color: #e1e6e3; font-size: 12px; line-height: 1.3; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; letter-spacing: -.1px; }
+.snap-board__count { display: inline-flex; align-items: center; gap: 7px; flex-shrink: 0; margin-left: auto; color: #9fa9a8; font-size: 10px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.snap-board__count i { width: 5px; height: 5px; border-radius: 50%; background: #bacd94; }
+.snap-board__reset { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 36px; padding: 7px 10px; border: 1px solid #4a5558; border-radius: 6px; color: #c3ccca; background: #ffffff03; font: 400 10px/1.4 Arial, Helvetica, sans-serif; cursor: pointer; }
+.snap-board__reset svg { stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+.snap-board__reset:hover { color: #fff; background: #ffffff08; border-color: #7b8989; }
+.snap-board__reset:focus-visible { outline: 2px solid #d6e2b7; outline-offset: 3px; }
+.snap-board__canvas { position: relative; height: 420px; min-width: 0; border-radius: 0; background: radial-gradient(circle, #ffffff14 .7px, transparent .8px) 9px 9px / 20px 20px; }
+.snap-board__object { position: absolute; min-width: 0; transform-origin: center; }
+.snap-board__object--note { z-index: 2; top: 49px; left: 9%; width: 28%; max-width: 246px; transform: rotate(-5deg); }
+.snap-board__object--photo { z-index: 3; top: 38px; right: 8%; width: 34%; max-width: 304px; transform: rotate(5deg); }
+.snap-board__object--sticker { z-index: 4; top: 220px; left: 41%; width: 150px; transform: rotate(-10deg); }
+.snap-board__object-label { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 15px 0 0; color: #6d7a7e; font: 400 8px/1.4 Arial, Helvetica, sans-serif; letter-spacing: .4px; }
+.snap-board__object-label span { color: #a3afaf; font-size: 9px; letter-spacing: .1px; }
+.snap-board__note { width: 100%; min-height: 218px; padding: 22px 21px 18px; border: 1px solid #fff4cf; border-radius: 2px; background: #eae6d2; color: #303c34; box-shadow: 0 5px 12px #0003; }
+.snap-board__note-top { display: flex; justify-content: space-between; color: #8b907d; font: 400 8px/1.4 Arial, Helvetica, sans-serif; letter-spacing: .8px; }
+.snap-board__note > p { margin: 23px 0 24px; font: 400 clamp(28px, 3.7cqi, 39px)/1.05 Georgia, 'Times New Roman', serif; letter-spacing: -1.7px; }
+.snap-board__note-bottom { display: flex; align-items: end; justify-content: space-between; border-top: 1px solid #b8bfaa; padding-top: 12px; }
+.snap-board__note-bottom > span:first-child { color: #7d8773; font: 400 9px/1.5 Arial, Helvetica, sans-serif; }
+.snap-board__note-bottom > span:last-child { font: 400 28px/1 Arial, Helvetica, sans-serif; }
+.snap-board__photo { display: flex; flex-direction: column; width: 100%; margin: 0; padding: 9px 9px 0; border: 1px solid #fff7e0; border-radius: 2px; background: #edeadd; box-shadow: 0 6px 18px #0004; }
+.snap-board__photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: 62% center; }
+.snap-board__photo figcaption { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 37px; padding: 7px 4px; color: #6e786b; font: italic 11px/1.4 Georgia, 'Times New Roman', serif; }
+.snap-board__photo figcaption > span:last-child { font: 400 16px/1 Arial, Helvetica, sans-serif; }
+.snap-board__sticker { position: relative; width: 100%; aspect-ratio: 1; display: grid; place-items: center; filter: drop-shadow(0 5px 6px #0003); }
+.snap-board__sticker > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.snap-board__sticker-type { position: relative; padding-bottom: 9px; color: #3a3328; font: 700 34px/.88 Georgia, 'Times New Roman', serif; letter-spacing: -2px; text-align: center; }
+.snap-board__sticker-type em { font-weight: 400; }
+.snap-board__sticker-star { position: absolute; right: 25px; top: 31px; color: #5a462d; font-size: 15px; }
+.snap-board__footer { display: flex; align-items: center; gap: 16px; min-height: 40px; padding: 10px 20px; border-top: 1px solid #394347; border-radius: 0 0 15px 15px; background: #242b2e; }
+.snap-board__effect-name { display: inline-flex; align-items: center; gap: 7px; flex-shrink: 0; color: #bbc8c5; font-size: 9px; }
+.snap-board__effect-name i { width: 5px; height: 5px; background: #c6d4a9; box-shadow: 3px -3px #c6d4a955; }
+.snap-board__footer p { margin: 0 0 0 auto; color: #7e9092; font-size: 9px; line-height: 1.4; }
+.snap-board__zoom { padding-left: 14px; border-left: 1px solid #455055; color: #7e9092; font: 400 8px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.snap-board__announcement { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+/* Only the showcase controls and retained footprint change; the dust engine is untouched. */
+.snap-board__delete .ac-snap-delete__controls { position: absolute; z-index: 8; top: -15px; right: -14px; margin: 0; }
+.snap-board__delete .ac-snap-delete__button { gap: 0; width: 36px; min-width: 36px; height: 36px; min-height: 36px; padding: 0; border: 1px solid #697679; border-radius: 50%; background: #303b3f; color: #cad4d1; box-shadow: 0 3px 7px #0003; font-size: 0; }
+.snap-board__delete .ac-snap-delete__button svg { width: 14px; height: 14px; }
+.snap-board__delete .ac-snap-delete__button:hover:not(:disabled) { background: #465459; border-color: #a4b1ae; color: #fff; }
+.snap-board__delete[data-state='deleted'] .ac-snap-delete__button { width: auto; min-width: 77px; padding: 0 12px; gap: 5px; border-radius: 18px; border-color: #c6d4a9; background: #c6d4a9; color: #283b31; font-size: 10px; }
+.snap-board__delete[data-state='deleted'] .ac-snap-delete__button:hover { background: #d9e5bf; color: #22382a; }
+.snap-board__delete .ac-snap-delete__empty { color: #a1b2ad; border-color: #6b817644; border-radius: 2px; font-size: 10px; opacity: .65; }
+.snap-board__object--sticker .ac-snap-delete__empty { border-radius: 50%; }
+.component-playground:has(> .snap-delete-demo) { height: auto; min-height: 600px; overflow: visible; }
 .component-playground > .demo.snap-delete-demo { height: auto; border-radius: 0; }
-.hero-thumbnail:has(.snap-delete-demo) { aspect-ratio: 1200 / 650; }
-.hero-thumbnail-stage > .demo.snap-delete-demo { height: 650px; }
-.hero-standalone-preview .demo.snap-delete-demo { display: flex; align-items: center; min-height: calc(100svh - 40px); height: auto !important; border-radius: 0; padding: clamp(36px, 5vw, 80px) clamp(24px, 5vw, 80px); }
-
-@container (width < 680px) {
-  .snap-delete-demo__grid { grid-template-columns: 1fr; gap: 35px; }
-  .snap-delete-demo__header { margin-bottom: 34px; }
-  .snap-delete-demo__header h2 { font-size: 39px; letter-spacing: -1.7px; }
-  .snap-delete-demo__label { margin-bottom: 12px; }
-  .snap-delete-demo__message { font-size: 42px; }
-  .snap-delete-demo__text { padding-left: 15px; }
-  .snap-delete-demo__footnote { margin-top: 32px; }
+.hero-thumbnail:has(.snap-delete-demo) { aspect-ratio: 1200 / 600; }
+.hero-thumbnail-stage > .demo.snap-delete-demo { height: 600px; }
+.hero-standalone-preview .demo.snap-delete-demo { height: auto !important; min-height: calc(100svh - 40px); padding: 32px; border-radius: 0; }
+@container (width < 760px) and (width >= 460px) {
+  .snap-board__canvas { height: 410px; }
+  .snap-board__object--note { left: 7%; top: 50px; width: 32%; }
+  .snap-board__object--photo { right: 6%; top: 48px; width: 40%; }
+  .snap-board__object--sticker { left: 39%; top: 225px; width: 136px; }
+  .snap-board__note { padding: 18px 17px; }
+  .snap-board__note > p { font-size: 31px; }
 }
-
-@media (min-width: 960px) and (max-height: 760px) {
-  .hero-standalone-preview .demo.snap-delete-demo { padding-block: 32px; }
-  .hero-standalone-preview .snap-delete-demo__header { margin-bottom: 28px; }
-  .hero-standalone-preview .snap-delete-demo__header h2 { margin-top: 12px; font-size: 50px; }
-  .hero-standalone-preview .snap-delete-demo__footnote { margin-top: 20px; }
+@container (width < 460px) {
+  .snap-board__toolbar { gap: 9px; height: 56px; padding-inline: 14px; }
+  .snap-board__title > span { display: none; }
+  .snap-board__title h2 { font-size: 11px; }
+  .snap-board__count { font-size: 9px; gap: 5px; }
+  .snap-board__reset { width: 32px; min-height: 36px; padding: 0; }
+  .snap-board__reset > span { display: none; }
+  .snap-board__canvas { height: 780px; }
+  .snap-board__object--note { top: 40px; left: 10%; width: 67%; max-width: 235px; }
+  .snap-board__object--photo { top: 330px; right: 7%; width: 74%; max-width: 265px; }
+  .snap-board__object--sticker { top: 602px; left: 12%; width: 122px; }
+  .snap-board__note { min-height: 218px; }
+  .snap-board__note > p { font-size: 35px; }
+  .snap-board__photo figcaption { min-height: 34px; font-size: 10px; }
+  .snap-board__sticker-type { font-size: 29px; }
+  .snap-board__sticker-star { right: 19px; top: 25px; font-size: 12px; }
+  .snap-board__footer { padding-inline: 14px; gap: 10px; }
+  .snap-board__footer p { max-width: 150px; font-size: 8px; text-align: right; }
+  .snap-board__zoom { display: none; }
+  .snap-board__object-label { margin-top: 11px; }
 }
-
-@media (max-width: 640px) {
-  .demo.snap-delete-demo { min-height: 0; padding: 30px 22px; }
-  .hero-standalone-preview .demo.snap-delete-demo { padding: 34px 24px; }
-}
+@media (max-width: 640px) { .demo.snap-delete-demo, .hero-standalone-preview .demo.snap-delete-demo { min-height: 0; padding: 30px 18px; } }
+@media (pointer: coarse) { .snap-board__delete .ac-snap-delete__button { width: 44px; min-width: 44px; height: 44px; min-height: 44px; } .snap-board__reset { min-width: 44px; min-height: 44px; } }

@@ -8,10 +8,10 @@ export const snapDeleteComponents: ComponentDefinition[] = [{
 
 export function Example() {
   return (
-    <SnapDelete label="draft message" onDelete={() => console.log('Deleted')}>
-      <div style={{ padding: 24, background: '#f0eee6', borderRadius: 8 }}>
-        <h3>Unsent draft</h3>
-        <p>Let’s move the review to Friday.</p>
+    <SnapDelete label="field note" onDelete={() => console.log('Deleted')}>
+      <div style={{ padding: 24, background: '#eae6d2', borderRadius: 2 }}>
+        <h3>Field note</h3>
+        <p>Take the scenic route.</p>
       </div>
     </SnapDelete>
   );
@@ -29,5 +29,5 @@ export function Example() {
     { name: 'className', type: 'string', default: "''", description: 'Additional root classes. Set --ac-snap-delete-accent to customize the Delete control. Allow space around the target for the dust.' },
   ],
   motion: 'A native Delete button splits a frozen copy of the content into small masked fragments, which drift upward and fade from right to left. Native Undo restores it without resetting child state. Decorative copies are hidden from assistive technology, inert, and removed on completion or unmount. Reduced motion skips the animation; hiding the document or scrolling the component offscreen completes the action. Embedded media, more than 160 elements, or unavailable CSS masks use a short fade. The effect runs only after activation and adds no idle animation loop or image-pixel/CORS requirement. It changes visibility locally; data persistence belongs in the callbacks.',
-  useCases: ['Draft messages', 'Image collections', 'Removable attachments'],
+  useCases: ['Editable canvases', 'Image collections', 'Draft content'],
 }];

@@ -4,27 +4,6 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
-      "name": "morphing-popover",
-      "type": "registry:component",
-      "title": "Morphing Popover",
-      "description": "A pill expands into a card with a shared surface and a soft blur transition.",
-      "dependencies": [
-        "react"
-      ],
-      "files": [
-        {
-          "path": "src/components/anticraft/MorphingPopover.tsx",
-          "type": "registry:component",
-          "target": "components/anticraft/MorphingPopover.tsx"
-        },
-        {
-          "path": "src/components/anticraft/morphing-popover.css",
-          "type": "registry:file",
-          "target": "components/anticraft/morphing-popover.css"
-        }
-      ]
-    },
-    {
       "name": "snap-delete",
       "type": "registry:component",
       "title": "Snap Delete",
