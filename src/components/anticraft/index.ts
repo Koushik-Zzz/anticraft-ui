@@ -140,3 +140,5 @@ export { ParticleText, ParticleTextGrid } from './ParticleText';
 export type { ParticleTextProps, ParticleTextGridProps } from './ParticleText';
 export { SnapDelete } from './SnapDelete';
 export type { SnapDeleteProps } from './SnapDelete';
+export { MorphingPopover } from './MorphingPopover';
+export type { MorphingPopoverProps } from './MorphingPopover';

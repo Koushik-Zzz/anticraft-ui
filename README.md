@@ -20,9 +20,11 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 | Typography | Particle Text, Split Flap, Split Text, Gradient Text |
 | Forms | File Dropzone |
 | Cards | Product Quick View, Product Gallery, Before After, Spotlight Card, Tilt Card, Border Beam |
-| Layout | Marquee, Editorial Accordion |
+| Layout | Morphing Popover, Marquee, Editorial Accordion |
 
-All 67 components are included in the repository and local shadcn registry. Start with the **Sections** category for practical product and marketing content: clear pricing plans, feature grids, team profiles, process timelines, portfolio cards, service details, and client stories. Product Gallery in **Cards** adds thumbnails and a larger image viewer. Demo project and article links open complete local examples. The example brands and client stories are fictional. Pixel Swap now demonstrates switching between exterior and interior product views, with a customizable button label. Each component has a live demo, source, installation instructions, and prop documentation. Effects honor reduced motion, and interactive sections support keyboard and touch use.
+All 68 components are included in the repository and local shadcn registry. Start with the **Sections** category for practical product and marketing content: clear pricing plans, feature grids, team profiles, process timelines, portfolio cards, service details, and client stories. Product Gallery in **Cards** adds thumbnails and a larger image viewer. Demo project and article links open complete local examples. The example brands and client stories are fictional. Pixel Swap now demonstrates switching between exterior and interior product views, with a customizable button label. Each component has a live demo, source, installation instructions, and prop documentation. Effects honor reduced motion, and interactive sections support keyboard and touch use.
+
+[Morphing Popover](http://localhost:5173/components/morphing-popover) turns a compact pill into a measured card on one shared surface. Outgoing copy blurs away before the card content sharpens. The three examples cover notifications, a review assistant, and an attachment confirmation. It includes controlled or uncontrolled state, native controls, Escape/outside dismissal, focus return, and reduced motion.
 
 [Snap Delete](http://localhost:5173/components/snap-delete) disperses text, images, and cards into dust using the content’s actual appearance. Its three demos include native Delete and Undo controls. The standalone component preserves child state for Undo, respects reduced motion, and exposes completion/restoration callbacks for your own persistence. It uses React and CSS masks without reading image pixels.
 
@@ -82,6 +84,7 @@ Each item installs both the component and its stylesheet. Targets resolve throug
 Available registry items:
 
 ```text
+/r/morphing-popover.json
 /r/snap-delete.json
 /r/particle-text.json
 /r/logo-orbit.json
