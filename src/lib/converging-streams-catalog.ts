@@ -22,7 +22,7 @@ export function Example() {
     { name: 'paused', type: 'boolean', default: 'false', description: 'External pause override. The built-in motion button is disabled while true.' },
     { name: 'defaultPaused', type: 'boolean', default: 'false', description: 'Initial state of the built-in motion control.' },
     { name: 'tone', type: "'dark' | 'light'", default: "'dark'", description: 'Surface and text palette; override CSS variables for your brand.' },
-    { name: 'interactive', type: 'boolean', default: 'true', description: 'Shows a soft ASCII field following a mouse or hovering pen. Set false to keep only the animated lines. Touch and reduced motion skip the field.' },
+    { name: 'interactive', type: 'boolean', default: 'true', description: 'Reveals flowing, refracted-light patterns in an ASCII field with a soft pointer wake. Set false to keep only the lines. Touch and reduced motion skip the field.' },
     { name: 'className', type: 'string', default: "''", description: 'Additional classes on the container.' },
   ],
   motion: 'The native pause button freezes packets and clears the pointer field. Reduced motion shows static paths and packets. Animation also pauses when the component is offscreen or the document is hidden. The optional canvas field responds to mouse or pen movement, fades on exit, and ignores touch. Both decorative layers leave links and keyboard focus available.',

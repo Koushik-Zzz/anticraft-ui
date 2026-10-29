@@ -60,6 +60,8 @@ export function ConvergingStreams({ children, colors = palette, duration = 8, di
     let disposed = false;
     let target = { x: 0, y: 0 };
     let cursor = { x: 0, y: 0 };
+    let wake = { x: 0, y: 0 };
+    let velocity = { x: 0, y: 0 };
     const glyphs = ' .:-=+x*o%#@';
 
     function clear() {
@@ -72,32 +74,45 @@ export function ConvergingStreams({ children, colors = palette, duration = 8, di
       previous = 0;
       inside = false;
       opacity = 0;
+      velocity = { x: 0, y: 0 };
       clear();
     }
     function draw() {
       context!.clearRect(0, 0, width, height);
-      const radius = Math.min(250, Math.max(140, width * .24));
+      const radius = Math.min(310, Math.max(160, width * .29));
+      const verticalRadius = radius * .72;
       const step = 10;
-      const startX = Math.max(5, Math.floor((cursor.x - radius) / step) * step);
-      const endX = Math.min(width, cursor.x + radius);
-      const startY = Math.max(5, Math.floor((cursor.y - radius) / step) * step);
-      const endY = Math.min(height, cursor.y + radius);
+      const startX = Math.max(0, Math.floor(Math.min(cursor.x - radius, wake.x - radius * .8) / step)) * step + step / 2;
+      const endX = Math.min(width, Math.max(cursor.x + radius, wake.x + radius * .8));
+      const startY = Math.max(0, Math.floor(Math.min(cursor.y - verticalRadius, wake.y - verticalRadius * .8) / step)) * step + step / 2;
+      const endY = Math.min(height, Math.max(cursor.y + verticalRadius, wake.y + verticalRadius * .8));
       context!.font = '9px ui-monospace, SFMono-Regular, Consolas, monospace';
       context!.textAlign = 'center';
       context!.textBaseline = 'middle';
       context!.fillStyle = tone === 'light' ? '#65508c' : '#c9b8f5';
       for (let y = startY; y < endY; y += step) {
         for (let x = startX; x < endX; x += step) {
-          const dx = (x - cursor.x) / radius;
-          const dy = (y - cursor.y) / (radius * .82);
-          const distance = Math.hypot(dx, dy);
-          if (distance >= 1) continue;
-          const angle = Math.atan2(dy, dx);
-          const wave = .5 + .5 * Math.sin(distance * 14 - angle * 2 + time * 1.25);
-          const edge = (1 - distance) ** 1.35;
-          const value = Math.min(1, edge * (.32 + wave * .8));
-          context!.globalAlpha = opacity * edge * (.16 + wave * .48);
-          const glyph = glyphs[Math.min(glyphs.length - 1, Math.floor(value * glyphs.length))];
+          const distance = Math.hypot((x - cursor.x) / radius, (y - cursor.y) / verticalRadius);
+          const wakeDistance = Math.hypot((x - wake.x) / (radius * .8), (y - wake.y) / (verticalRadius * .8));
+          const edge = Math.min(1, Math.max(0, 1 - distance) ** 1.5 + .38 * Math.max(0, 1 - wakeDistance) ** 1.7);
+          if (edge <= 0) continue;
+
+          // Sample a flowing surface in canvas space: moving the pointer reveals
+          // different folds, rather than dragging a radial pattern with it.
+          const flowX = x * .012 - time * .28;
+          const flowY = y * .012 + time * .16;
+          const u = flowX + .65 * Math.sin(flowY * 1.7 + time * .19) + .45 * Math.sin((flowX + flowY) * .9 - time * .14) + velocity.x * .0007 * edge;
+          const v = flowY + .65 * Math.cos(flowX * 1.4 - time * .2) + .3 * Math.sin((flowY - flowX) * 1.1 + time * .2) + velocity.y * .0007 * edge;
+          const a = Math.sin(u * 1.8 + v * .65);
+          const b = Math.sin(v * 2.1 - u * .6 + time * .22);
+          const c = Math.sin((u + v) * 1.3 - time * .14);
+          const ridgeA = Math.max(0, 1 - Math.abs(a + b * .58)) ** 4;
+          const ridgeB = Math.max(0, 1 - Math.abs(b - c * .68)) ** 5;
+          const broad = .5 + .5 * Math.sin(u * 1.1 + Math.sin(v * .9) + time * .15);
+          const light = Math.min(1, .12 + broad * .2 + ridgeA * .7 + ridgeB * .5);
+          const value = Math.min(1, edge * (.2 + light * .85));
+          context!.globalAlpha = opacity * edge * (.14 + light * .64);
+          const glyph = glyphs[Math.max(1, Math.min(glyphs.length - 1, Math.floor(value * glyphs.length)))];
           context!.fillText(glyph, x, y);
         }
       }
@@ -106,12 +121,20 @@ export function ConvergingStreams({ children, colors = palette, duration = 8, di
     function tick(now: number) {
       frame = null;
       if (disposed || !running) return;
-      const delta = previous ? Math.min((now - previous) / 1000, .05) : 1 / 60;
+      const delta = previous ? Math.max(.001, Math.min((now - previous) / 1000, .05)) : 1 / 60;
       previous = now;
       time += delta;
       const ease = 1 - Math.exp(-delta * 12);
+      const oldX = cursor.x;
+      const oldY = cursor.y;
       cursor.x += (target.x - cursor.x) * ease;
       cursor.y += (target.y - cursor.y) * ease;
+      const response = 1 - Math.exp(-delta * 5);
+      velocity.x += (Math.max(-900, Math.min(900, (cursor.x - oldX) / delta)) - velocity.x) * response;
+      velocity.y += (Math.max(-900, Math.min(900, (cursor.y - oldY) / delta)) - velocity.y) * response;
+      const drift = 1 - Math.exp(-delta * 3.5);
+      wake.x += (cursor.x - wake.x) * drift;
+      wake.y += (cursor.y - wake.y) * drift;
       opacity += ((inside ? 1 : 0) - opacity) * (1 - Math.exp(-delta * (inside ? 10 : 7)));
       if (now - lastPaint >= 1000 / 30) { draw(); lastPaint = now; }
       if (inside || opacity > .015) frame = requestAnimationFrame(tick);
@@ -132,7 +155,7 @@ export function ConvergingStreams({ children, colors = palette, duration = 8, di
       const rect = element!.getBoundingClientRect();
       if (!rect.width || !rect.height) return;
       target = { x: Math.max(0, Math.min(width, (event.clientX - rect.left) * width / rect.width)), y: Math.max(0, Math.min(height, (event.clientY - rect.top) * height / rect.height)) };
-      if (!inside && opacity === 0) cursor = { ...target };
+      if (!inside && opacity === 0) { cursor = { ...target }; wake = { ...target }; velocity = { x: 0, y: 0 }; }
       inside = true;
       canvas!.dataset.pointerActive = 'true';
       if (frame === null) frame = requestAnimationFrame(tick);
