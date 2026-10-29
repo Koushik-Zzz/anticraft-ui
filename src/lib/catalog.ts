@@ -28,6 +28,7 @@ import { orbitNetworkComponents } from './orbit-network-catalog';
 import { signalFunnelComponents } from './signal-funnel-catalog';
 import { routingScorecardComponents } from './routing-scorecard-catalog';
 import { convergingStreamsComponents } from './converging-streams-catalog';
+import { logoOrbitComponents } from './logo-orbit-catalog';
 
 export type ComponentCategory = 'Diagrams' | 'Heroes' | 'Sections' | 'Forms' | 'Navigation' | 'Experiments' | 'Backgrounds' | 'Buttons' | 'Typography' | 'Cards' | 'Layout';
 
@@ -49,6 +50,7 @@ export type ComponentDefinition = {
 export const categories: ComponentCategory[] = ['Diagrams', 'Heroes', 'Buttons', 'Sections', 'Forms', 'Experiments', 'Navigation', 'Backgrounds', 'Typography', 'Cards', 'Layout'];
 
 export const components: ComponentDefinition[] = [
+  ...logoOrbitComponents,
   ...orbitNetworkComponents,
   ...signalFunnelComponents,
   ...routingScorecardComponents,

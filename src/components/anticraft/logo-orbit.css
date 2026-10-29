@@ -1,0 +1,29 @@
+.ac-logo-orbit, .ac-logo-orbit * { box-sizing: border-box; }
+.ac-logo-orbit { --ac-logo-orbit-surface: #f5f6f7; --ac-logo-orbit-ink: #19334c; --ac-logo-orbit-hub: #062750; --ac-logo-orbit-ring: #e9f0f8; --ac-logo-orbit-ring-inner: #e1ebf5; position: relative; width: 100%; max-width: 560px; margin-inline: auto; color: var(--ac-logo-orbit-ink); background: var(--ac-logo-orbit-surface); font-family: Arial, Helvetica, sans-serif; container-type: inline-size; }
+.ac-logo-orbit-stage { position: relative; width: 100%; aspect-ratio: 1; isolation: isolate; }
+.ac-logo-orbit-rings { position: absolute; inset: 0; pointer-events: none; }
+.ac-logo-orbit-rings i { position: absolute; inset: 50% auto auto 50%; display: block; border-radius: 50%; transform: translate(-50%, -50%); aspect-ratio: 1; width: 75%; background: var(--ac-logo-orbit-ring); }
+.ac-logo-orbit-rings i:nth-child(2) { width: 51%; background: var(--ac-logo-orbit-ring-inner); }
+.ac-logo-orbit-rings i:nth-child(3) { width: 29%; background: #d4e2ef; opacity: .7; }
+.ac-logo-orbit-track { position: absolute; inset: 0; pointer-events: none; transform-origin: center; animation: ac-logo-orbit-revolve var(--ac-logo-orbit-duration, 60s) linear infinite; animation-play-state: paused; }
+.ac-logo-orbit-position { position: absolute; aspect-ratio: 1; transform: translate(-50%, -50%); min-width: 36px; }
+.ac-logo-orbit-badge { position: relative; display: grid; place-items: center; width: 100%; height: 100%; padding: 0; border: 1px solid #fff; border-radius: 50%; background: #fff; color: #244669; box-shadow: 0 7px 17px #15365312, 0 1px 3px #15365306; cursor: pointer; pointer-events: auto; text-decoration: none; -webkit-tap-highlight-color: transparent; animation: ac-logo-orbit-upright var(--ac-logo-orbit-duration, 60s) linear infinite; animation-play-state: paused; }
+.ac-logo-orbit[data-running="true"] :is(.ac-logo-orbit-track, .ac-logo-orbit-badge) { animation-play-state: running; }
+.ac-logo-orbit[data-reverse="true"] :is(.ac-logo-orbit-track, .ac-logo-orbit-badge) { animation-direction: reverse; }
+.ac-logo-orbit-badge:hover { box-shadow: 0 8px 22px #15365320, 0 0 0 3px #d4e2ef; }
+.ac-logo-orbit-badge:focus-visible { outline: 3px solid #3e78bc; outline-offset: 5px; }
+.ac-logo-orbit-logo { display: grid; place-items: center; width: 56%; height: 56%; pointer-events: none; font-size: clamp(15px, 4cqi, 26px); font-weight: 600; }
+.ac-logo-orbit-logo > :is(svg, img) { display: block; width: 100%; height: 100%; object-fit: contain; }
+.ac-logo-orbit-center { position: absolute; z-index: 2; top: 50%; left: 50%; display: grid; place-items: center; width: 23%; aspect-ratio: 1; padding: 5.4%; border: 1px solid #ffffff40; border-radius: 50%; transform: translate(-50%, -50%); background: var(--ac-logo-orbit-hub); color: #fff; box-shadow: 0 0 0 11px #d4e1ed70, 0 9px 23px #08284c25; pointer-events: none; font-size: clamp(24px, 8cqi, 48px); font-weight: 600; }
+.ac-logo-orbit-center > :is(svg, img) { display: block; width: 100%; height: 100%; object-fit: contain; }
+.ac-logo-orbit-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0 12px; min-height: 56px; padding: 5px 16px; color: #657688; font: 10px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.ac-logo-orbit-footer p { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 6px 0; }
+.ac-logo-orbit-footer strong { color: #244669; font-weight: 500; }
+.ac-logo-orbit-dot { width: 4px; height: 4px; border-radius: 50%; background: #7194b8; }
+.ac-logo-orbit-motion { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.ac-logo-orbit-motion:hover:not(:disabled) { color: #244669; text-decoration: underline; text-underline-offset: 4px; }
+.ac-logo-orbit-motion:focus-visible { outline: 2px solid #3e78bc; outline-offset: 3px; }
+.ac-logo-orbit-motion:disabled { opacity: .6; cursor: default; }
+@keyframes ac-logo-orbit-revolve { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes ac-logo-orbit-upright { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+@media (prefers-reduced-motion: reduce) { .ac-logo-orbit :is(.ac-logo-orbit-track, .ac-logo-orbit-badge) { animation-play-state: paused !important; } }

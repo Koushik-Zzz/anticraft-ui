@@ -10,7 +10,7 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 
 | Category | Components |
 | --- | --- |
-| Diagrams | Orbit Network, Signal Funnel, Routing Scorecard, Converging Streams |
+| Diagrams | Logo Orbit, Orbit Network, Signal Funnel, Routing Scorecard, Converging Streams |
 | Heroes | Editor Canvas Hero, Notes Workflow Hero, Revenue Dashboard Hero, Frame Morph Hero, Showreel Hero, Product Spotlight Hero, Editorial Hero |
 | Sections | Image Hotspots, Expandable Gallery, Searchable FAQ, Project Brief Builder, Reveal Footer, Feature Comparison, Case Study Story, Pricing Plans, Feature Bento, Team Grid, Process Timeline, Project Grid, Project Preview List, Service Showcase, Article Rail, Testimonial Slider |
 | Navigation | Floating Dock, Sliding Nav, Expanding Menu, Radial Nav, Curtain Menu |
@@ -22,9 +22,9 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 | Cards | Product Quick View, Product Gallery, Before After, Spotlight Card, Tilt Card, Border Beam |
 | Layout | Marquee, Editorial Accordion |
 
-All 64 components are included in the repository and local shadcn registry. Start with the **Sections** category for practical product and marketing content: clear pricing plans, feature grids, team profiles, process timelines, portfolio cards, service details, and client stories. Product Gallery in **Cards** adds thumbnails and a larger image viewer. Demo project and article links open complete local examples. The example brands and client stories are fictional. Pixel Swap now demonstrates switching between exterior and interior product views, with a customizable button label. Each component has a live demo, source, installation instructions, and prop documentation. Effects honor reduced motion, and interactive sections support keyboard and touch use.
+All 65 components are included in the repository and local shadcn registry. Start with the **Sections** category for practical product and marketing content: clear pricing plans, feature grids, team profiles, process timelines, portfolio cards, service details, and client stories. Product Gallery in **Cards** adds thumbnails and a larger image viewer. Demo project and article links open complete local examples. The example brands and client stories are fictional. Pixel Swap now demonstrates switching between exterior and interior product views, with a customizable button label. Each component has a live demo, source, installation instructions, and prop documentation. Effects honor reduced motion, and interactive sections support keyboard and touch use.
 
-The [Diagrams collection](http://localhost:5173/components/diagrams) adds Orbit Network (selectable integration nodes), Signal Funnel (toggleable processing gates), Routing Scorecard (adjustable quality threshold), and Converging Streams (a compact CTA background with an optional pointer-following ASCII field). Their particle fields, traveling packets, and curved paths draw on a live motion study of [RouterPlus](https://routerplus.com/). Each supports pause and reduced motion, stops motion while hidden or offscreen, and includes standalone React/CSS source. Scores and processing stages are illustrative UI data.
+The [Diagrams collection](http://localhost:5173/components/diagrams) includes Logo Orbit (a fixed central logo and upright orbiting integration badges), Orbit Network (selectable integration nodes), Signal Funnel (toggleable processing gates), Routing Scorecard (adjustable quality threshold), and Converging Streams (a compact CTA background with an optional pointer-following ASCII field). Their particle fields, traveling packets, and curved paths draw on a live motion study of [RouterPlus](https://routerplus.com/). Each supports pause and reduced motion, stops motion while hidden or offscreen, and includes standalone React/CSS source. Scores and processing stages are illustrative UI data.
 
 Recent additions include three SaaS heroes: Editor Canvas (selectable documents and outline sections), Notes Workflow (source notes, reviewable tasks, owner edits, and copyable output), and Revenue Dashboard (linked range/channel filters, chart, metrics, and transactions). Each has a live documentation preview, full-width preview, typed props, and a standalone React/CSS registry item.
 
@@ -78,6 +78,7 @@ Each item installs both the component and its stylesheet. Targets resolve throug
 Available registry items:
 
 ```text
+/r/logo-orbit.json
 /r/orbit-network.json
 /r/signal-funnel.json
 /r/routing-scorecard.json

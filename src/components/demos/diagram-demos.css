@@ -6,10 +6,11 @@
 .diagram-thumbnail-stage { width: 900px; height: 640px; transform: scale(var(--diagram-scale, .5)); transform-origin: top left; pointer-events: none; }
 .diagram-thumbnail-stage > .diagram-demo { height: 640px !important; min-height: 640px !important; padding: 20px; }
 .diagram-thumbnail-stage .ac-orbit-network { max-width: 540px; }
+.diagram-thumbnail-stage .ac-logo-orbit { max-width: 520px; }
 .diagram-thumbnail:has(.converging-streams-demo) { aspect-ratio: 900 / 400; }
 .diagram-thumbnail-stage:has(> .converging-streams-demo), .diagram-thumbnail-stage > .converging-streams-demo { height: 400px !important; min-height: 400px !important; }
 .diagram-thumbnail-stage .streams-demo-toggle { visibility: hidden; }
-.diagram-thumbnail-stage :is(.ac-orbit-network-pause, .ac-signal-funnel__motion, .ac-routing-motion, .ac-converging-streams-motion) { visibility: hidden; }
+.diagram-thumbnail-stage :is(.ac-orbit-network-pause, .ac-signal-funnel__motion, .ac-routing-motion, .ac-converging-streams-motion, .ac-logo-orbit-motion) { visibility: hidden; }
 .diagram-thumbnail-motion { position: absolute; z-index: 3; top: 10px; right: 10px; min-height: 36px; padding: 7px 10px; border: 1px solid #d3d0c5; border-radius: 3px; background: #faf9f6; color: #30312c; font: 10px/1.2 ui-monospace, monospace; cursor: pointer; }
 .diagram-thumbnail-motion:focus-visible { outline: 2px solid #5d43ee; outline-offset: 3px; }
 .diagram-thumbnail-motion:disabled { cursor: default; opacity: .65; }
@@ -18,4 +19,5 @@
 .catalog-card-preview:has(> .diagram-thumbnail) { height: auto; }
 .diagram-collection-grid { margin-top: 28px; }
 @media(min-width:768px) { .hero-standalone-preview .orbit-network-demo .ac-orbit-network { max-width: min(640px, calc(100svh - 180px)); } }
+@media(min-width:768px) { .hero-standalone-preview .logo-orbit-demo .ac-logo-orbit { max-width: min(560px, calc(100svh - 180px)); } }
 @media(max-width:540px) { .diagram-demo { padding: 12px; } .component-playground > .diagram-demo { min-height: 450px; } }

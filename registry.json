@@ -4,6 +4,27 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "logo-orbit",
+      "type": "registry:component",
+      "title": "Logo Orbit",
+      "description": "Upright logo badges orbit a fixed center on two circular paths.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/LogoOrbit.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/LogoOrbit.tsx"
+        },
+        {
+          "path": "src/components/anticraft/logo-orbit.css",
+          "type": "registry:file",
+          "target": "components/anticraft/logo-orbit.css"
+        }
+      ]
+    },
+    {
       "name": "orbit-network",
       "type": "registry:component",
       "title": "Orbit Network",

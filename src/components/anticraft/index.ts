@@ -134,3 +134,5 @@ export { RoutingScorecard } from './RoutingScorecard';
 export type { RoutingScorecardProps, RoutingScorecardModel } from './RoutingScorecard';
 export { ConvergingStreams } from './ConvergingStreams';
 export type { ConvergingStreamsProps } from './ConvergingStreams';
+export { LogoOrbit } from './LogoOrbit';
+export type { LogoOrbitProps, LogoOrbitItem } from './LogoOrbit';

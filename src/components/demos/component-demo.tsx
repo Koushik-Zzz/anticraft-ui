@@ -39,6 +39,7 @@ import { OrbitNetworkDemo } from './orbit-network-demo';
 import { SignalFunnelDemo } from './signal-funnel-demo';
 import { RoutingScorecardDemo } from './routing-scorecard-demo';
 import { ConvergingStreamsDemo } from './converging-streams-demo';
+import { LogoOrbitDemo } from './logo-orbit-demo';
 import './diagram-demos.css';
 
 export interface DemoOptions { accent?: string; intensity?: number; paused?: boolean; }
@@ -57,6 +58,7 @@ export function ComponentDemo({ slug, options = {} }: { slug: string; options?: 
   const isPaused = options.paused ?? ambientPaused;
   const pauseControl = <button className="replay-button ambient-pause" onClick={() => setAmbientPaused(!ambientPaused)} aria-pressed={isPaused}>{isPaused ? 'Play motion' : 'Pause motion'}</button>;
   if (id === 'orbit-network') return <OrbitNetworkDemo paused={options.paused}/>;
+  if (id === 'logo-orbit') return <LogoOrbitDemo paused={options.paused}/>;
   if (id === 'signal-funnel') return <SignalFunnelDemo paused={options.paused}/>;
   if (id === 'routing-scorecard') return <RoutingScorecardDemo paused={options.paused}/>;
   if (id === 'converging-streams') return <ConvergingStreamsDemo paused={options.paused}/>;
