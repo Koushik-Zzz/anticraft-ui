@@ -14,7 +14,7 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 | Heroes | Editor Canvas Hero, Notes Workflow Hero, Revenue Dashboard Hero, Frame Morph Hero, Showreel Hero, Product Spotlight Hero, Editorial Hero |
 | Sections | Image Hotspots, Expandable Gallery, Searchable FAQ, Project Brief Builder, Reveal Footer, Feature Comparison, Case Study Story, Pricing Plans, Feature Bento, Team Grid, Process Timeline, Project Grid, Project Preview List, Service Showcase, Article Rail, Testimonial Slider |
 | Navigation | Floating Dock, Sliding Nav, Expanding Menu, Radial Nav, Curtain Menu |
-| Experiments | Scratch Reveal, Pixel Swap, Cursor Trail, Throw Stack, Elastic Type, Peel Reveal, Orbit Gallery, Lenticular Panel, Sticker Field, Spine Archive, Morphing Stage |
+| Experiments | Snap Delete, Scratch Reveal, Pixel Swap, Cursor Trail, Throw Stack, Elastic Type, Peel Reveal, Orbit Gallery, Lenticular Panel, Sticker Field, Spine Archive, Morphing Stage |
 | Backgrounds | Ripple Field, Aurora Background |
 | Buttons | Arrow Capsule Button, Rolling Text Button, Circle Fill Button, Shutter Button, Outline Trace Button, Tactile Button, Magnetic Button |
 | Typography | Particle Text, Split Flap, Split Text, Gradient Text |
@@ -22,7 +22,9 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 | Cards | Product Quick View, Product Gallery, Before After, Spotlight Card, Tilt Card, Border Beam |
 | Layout | Marquee, Editorial Accordion |
 
-All 66 components are included in the repository and local shadcn registry. Start with the **Sections** category for practical product and marketing content: clear pricing plans, feature grids, team profiles, process timelines, portfolio cards, service details, and client stories. Product Gallery in **Cards** adds thumbnails and a larger image viewer. Demo project and article links open complete local examples. The example brands and client stories are fictional. Pixel Swap now demonstrates switching between exterior and interior product views, with a customizable button label. Each component has a live demo, source, installation instructions, and prop documentation. Effects honor reduced motion, and interactive sections support keyboard and touch use.
+All 67 components are included in the repository and local shadcn registry. Start with the **Sections** category for practical product and marketing content: clear pricing plans, feature grids, team profiles, process timelines, portfolio cards, service details, and client stories. Product Gallery in **Cards** adds thumbnails and a larger image viewer. Demo project and article links open complete local examples. The example brands and client stories are fictional. Pixel Swap now demonstrates switching between exterior and interior product views, with a customizable button label. Each component has a live demo, source, installation instructions, and prop documentation. Effects honor reduced motion, and interactive sections support keyboard and touch use.
+
+[Snap Delete](http://localhost:5173/components/snap-delete) disperses text, images, and cards into dust using the content’s actual appearance. Its three demos include native Delete and Undo controls. The standalone component preserves child state for Undo, respects reduced motion, and exposes completion/restoration callbacks for your own persistence. It uses React and CSS masks without reading image pixels.
 
 [Particle Text](http://localhost:5173/components/particle-text) in **Typography** gathers scattered dots into a headline, then resolves into selectable HTML text. Its motion draws on a live study of [Orgo’s closing call to action](https://www.orgo.ai/). It plays once on entry, offers replay and pause controls, and shows solid text for reduced motion or an unavailable canvas. The optional `ParticleTextGrid` wrapper adds a recessed grid moving left to right, rounded hover cells, sparse idle highlights, and a separate background pause control. Both exports ship in the same React/CSS pair.
 
@@ -80,6 +82,7 @@ Each item installs both the component and its stylesheet. Targets resolve throug
 Available registry items:
 
 ```text
+/r/snap-delete.json
 /r/particle-text.json
 /r/logo-orbit.json
 /r/orbit-network.json

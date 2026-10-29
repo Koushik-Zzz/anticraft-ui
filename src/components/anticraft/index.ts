@@ -138,3 +138,5 @@ export { LogoOrbit } from './LogoOrbit';
 export type { LogoOrbitProps, LogoOrbitItem } from './LogoOrbit';
 export { ParticleText, ParticleTextGrid } from './ParticleText';
 export type { ParticleTextProps, ParticleTextGridProps } from './ParticleText';
+export { SnapDelete } from './SnapDelete';
+export type { SnapDeleteProps } from './SnapDelete';

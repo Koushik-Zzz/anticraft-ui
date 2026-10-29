@@ -4,6 +4,27 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "snap-delete",
+      "type": "registry:component",
+      "title": "Snap Delete",
+      "description": "Delete text, images, or cards in a cloud of dust. Undo restores the content.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/SnapDelete.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/SnapDelete.tsx"
+        },
+        {
+          "path": "src/components/anticraft/snap-delete.css",
+          "type": "registry:file",
+          "target": "components/anticraft/snap-delete.css"
+        }
+      ]
+    },
+    {
       "name": "particle-text",
       "type": "registry:component",
       "title": "Particle Text",
