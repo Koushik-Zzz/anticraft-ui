@@ -13,16 +13,22 @@ function CatalogNavigation({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
   const [query, setQuery] = useState('');
   const visible = components.filter((item) => `${item.title} ${item.category}`.toLowerCase().includes(query.toLowerCase().trim()));
-  return <>
+  return <div className="catalog-navigation">
     <label className="sidebar-search"><Icon name="search" size={14}/><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Filter components…" aria-label="Filter sidebar components"/>{query && <button onClick={() => setQuery('')} aria-label="Clear sidebar filter"><Icon name="close" size={13}/></button>}</label>
-    <nav className="catalog-nav" aria-label="Component library"><div className="sidebar-group"><span className="sidebar-label">Getting started</span><Link href="/components/diagrams" aria-current={pathname === '/components/diagrams' ? 'page' : undefined} onClick={onNavigate}><Icon name="grid" size={15}/>Diagram collection<span className="sidebar-count">{components.filter(item => item.category === 'Diagrams').length}</span></Link><Link href="/components/heroes" aria-current={pathname === '/components/heroes' ? 'page' : undefined} onClick={onNavigate}><Icon name="spark" size={15}/>Hero collection<span className="sidebar-count">{components.filter(item => item.category === 'Heroes').length}</span></Link><Link href="/components/buttons" aria-current={pathname === '/components/buttons' ? 'page' : undefined} onClick={onNavigate}><Icon name="code" size={15}/>Button collection<span className="sidebar-count">{components.filter(item => item.category === 'Buttons').length}</span></Link><Link href="/components" aria-current={pathname === '/components' ? 'page' : undefined} onClick={onNavigate}><Icon name="grid" size={15}/>All components<span className="sidebar-count">{components.length}</span></Link><Link href="/docs/installation" aria-current={pathname === '/docs/installation' ? 'page' : undefined} onClick={onNavigate}><Icon name="terminal" size={15}/>Installation</Link></div>
+    <div className="sidebar-scroll"><nav className="catalog-nav" aria-label="Component library"><div className="sidebar-group"><p className="sidebar-label">Getting started</p><ul className="sidebar-links" aria-label="Getting started">
+      <li><Link href="/components/diagrams" aria-current={pathname === '/components/diagrams' ? 'page' : undefined} onClick={onNavigate}><span className="sidebar-link-label">Diagram collection</span><span className="sidebar-count">{components.filter(item => item.category === 'Diagrams').length}</span></Link></li>
+      <li><Link href="/components/heroes" aria-current={pathname === '/components/heroes' ? 'page' : undefined} onClick={onNavigate}><span className="sidebar-link-label">Hero collection</span><span className="sidebar-count">{components.filter(item => item.category === 'Heroes').length}</span></Link></li>
+      <li><Link href="/components/buttons" aria-current={pathname === '/components/buttons' ? 'page' : undefined} onClick={onNavigate}><span className="sidebar-link-label">Button collection</span><span className="sidebar-count">{components.filter(item => item.category === 'Buttons').length}</span></Link></li>
+      <li><Link href="/components" aria-current={pathname === '/components' ? 'page' : undefined} onClick={onNavigate}><span className="sidebar-link-label">All components</span><span className="sidebar-count">{components.length}</span></Link></li>
+      <li><Link href="/docs/installation" aria-current={pathname === '/docs/installation' ? 'page' : undefined} onClick={onNavigate}>Installation</Link></li>
+    </ul></div>
     {categories.map((category) => {
       const items = visible.filter((item) => item.category === category);
-      return items.length ? <div className="sidebar-group" key={category}><span className="sidebar-label">{category}</span>{items.map((item) => <Link href={`/components/${item.slug}`} key={item.slug} aria-current={pathname === `/components/${item.slug}` ? 'page' : undefined} onClick={onNavigate}><span className="sidebar-item-dot"/>{item.title}{item.tag && <span className="new-tag">{item.tag}</span>}</Link>)}</div> : null;
+      return items.length ? <div className="sidebar-group" key={category}><p className="sidebar-label">{category}</p><ul className="sidebar-links" aria-label={category}>{items.map((item) => <li key={item.slug}><Link href={`/components/${item.slug}`} aria-current={pathname === `/components/${item.slug}` ? 'page' : undefined} onClick={onNavigate}><span className="sidebar-link-label">{item.title}</span></Link></li>)}</ul></div> : null;
     })}
-    {visible.length === 0 && <p className="sidebar-empty">Nothing found. Try another name.</p>}</nav>
-    <div className="sidebar-note"><span className="sidebar-note-star">✳</span><b>Yours, from the start.</b><p>Free source. Thoughtful details.<br/>A little character for your next idea.</p><a href="https://github.com/Koushik-Zzz/anticraft-ui" target="_blank" rel="noreferrer">Explore the source <Icon name="arrow" size={13}/></a></div>
-  </>;
+    {visible.length === 0 && <p className="sidebar-empty">Nothing found. Try another name.</p>}</nav></div>
+    <nav className="sidebar-resources" aria-label="Library resources"><a href="https://github.com/Koushik-Zzz/anticraft-ui" target="_blank" rel="noreferrer">GitHub source <Icon name="arrow" size={13}/></a><a href="https://github.com/Koushik-Zzz/anticraft-ui/issues" target="_blank" rel="noreferrer">Report an issue <Icon name="arrow" size={13}/></a></nav>
+  </div>;
 }
 
 function MobileCatalog({ onClose }: { onClose: () => void }) {
@@ -37,7 +43,7 @@ function MobileCatalog({ onClose }: { onClose: () => void }) {
   }, []);
   return <dialog ref={dialog} className="sidebar-drawer" aria-label="Browse components" onCancel={onClose} onClick={(event) => {
     if (event.target === event.currentTarget && event.clientX > event.currentTarget.getBoundingClientRect().right) onClose();
-  }}><div className="drawer-heading"><span>THE COLLECTION</span><button className="icon-button" aria-label="Close component menu" onClick={onClose}><Icon name="close" size={18}/></button></div><CatalogNavigation onNavigate={onClose}/></dialog>;
+  }}><div className="drawer-heading"><span>Components</span><button className="icon-button" aria-label="Close component menu" onClick={onClose}><Icon name="close" size={18}/></button></div><CatalogNavigation onNavigate={onClose}/></dialog>;
 }
 
 export function DocsShell({ children }: { children: ReactNode }) {
