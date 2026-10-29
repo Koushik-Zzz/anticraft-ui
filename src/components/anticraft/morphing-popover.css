@@ -15,6 +15,7 @@
 .ac-morph-popover[data-open="true"]:not([data-ready="true"]) { height: auto; }
 .ac-morph-popover[data-open="true"]:not([data-ready="true"]) .ac-morph-popover__panel { position: relative; top: auto; transform: none; }
 .ac-morph-popover[data-open="true"]:not([data-ready="true"]) .ac-morph-popover__surface { height: 100%; }
+.ac-morph-popover:not([data-animated="true"]), .ac-morph-popover:not([data-animated="true"]) .ac-morph-popover__surface, .ac-morph-popover:not([data-animated="true"]) .ac-morph-popover__trigger, .ac-morph-popover:not([data-animated="true"]) .ac-morph-popover__panel { transition: none !important; }
 .ac-morph-popover__body { padding: 24px 22px 20px; }
 .ac-morph-popover__close { position: absolute; top: 9px; right: 9px; display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--ac-morph-muted); cursor: pointer; }
 .ac-morph-popover__close svg { stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; }

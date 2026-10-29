@@ -68,6 +68,10 @@ export function MorphingPopover({
     }
     measure();
     root.dataset.ready = 'true';
+    // Commit the measured layout before enabling transitions. An initially open
+    // card must not animate from its server-rendered, in-flow positioning.
+    panel.getBoundingClientRect();
+    root.dataset.animated = 'true';
     const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(measure);
     observer?.observe(panel);
     window.addEventListener('resize', measure);
