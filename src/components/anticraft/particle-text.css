@@ -1,0 +1,12 @@
+.ac-particle-text, .ac-particle-text * { box-sizing: border-box; }
+.ac-particle-text { width: 100%; min-width: 0; position: relative; color: inherit; font-family: inherit; container-type: inline-size; }
+.ac-particle-text-stage { position: relative; width: 100%; min-width: 0; padding: clamp(30px, 6cqi, 68px) 0; isolation: isolate; overflow: hidden; }
+.ac-particle-text-title { display: block; margin: 0; font-family: inherit; font-size: min(19cqi, var(--ac-particle-max, 180px)); font-weight: 500; line-height: 1.12; letter-spacing: 0; text-align: center; color: inherit; }
+.ac-particle-text-title > span { display: block; white-space: pre-wrap; overflow-wrap: anywhere; }
+.ac-particle-text-canvas { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; }
+.ac-particle-text-controls { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 4px; font: 11px/1.3 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.ac-particle-text-controls button { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 4px; border: 0; border-radius: 2px; color: inherit; background: transparent; font: inherit; cursor: pointer; opacity: .65; }
+.ac-particle-text-controls button:hover:not(:disabled) { opacity: 1; }
+.ac-particle-text-controls button:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; opacity: 1; }
+.ac-particle-text-controls button:disabled { opacity: .35; cursor: default; }
+@media (prefers-reduced-motion: reduce) { .ac-particle-text-title { opacity: 1 !important; } .ac-particle-text-canvas { visibility: hidden; } }

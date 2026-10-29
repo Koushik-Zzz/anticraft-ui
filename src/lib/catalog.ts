@@ -29,6 +29,7 @@ import { signalFunnelComponents } from './signal-funnel-catalog';
 import { routingScorecardComponents } from './routing-scorecard-catalog';
 import { convergingStreamsComponents } from './converging-streams-catalog';
 import { logoOrbitComponents } from './logo-orbit-catalog';
+import { particleTextComponents } from './particle-text-catalog';
 
 export type ComponentCategory = 'Diagrams' | 'Heroes' | 'Sections' | 'Forms' | 'Navigation' | 'Experiments' | 'Backgrounds' | 'Buttons' | 'Typography' | 'Cards' | 'Layout';
 
@@ -50,6 +51,7 @@ export type ComponentDefinition = {
 export const categories: ComponentCategory[] = ['Diagrams', 'Heroes', 'Buttons', 'Sections', 'Forms', 'Experiments', 'Navigation', 'Backgrounds', 'Typography', 'Cards', 'Layout'];
 
 export const components: ComponentDefinition[] = [
+  ...particleTextComponents,
   ...logoOrbitComponents,
   ...orbitNetworkComponents,
   ...signalFunnelComponents,
@@ -407,7 +409,7 @@ export function Example() {
 ];
 
 export function hasFullPreview(item: Pick<ComponentDefinition, 'slug' | 'category'>) {
-  return item.category === 'Heroes' || item.category === 'Diagrams' || ['project-brief-builder', 'reveal-footer', 'product-quick-view', 'feature-comparison', 'case-study-story', 'image-hotspots', 'expandable-gallery', 'file-dropzone', 'searchable-faq'].includes(item.slug);
+  return item.category === 'Heroes' || item.category === 'Diagrams' || ['particle-text', 'project-brief-builder', 'reveal-footer', 'product-quick-view', 'feature-comparison', 'case-study-story', 'image-hotspots', 'expandable-gallery', 'file-dropzone', 'searchable-faq'].includes(item.slug);
 }
 
 export function hasFittedPreview(item: Pick<ComponentDefinition, 'slug' | 'category'>) {

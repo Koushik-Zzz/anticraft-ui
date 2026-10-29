@@ -17,12 +17,14 @@ The documentation website uses **Next.js App Router and TypeScript**, with a cat
 | Experiments | Scratch Reveal, Pixel Swap, Cursor Trail, Throw Stack, Elastic Type, Peel Reveal, Orbit Gallery, Lenticular Panel, Sticker Field, Spine Archive, Morphing Stage |
 | Backgrounds | Ripple Field, Aurora Background |
 | Buttons | Arrow Capsule Button, Rolling Text Button, Circle Fill Button, Shutter Button, Outline Trace Button, Tactile Button, Magnetic Button |
-| Typography | Split Flap, Split Text, Gradient Text |
+| Typography | Particle Text, Split Flap, Split Text, Gradient Text |
 | Forms | File Dropzone |
 | Cards | Product Quick View, Product Gallery, Before After, Spotlight Card, Tilt Card, Border Beam |
 | Layout | Marquee, Editorial Accordion |
 
-All 65 components are included in the repository and local shadcn registry. Start with the **Sections** category for practical product and marketing content: clear pricing plans, feature grids, team profiles, process timelines, portfolio cards, service details, and client stories. Product Gallery in **Cards** adds thumbnails and a larger image viewer. Demo project and article links open complete local examples. The example brands and client stories are fictional. Pixel Swap now demonstrates switching between exterior and interior product views, with a customizable button label. Each component has a live demo, source, installation instructions, and prop documentation. Effects honor reduced motion, and interactive sections support keyboard and touch use.
+All 66 components are included in the repository and local shadcn registry. Start with the **Sections** category for practical product and marketing content: clear pricing plans, feature grids, team profiles, process timelines, portfolio cards, service details, and client stories. Product Gallery in **Cards** adds thumbnails and a larger image viewer. Demo project and article links open complete local examples. The example brands and client stories are fictional. Pixel Swap now demonstrates switching between exterior and interior product views, with a customizable button label. Each component has a live demo, source, installation instructions, and prop documentation. Effects honor reduced motion, and interactive sections support keyboard and touch use.
+
+[Particle Text](http://localhost:5173/components/particle-text) in **Typography** gathers scattered dots into a headline, then resolves into selectable HTML text. Its motion draws on a live study of [Orgo’s closing call to action](https://www.orgo.ai/). It plays once on entry, offers replay and pause controls, and shows solid text for reduced motion or an unavailable canvas.
 
 The [Diagrams collection](http://localhost:5173/components/diagrams) includes Logo Orbit (a fixed central logo and upright orbiting integration badges), Orbit Network (selectable integration nodes), Signal Funnel (toggleable processing gates), Routing Scorecard (adjustable quality threshold), and Converging Streams (a compact CTA background with an optional pointer-following ASCII field). Their particle fields, traveling packets, and curved paths draw on a live motion study of [RouterPlus](https://routerplus.com/). Each supports pause and reduced motion, stops motion while hidden or offscreen, and includes standalone React/CSS source. Scores and processing stages are illustrative UI data.
 
@@ -78,6 +80,7 @@ Each item installs both the component and its stylesheet. Targets resolve throug
 Available registry items:
 
 ```text
+/r/particle-text.json
 /r/logo-orbit.json
 /r/orbit-network.json
 /r/signal-funnel.json

@@ -4,6 +4,27 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "particle-text",
+      "type": "registry:component",
+      "title": "Particle Text",
+      "description": "Scattered dots gather into a headline, then resolve into solid text.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/ParticleText.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/ParticleText.tsx"
+        },
+        {
+          "path": "src/components/anticraft/particle-text.css",
+          "type": "registry:file",
+          "target": "components/anticraft/particle-text.css"
+        }
+      ]
+    },
+    {
       "name": "logo-orbit",
       "type": "registry:component",
       "title": "Logo Orbit",
