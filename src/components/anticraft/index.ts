@@ -136,5 +136,5 @@ export { ConvergingStreams } from './ConvergingStreams';
 export type { ConvergingStreamsProps } from './ConvergingStreams';
 export { LogoOrbit } from './LogoOrbit';
 export type { LogoOrbitProps, LogoOrbitItem } from './LogoOrbit';
-export { ParticleText } from './ParticleText';
-export type { ParticleTextProps } from './ParticleText';
+export { ParticleText, ParticleTextGrid } from './ParticleText';
+export type { ParticleTextProps, ParticleTextGridProps } from './ParticleText';

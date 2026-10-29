@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, type CSSProperties, type Ref } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type Ref } from 'react';
 import './particle-text.css';
 
 export interface ParticleTextProps {
@@ -14,6 +14,212 @@ export interface ParticleTextProps {
   paused?: boolean;
   showControls?: boolean;
   className?: string;
+}
+
+export interface ParticleTextGridProps {
+  children: ReactNode;
+  paused?: boolean;
+  showControls?: boolean;
+  className?: string;
+}
+
+/** A recessed, drifting grid with rounded hover cells behind ordinary content. */
+export function ParticleTextGrid({ children, paused = false, showControls = true, className = '' }: ParticleTextGridProps) {
+  const root = useRef<HTMLDivElement>(null);
+  const canvas = useRef<HTMLCanvasElement>(null);
+  const controller = useRef<{ sync: () => void } | null>(null);
+  const pauseGate = useRef(paused);
+  const [manualPaused, setManualPaused] = useState(false);
+  const [activity, setActivity] = useState({ running: false, reduced: false, available: false });
+
+  useEffect(() => {
+    const element = root.current;
+    const field = canvas.current;
+    const ctx = field?.getContext('2d');
+    if (!element || !field || !ctx) return;
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let width = 0;
+    let height = 0;
+    let time = 0;
+    let previous: number | null = null;
+    let lastPaint = -Infinity;
+    let sincePaint = 0;
+    let frame: number | null = null;
+    let visible = typeof IntersectionObserver === 'undefined';
+    let running = false;
+    let disposed = false;
+    let surface = '#1e1e1e';
+    let lineColor = '#8a8a8a';
+    let pointer: { x: number; y: number } | null = null;
+    const wake = new Map<string, number>();
+    type Point = { x: number; y: number };
+    type Cell = { points: Point[]; amount: number; fade: number; radius: number };
+
+    const depth = (x: number) => .55 + .45 * Math.min(1, Math.abs(x / width * 2 - 1)) ** 1.6;
+    const fade = (x: number) => .025 + .975 * Math.min(1, Math.abs(x / width * 2 - 1)) ** 2;
+    const project = (x: number, row: number, step: number): Point => ({ x, y: height * .43 + row * step * depth(x) });
+    function polygon(points: Point[]) {
+      ctx!.beginPath();
+      points.forEach((point, index) => index ? ctx!.lineTo(point.x, point.y) : ctx!.moveTo(point.x, point.y));
+      ctx!.closePath();
+    }
+    function rounded(points: Point[], radius: number) {
+      ctx!.beginPath();
+      points.forEach((point, index) => {
+        const before = points[(index + 3) % 4];
+        const after = points[(index + 1) % 4];
+        const a = Math.min(.4, radius / Math.max(1, Math.hypot(before.x - point.x, before.y - point.y)));
+        const b = Math.min(.4, radius / Math.max(1, Math.hypot(after.x - point.x, after.y - point.y)));
+        const start = { x: point.x + (before.x - point.x) * a, y: point.y + (before.y - point.y) * a };
+        const end = { x: point.x + (after.x - point.x) * b, y: point.y + (after.y - point.y) * b };
+        if (index) ctx!.lineTo(start.x, start.y); else ctx!.moveTo(start.x, start.y);
+        ctx!.quadraticCurveTo(point.x, point.y, end.x, end.y);
+      });
+      ctx!.closePath();
+    }
+    function draw(delta = 0) {
+      if (!width || !height) return;
+      const step = Math.max(42, Math.min(64, width / 24));
+      const drift = time * step / 2.8;
+      const first = Math.floor(-drift / step) - 1;
+      const last = Math.ceil((width - drift) / step) + 1;
+      const rows = Math.ceil(height / step);
+      const cells: Cell[] = [];
+      const keys = new Set<string>();
+      let hovered = 0;
+      let idle = 0;
+      ctx!.clearRect(0, 0, width, height);
+      ctx!.lineWidth = .8;
+      ctx!.strokeStyle = lineColor;
+      // Columns remain straight. Only the row projection compresses into depth.
+      for (let column = first; column <= last; column++) {
+        const x = column * step + drift;
+        ctx!.globalAlpha = fade(x) * .105;
+        ctx!.beginPath(); ctx!.moveTo(x, 0); ctx!.lineTo(x, height); ctx!.stroke();
+      }
+      for (let row = -rows; row <= rows; row++) {
+        for (let x = 0; x < width; x += 16) {
+          const a = project(x, row, step);
+          const b = project(Math.min(width, x + 16), row, step);
+          ctx!.globalAlpha = fade(x + 8) * .105;
+          ctx!.beginPath(); ctx!.moveTo(a.x, a.y); ctx!.lineTo(b.x, b.y); ctx!.stroke();
+        }
+      }
+      for (let column = first; column < last; column++) for (let row = -rows; row < rows; row++) {
+        const x = column * step + drift;
+        const center = project(x + step / 2, row + .5, step);
+        if (center.y < -step || center.y > height + step) continue;
+        const key = `${column}:${row}`;
+        keys.add(key);
+        const distance = pointer ? Math.hypot((center.x - pointer.x) / step, (center.y - pointer.y) / (step * depth(center.x))) : Infinity;
+        const target = Math.max(0, 1 - distance / 1.8);
+        const old = wake.get(key) || 0;
+        const value = old + (target - old) * (1 - Math.exp(-delta * (target > old ? 15 : 4)));
+        if (value > .004) wake.set(key, value); else wake.delete(key);
+        if (value > .1) hovered++;
+        const seed = noise(column * 37 + row * 101);
+        const period = 7 + noise(column * 13 + row * 71) * 7;
+        const cycle = (time + seed * period) % period;
+        const pulse = seed > .92 && cycle < 2.8 ? Math.sin(cycle / 2.8 * Math.PI) ** 2 * .85 : 0;
+        if (pulse > .1) idle++;
+        const amount = Math.max(value * 1.6, pulse);
+        if (amount < .015) continue;
+        const points = [project(x, row, step), project(x + step, row, step), project(x + step, row + 1, step), project(x, row + 1, step)];
+        cells.push({ points, amount, fade: fade(center.x), radius: Math.min(step, step * depth(center.x)) * .24 * Math.min(1, amount) });
+      }
+      for (const key of wake.keys()) if (!keys.has(key)) wake.delete(key);
+      // The lit space between rounded dark interiors creates the small stars
+      // at neighboring corners, rather than floating a pill over the grid.
+      for (const cell of cells) {
+        polygon(cell.points); ctx!.globalAlpha = 1; ctx!.fillStyle = surface; ctx!.fill();
+        ctx!.globalAlpha = Math.min(.7, cell.fade) * .22 * Math.min(1, cell.amount); ctx!.fillStyle = lineColor; ctx!.fill();
+        rounded(cell.points, cell.radius); ctx!.globalAlpha = 1; ctx!.fillStyle = surface; ctx!.fill();
+      }
+      for (const cell of cells) {
+        rounded(cell.points, cell.radius); ctx!.globalAlpha = cell.fade * .105 + Math.min(.65, cell.fade) * .1 * Math.min(1, cell.amount); ctx!.strokeStyle = lineColor; ctx!.stroke();
+      }
+      ctx!.globalAlpha = 1;
+      field!.dataset.offset = (drift % step).toFixed(3);
+      field!.dataset.hoverCells = String(hovered);
+      field!.dataset.idleCells = String(idle);
+      field!.dataset.pointerActive = String(Boolean(pointer));
+    }
+    function stop() {
+      if (frame !== null) cancelAnimationFrame(frame);
+      frame = null;
+      previous = null;
+      sincePaint = 0;
+    }
+    function tick(now: number) {
+      frame = null;
+      if (!running || disposed) return;
+      const delta = previous === null ? 0 : clamp((now - previous) / 1000, 0, .05);
+      previous = now;
+      time += delta;
+      sincePaint += delta;
+      if (now - lastPaint >= 1000 / 30) { draw(sincePaint); sincePaint = 0; lastPaint = now; }
+      frame = requestAnimationFrame(tick);
+    }
+    function sync() {
+      if (disposed) return;
+      running = visible && !document.hidden && !media.matches && !pauseGate.current && width > 0 && height > 0;
+      if (!running) { stop(); pointer = null; wake.clear(); draw(); }
+      else if (frame === null) frame = requestAnimationFrame(tick);
+      setActivity(value => value.running === running && value.reduced === media.matches && value.available ? value : { running, reduced: media.matches, available: true });
+    }
+    function resize() {
+      width = element!.clientWidth;
+      height = element!.clientHeight;
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      field!.width = Math.round(width * ratio);
+      field!.height = Math.round(height * ratio);
+      ctx!.setTransform(ratio, 0, 0, ratio, 0, 0);
+      const style = getComputedStyle(element!);
+      surface = style.getPropertyValue('--ac-particle-grid-surface').trim() || '#1e1e1e';
+      lineColor = style.getPropertyValue('--ac-particle-grid-line').trim() || '#8a8a8a';
+      pointer = null; wake.clear();
+      draw(); sync();
+    }
+    function move(event: PointerEvent) {
+      if (event.pointerType === 'touch' || !running) { pointer = null; return; }
+      const rect = element!.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      pointer = { x: (event.clientX - rect.left) * width / rect.width, y: (event.clientY - rect.top) * height / rect.height };
+    }
+    const leave = () => { pointer = null; };
+    const scene = { sync };
+    controller.current = scene;
+    const intersection = typeof IntersectionObserver === 'undefined' ? null : new IntersectionObserver(([entry]) => { if (entry) { visible = entry.isIntersecting; sync(); } });
+    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(resize);
+    intersection?.observe(element);
+    observer?.observe(element);
+    media.addEventListener('change', sync);
+    document.addEventListener('visibilitychange', sync);
+    window.addEventListener('resize', resize);
+    element.addEventListener('pointermove', move, { passive: true });
+    element.addEventListener('pointerleave', leave);
+    element.addEventListener('pointercancel', leave);
+    resize();
+    return () => {
+      disposed = true; running = false; stop();
+      observer?.disconnect(); intersection?.disconnect();
+      media.removeEventListener('change', sync);
+      document.removeEventListener('visibilitychange', sync);
+      window.removeEventListener('resize', resize);
+      element.removeEventListener('pointermove', move);
+      element.removeEventListener('pointerleave', leave);
+      element.removeEventListener('pointercancel', leave);
+      if (controller.current === scene) controller.current = null;
+    };
+  }, []);
+
+  useEffect(() => { pauseGate.current = paused || manualPaused; controller.current?.sync(); }, [paused, manualPaused]);
+
+  return <div ref={root} className={`ac-particle-text-grid ${className}`.trim()} data-running={activity.running}>
+    <canvas ref={canvas} className="ac-particle-grid-canvas" aria-hidden="true"/>
+    <div className="ac-particle-grid-content">{children}</div>
+    {showControls && <button type="button" className="ac-particle-grid-motion" disabled={paused || activity.reduced || !activity.available} onClick={() => setManualPaused(value => !value)}><span aria-hidden="true">{manualPaused || paused || activity.reduced ? '▷' : 'Ⅱ'}</span>{activity.reduced ? 'Grid motion reduced' : paused ? 'Grid paused' : manualPaused ? 'Play grid' : 'Pause grid'}</button>}
+  </div>;
 }
 
 type Phase = 'waiting' | 'scatter' | 'gather' | 'resolve' | 'complete';

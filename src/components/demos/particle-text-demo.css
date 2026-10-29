@@ -1,6 +1,4 @@
 .demo.particle-text-demo { position: relative; isolation: isolate; display: grid; place-items: center; width: 100%; height: auto !important; min-height: 500px; padding: 48px clamp(20px, 4vw, 56px); overflow: hidden; background: #1e1e1e; color: #f7f7f5; container-type: inline-size; }
-.particle-text-demo__grid { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; mask-image: radial-gradient(ellipse at center, #0002 15%, #0009 65%, #0003 100%); }
-.particle-text-demo__grid path { stroke: #454545; stroke-width: .75; vector-effect: non-scaling-stroke; }
 .particle-text-demo__content { width: 100%; max-width: 1000px; min-width: 0; text-align: center; }
 .particle-text-demo__lead { margin: 0; color: #bcbcbc; font: 400 clamp(14px, 2cqi, 18px)/1.4 Arial, Helvetica, sans-serif; }
 .particle-text-demo .ac-particle-text { color: #fafaf8; }

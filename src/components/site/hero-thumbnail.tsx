@@ -17,7 +17,7 @@ export function HeroThumbnail({ slug, title }: { slug: string; title: string }) 
     return () => resize.disconnect();
   }, []);
   return <div ref={root} className="hero-thumbnail" style={{ '--hero-thumbnail-scale': scale } as CSSProperties}>
-    <div className="hero-thumbnail-stage" aria-hidden="true" ref={element => { element?.setAttribute('inert', ''); }}><ComponentDemo slug={slug}/></div>
+    <div className="hero-thumbnail-stage" aria-hidden="true" ref={element => { element?.setAttribute('inert', ''); }}><ComponentDemo slug={slug} options={slug === 'particle-text' ? { paused: true } : undefined}/></div>
     <Link className="hero-thumbnail-open" href={`/preview/${slug}`} aria-label={`Open ${title} full preview`}><span>Explore full preview <Icon name="arrow" size={14}/></span></Link>
   </div>;
 }
