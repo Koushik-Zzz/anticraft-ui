@@ -30,7 +30,6 @@ import { FeatureComparisonDemo } from './comparison-demos';
 import { ImageHotspotsDemo } from './image-hotspots-demo';
 import { ExpandableGalleryDemo } from './expandable-gallery-demo';
 import { FileDropzoneDemo } from './file-dropzone-demo';
-import { SearchableFAQDemo } from './searchable-faq-demo';
 import { EditorCanvasHeroDemo } from './editor-canvas-hero-demo';
 import { NotesWorkflowHeroDemo } from './notes-workflow-hero-demo';
 import { RevenueDashboardHeroDemo } from './revenue-dashboard-hero-demo';
@@ -72,7 +71,6 @@ export function ComponentDemo({ slug, options = {} }: { slug: string; options?: 
   if (id === 'image-hotspots') return <ImageHotspotsDemo/>;
   if (id === 'expandable-gallery') return <ExpandableGalleryDemo/>;
   if (id === 'file-dropzone') return <FileDropzoneDemo/>;
-  if (id === 'searchable-faq') return <SearchableFAQDemo/>;
   if (id === 'project-brief-builder') return <ProjectBriefBuilderDemo/>;
   if (id === 'reveal-footer') return <RevealFooterDemo/>;
   if (id === 'product-quick-view') return <ProductQuickViewDemo/>;

@@ -23,7 +23,6 @@ import { comparisonComponents } from './comparison-catalog';
 import { hotspotsComponents } from './hotspots-catalog';
 import { expandableGalleryComponents } from './expandable-gallery-catalog';
 import { uploadComponents } from './upload-catalog';
-import { faqComponents } from './faq-catalog';
 import { orbitNetworkComponents } from './orbit-network-catalog';
 import { signalFunnelComponents } from './signal-funnel-catalog';
 import { routingScorecardComponents } from './routing-scorecard-catalog';
@@ -65,7 +64,6 @@ export const components: ComponentDefinition[] = [
   ...hotspotsComponents,
   ...expandableGalleryComponents,
   ...uploadComponents,
-  ...faqComponents,
   ...briefComponents,
   ...editorialSectionComponents,
   ...commerceComponents,
@@ -411,11 +409,11 @@ export function Example() {
 ];
 
 export function hasFullPreview(item: Pick<ComponentDefinition, 'slug' | 'category'>) {
-  return item.category === 'Heroes' || item.category === 'Diagrams' || ['snap-delete', 'particle-text', 'project-brief-builder', 'reveal-footer', 'product-quick-view', 'feature-comparison', 'case-study-story', 'image-hotspots', 'expandable-gallery', 'file-dropzone', 'searchable-faq'].includes(item.slug);
+  return item.category === 'Heroes' || item.category === 'Diagrams' || ['snap-delete', 'particle-text', 'project-brief-builder', 'reveal-footer', 'product-quick-view', 'feature-comparison', 'case-study-story', 'image-hotspots', 'expandable-gallery', 'file-dropzone'].includes(item.slug);
 }
 
 export function hasFittedPreview(item: Pick<ComponentDefinition, 'slug' | 'category'>) {
-  return hasFullPreview(item) && !['file-dropzone', 'searchable-faq'].includes(item.slug);
+  return hasFullPreview(item) && item.slug !== 'file-dropzone';
 }
 
 export function getComponent(slug: string): ComponentDefinition | undefined {

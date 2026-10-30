@@ -6,8 +6,6 @@ export { ExpandableGallery } from './ExpandableGallery';
 export type { ExpandableGalleryProps, ExpandableGalleryItem } from './ExpandableGallery';
 export { FileDropzone } from './FileDropzone';
 export type { FileDropzoneProps } from './FileDropzone';
-export { SearchableFAQ } from './SearchableFAQ';
-export type { SearchableFAQProps, SearchableFAQItem } from './SearchableFAQ';
 
 export { ProjectBriefBuilder } from './ProjectBriefBuilder';
 export type { ProjectBriefBuilderProps, ProjectBriefOption, ProjectBrief } from './ProjectBriefBuilder';

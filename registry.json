@@ -277,27 +277,6 @@
       ]
     },
     {
-      "name": "searchable-faq",
-      "type": "registry:component",
-      "title": "Searchable FAQ",
-      "description": "Questions with full-text search, category filters, and expandable answers.",
-      "dependencies": [
-        "react"
-      ],
-      "files": [
-        {
-          "path": "src/components/anticraft/SearchableFAQ.tsx",
-          "type": "registry:component",
-          "target": "components/anticraft/SearchableFAQ.tsx"
-        },
-        {
-          "path": "src/components/anticraft/searchable-faq.css",
-          "type": "registry:file",
-          "target": "components/anticraft/searchable-faq.css"
-        }
-      ]
-    },
-    {
       "name": "project-brief-builder",
       "type": "registry:component",
       "title": "Project Brief Builder",
