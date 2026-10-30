@@ -20,3 +20,14 @@
 @container (width < 350px) { .ac-file-drop-area { padding:21px 12px 17px; }.ac-file-drop-title { font-size:18px; }.ac-file-list > li { gap:8px; padding:8px; }.ac-file-selected-mark { display:none; } }
 @media (max-width:420px) { .ac-file-dropzone { padding:18px; } }
 @media (prefers-reduced-motion:reduce) { .ac-file-drop-area,.ac-file-browse { transition:none; } }
+
+/* Neutral form surfaces follow the host; green actions and file artwork remain colored. */
+:where([data-theme="dark"], .dark) .ac-file-dropzone { --ac-file-paper: #1c201c; --ac-file-ink: #eef1e9; --ac-file-muted: #adb5a7; --ac-file-line: #434b3f; --ac-file-focus: #8cc6f4; }
+:where([data-theme="dark"], .dark) .ac-file-drop-area { border-color: #697561; background: #252b23; }
+:where([data-theme="dark"], .dark) .ac-file-drop-icon > span { border-color: #252b23; }
+:where([data-theme="dark"], .dark) .ac-file-drop-area[data-dragging="true"] { background: #293e2a; border-color: #98b68c; outline-color: #98b68c40; }
+:where([data-theme="dark"], .dark) .ac-file-drop-area[data-dragging="true"] .ac-file-drop-icon > span { border-color: #293e2a; }
+:where([data-theme="dark"], .dark) .ac-file-drop-icon svg { stroke: #a5b69c; }
+:where([data-theme="dark"], .dark) .ac-file-type { border-color: var(--ac-file-line); background: #2b3027; color: #c2cbb7; }
+:where([data-theme="dark"], .dark) .ac-file-remove:hover:enabled { background: #343b2f; }
+:where([data-theme="dark"], .dark) .ac-file-errors { border-color: #8e5a4d; background: #36251f; color: #efb6a5; }

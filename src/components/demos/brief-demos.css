@@ -2,3 +2,7 @@
 .brief-demo-caption { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin: 0; padding: 15px clamp(24px, 4%, 70px); background: #203c31; color: #e4e8da; font: 7px/1.6 Arial, Helvetica, sans-serif; letter-spacing: .065em; }
 .brief-demo-caption > span:last-child { text-align: right; }
 @media (max-width: 480px) { .brief-demo-caption { padding: 15px 24px; font-size: 6px; gap: 12px; } }
+
+/* Neutral preview framing follows the site theme. */
+.project-brief-builder-demo { background: var(--paper); }
+.brief-demo-caption { background: var(--surface); color: var(--muted); }

@@ -4,7 +4,7 @@
   --ac-footer-muted: #c4aabc;
   --ac-footer-line: #f5cee130;
   --ac-footer-accent: #d9f884;
-  --ac-footer-content: #eee9df;
+  --ac-footer-content: var(--ac-footer-theme-content, #eee9df);
   container: ac-reveal-footer / inline-size;
   position: relative;
   isolation: isolate;
@@ -52,3 +52,7 @@
   .ac-reveal-footer-contact > span:last-child { transition: none; }
   .ac-reveal-footer-contact:hover > span:last-child { transform: none; }
 }
+
+
+:where([data-theme="light"]) .ac-reveal-footer { --ac-footer-theme-content: #fafbf8; }
+:where([data-theme="dark"], .dark) .ac-reveal-footer { --ac-footer-theme-content: #191e1b; }

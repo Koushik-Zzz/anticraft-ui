@@ -1,11 +1,11 @@
 .ac-feature-bento {
-  --ac-bento-surface: #f0eee8;
-  --ac-bento-card: #faf9f3;
+  --ac-bento-surface: var(--ac-bento-theme-surface, #f0eee8);
+  --ac-bento-card: var(--ac-bento-theme-card, #faf9f3);
   --ac-bento-media: #e3e4da;
-  --ac-bento-ink: #2c3429;
-  --ac-bento-muted: #65705d;
+  --ac-bento-ink: var(--ac-bento-theme-ink, #2c3429);
+  --ac-bento-muted: var(--ac-bento-theme-muted, #65705d);
   --ac-bento-accent: #405c35;
-  --ac-bento-line: #2c34291f;
+  --ac-bento-line: var(--ac-bento-theme-line, #2c34291f);
   --ac-bento-font: inherit;
   box-sizing: border-box;
   container-type: inline-size;
@@ -53,3 +53,23 @@
   .ac-feature-bento-card, .ac-feature-bento-link > span { transition: none; }
   .ac-feature-bento-card:hover, .ac-feature-bento-link:hover > span { transform: none; }
 }
+
+/* Neutral surfaces follow an explicit page theme; artwork and accents keep their palette. */
+:where([data-theme="light"]) .ac-feature-bento {
+  --ac-bento-theme-card: #ffffff;
+  --ac-bento-theme-ink: #202722;
+  --ac-bento-theme-line: #d7ded4;
+  --ac-bento-theme-muted: #687269;
+  --ac-bento-theme-surface: #fafbf8;
+  color-scheme: light;
+}
+:where([data-theme="dark"], .dark) .ac-feature-bento {
+  --ac-bento-theme-card: #242c26;
+  --ac-bento-theme-ink: #edf2eb;
+  --ac-bento-theme-line: #3d483e;
+  --ac-bento-theme-muted: #a7b3a3;
+  --ac-bento-theme-surface: #191e1b;
+  color-scheme: dark;
+}
+.ac-feature-bento-media { color: #2c3429; }
+:where([data-theme="dark"], .dark) .ac-feature-bento :is(a):focus-visible { outline-color: var(--ac-bento-ink); }

@@ -62,3 +62,9 @@
   .visual-scroll-continuation-bottom { display: block; }
   .visual-scroll-continuation h3 { font-size: clamp(40px, 9cqw, 60px); }
 }
+
+/* Neutral preview framing follows the site theme. */
+.visual-scroll-demo, .visual-editorial-demo { background: var(--paper); color: var(--ink); }
+.visual-hero-demo-masthead, .visual-scroll-masthead, .visual-scroll-continuation > div:first-child { border-color: var(--line); }
+.visual-scroll-continuation, .visual-editorial-continuation { background: var(--paper); color: var(--ink); }
+.visual-scroll-continuation p, .visual-scroll-continuation small, .visual-editorial-continuation p { color: var(--muted); }

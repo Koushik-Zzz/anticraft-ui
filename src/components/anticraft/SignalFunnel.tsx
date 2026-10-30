@@ -192,17 +192,20 @@ export function SignalFunnel({
       draw(elapsedRef.current);
       if (canAnimate()) frame = window.requestAnimationFrame(tick);
     }
+    function refreshColors() {
+      particleColor = window.getComputedStyle(stage!).color || accent;
+      inkColor = stage!.parentElement ? window.getComputedStyle(stage!.parentElement).color : '#34372e';
+      draw(elapsedRef.current);
+    }
     function resize() {
       if (!canvas || !stage) return;
       width = stage.clientWidth;
       height = stage.clientHeight;
-      particleColor = window.getComputedStyle(stage).color || accent;
-      inkColor = stage.parentElement ? window.getComputedStyle(stage.parentElement).color : '#34372e';
       const ratio = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.round(width * ratio);
       canvas.height = Math.round(height * ratio);
       context?.setTransform(ratio, 0, 0, ratio, 0, 0);
-      draw(elapsedRef.current);
+      refreshColors();
     }
     function onPreferenceChange() {
       setReducedMotion(media.matches);
@@ -215,6 +218,10 @@ export function SignalFunnel({
     }, { threshold: 0 }) : null;
     resizeObserver?.observe(stage);
     intersectionObserver?.observe(stage);
+    const themeObserver = typeof MutationObserver === 'undefined' ? null : new MutationObserver(refreshColors);
+    for (let ancestor: HTMLElement | null = stage; ancestor; ancestor = ancestor.parentElement) {
+      themeObserver?.observe(ancestor, { attributes: true, attributeFilter: ['data-theme', 'class'] });
+    }
     window.addEventListener('resize', resize);
     document.addEventListener('visibilitychange', synchronize);
     media.addEventListener('change', onPreferenceChange);
@@ -225,6 +232,7 @@ export function SignalFunnel({
       cancel();
       resizeObserver?.disconnect();
       intersectionObserver?.disconnect();
+      themeObserver?.disconnect();
       window.removeEventListener('resize', resize);
       document.removeEventListener('visibilitychange', synchronize);
       media.removeEventListener('change', onPreferenceChange);

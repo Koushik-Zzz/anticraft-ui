@@ -1,26 +1,26 @@
-.demo.snap-delete-demo { container-type: inline-size; position: relative; isolation: isolate; display: grid; place-items: center; width: 100%; min-height: 600px; height: auto; padding: 36px 28px; overflow: hidden; background: #15191c; background-image: radial-gradient(ellipse at 50% 0%, #34453e33, transparent 65%); color: #e2e6e2; font-family: Arial, Helvetica, sans-serif; }
-.snap-board { width: 100%; max-width: 920px; min-width: 0; position: relative; border: 1px solid #40494b; border-radius: 15px; background: #23292c; box-shadow: 0 25px 65px #0005, 0 2px 8px #0002; }
-.snap-board__toolbar { position: relative; z-index: 5; display: flex; align-items: center; gap: 13px; height: 58px; padding: 0 20px; border-bottom: 1px solid #3a4245; border-radius: 15px 15px 0 0; background: #282f32; }
+.demo.snap-delete-demo { container-type: inline-size; position: relative; isolation: isolate; display: grid; place-items: center; width: 100%; min-height: 600px; height: auto; padding: 36px 28px; overflow: hidden; background: var(--snap-demo-canvas, #15191c); background-image: radial-gradient(ellipse at 50% 0%, var(--snap-demo-glow, #34453e33), transparent 65%); color: var(--snap-demo-ink, #e2e6e2); font-family: Arial, Helvetica, sans-serif; }
+.snap-board { width: 100%; max-width: 920px; min-width: 0; position: relative; border: 1px solid var(--snap-demo-line, #40494b); border-radius: 15px; background: var(--snap-demo-board, #23292c); box-shadow: 0 25px 65px #0005, 0 2px 8px #0002; }
+.snap-board__toolbar { position: relative; z-index: 5; display: flex; align-items: center; gap: 13px; height: 58px; padding: 0 20px; border-bottom: 1px solid var(--snap-demo-toolbar-line, #3a4245); border-radius: 15px 15px 0 0; background: var(--snap-demo-toolbar, #282f32); }
 .snap-board__mark { display: grid; grid-template-columns: repeat(2, 5px); gap: 3px; flex-shrink: 0; transform: rotate(-9deg); }
 .snap-board__mark i { width: 5px; height: 5px; border-radius: 1px; background: #d6e2b7; }
 .snap-board__mark i:last-child { background: #d6e2b744; }
 .snap-board__title { display: flex; align-items: center; gap: 13px; min-width: 0; }
-.snap-board__title > span { color: #939e9f; font-size: 11px; }
-.snap-board__title > span:nth-child(2) { color: #536064; }
-.snap-board__title h2 { margin: 0; overflow: hidden; color: #e1e6e3; font-size: 12px; line-height: 1.3; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; letter-spacing: -.1px; }
-.snap-board__count { display: inline-flex; align-items: center; gap: 7px; flex-shrink: 0; margin-left: auto; color: #9fa9a8; font-size: 10px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.snap-board__title > span { color: var(--snap-demo-muted, #939e9f); font-size: 11px; }
+.snap-board__title > span:nth-child(2) { color: var(--snap-demo-slash, #536064); }
+.snap-board__title h2 { margin: 0; overflow: hidden; color: var(--snap-demo-title, #e1e6e3); font-size: 12px; line-height: 1.3; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; letter-spacing: -.1px; }
+.snap-board__count { display: inline-flex; align-items: center; gap: 7px; flex-shrink: 0; margin-left: auto; color: var(--snap-demo-count, #9fa9a8); font-size: 10px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .snap-board__count i { width: 5px; height: 5px; border-radius: 50%; background: #bacd94; }
-.snap-board__reset { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 36px; padding: 7px 10px; border: 1px solid #4a5558; border-radius: 6px; color: #c3ccca; background: #ffffff03; font: 400 10px/1.4 Arial, Helvetica, sans-serif; cursor: pointer; }
+.snap-board__reset { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 36px; padding: 7px 10px; border: 1px solid var(--snap-demo-reset-line, #4a5558); border-radius: 6px; color: var(--snap-demo-reset-ink, #c3ccca); background: var(--snap-demo-reset, #ffffff03); font: 400 10px/1.4 Arial, Helvetica, sans-serif; cursor: pointer; }
 .snap-board__reset svg { stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
-.snap-board__reset:hover { color: #fff; background: #ffffff08; border-color: #7b8989; }
+.snap-board__reset:hover { color: var(--snap-demo-hover-ink, #fff); background: var(--snap-demo-reset-hover, #ffffff08); border-color: var(--snap-demo-reset-hover-line, #7b8989); }
 .snap-board__reset:focus-visible { outline: 2px solid #d6e2b7; outline-offset: 3px; }
-.snap-board__canvas { position: relative; height: 420px; min-width: 0; border-radius: 0; background: radial-gradient(circle, #ffffff14 .7px, transparent .8px) 9px 9px / 20px 20px; }
+.snap-board__canvas { position: relative; height: 420px; min-width: 0; border-radius: 0; background: radial-gradient(circle, var(--snap-demo-dots, #ffffff14) .7px, transparent .8px) 9px 9px / 20px 20px; }
 .snap-board__object { position: absolute; min-width: 0; transform-origin: center; }
 .snap-board__object--note { z-index: 2; top: 49px; left: 9%; width: 28%; max-width: 246px; transform: rotate(-5deg); }
 .snap-board__object--photo { z-index: 3; top: 38px; right: 8%; width: 34%; max-width: 304px; transform: rotate(5deg); }
 .snap-board__object--sticker { z-index: 4; top: 220px; left: 41%; width: 150px; transform: rotate(-10deg); }
-.snap-board__object-label { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 15px 0 0; color: #6d7a7e; font: 400 8px/1.4 Arial, Helvetica, sans-serif; letter-spacing: .4px; }
-.snap-board__object-label span { color: #a3afaf; font-size: 9px; letter-spacing: .1px; }
+.snap-board__object-label { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 15px 0 0; color: var(--snap-demo-label, #6d7a7e); font: 400 8px/1.4 Arial, Helvetica, sans-serif; letter-spacing: .4px; }
+.snap-board__object-label span { color: var(--snap-demo-label-type, #a3afaf); font-size: 9px; letter-spacing: .1px; }
 .snap-board__note { width: 100%; min-height: 218px; padding: 22px 21px 18px; border: 1px solid #fff4cf; border-radius: 2px; background: #eae6d2; color: #303c34; box-shadow: 0 5px 12px #0003; }
 .snap-board__note-top { display: flex; justify-content: space-between; color: #8b907d; font: 400 8px/1.4 Arial, Helvetica, sans-serif; letter-spacing: .8px; }
 .snap-board__note > p { margin: 23px 0 24px; font: 400 clamp(28px, 3.7cqi, 39px)/1.05 Georgia, 'Times New Roman', serif; letter-spacing: -1.7px; }
@@ -36,20 +36,20 @@
 .snap-board__sticker-type { position: relative; padding-bottom: 9px; color: #3a3328; font: 700 34px/.88 Georgia, 'Times New Roman', serif; letter-spacing: -2px; text-align: center; }
 .snap-board__sticker-type em { font-weight: 400; }
 .snap-board__sticker-star { position: absolute; right: 25px; top: 31px; color: #5a462d; font-size: 15px; }
-.snap-board__footer { display: flex; align-items: center; gap: 16px; min-height: 40px; padding: 10px 20px; border-top: 1px solid #394347; border-radius: 0 0 15px 15px; background: #242b2e; }
-.snap-board__effect-name { display: inline-flex; align-items: center; gap: 7px; flex-shrink: 0; color: #bbc8c5; font-size: 9px; }
+.snap-board__footer { display: flex; align-items: center; gap: 16px; min-height: 40px; padding: 10px 20px; border-top: 1px solid var(--snap-demo-footer-line, #394347); border-radius: 0 0 15px 15px; background: var(--snap-demo-footer, #242b2e); }
+.snap-board__effect-name { display: inline-flex; align-items: center; gap: 7px; flex-shrink: 0; color: var(--snap-demo-effect-name, #bbc8c5); font-size: 9px; }
 .snap-board__effect-name i { width: 5px; height: 5px; background: #c6d4a9; box-shadow: 3px -3px #c6d4a955; }
-.snap-board__footer p { margin: 0 0 0 auto; color: #7e9092; font-size: 9px; line-height: 1.4; }
-.snap-board__zoom { padding-left: 14px; border-left: 1px solid #455055; color: #7e9092; font: 400 8px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.snap-board__footer p { margin: 0 0 0 auto; color: var(--snap-demo-footer-ink, #7e9092); font-size: 9px; line-height: 1.4; }
+.snap-board__zoom { padding-left: 14px; border-left: 1px solid var(--snap-demo-zoom-line, #455055); color: var(--snap-demo-footer-ink, #7e9092); font: 400 8px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; }
 .snap-board__announcement { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 /* Only the showcase controls and retained footprint change; the dust engine is untouched. */
 .snap-board__delete .ac-snap-delete__controls { position: absolute; z-index: 8; top: -15px; right: -14px; margin: 0; }
-.snap-board__delete .ac-snap-delete__button { gap: 0; width: 36px; min-width: 36px; height: 36px; min-height: 36px; padding: 0; border: 1px solid #697679; border-radius: 50%; background: #303b3f; color: #cad4d1; box-shadow: 0 3px 7px #0003; font-size: 0; }
+.snap-board__delete .ac-snap-delete__button { gap: 0; width: 36px; min-width: 36px; height: 36px; min-height: 36px; padding: 0; border: 1px solid var(--snap-demo-delete-line, #697679); border-radius: 50%; background: var(--snap-demo-delete, #303b3f); color: var(--snap-demo-delete-ink, #cad4d1); box-shadow: 0 3px 7px #0003; font-size: 0; }
 .snap-board__delete .ac-snap-delete__button svg { width: 14px; height: 14px; }
-.snap-board__delete .ac-snap-delete__button:hover:not(:disabled) { background: #465459; border-color: #a4b1ae; color: #fff; }
+.snap-board__delete .ac-snap-delete__button:hover:not(:disabled) { background: var(--snap-demo-delete-hover, #465459); border-color: var(--snap-demo-delete-hover-line, #a4b1ae); color: var(--snap-demo-hover-ink, #fff); }
 .snap-board__delete[data-state='deleted'] .ac-snap-delete__button { width: auto; min-width: 77px; padding: 0 12px; gap: 5px; border-radius: 18px; border-color: #c6d4a9; background: #c6d4a9; color: #283b31; font-size: 10px; }
 .snap-board__delete[data-state='deleted'] .ac-snap-delete__button:hover { background: #d9e5bf; color: #22382a; }
-.snap-board__delete .ac-snap-delete__empty { color: #a1b2ad; border-color: #6b817644; border-radius: 2px; font-size: 10px; opacity: .65; }
+.snap-board__delete .ac-snap-delete__empty { color: var(--snap-demo-empty-ink, #a1b2ad); border-color: var(--snap-demo-empty-line, #6b817644); border-radius: 2px; font-size: 10px; opacity: .65; }
 .snap-board__object--sticker .ac-snap-delete__empty { border-radius: 50%; }
 .component-playground:has(> .snap-delete-demo) { height: auto; min-height: 600px; overflow: visible; }
 .component-playground > .demo.snap-delete-demo { height: auto; border-radius: 0; }
@@ -87,3 +87,43 @@
 }
 @media (max-width: 640px) { .demo.snap-delete-demo, .hero-standalone-preview .demo.snap-delete-demo { min-height: 0; padding: 30px 18px; } }
 @media (pointer: coarse) { .snap-board__delete .ac-snap-delete__button { width: 44px; min-width: 44px; height: 44px; min-height: 44px; } .snap-board__reset { min-width: 44px; min-height: 44px; } }
+
+/* The workspace follows the page; its note, photograph and sticker retain their colors. */
+:where([data-theme="light"], .light) .demo.snap-delete-demo {
+  --snap-demo-canvas: #f4f6f2;
+  --snap-demo-glow: #c3d0bf30;
+  --snap-demo-ink: #2e3730;
+  --snap-demo-line: #cfd7cf;
+  --snap-demo-board: #fff;
+  --snap-demo-toolbar-line: #d9ded7;
+  --snap-demo-toolbar: #f8faf6;
+  --snap-demo-muted: #667365;
+  --snap-demo-slash: #b2beb0;
+  --snap-demo-title: #2e3730;
+  --snap-demo-count: #647261;
+  --snap-demo-reset-line: #ccd5c7;
+  --snap-demo-reset-ink: #4e5c48;
+  --snap-demo-reset: #fff;
+  --snap-demo-hover-ink: #1f3025;
+  --snap-demo-reset-hover: #edf2e9;
+  --snap-demo-reset-hover-line: #8c9d83;
+  --snap-demo-dots: #40533627;
+  --snap-demo-label: #87947f;
+  --snap-demo-label-type: #65745c;
+  --snap-demo-footer-line: #d9ded7;
+  --snap-demo-footer: #f8faf6;
+  --snap-demo-effect-name: #55664b;
+  --snap-demo-footer-ink: #6d7e63;
+  --snap-demo-zoom-line: #d0d9ca;
+  --snap-demo-delete-line: #d1d9cc;
+  --snap-demo-delete: #fff;
+  --snap-demo-delete-ink: #54664a;
+  --snap-demo-delete-hover: #eaf0e5;
+  --snap-demo-delete-hover-line: #98aa8c;
+  --snap-demo-empty-ink: #607453;
+  --snap-demo-empty-line: #7a926355;
+  color-scheme: light;
+}
+:where([data-theme="light"], .light) .snap-board { box-shadow: 0 25px 65px #2633210d, 0 2px 8px #26332108; }
+
+:where([data-theme="light"], .light) .snap-board__reset:focus-visible { outline-color: #617746; }

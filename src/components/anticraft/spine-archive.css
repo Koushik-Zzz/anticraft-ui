@@ -8,8 +8,8 @@
   height: var(--ac-spine-height, 100%);
   min-height: var(--ac-spine-min-height, 320px);
   padding: var(--ac-spine-padding, 18px 20px 16px);
-  background: var(--ac-spine-background, #eeece5);
-  color: var(--ac-spine-color, #24251f);
+  background: var(--ac-spine-background, var(--ac-spine-archive-theme-paper, #eeece5));
+  color: var(--ac-spine-color, var(--ac-spine-archive-theme-ink, #24251f));
   text-align: left;
 }
 
@@ -296,4 +296,14 @@
   .ac-spine-case-line {
     transition: none;
   }
+}
+
+/* Neutral defaults follow the page theme; explicit component colors keep priority. */
+:where([data-theme="light"], .light) .ac-spine-archive {
+  --ac-spine-archive-theme-paper: #f8f9f4;
+  --ac-spine-archive-theme-ink: #24251f;
+}
+:where([data-theme="dark"], .dark) .ac-spine-archive {
+  --ac-spine-archive-theme-paper: #20251e;
+  --ac-spine-archive-theme-ink: #e8eddf;
 }

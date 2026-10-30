@@ -10,7 +10,7 @@
 .process-timeline-demo:focus-visible { outline: 2px solid #607b42; outline-offset: -4px; }
 .process-demo-scroll-hint { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin: 0 0 27px; color: #78806b; font-size: 7px; line-height: 1.5; letter-spacing: .1em; }
 .process-demo-scroll-hint span:last-child { color: #536b3a; letter-spacing: .02em; }
-.process-timeline-demo .ac-process { --ac-process-ink: #343a2c; --ac-process-muted: #787e6e; --ac-process-line: #d8d9cc; --ac-process-accent: #5c763d; --ac-process-surface: #e8e9da; }
+.process-timeline-demo .ac-process { --ac-process-ink: var(--ac-process-theme-ink, #343a2c); --ac-process-muted: var(--ac-process-theme-muted, #787e6e); --ac-process-line: var(--ac-process-theme-line, #d8d9cc); --ac-process-accent: #5c763d; --ac-process-surface: var(--ac-process-theme-surface, #e8e9da); }
 .process-timeline-demo .ac-process-heading h2 { max-width: 14ch; }
 .process-demo-art { container-type: inline-size; position: relative; width: 100%; height: 100%; overflow: hidden; background: #bfcba5; color: #39482e; font-family: var(--sans, Arial, sans-serif); }
 .process-demo-art-top, .process-demo-art-bottom { position: absolute; left: 7%; right: 7%; display: flex; align-items: center; justify-content: space-between; gap: 5px; font-size: 2.4cqw; letter-spacing: .08em; }
@@ -76,3 +76,7 @@
   .process-timeline-demo .process-demo-launch-list b { font-size: 3cqw; }
 }
 @media (max-width: 640px) { .process-timeline-demo, .component-workbench .process-timeline-demo { padding: 22px !important; } }
+
+/* Neutral preview framing follows the site theme. */
+.process-timeline-demo { background: var(--paper); color: var(--ink); }
+.process-demo-scroll-hint, .process-demo-scroll-hint span:last-child, .process-demo-end { color: var(--muted); border-color: var(--line); }

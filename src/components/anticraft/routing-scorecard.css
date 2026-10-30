@@ -94,3 +94,21 @@
   .ac-routing-scorecard[data-paused="true"] .ac-routing-bar > span { animation-play-state: paused; }
 }
 @keyframes ac-routing-score-enter { from { transform: scaleX(.78); opacity: .55; } to { transform: scaleX(1); opacity: 1; } }
+
+/* Olive artwork remains fixed; its neutral scoring panel follows the host theme. */
+:where([data-theme="dark"], .dark) .ac-routing-panel { border-color: #53544c; background: #20221f; color: #eeeee8; box-shadow: 0 8px 35px #1113; }
+:where([data-theme="dark"], .dark) .ac-routing-panel-heading h2,
+:where([data-theme="dark"], .dark) .ac-routing-models li[data-passing="true"] :is(.ac-routing-model-name, .ac-routing-score) { color: #eeeee8; }
+:where([data-theme="dark"], .dark) .ac-routing-panel-heading > span,
+:where([data-theme="dark"], .dark) .ac-routing-threshold-control label { color: #b1b2a9; }
+:where([data-theme="dark"], .dark) :is(.ac-routing-model-name, .ac-routing-score, .ac-routing-axis, .ac-routing-threshold-control > div, .ac-routing-empty) { color: #a0a398; }
+:where([data-theme="dark"], .dark) .ac-routing-symbol { border-color: #747565; }
+:where([data-theme="dark"], .dark) .ac-routing-bar { background: #3a3d36; }
+:where([data-theme="dark"], .dark) .ac-routing-bar > span { background: #74786a; }
+:where([data-theme="dark"], .dark) .ac-routing-models li[data-passing="true"] .ac-routing-bar > span { background: var(--ac-routing-model-color); }
+:where([data-theme="dark"], .dark) .ac-routing-threshold-control { border-top-color: #44473e; }
+:where([data-theme="dark"], .dark) .ac-routing-threshold-control output { color: #aab8ff; }
+:where([data-theme="dark"], .dark) .ac-routing-threshold-control input::-webkit-slider-runnable-track { background: #616557; }
+:where([data-theme="dark"], .dark) .ac-routing-threshold-control input::-moz-range-track { background: #616557; }
+:where([data-theme="dark"], .dark) .ac-routing-threshold-control input::-webkit-slider-thumb { border-color: #20221f; }
+:where([data-theme="dark"], .dark) .ac-routing-threshold-control input::-moz-range-thumb { border-color: #20221f; }

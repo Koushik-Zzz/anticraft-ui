@@ -50,3 +50,9 @@
   .component-playground .nav-scene-content p { font-size: 8px; }
   .nav-dock-demo .nav-scene-content { bottom: 132px; }
 }
+
+/* Sand is a neutral stage; the blue, lavender, forest and peach studies keep their palettes. */
+:where([data-theme='light'], .light) .nav-dock-demo { background: #f8f9f5; color: #4b4132; --ac-dock-surface: #fffffff0; --ac-dock-icon-surface: #eeeee7; }
+:where([data-theme='dark'], .dark) .nav-dock-demo { background: #20251e; color: #e8eddf; --ac-dock-surface: #2b3228ee; --ac-dock-color: #e8eddf; --ac-dock-icon-surface: #3b4435; --ac-dock-focus: #e59a73; }
+:where([data-theme='dark'], .dark) .nav-dock-demo::before { border-color: #657258; }
+.nav-dock-demo .ac-dock-link:nth-child(n+2) .ac-dock-artwork { color: #514433; }

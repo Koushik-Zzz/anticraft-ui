@@ -44,3 +44,10 @@
   .ac-signal-funnel__gate[data-enabled=false] .ac-signal-funnel__gate-line{border-left:0;border-top-style:dashed}.ac-signal-funnel__removed{left:16px;bottom:20%;font-size:7px;padding:4px 5px}.ac-signal-funnel__footer{padding:14px 17px;font-size:8px;gap:8px}
 }
 @media(prefers-reduced-motion:reduce){.ac-signal-funnel *{transition:none!important}}
+
+/* Keep purple signals and gates; adapt the neutral canvas and controls. */
+:where([data-theme="dark"], .dark) .ac-signal-funnel { --ac-signal-ink: #eeeee9; --ac-signal-muted: #b1b2ac; --ac-signal-line: #43453f; --ac-signal-surface: #1c1e1b; }
+:where([data-theme="dark"], .dark) .ac-signal-funnel__gate button { color: #34372e; }
+:where([data-theme="dark"], .dark) .ac-signal-funnel__gate[data-enabled="false"] button { color: var(--ac-signal-muted); }
+:where([data-theme="dark"], .dark) .ac-signal-funnel__gate-line { border-color: #9b9b90; }
+:where([data-theme="dark"], .dark) .ac-signal-funnel__output { border-color: #85877c; }

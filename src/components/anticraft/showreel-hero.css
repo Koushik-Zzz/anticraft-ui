@@ -63,3 +63,12 @@
   .ac-showreel-play { transition: none; }
   .ac-showreel-play:hover { transform: none; }
 }
+
+
+/* The photographic hero keeps white overlay copy; dialog chrome follows the page. */
+:where([data-theme="light"]) .ac-showreel-dialog { --ac-showreel-dialog-surface: #fafbf8; --ac-showreel-dialog-ink: #202722; --ac-showreel-dialog-muted: #687269; --ac-showreel-dialog-line: #d7ded4; color-scheme: light; }
+:where([data-theme="dark"], .dark) .ac-showreel-dialog { --ac-showreel-dialog-surface: #191e1b; --ac-showreel-dialog-ink: #edf2eb; --ac-showreel-dialog-muted: #a7b3a3; --ac-showreel-dialog-line: #3d483e; color-scheme: dark; }
+.ac-showreel-dialog { background: var(--ac-showreel-dialog-surface, #192420); color: var(--ac-showreel-dialog-ink, #f5f3e9); border-color: var(--ac-showreel-dialog-line, #454b46); }
+.ac-showreel-dialog-header button, .ac-showreel-transcript { border-color: var(--ac-showreel-dialog-line, #46534b); }
+.ac-showreel-play-note { color: var(--ac-showreel-dialog-muted, #bac6bd); }
+@media (hover: hover) and (pointer: fine) { .ac-showreel-dialog-header button:hover { background: color-mix(in srgb, var(--ac-showreel-dialog-ink, #f5f3e9) 10%, transparent); } }

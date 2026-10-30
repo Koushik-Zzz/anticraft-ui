@@ -1,4 +1,4 @@
-.ac-snap-delete { --ac-snap-delete-accent: #a43b2e; position: relative; width: 100%; min-width: 0; }
+.ac-snap-delete { position: relative; width: 100%; min-width: 0; }
 .ac-snap-delete__stage { position: relative; isolation: isolate; }
 .ac-snap-delete__content { display: flow-root; }
 .ac-snap-delete[data-state="deleting"] > .ac-snap-delete__stage > .ac-snap-delete__content,
@@ -10,12 +10,20 @@
 .ac-snap-delete__empty > span:first-child { font-size: 34px; line-height: 1; }
 .ac-snap-delete[data-state="deleted"] .ac-snap-delete__empty { visibility: visible; }
 .ac-snap-delete__controls { position: relative; z-index: 3; display: flex; justify-content: flex-end; margin-top: 16px; }
-.ac-snap-delete__button { display: inline-flex; gap: 8px; align-items: center; justify-content: center; min-height: 40px; min-width: 94px; padding: 9px 15px; border: 1px solid color-mix(in srgb, var(--ac-snap-delete-accent), transparent 70%); border-radius: 5px; background: transparent; color: var(--ac-snap-delete-accent); font: 500 12px/1.4 Arial, Helvetica, sans-serif; cursor: pointer; transition: background 150ms, border-color 150ms; }
+.ac-snap-delete__button { display: inline-flex; gap: 8px; align-items: center; justify-content: center; min-height: 40px; min-width: 94px; padding: 9px 15px; border: 1px solid color-mix(in srgb, var(--ac-snap-delete-accent, var(--ac-snap-delete-theme-accent, #a43b2e)), transparent 70%); border-radius: 5px; background: transparent; color: var(--ac-snap-delete-accent, var(--ac-snap-delete-theme-accent, #a43b2e)); font: 500 12px/1.4 Arial, Helvetica, sans-serif; cursor: pointer; transition: background 150ms, border-color 150ms; }
 .ac-snap-delete__button svg { flex-shrink: 0; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-.ac-snap-delete__button:hover:not(:disabled) { background: color-mix(in srgb, var(--ac-snap-delete-accent), transparent 93%); border-color: var(--ac-snap-delete-accent); }
+.ac-snap-delete__button:hover:not(:disabled) { background: color-mix(in srgb, var(--ac-snap-delete-accent, var(--ac-snap-delete-theme-accent, #a43b2e)), transparent 93%); border-color: var(--ac-snap-delete-accent, var(--ac-snap-delete-theme-accent, #a43b2e)); }
 .ac-snap-delete__button:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 .ac-snap-delete__button:disabled { opacity: .5; cursor: default; }
 .ac-snap-delete[data-state="deleted"] .ac-snap-delete__button { color: inherit; border-color: currentColor; }
 .ac-snap-delete__announcement { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (pointer: coarse) { .ac-snap-delete__button { min-height: 44px; } }
 @media (prefers-reduced-motion: reduce) { .ac-snap-delete__button { transition: none; } }
+
+/* Neutral defaults follow the page theme; explicit component colors keep priority. */
+:where([data-theme="light"], .light) .ac-snap-delete {
+  --ac-snap-delete-theme-accent: #a43b2e;
+}
+:where([data-theme="dark"], .dark) .ac-snap-delete {
+  --ac-snap-delete-theme-accent: #f29c8e;
+}

@@ -1,11 +1,11 @@
 .ac-pricing-plans {
-  --ac-pricing-surface: #eeeede;
-  --ac-pricing-card: #f8f8ee;
-  --ac-pricing-ink: #283226;
-  --ac-pricing-muted: #606b5c;
+  --ac-pricing-surface: var(--ac-pricing-theme-surface, #eeeede);
+  --ac-pricing-card: var(--ac-pricing-theme-card, #f8f8ee);
+  --ac-pricing-ink: var(--ac-pricing-theme-ink, #283226);
+  --ac-pricing-muted: var(--ac-pricing-theme-muted, #606b5c);
   --ac-pricing-accent: #334b35;
   --ac-pricing-featured: #d8e4b3;
-  --ac-pricing-line: #28322625;
+  --ac-pricing-line: var(--ac-pricing-theme-line, #28322625);
   --ac-pricing-font: inherit;
   box-sizing: border-box;
   container-type: inline-size;
@@ -94,3 +94,28 @@
 @media (prefers-reduced-motion: reduce) {
   .ac-pricing-billing button, .ac-pricing-cta { transition: none; }
 }
+
+/* Neutral surfaces follow an explicit page theme; artwork and accents keep their palette. */
+:where([data-theme="light"]) .ac-pricing-plans {
+  --ac-pricing-theme-card: #ffffff;
+  --ac-pricing-theme-ink: #202722;
+  --ac-pricing-theme-line: #d7ded4;
+  --ac-pricing-theme-muted: #687269;
+  --ac-pricing-theme-surface: #fafbf8;
+  color-scheme: light;
+}
+:where([data-theme="dark"], .dark) .ac-pricing-plans {
+  --ac-pricing-theme-card: #242c26;
+  --ac-pricing-theme-ink: #edf2eb;
+  --ac-pricing-theme-line: #3d483e;
+  --ac-pricing-theme-muted: #a7b3a3;
+  --ac-pricing-theme-surface: #191e1b;
+  color-scheme: dark;
+}
+
+
+/* The featured plan is a colored design element in both themes. */
+.ac-pricing-featured { --ac-pricing-ink: #283226; --ac-pricing-muted: #606b5c; --ac-pricing-line: #28322625; --ac-pricing-card: #f8f8ee; }
+:where([data-theme="dark"], .dark) .ac-pricing-card:not(.ac-pricing-featured) .ac-pricing-saving,
+:where([data-theme="dark"], .dark) .ac-pricing-card:not(.ac-pricing-featured) .ac-pricing-features li > span { color: #b2ce9d; }
+:where([data-theme="dark"], .dark) .ac-pricing-plans :is(button, a):focus-visible { outline-color: var(--ac-pricing-ink); }

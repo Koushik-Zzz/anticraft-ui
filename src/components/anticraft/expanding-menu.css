@@ -1,6 +1,6 @@
 .ac-expand-menu {
-  --ac-expand-paper: var(--ac-surface, #f8f7f0);
-  --ac-expand-ink: var(--ac-ink, #25271f);
+  --ac-expand-paper: var(--ac-surface, var(--ac-expanding-menu-theme-paper, #f8f7f0));
+  --ac-expand-ink: var(--ac-ink, var(--ac-expanding-menu-theme-ink, #25271f));
   --ac-expand-accent: var(--ac-accent, #df5c38);
   position: relative;
   width: 350px;
@@ -49,3 +49,13 @@
 @media (hover: hover) { .ac-expand-link:hover { color: var(--ac-expand-accent); padding-left: 10px; } .ac-expand-link:hover .ac-expand-arrow { transform: translate(2px,-2px); } }
 @keyframes ac-expand-enter { from { opacity: 0; transform: translateY(-7px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @media (prefers-reduced-motion: reduce) { .ac-expand-menu *, .ac-expand-menu *::before, .ac-expand-menu *::after { animation: none !important; transition: none !important; } }
+
+/* Neutral defaults follow the page theme; explicit component colors keep priority. */
+:where([data-theme="light"], .light) .ac-expand-menu {
+  --ac-expanding-menu-theme-paper: #fbfcf8;
+  --ac-expanding-menu-theme-ink: #25271f;
+}
+:where([data-theme="dark"], .dark) .ac-expand-menu {
+  --ac-expanding-menu-theme-paper: #242a21;
+  --ac-expanding-menu-theme-ink: #e8eddf;
+}

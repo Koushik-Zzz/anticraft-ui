@@ -1,9 +1,9 @@
 .ac-process {
-  --ac-process-ink: #272d25;
-  --ac-process-muted: #71776d;
-  --ac-process-line: #d6dacf;
+  --ac-process-ink: var(--ac-process-theme-ink, #272d25);
+  --ac-process-muted: var(--ac-process-theme-muted, #71776d);
+  --ac-process-line: var(--ac-process-theme-line, #d6dacf);
   --ac-process-accent: #536d3f;
-  --ac-process-surface: #e9eddf;
+  --ac-process-surface: var(--ac-process-theme-surface, #e9eddf);
   --ac-process-radius: 4px;
   container-type: inline-size;
   container-name: ac-process;
@@ -61,3 +61,20 @@
   .ac-process-preview-art { animation: none; }
   .ac-process-progress span, .ac-process-step::before { transition: none; }
 }
+
+/* Neutral surfaces follow an explicit page theme; artwork and accents keep their palette. */
+:where([data-theme="light"]) .ac-process {
+  --ac-process-theme-surface: #eff2ec;
+  --ac-process-theme-ink: #202722;
+  --ac-process-theme-line: #d7ded4;
+  --ac-process-theme-muted: #687269;
+  color-scheme: light;
+}
+:where([data-theme="dark"], .dark) .ac-process {
+  --ac-process-theme-surface: #242c26;
+  --ac-process-theme-ink: #edf2eb;
+  --ac-process-theme-line: #3d483e;
+  --ac-process-theme-muted: #a7b3a3;
+  color-scheme: dark;
+}
+:where([data-theme="dark"], .dark) .ac-process-number { color: #b2ce9d; }

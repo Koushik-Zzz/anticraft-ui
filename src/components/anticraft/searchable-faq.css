@@ -34,3 +34,8 @@
 @keyframes ac-faq-enter { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:translateY(0); } }
 @container (max-width:720px) { .ac-faq-layout { grid-template-columns:minmax(0,1fr); gap:24px; } .ac-faq-title { font-size:clamp(30px,6cqi,44px); margin-bottom:18px; } .ac-faq-count { margin-top:14px; } .ac-faq-question button { min-height:65px; font-size:17px; gap:10px; grid-template-columns:22px minmax(0,1fr) 30px; padding:17px 0; } .ac-faq-answer p { font-size:13px; padding-left:32px; padding-right:20px; } }
 @media (prefers-reduced-motion:reduce) { .ac-faq *, .ac-faq *::before, .ac-faq *::after { transition:none!important; animation:none!important; } }
+
+/* Search and accordion chrome follow the host theme. */
+:where([data-theme="dark"], .dark) .ac-faq { --ac-faq-ink: #efefe8; --ac-faq-muted: #adb2a7; --ac-faq-line: #efefe833; --ac-faq-surface: #1e211d; --ac-faq-accent: #d2937d; }
+:where([data-theme="dark"], .dark) .ac-faq-categories button:hover:not([aria-pressed="true"]) { background: #efefe80c; }
+:where([data-theme="light"], .light) .ac-faq-categories button:hover:not([aria-pressed="true"]) { background: #262d2809; }

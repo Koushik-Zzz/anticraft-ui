@@ -69,6 +69,14 @@ export function Example() {
 
 Use the import alias configured in your project. Components with hooks and pointer events already include the Next.js `'use client'` directive. They work when imported into an App Router page or another component.
 
+## Light and dark themes
+
+Neutral component surfaces, text, borders, and controls follow an ancestor with `data-theme="light"` or `data-theme="dark"`. A `.dark` ancestor also enables dark mode. No theme provider is needed. The documentation site's theme button updates live previews and catalog thumbnails immediately. Colored designs, accents, photos, and artwork retain their palettes, including Radial Nav, Marquee, and Converging Streams. Component color variables can override neutral theme defaults; deliberately colored panels keep contrasting foregrounds.
+
+```html
+<html data-theme="dark">
+```
+
 ## Install from the local shadcn registry
 
 Keep the Anticraft UI development server running. From your existing shadcn-configured React TypeScript project, run:

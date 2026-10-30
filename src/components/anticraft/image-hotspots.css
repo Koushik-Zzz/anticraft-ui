@@ -85,3 +85,9 @@
   .ac-hotspot-marker > span::after { background: ButtonText; }
   .ac-hotspot-panel { border: 1px solid CanvasText; }
 }
+
+/* Photograph and over-image markers stay unchanged; the detail panel follows the theme. */
+:where([data-theme="dark"], .dark) .ac-image-hotspots { --ac-hotspots-ink: #efefe8; --ac-hotspots-surface: #22251f; --ac-hotspots-muted: #b4b8aa; --ac-hotspots-line: #4b5043; --ac-hotspots-accent: #d49a82; }
+:where([data-theme="dark"], .dark) .ac-hotspot-panel { border-color: #4b5043; box-shadow: 0 10px 30px #0005; }
+:where([data-theme="dark"], .dark) .ac-hotspot-trigger.is-active .ac-hotspot-marker { background: #a84f32; }
+:where([data-theme="dark"], .dark) .ac-hotspot-panel-top > button:hover { background: #ffffff0d; }

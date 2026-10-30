@@ -1,6 +1,6 @@
 .ac-radial-nav {
-  --ac-radial-paper: var(--ac-surface, #f8f7f0);
-  --ac-radial-ink: var(--ac-ink, #25271f);
+  --ac-radial-paper: var(--ac-surface, var(--ac-radial-nav-theme-paper, #f8f7f0));
+  --ac-radial-ink: var(--ac-ink, var(--ac-radial-nav-theme-ink, #25271f));
   --ac-radial-accent: var(--ac-accent, #df5c38);
   --ac-radial-radius: min(100px, calc((100cqw - 82px) / 2));
   position: relative;
@@ -33,3 +33,13 @@
 @media (hover: hover) { .ac-radial-link:hover .ac-radial-icon { transform: translateY(-3px); background: var(--ac-radial-accent); border-color: var(--ac-radial-accent); color: var(--ac-radial-paper); } }
 @keyframes ac-radial-arrive { from { opacity: 0; transform: translate(-50%,-50%) scale(.35); } to { opacity: 1; transform: translate(calc(-50% + var(--ac-radial-offset-x)),calc(-50% + var(--ac-radial-offset-y))) scale(1); } }
 @media (prefers-reduced-motion: reduce) { .ac-radial-nav *, .ac-radial-nav *::before, .ac-radial-nav *::after { animation: none !important; transition: none !important; } }
+
+/* Neutral defaults follow the page theme; explicit component colors keep priority. */
+:where([data-theme="light"], .light) .ac-radial-nav {
+  --ac-radial-nav-theme-paper: #fbfcf8;
+  --ac-radial-nav-theme-ink: #25271f;
+}
+:where([data-theme="dark"], .dark) .ac-radial-nav {
+  --ac-radial-nav-theme-paper: #242a21;
+  --ac-radial-nav-theme-ink: #e8eddf;
+}

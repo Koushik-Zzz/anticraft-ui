@@ -45,3 +45,9 @@
   .reveal-demo-project-caption p { margin-top: 15px; }
 }
 @container (max-width: 600px) { .case-demo-masthead > span:nth-child(2) { display: none; } }
+
+/* Neutral preview framing follows the site theme. */
+.reveal-demo-work, .case-study-story-demo { background: var(--paper); color: var(--ink); }
+.reveal-demo-masthead, .case-demo-masthead { border-color: var(--line); }
+.reveal-demo-masthead > span, .reveal-demo-project-caption > div > span, .reveal-demo-project-caption p, .reveal-demo-scroll-note > span:last-child { color: var(--muted); }
+.case-demo-next-story { background: var(--surface); color: var(--ink); }

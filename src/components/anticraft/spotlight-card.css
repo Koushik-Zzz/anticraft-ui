@@ -2,10 +2,10 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  border: 1px solid var(--ac-card-border, rgb(255 255 255 / 12%));
+  border: 1px solid var(--ac-card-border, var(--ac-spotlight-card-theme-line, rgb(255 255 255 / 12%)));
   border-radius: var(--ac-card-radius, 16px);
-  background: var(--ac-card-surface, #191b18);
-  color: var(--ac-card-color, #e9e9df);
+  background: var(--ac-card-surface, var(--ac-spotlight-card-theme-paper, #191b18));
+  color: var(--ac-card-color, var(--ac-spotlight-card-theme-ink, #e9e9df));
 }
 
 .ac-spotlight-card::before {
@@ -44,4 +44,16 @@
   .ac-spotlight-card::before {
     opacity: 0.65;
   }
+}
+
+/* Neutral defaults follow the page theme; explicit component colors keep priority. */
+:where([data-theme="light"], .light) .ac-spotlight-card {
+  --ac-spotlight-card-theme-paper: #fcfcf9;
+  --ac-spotlight-card-theme-ink: #292e25;
+  --ac-spotlight-card-theme-line: rgb(31 35 28 / 18%);
+}
+:where([data-theme="dark"], .dark) .ac-spotlight-card {
+  --ac-spotlight-card-theme-paper: #191b18;
+  --ac-spotlight-card-theme-ink: #e9e9df;
+  --ac-spotlight-card-theme-line: rgb(255 255 255 / 12%);
 }

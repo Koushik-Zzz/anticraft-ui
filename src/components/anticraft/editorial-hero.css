@@ -1,7 +1,7 @@
 .ac-editorial-hero {
-  --ac-editorial-paper: #e6e5da;
-  --ac-editorial-ink: #28342a;
-  --ac-editorial-muted: #636d60;
+  --ac-editorial-paper: var(--ac-editorial-theme-paper, #e6e5da);
+  --ac-editorial-ink: var(--ac-editorial-theme-ink, #28342a);
+  --ac-editorial-muted: var(--ac-editorial-theme-muted, #636d60);
   --ac-editorial-shift: 0px;
   position: relative;
   padding: clamp(24px, 5cqw, 70px);
@@ -95,4 +95,18 @@
 @media (prefers-reduced-motion: reduce) {
   .ac-editorial-image img { transform: none; }
   .ac-editorial-copy > a span { transition: none; }
+}
+
+/* Neutral surfaces follow an explicit page theme; artwork and accents keep their palette. */
+:where([data-theme="light"]) .ac-editorial-hero {
+  --ac-editorial-theme-ink: #202722;
+  --ac-editorial-theme-muted: #687269;
+  --ac-editorial-theme-paper: #fafbf8;
+  color-scheme: light;
+}
+:where([data-theme="dark"], .dark) .ac-editorial-hero {
+  --ac-editorial-theme-ink: #edf2eb;
+  --ac-editorial-theme-muted: #a7b3a3;
+  --ac-editorial-theme-paper: #191e1b;
+  color-scheme: dark;
 }

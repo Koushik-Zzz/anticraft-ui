@@ -19,3 +19,8 @@
   .interactive-hero-brand > span { max-width: 20ch; font-size: 6px; }
   .interactive-hero-footnote { padding: 15px 22px; font-size: 6px; }
 }
+
+/* Neutral preview framing follows the site theme. */
+.showreel-hero-demo, .product-spotlight-hero-demo { background: var(--paper); color: var(--ink); }
+.interactive-hero-brand, .showreel-hero-demo .interactive-hero-brand { color: var(--ink); }
+.interactive-hero-footnote, .showreel-hero-demo .interactive-hero-footnote, .product-spotlight-hero-demo .interactive-hero-footnote { color: var(--muted); border-color: var(--line); }

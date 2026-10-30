@@ -58,3 +58,9 @@
 .ac-orbit-network-pause:focus-visible { outline: 2px solid var(--ac-orbit-color, #5d43ee); outline-offset: 3px; }
 .ac-orbit-network-pause:disabled { color: var(--ac-orbit-muted); cursor: default; }
 @container (max-width: 350px) { .ac-orbit-network-footer { padding-inline: 12px; font-size: 9px; } .ac-orbit-network-footer p { gap: 6px; } }
+
+/* The network surface changes theme; violet signals keep their accent color. */
+:where([data-theme="dark"], .dark) .ac-orbit-network { --ac-orbit-paper: #1b1d20; --ac-orbit-ink: #eeeef1; --ac-orbit-muted: #adaeb7; --ac-orbit-line: #777582; }
+:where([data-theme="dark"], .dark) .ac-orbit-network-tile { color: #222329; }
+:where([data-theme="dark"], .dark) .ac-orbit-network-center { border-color: #8983aa; }
+:where([data-theme="dark"], .dark) .ac-orbit-network-footer { border-top-color: #3c3d44; }

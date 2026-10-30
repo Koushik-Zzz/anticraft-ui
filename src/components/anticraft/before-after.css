@@ -39,3 +39,8 @@
   .ac-compare-divider { background: CanvasText; }
   .ac-compare-handle { border: 1px solid CanvasText; background: Canvas; color: CanvasText; }
 }
+
+/* Comparison imagery stays intact; neutral labels, handle, and footer follow the theme. */
+:where([data-theme="dark"], .dark) .ac-before-after { --ac-compare-paper: #20231e; --ac-compare-ink: #eff1e8; --ac-compare-focus: #b7c4ff; }
+:where([data-theme="dark"], .dark) .ac-compare-labels span { border-color: #ffffff4d; background: #20231ee8; color: #eff1e8; }
+:where([data-theme="dark"], .dark) .ac-compare-handle { border-color: #cdd4c2; background: #20231e; color: #eff1e8; }

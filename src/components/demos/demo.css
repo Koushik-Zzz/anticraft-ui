@@ -104,6 +104,29 @@
 .component-playground .demo-eyebrow { font-size: 8px; }
 .component-playground .demo-hint { font-size: 10px; }
 
+/* Neutral demo surfaces share the site theme. Colored art keeps its own palette. */
+.demo-magnetic,
+.demo-accordion,
+.demo-beam { background: var(--paper); color: var(--ink); }
+.demo-magnetic .orbit { border-color: var(--line); }
+.demo-magnetic .demo-hint,
+.demo-accordion .demo-hint,
+.demo-beam .demo-hint,
+.demo-beam .beam-demo-note { color: var(--muted); }
+.demo-accordion .ac-editorial-accordion {
+  --ac-accordion-color: var(--ink);
+  --ac-accordion-border: var(--line);
+  --ac-accordion-accent: var(--accent-ink);
+  --ac-accordion-description: var(--muted);
+  --ac-focus-color: var(--accent-ink);
+}
+.demo-beam .beam-demo-object {
+  --ac-border-beam-surface: var(--surface);
+  --ac-border-beam-foreground: var(--ink);
+  --ac-border-beam-border: var(--line);
+}
+.demo-beam .beam-demo-icon { border-color: var(--line); color: var(--accent-ink); }
+
 @media (max-width: 640px) {
   .demo { height: 300px; }
   .demo-eyebrow { font-size: 7px; }

@@ -23,6 +23,15 @@ export interface ParticleTextGridProps {
   className?: string;
 }
 
+function observeParticleTheme(element: HTMLElement, repaint: () => void) {
+  if (typeof MutationObserver === 'undefined') return () => {};
+  const observer = new MutationObserver(repaint);
+  for (let ancestor: HTMLElement | null = element; ancestor; ancestor = ancestor.parentElement) {
+    observer.observe(ancestor, { attributes: true, attributeFilter: ['data-theme', 'class'] });
+  }
+  return () => observer.disconnect();
+}
+
 /** A recessed, drifting grid with rounded hover cells behind ordinary content. */
 export function ParticleTextGrid({ children, paused = false, showControls = true, className = '' }: ParticleTextGridProps) {
   const root = useRef<HTMLDivElement>(null);
@@ -167,6 +176,12 @@ export function ParticleTextGrid({ children, paused = false, showControls = true
       else if (frame === null) frame = requestAnimationFrame(tick);
       setActivity(value => value.running === running && value.reduced === media.matches && value.available ? value : { running, reduced: media.matches, available: true });
     }
+    function refreshColors() {
+      const style = getComputedStyle(element!);
+      surface = style.getPropertyValue('--ac-particle-grid-surface').trim() || '#1e1e1e';
+      lineColor = style.getPropertyValue('--ac-particle-grid-line').trim() || '#8a8a8a';
+      draw();
+    }
     function resize() {
       width = element!.clientWidth;
       height = element!.clientHeight;
@@ -174,11 +189,8 @@ export function ParticleTextGrid({ children, paused = false, showControls = true
       field!.width = Math.round(width * ratio);
       field!.height = Math.round(height * ratio);
       ctx!.setTransform(ratio, 0, 0, ratio, 0, 0);
-      const style = getComputedStyle(element!);
-      surface = style.getPropertyValue('--ac-particle-grid-surface').trim() || '#1e1e1e';
-      lineColor = style.getPropertyValue('--ac-particle-grid-line').trim() || '#8a8a8a';
       pointer = null; wake.clear();
-      draw(); sync();
+      refreshColors(); sync();
     }
     function move(event: PointerEvent) {
       if (event.pointerType === 'touch' || !running) { pointer = null; return; }
@@ -193,6 +205,7 @@ export function ParticleTextGrid({ children, paused = false, showControls = true
     const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(resize);
     intersection?.observe(element);
     observer?.observe(element);
+    const stopObservingTheme = observeParticleTheme(element, refreshColors);
     media.addEventListener('change', sync);
     document.addEventListener('visibilitychange', sync);
     window.addEventListener('resize', resize);
@@ -203,6 +216,7 @@ export function ParticleTextGrid({ children, paused = false, showControls = true
     return () => {
       disposed = true; running = false; stop();
       observer?.disconnect(); intersection?.disconnect();
+      stopObservingTheme();
       media.removeEventListener('change', sync);
       document.removeEventListener('visibilitychange', sync);
       window.removeEventListener('resize', resize);
@@ -418,6 +432,10 @@ export function ParticleText({ text, as: Tag = 'h2', duration = 4.2, fontSize = 
     playback.current = controls;
     const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(prepare);
     observer?.observe(element);
+    const stopObservingTheme = observeParticleTheme(element, () => {
+      // A palette change repaints the existing particles without replaying them.
+      if (prepared && current !== 'waiting' && current !== 'complete') paint();
+    });
     window.addEventListener('resize', prepare);
     prepare();
     void document.fonts?.ready.then(() => { if (!disposed) prepare(); });
@@ -425,6 +443,7 @@ export function ParticleText({ text, as: Tag = 'h2', duration = 4.2, fontSize = 
       disposed = true;
       stop();
       observer?.disconnect();
+      stopObservingTheme();
       window.removeEventListener('resize', prepare);
       if (playback.current === controls) playback.current = null;
       heading!.style.removeProperty('opacity');

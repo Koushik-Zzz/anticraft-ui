@@ -3,3 +3,7 @@
 .hero-standalone-preview .searchable-faq-demo { height:auto!important; min-height:calc(100svh - 40px); border-radius:0; padding:clamp(28px,6vw,100px); overflow:visible; }
 .component-playground:has(.searchable-faq-demo) { height:520px; }
 .catalog-card-preview .searchable-faq-demo { padding:24px; }
+
+/* Neutral search layout follows the host theme. */
+:where([data-theme="dark"], .dark) .demo.searchable-faq-demo { background: #1e211d; color: #efefe8; }
+:where([data-theme="dark"], .dark) .searchable-faq-demo .ac-faq { --ac-faq-surface: #1e211d; }

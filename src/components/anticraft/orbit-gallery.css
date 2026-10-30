@@ -10,8 +10,8 @@
   overflow: hidden;
   padding: 17px 21px 18px;
   border-radius: var(--ac-orbit-radius-corner, 0);
-  background: var(--ac-orbit-background, #202622);
-  color: var(--ac-orbit-color, #f0f1e9);
+  background: var(--ac-orbit-background, var(--ac-orbit-gallery-theme-paper, #202622));
+  color: var(--ac-orbit-color, var(--ac-orbit-gallery-theme-ink, #f0f1e9));
   font-family: inherit;
   text-align: left;
   isolation: isolate;
@@ -51,7 +51,7 @@
 }
 
 .ac-orbit-stage:focus-visible {
-  outline: 2px solid var(--ac-orbit-focus, #d9ef94);
+  outline: 2px solid var(--ac-orbit-focus, var(--ac-orbit-gallery-theme-focus, #d9ef94));
 }
 
 .ac-orbit-gallery[data-dragging='true'] .ac-orbit-stage {
@@ -181,7 +181,7 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: var(--ac-orbit-focus, #d9ef94);
+  background: var(--ac-orbit-focus, var(--ac-orbit-gallery-theme-focus, #d9ef94));
 }
 
 .ac-orbit-footer {
@@ -264,14 +264,14 @@
 
 @media (hover: hover) {
   .ac-orbit-controls > button:hover:enabled {
-    background: var(--ac-orbit-focus, #d9ef94);
-    color: var(--ac-orbit-background, #202622);
+    background: var(--ac-orbit-focus, var(--ac-orbit-gallery-theme-focus, #d9ef94));
+    color: var(--ac-orbit-background, var(--ac-orbit-gallery-theme-paper, #202622));
   }
 }
 
 .ac-orbit-controls > button:focus-visible,
 .ac-orbit-link:focus-visible {
-  outline: 2px solid var(--ac-orbit-focus, #d9ef94);
+  outline: 2px solid var(--ac-orbit-focus, var(--ac-orbit-gallery-theme-focus, #d9ef94));
   outline-offset: 3px;
 }
 
@@ -290,4 +290,16 @@
   .ac-orbit-controls > button {
     transition: none;
   }
+}
+
+/* Neutral defaults follow the page theme; explicit component colors keep priority. */
+:where([data-theme="light"], .light) .ac-orbit-gallery {
+  --ac-orbit-gallery-theme-paper: #f8f9f5;
+  --ac-orbit-gallery-theme-ink: #2a3228;
+  --ac-orbit-gallery-theme-focus: #687f37;
+}
+:where([data-theme="dark"], .dark) .ac-orbit-gallery {
+  --ac-orbit-gallery-theme-paper: #202622;
+  --ac-orbit-gallery-theme-ink: #f0f1e9;
+  --ac-orbit-gallery-theme-focus: #d9ef94;
 }

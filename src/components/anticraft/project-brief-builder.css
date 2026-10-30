@@ -1,8 +1,8 @@
 .ac-brief {
-  --ac-brief-paper: #f0eee5;
-  --ac-brief-ink: #203c31;
-  --ac-brief-muted: #636b60;
-  --ac-brief-line: #c9cdc0;
+  --ac-brief-paper: var(--ac-brief-theme-paper, #f0eee5);
+  --ac-brief-ink: var(--ac-brief-theme-ink, #203c31);
+  --ac-brief-muted: var(--ac-brief-theme-muted, #636b60);
+  --ac-brief-line: var(--ac-brief-theme-line, #c9cdc0);
   --ac-brief-accent: #d4e6ac;
   --ac-brief-radius: 0px;
   container-type: inline-size;
@@ -168,3 +168,25 @@
   .ac-brief-actions { justify-content: flex-end; }
 }
 @media (prefers-reduced-motion: reduce) { .ac-brief-service, .ac-brief-next { transition: none; } }
+
+/* Neutral surfaces follow an explicit page theme; artwork and accents keep their palette. */
+:where([data-theme="light"]) .ac-brief {
+  --ac-brief-theme-ink: #202722;
+  --ac-brief-theme-line: #d7ded4;
+  --ac-brief-theme-muted: #687269;
+  --ac-brief-theme-paper: #fafbf8;
+  color-scheme: light;
+}
+:where([data-theme="dark"], .dark) .ac-brief {
+  --ac-brief-theme-ink: #edf2eb;
+  --ac-brief-theme-line: #3d483e;
+  --ac-brief-theme-muted: #a7b3a3;
+  --ac-brief-theme-paper: #191e1b;
+  color-scheme: dark;
+}
+
+
+/* These selected states retain their colored fill and dark foreground. */
+.ac-brief-service:has(input:checked), .ac-brief-review-chips > span, .ac-brief-success-mark, .ac-brief-progress li[data-complete='true'] .ac-brief-step-number { --ac-brief-ink: #203c31; --ac-brief-muted: #636b60; color: #203c31; }
+@media (hover: hover) { .ac-brief-next:hover:not(:disabled) { color: #203c31; } }
+:where([data-theme="dark"], .dark) .ac-brief-error { color: #efaa98; }

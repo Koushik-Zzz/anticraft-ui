@@ -33,3 +33,11 @@
   .commerce-demo-stories section:target { outline-offset: 9px; }
   .commerce-demo-footer > span { max-width: 130px; text-align: right; }
 }
+
+/* The shop chrome changes theme; products and their material colors remain intact. */
+:where([data-theme="dark"], .dark) .commerce-demo { background: #1f2320; color: #eef1e9; }
+:where([data-theme="dark"], .dark) :is(.commerce-demo-brand, .commerce-demo-note, .commerce-demo-footer) { border-color: #4b5347; }
+:where([data-theme="dark"], .dark) :is(.commerce-demo-brand > span, .commerce-demo-intro > p, .commerce-demo-intro > div > p, .commerce-demo-note, .commerce-demo-stories section > span, .commerce-demo-stories p, .commerce-demo-footer) { color: #b2b9ad; }
+:where([data-theme="dark"], .dark) .commerce-demo-footer strong { color: #eef1e9; }
+:where([data-theme="dark"], .dark) .commerce-demo-tote { --ac-quick-view-stage: #30352b; }
+:where([data-theme="dark"], .dark) .commerce-demo-stories section:target { outline-color: #c4d6b9; }

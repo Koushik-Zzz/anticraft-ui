@@ -1,8 +1,8 @@
 .ac-case-study {
-  --ac-case-surface: #f1f0e7;
-  --ac-case-ink: #343b30;
-  --ac-case-muted: #707664;
-  --ac-case-line: #343b3028;
+  --ac-case-surface: var(--ac-case-theme-surface, #f1f0e7);
+  --ac-case-ink: var(--ac-case-theme-ink, #343b30);
+  --ac-case-muted: var(--ac-case-theme-muted, #707664);
+  --ac-case-line: var(--ac-case-theme-line, #343b3028);
   --ac-case-accent: #dfe4d1;
   container: ac-case / inline-size;
   width: 100%;
@@ -81,3 +81,21 @@
   .ac-case-next-arrow { transition: none; }
   .ac-case-next:hover .ac-case-next-arrow { transform: none; }
 }
+
+/* Neutral surfaces follow an explicit page theme; artwork and accents keep their palette. */
+:where([data-theme="light"]) .ac-case-study {
+  --ac-case-theme-ink: #202722;
+  --ac-case-theme-line: #d7ded4;
+  --ac-case-theme-muted: #687269;
+  --ac-case-theme-surface: #fafbf8;
+  color-scheme: light;
+}
+:where([data-theme="dark"], .dark) .ac-case-study {
+  --ac-case-theme-ink: #edf2eb;
+  --ac-case-theme-line: #3d483e;
+  --ac-case-theme-muted: #a7b3a3;
+  --ac-case-theme-surface: #191e1b;
+  color-scheme: dark;
+}
+/* The pale green outcomes panel retains its original foreground. */
+.ac-case-outcomes { --ac-case-ink: #343b30; --ac-case-muted: #707664; --ac-case-line: #343b3028; color: #343b30; }

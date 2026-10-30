@@ -3,3 +3,6 @@
 .hero-standalone-preview .expandable-gallery-demo{--ac-gallery-demo-padding:clamp(24px,4vw,78px);display:flex!important;align-items:safe center;height:auto!important;min-height:calc(100svh - 40px)!important;overflow:visible!important;padding:var(--ac-gallery-demo-padding)!important}
 .hero-standalone-preview .expandable-gallery-demo .ac-expandable-gallery{max-width:1680px;margin-inline:auto;--ac-expandable-height:clamp(300px,calc(100svh - 98px - var(--ac-gallery-demo-padding) - var(--ac-gallery-demo-padding)),760px)}
 @media(max-width:640px){.hero-standalone-preview .expandable-gallery-demo{display:block!important;padding:24px 18px!important}}
+
+/* Keep photography; switch neutral gallery framing with the page theme. */
+:where([data-theme="dark"], .dark) .expandable-gallery-demo { background: #20231e; color: #f0f1e8; }

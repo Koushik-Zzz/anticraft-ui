@@ -50,3 +50,14 @@
   .component-playground .exp-sticker-footer { padding-inline: 18px; font-size: 8px; }
   .component-playground .exp-sticker-footer button { font-size: 8px; }
 }
+
+/* Theme the workspace, while the stickers, archive sleeves and format artwork keep their ink. */
+:where([data-theme='light'], .light) .exp-sticker-demo { background: #f8f9f5; color: #272b22; }
+:where([data-theme='light'], .light) .exp-sticker-footer { background: linear-gradient(transparent, #f8f9f5 30%); }
+:where([data-theme='light'], .light) .exp-archive-demo { background: #f8f9f4; }
+:where([data-theme='dark'], .dark) .exp-sticker-demo { background: #20251e; color: #e8eddf; }
+:where([data-theme='dark'], .dark) .exp-sticker-backdrop { background-image: radial-gradient(#768169 .7px, transparent .7px); }
+:where([data-theme='dark'], .dark) .exp-sticker-cross { color: #abb69c; }
+:where([data-theme='dark'], .dark) .exp-sticker-footer { background: linear-gradient(transparent, #20251e 30%); }
+:where([data-theme='dark'], .dark) .exp-sticker-footer button { color: #c2cbb7; }
+:where([data-theme='dark'], .dark) .exp-archive-demo { background: #20251e; }

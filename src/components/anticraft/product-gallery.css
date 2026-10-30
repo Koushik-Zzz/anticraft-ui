@@ -62,3 +62,8 @@
   .ac-product-gallery-image { animation: none; }
   .ac-product-gallery-expand { transition: none; }
 }
+
+/* The neutral gallery changes theme without altering product artwork. */
+:where([data-theme="dark"], .dark) .ac-product-gallery { --ac-product-surface: #20231e; --ac-product-stage: #2c3027; --ac-product-ink: #eef1e4; --ac-product-muted: #b2baa7; --ac-product-line: #59624e; }
+:where([data-theme="dark"], .dark) .ac-product-gallery button:focus-visible { outline-color: #ccd9ba; }
+:where([data-theme="dark"], .dark) .ac-product-gallery-thumbnails button[aria-pressed="true"] { border-color: #ccd9ba; }

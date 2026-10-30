@@ -9,9 +9,9 @@
   min-height: 230px;
   isolation: isolate;
   overflow: hidden;
-  background: var(--ac-scratch-paper, #f2f0e7);
-  color: var(--ac-scratch-ink, #26372b);
-  border: 1px solid var(--ac-scratch-border, rgb(38 55 43 / 14%));
+  background: var(--ac-scratch-paper, var(--ac-scratch-reveal-theme-paper, #f2f0e7));
+  color: var(--ac-scratch-ink, var(--ac-scratch-reveal-theme-ink, #26372b));
+  border: 1px solid var(--ac-scratch-border, var(--ac-scratch-reveal-theme-line, rgb(38 55 43 / 14%)));
   border-radius: var(--ac-scratch-radius, 8px);
 }
 .ac-scratch-stage { position: relative; overflow: hidden; min-height: 0; }
@@ -21,14 +21,26 @@
 .ac-scratch-artwork { pointer-events: none; user-select: none; overflow: hidden; }
 .ac-scratch-reveal[data-revealed="true"] .ac-scratch-artwork { pointer-events: auto; user-select: auto; }
 .ac-scratch-canvas { display: block; cursor: crosshair; touch-action: none; opacity: 1; transition: opacity 260ms ease; }
-.ac-scratch-fallback { display: grid; place-items: center; padding: 30px; background: var(--ac-scratch-cover, #bdc4bd); text-align: center; font: 26px Georgia, serif; }
+.ac-scratch-fallback { display: grid; place-items: center; padding: 30px; background: var(--ac-scratch-cover, #bdc4bd); color: var(--ac-scratch-cover-ink, #26372b); text-align: center; font: 26px Georgia, serif; }
 .ac-scratch-reveal[data-ready="true"] .ac-scratch-fallback { display: none; }
 .ac-scratch-reveal[data-revealed="true"] .ac-scratch-canvas,
 .ac-scratch-reveal[data-revealed="true"] .ac-scratch-fallback { pointer-events: none; opacity: 0; }
-.ac-scratch-footer { position: relative; z-index: 1; display: flex; min-height: 56px; padding: 6px 10px 6px 16px; align-items: center; justify-content: space-between; gap: 12px; background: var(--ac-scratch-paper, #f2f0e7); border-top: 1px solid var(--ac-scratch-border, rgb(38 55 43 / 14%)); }
+.ac-scratch-footer { position: relative; z-index: 1; display: flex; min-height: 56px; padding: 6px 10px 6px 16px; align-items: center; justify-content: space-between; gap: 12px; background: var(--ac-scratch-paper, var(--ac-scratch-reveal-theme-paper, #f2f0e7)); border-top: 1px solid var(--ac-scratch-border, var(--ac-scratch-reveal-theme-line, rgb(38 55 43 / 14%))); }
 .ac-scratch-label { font: 500 10px/1.4 system-ui, sans-serif; letter-spacing: .02em; }
 .ac-scratch-button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 12px; flex-shrink: 0; padding: 10px 12px; border: 1px solid currentColor; border-radius: 999px; background: transparent; color: inherit; font: 500 10px/1.2 system-ui, sans-serif; cursor: pointer; }
 .ac-scratch-button span { font-size: 18px; }
 .ac-scratch-button:hover { background: rgb(38 55 43 / 6%); }
 .ac-scratch-button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { .ac-scratch-canvas { transition: none; } }
+
+/* Neutral defaults follow the page theme; explicit component colors keep priority. */
+:where([data-theme="light"], .light) .ac-scratch-reveal {
+  --ac-scratch-reveal-theme-paper: #f8f9f4;
+  --ac-scratch-reveal-theme-ink: #26372b;
+  --ac-scratch-reveal-theme-line: rgb(38 55 43 / 14%);
+}
+:where([data-theme="dark"], .dark) .ac-scratch-reveal {
+  --ac-scratch-reveal-theme-paper: #20251e;
+  --ac-scratch-reveal-theme-ink: #e8eddf;
+  --ac-scratch-reveal-theme-line: rgb(232 237 223 / 18%);
+}

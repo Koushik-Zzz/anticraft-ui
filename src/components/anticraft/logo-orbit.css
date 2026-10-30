@@ -27,3 +27,11 @@
 @keyframes ac-logo-orbit-revolve { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes ac-logo-orbit-upright { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
 @media (prefers-reduced-motion: reduce) { .ac-logo-orbit :is(.ac-logo-orbit-track, .ac-logo-orbit-badge) { animation-play-state: paused !important; } }
+
+/* Neutral surfaces follow the host theme; blue orbit artwork retains its color. */
+:where([data-theme="dark"], .dark) .ac-logo-orbit { --ac-logo-orbit-surface: #191c20; --ac-logo-orbit-ink: #e9edf1; }
+:where([data-theme="dark"], .dark) .ac-logo-orbit-badge { border-color: #444c55; background: #252b32; color: #edf1f5; box-shadow: 0 7px 17px #0003, 0 1px 3px #0002; }
+:where([data-theme="dark"], .dark) .ac-logo-orbit-badge:hover { box-shadow: 0 8px 22px #0005, 0 0 0 3px #718ba6; }
+:where([data-theme="dark"], .dark) .ac-logo-orbit-footer { color: #a9b7c5; }
+:where([data-theme="dark"], .dark) .ac-logo-orbit-footer strong,
+:where([data-theme="dark"], .dark) .ac-logo-orbit-motion:hover:not(:disabled) { color: #edf1f5; }

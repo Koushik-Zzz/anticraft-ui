@@ -13,7 +13,7 @@
 .marketing-demo-caption { margin: 0; padding: 1px 23px 18px; color: #69715e; font-size: 9px; line-height: 1.5; }
 .pricing-plans-demo .marketing-demo-brand { padding-top: 13px; font-size: 18px; }
 .pricing-plans-demo .marketing-demo-caption { padding-bottom: 11px; }
-.pricing-plans-demo .ac-pricing-plans { --ac-pricing-surface: #eeedde; --ac-pricing-card: #f8f7ed; --ac-pricing-ink: #34432c; --ac-pricing-muted: #69715e; --ac-pricing-featured: #d5e2ad; padding: 14px 23px 8px; }
+.pricing-plans-demo .ac-pricing-plans { --ac-pricing-surface: var(--ac-pricing-theme-surface, #eeedde); --ac-pricing-card: var(--ac-pricing-theme-card, #f8f7ed); --ac-pricing-ink: var(--ac-pricing-theme-ink, #34432c); --ac-pricing-muted: var(--ac-pricing-theme-muted, #69715e); --ac-pricing-featured: #d5e2ad; padding: 14px 23px 8px; }
 .pricing-plans-demo .ac-pricing-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 12px; margin-bottom: 14px; }
 .pricing-plans-demo .ac-pricing-header h2 { max-width: 12ch; margin-top: 7px; font-family: var(--serif); font-size: clamp(25px, 5cqw, 37px); font-weight: 400; letter-spacing: -.04em; }
 .pricing-plans-demo .ac-pricing-eyebrow { font-size: 7px; }
@@ -53,7 +53,7 @@
 .marketing-plan-example-note { margin: 28px 0 0; padding-top: 20px; border-top: 1px solid #34432c25; color: #69715e; font-size: 11px; line-height: 1.7; }
 
 .feature-bento-demo { background: #e7ebe2; }
-.feature-bento-demo .ac-feature-bento { --ac-bento-surface: #e7ebe2; --ac-bento-card: #f5f5ed; --ac-bento-media: #d7ded0; --ac-bento-ink: #34432c; --ac-bento-muted: #69715e; padding: 22px 23px 18px; }
+.feature-bento-demo .ac-feature-bento { --ac-bento-surface: var(--ac-bento-theme-surface, #e7ebe2); --ac-bento-card: var(--ac-bento-theme-card, #f5f5ed); --ac-bento-media: #d7ded0; --ac-bento-ink: var(--ac-bento-theme-ink, #34432c); --ac-bento-muted: var(--ac-bento-theme-muted, #69715e); padding: 22px 23px 18px; }
 .feature-bento-demo .ac-feature-bento-header { margin-bottom: 20px; }
 .feature-bento-demo .ac-feature-bento-header > span { font-size: 7px; }
 .feature-bento-demo .ac-feature-bento-header h2 { max-width: 18ch; margin-top: 7px; font-family: var(--serif); font-size: clamp(29px, 5cqw, 39px); font-weight: 400; }
@@ -139,3 +139,13 @@
   .component-workbench .pricing-plans-demo .ac-pricing-header { gap: 9px; }
   .component-workbench .pricing-plans-demo .ac-pricing-billing button { padding-left: 10px; padding-right: 10px; }
 }
+
+/* Neutral preview framing follows the site theme. */
+.pricing-plans-demo, .feature-bento-demo { background: var(--paper); color: var(--ink); }
+.marketing-demo-brand { color: var(--ink); }
+.marketing-demo-caption, .feature-bento-demo .marketing-demo-caption { background: var(--paper); color: var(--muted); }
+.marketing-plan-dialog { background: var(--paper); color: var(--ink); border-color: var(--line); }
+.marketing-plan-dialog > header, .marketing-plan-example-note { border-color: var(--line); }
+.marketing-plan-dialog-description, .marketing-plan-billing, .marketing-plan-example-note { color: var(--muted); }
+/* The embedded product illustrations retain their original brand palettes. */
+.marketing-workspace-art, .marketing-share-art, .marketing-calendar-art, .marketing-search-art { color: #34432c; }

@@ -8,8 +8,8 @@
   min-height: 280px;
   padding: var(--ac-lenticular-padding, 17px 20px 12px);
   overflow: hidden;
-  background: var(--ac-lenticular-background, #eae7de);
-  color: var(--ac-lenticular-color, #252722);
+  background: var(--ac-lenticular-background, var(--ac-lenticular-panel-theme-paper, #eae7de));
+  color: var(--ac-lenticular-color, var(--ac-lenticular-panel-theme-ink, #252722));
   text-align: left;
 }
 
@@ -205,4 +205,14 @@
   .ac-lenticular-print {
     cursor: default;
   }
+}
+
+/* Neutral defaults follow the page theme; explicit component colors keep priority. */
+:where([data-theme="light"], .light) .ac-lenticular-panel {
+  --ac-lenticular-panel-theme-paper: #f8f9f4;
+  --ac-lenticular-panel-theme-ink: #252722;
+}
+:where([data-theme="dark"], .dark) .ac-lenticular-panel {
+  --ac-lenticular-panel-theme-paper: #20251e;
+  --ac-lenticular-panel-theme-ink: #e8eddf;
 }

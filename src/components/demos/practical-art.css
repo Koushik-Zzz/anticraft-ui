@@ -62,3 +62,9 @@
   .practical-story-art { height: 240px; }
   .practical-story-dialog > header { padding-inline: 18px; font-size: 7px; letter-spacing: .4px; }
 }
+
+/* Neutral preview framing follows the site theme. */
+.practical-demo { background: var(--paper); color: var(--ink); }
+.practical-story-dialog, .practical-story-dialog > header { background: var(--paper); color: var(--ink); border-color: var(--line); }
+.practical-story-dialog > header button { border-color: var(--line); }
+.practical-story-kicker, .practical-story-body p, .practical-story-body li { color: var(--muted); }

@@ -1,2 +1,6 @@
 .revenue-dashboard-hero-demo { display: block !important; padding: 0 !important; background: #11121b; }
 .revenue-dashboard-demo-note { margin: 0; padding: 0 24px 15px; color: #84879b; font: 9px/1.6 Arial, Helvetica, sans-serif; text-align: right; }
+
+/* Neutral preview framing follows the site theme. */
+.revenue-dashboard-hero-demo { background: var(--paper); }
+.revenue-dashboard-demo-note { color: var(--muted); }

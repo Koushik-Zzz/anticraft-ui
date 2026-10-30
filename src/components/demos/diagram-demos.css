@@ -15,9 +15,13 @@
 .diagram-thumbnail-motion:focus-visible { outline: 2px solid #5d43ee; outline-offset: 3px; }
 .diagram-thumbnail-motion:disabled { cursor: default; opacity: .65; }
 .hero-standalone-preview > .converging-streams-demo { width: calc(100% - 48px); max-width: 1280px; margin: clamp(24px, 6vh, 72px) auto; }
-.hero-standalone-preview:has(> .converging-streams-demo) { background: #f7f6f2; }
+.hero-standalone-preview:has(> .converging-streams-demo) { background: var(--paper); }
 .catalog-card-preview:has(> .diagram-thumbnail) { height: auto; }
 .diagram-collection-grid { margin-top: 28px; }
 @media(min-width:768px) { .hero-standalone-preview .orbit-network-demo .ac-orbit-network { max-width: min(640px, calc(100svh - 180px)); } }
 @media(min-width:768px) { .hero-standalone-preview .logo-orbit-demo .ac-logo-orbit { max-width: min(560px, calc(100svh - 180px)); } }
 @media(max-width:540px) { .diagram-demo { padding: 12px; } .component-playground > .diagram-demo { min-height: 450px; } }
+
+/* Neutral diagram surrounds follow the page; colored diagram artwork stays intact. */
+:where([data-theme="dark"], .dark) :is(.diagram-demo, .diagram-thumbnail) { background: #1b1d20; color: #eeeef1; }
+:where([data-theme="dark"], .dark) .diagram-thumbnail-motion { border-color: #55565f; background: #24262a; color: #eeeef1; }

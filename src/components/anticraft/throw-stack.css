@@ -9,8 +9,8 @@
   overflow: hidden;
   padding: 17px 20px 18px;
   border-radius: var(--ac-throw-radius, 0);
-  background: var(--ac-throw-background, #d5dfd2);
-  color: var(--ac-throw-color, #26372f);
+  background: var(--ac-throw-background, var(--ac-throw-stack-theme-paper, #d5dfd2));
+  color: var(--ac-throw-color, var(--ac-throw-stack-theme-ink, #26372f));
   font-family: inherit;
   text-align: left;
   isolation: isolate;
@@ -46,7 +46,7 @@
   cursor: grab;
 }
 
-.ac-throw-stage:focus-visible { outline: 2px solid var(--ac-throw-focus, #2b684d); }
+.ac-throw-stage:focus-visible { outline: 2px solid var(--ac-throw-focus, var(--ac-throw-stack-theme-focus, #2b684d)); }
 .ac-throw-stack[data-phase='dragging'] .ac-throw-stage { cursor: grabbing; }
 .ac-throw-stack[data-phase='flying'] .ac-throw-stage { cursor: default; }
 
@@ -214,12 +214,24 @@
 .ac-throw-controls > button:disabled,
 .ac-throw-controls > button[aria-disabled='true'] { opacity: 0.3; cursor: default; }
 .ac-throw-controls > button:focus-visible,
-.ac-throw-link:focus-visible { outline: 2px solid var(--ac-throw-focus, #2b684d); outline-offset: 3px; }
+.ac-throw-link:focus-visible { outline: 2px solid var(--ac-throw-focus, var(--ac-throw-stack-theme-focus, #2b684d)); outline-offset: 3px; }
 @media (hover: hover) {
-  .ac-throw-controls > button:hover:enabled:not([aria-disabled='true']) { background: var(--ac-throw-color, #26372f); color: var(--ac-throw-background, #d5dfd2); }
+  .ac-throw-controls > button:hover:enabled:not([aria-disabled='true']) { background: var(--ac-throw-color, var(--ac-throw-stack-theme-ink, #26372f)); color: var(--ac-throw-background, var(--ac-throw-stack-theme-paper, #d5dfd2)); }
 }
 .ac-throw-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
 @media (prefers-reduced-motion: reduce) {
   .ac-throw-stack .ac-throw-poster,
   .ac-throw-controls > button { transition: none; }
+}
+
+/* Neutral defaults follow the page theme; explicit component colors keep priority. */
+:where([data-theme="light"], .light) .ac-throw-stack {
+  --ac-throw-stack-theme-paper: #f8f9f4;
+  --ac-throw-stack-theme-ink: #26372f;
+  --ac-throw-stack-theme-focus: #2b684d;
+}
+:where([data-theme="dark"], .dark) .ac-throw-stack {
+  --ac-throw-stack-theme-paper: #20251e;
+  --ac-throw-stack-theme-ink: #e8eddf;
+  --ac-throw-stack-theme-focus: #c5d9ae;
 }

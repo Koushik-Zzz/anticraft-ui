@@ -21,3 +21,7 @@
   .image-hotspots-demo-heading h2 { font-size: 26px; }
   .image-hotspots-demo-heading > span { font-size: 8px; }
 }
+
+/* Only the neutral surround changes; the architectural photograph stays intact. */
+:where([data-theme="dark"], .dark) .image-hotspots-demo { background: #20231e; color: #efefe8; }
+:where([data-theme="dark"], .dark) .image-hotspots-demo-heading > span { color: #b4b8aa; }

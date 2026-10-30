@@ -1,2 +1,5 @@
 .editor-canvas-hero-demo { width: 100%; min-height: 0; background: #f5f5f2; }
 .editor-canvas-hero-demo .ac-editor-canvas { min-height: 0; }
+
+/* Neutral preview framing follows the site theme. */
+.editor-canvas-hero-demo { background: var(--paper); }

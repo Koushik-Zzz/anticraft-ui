@@ -1,5 +1,5 @@
 .ac-split-text {
-  color: var(--ac-ink, #171914);
+  color: var(--ac-ink, currentColor);
 }
 
 .ac-split-text__accessible {

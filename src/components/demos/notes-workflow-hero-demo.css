@@ -1,3 +1,6 @@
 .notes-workflow-hero-demo { background: #f5f4ed; color: #233b2c; }
 .notes-workflow-hero-demo .ac-notes-workflow { min-height: 100%; }
 .notes-workflow-hero-demo:focus-visible { outline: 2px solid #367d4c; outline-offset: -3px; }
+
+/* Neutral preview framing follows the site theme. */
+.notes-workflow-hero-demo { background: var(--paper); color: var(--ink); }

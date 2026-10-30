@@ -88,3 +88,10 @@
   .ac-product-quick-view *, .ac-product-quick-view *::before, .ac-product-quick-view *::after { animation: none !important; transition: none !important; }
   .ac-product-quick-view:hover .ac-quick-view-card-image { transform: none; }
 }
+
+/* Images and finish swatches keep their colors; neutral shopping chrome follows the theme. */
+:where([data-theme="dark"], .dark) .ac-product-quick-view { --ac-quick-view-surface: #1f2320; --ac-quick-view-stage: #2b302b; --ac-quick-view-ink: #eef1e9; --ac-quick-view-muted: #b2b9ad; --ac-quick-view-line: #4b5347; }
+:where([data-theme="dark"], .dark) .ac-product-quick-view :focus-visible { outline-color: #c4d6b9; }
+:where([data-theme="dark"], .dark) .ac-quick-view-action { color: #fff; }
+:where([data-theme="dark"], .dark) .ac-quick-view-thumbnails > button[aria-pressed="true"] { background: #ffffff0d; }
+:where([data-theme="dark"], .dark) .ac-quick-view-swatch { border-color: #ffffff40; }

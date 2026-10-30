@@ -29,3 +29,9 @@
   .play-type-footer { align-items: flex-start; flex-direction: column; gap: 9px; }
   .play-trail-note { max-width: 190px; line-height: 1.6; }
 }
+
+/* The trail workspace is neutral; stamped artwork and the blue type canvas keep their colors. */
+:where([data-theme='light'], .light) .play-trail-demo { --ac-trail-background: #f8f9f4; }
+:where([data-theme='dark'], .dark) .play-trail-demo { --ac-trail-background: #20251e; --ac-trail-color: #e8eddf; --ac-trail-accent: #bfd39f; }
+:where([data-theme='dark'], .dark) .play-trail-backdrop { background-image: radial-gradient(#77866a .6px, transparent .6px); }
+:where([data-theme='dark'], .dark) .play-trail-coordinate { color: #a6b694; }

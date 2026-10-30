@@ -1,6 +1,4 @@
 .ac-curtain-menu {
-  --ac-curtain-background: #24251f;
-  --ac-curtain-foreground: #f4f2e9;
   --ac-curtain-accent: #f16b43;
   display: inline-flex;
   font-family: inherit;
@@ -23,8 +21,8 @@
 }
 
 .ac-curtain-trigger {
-  color: var(--ac-curtain-foreground);
-  background: var(--ac-curtain-background);
+  color: var(--ac-curtain-foreground, var(--ac-curtain-menu-theme-ink, #f4f2e9));
+  background: var(--ac-curtain-background, var(--ac-curtain-menu-theme-paper, #24251f));
 }
 
 .ac-curtain-trigger-icon {
@@ -52,14 +50,14 @@
   border: 0;
   padding: 0;
   overflow: hidden;
-  background: var(--ac-curtain-background);
-  color: var(--ac-curtain-foreground);
+  background: var(--ac-curtain-background, var(--ac-curtain-menu-theme-paper, #24251f));
+  color: var(--ac-curtain-foreground, var(--ac-curtain-menu-theme-ink, #f4f2e9));
   font-family: inherit;
 }
 
 /* Preserve the browser's hidden state until showModal() adds open. */
 .ac-curtain-dialog[open] { display: flex; flex-direction: column; }
-.ac-curtain-dialog::backdrop { background: var(--ac-curtain-background); }
+.ac-curtain-dialog::backdrop { background: var(--ac-curtain-background, var(--ac-curtain-menu-theme-paper, #24251f)); }
 
 .ac-curtain-panels {
   position: absolute;
@@ -90,7 +88,7 @@
 .ac-curtain-index { display: inline-flex; align-items: center; gap: 12px; font-size: 12px; letter-spacing: .06em; }
 .ac-curtain-index > span { color: var(--ac-curtain-accent); font-size: 26px; }
 .ac-curtain-close { flex: none; gap: 18px; color: inherit; background: transparent; }
-.ac-curtain-close:hover { color: var(--ac-curtain-background); background: var(--ac-curtain-foreground); }
+.ac-curtain-close:hover { color: var(--ac-curtain-background, var(--ac-curtain-menu-theme-paper, #24251f)); background: var(--ac-curtain-foreground, var(--ac-curtain-menu-theme-ink, #f4f2e9)); }
 
 .ac-curtain-body {
   position: relative;
@@ -166,4 +164,14 @@
   .ac-curtain-dialog[open] .ac-curtain-link,
   .ac-curtain-dialog[open] .ac-curtain-footer { animation: none; }
   .ac-curtain-link, .ac-curtain-arrow { transition: none; }
+}
+
+/* Neutral defaults follow the page theme; explicit component colors keep priority. */
+:where([data-theme="light"], .light) .ac-curtain-menu {
+  --ac-curtain-menu-theme-paper: #fbfcf8;
+  --ac-curtain-menu-theme-ink: #25271f;
+}
+:where([data-theme="dark"], .dark) .ac-curtain-menu {
+  --ac-curtain-menu-theme-paper: #24251f;
+  --ac-curtain-menu-theme-ink: #f4f2e9;
 }

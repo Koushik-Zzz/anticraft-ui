@@ -10,3 +10,8 @@
 .comparison-demo-plan-notes h3 { margin:12px 0; font-size:21px; font-weight:500; letter-spacing:-.04em; }.comparison-demo-plan-notes section > p { margin:0; max-width:40ch; font-size:12px; line-height:1.7; color:#626b63; }
 .comparison-demo-plan-notes > small { display:block; margin-top:35px; font-size:9px; color:#626b63; line-height:1.7; }
 @container (width < 600px) { .comparison-demo-plan-notes > div { grid-template-columns:1fr; gap:30px; }.comparison-demo-masthead > span { max-width:20ch; line-height:1.6; } }
+
+/* Neutral preview framing follows the site theme. */
+.comparison-demo { background: var(--paper); color: var(--ink); }
+.comparison-demo-masthead, .comparison-demo-plan-notes { border-color: var(--line); }
+.comparison-demo-plan-notes section > p, .comparison-demo-plan-notes > small { color: var(--muted); }

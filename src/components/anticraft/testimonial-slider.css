@@ -1,5 +1,5 @@
 .ac-proof, .ac-proof * { box-sizing: border-box; }
-.ac-proof { --ac-proof-surface: #eeeade; --ac-proof-ink: #292c25; --ac-proof-muted: #66685e; --ac-proof-accent: #d15a3f; --ac-proof-portrait: #c6d2b8; width: 100%; min-width: 0; padding: 28px; display: flex; flex-direction: column; gap: 24px; container-type: inline-size; background: var(--ac-proof-surface); color: var(--ac-proof-ink); font-family: inherit; }
+.ac-proof { --ac-proof-surface: var(--ac-proof-theme-surface, #eeeade); --ac-proof-ink: var(--ac-proof-theme-ink, #292c25); --ac-proof-muted: var(--ac-proof-theme-muted, #66685e); --ac-proof-accent: #d15a3f; --ac-proof-portrait: #c6d2b8; width: 100%; min-width: 0; padding: 28px; display: flex; flex-direction: column; gap: 24px; container-type: inline-size; background: var(--ac-proof-surface); color: var(--ac-proof-ink); font-family: inherit; }
 .ac-proof-title { margin: 0; max-width: 20ch; font: inherit; font-size: clamp(25px, 4.6cqw, 36px); font-weight: 500; line-height: 1.08; letter-spacing: -.055em; text-wrap: balance; }
 .ac-proof-stage { flex: 1; min-width: 0; display: grid; }
 .ac-proof-story { margin: 0; display: grid; grid-template-columns: minmax(120px, .72fr) minmax(0, 1fr); grid-template-rows: 1fr auto; gap: 26px; animation: ac-proof-arrive 260ms ease-out both; }
@@ -47,3 +47,17 @@
   .ac-proof-metric > span { font-size: 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .ac-proof-story { animation: none; } .ac-proof-arrow, .ac-proof-dot span { transition: none; } }
+
+/* Neutral surfaces follow an explicit page theme; artwork and accents keep their palette. */
+:where([data-theme="light"]) .ac-proof {
+  --ac-proof-theme-ink: #202722;
+  --ac-proof-theme-muted: #687269;
+  --ac-proof-theme-surface: #fafbf8;
+  color-scheme: light;
+}
+:where([data-theme="dark"], .dark) .ac-proof {
+  --ac-proof-theme-ink: #edf2eb;
+  --ac-proof-theme-muted: #a7b3a3;
+  --ac-proof-theme-surface: #191e1b;
+  color-scheme: dark;
+}

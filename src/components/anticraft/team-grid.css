@@ -1,8 +1,8 @@
 .ac-team-grid {
-  --ac-team-surface: #edece6;
-  --ac-team-ink: #303a30;
-  --ac-team-muted: #697366;
-  --ac-team-line: #303a3030;
+  --ac-team-surface: var(--ac-team-theme-surface, #edece6);
+  --ac-team-ink: var(--ac-team-theme-ink, #303a30);
+  --ac-team-muted: var(--ac-team-theme-muted, #697366);
+  --ac-team-line: var(--ac-team-theme-line, #303a3030);
   --ac-team-accent: #48623d;
   container-type: inline-size;
   padding: 32px;
@@ -65,3 +65,20 @@
   .ac-team-grid-portrait > :not(.ac-team-grid-number), .ac-team-grid-meet > span { transition: none; }
   .ac-team-grid-card:hover .ac-team-grid-portrait > :not(.ac-team-grid-number), .ac-team-grid-meet:hover > span { transform: none; }
 }
+
+/* Neutral surfaces follow an explicit page theme; artwork and accents keep their palette. */
+:where([data-theme="light"]) .ac-team-grid {
+  --ac-team-theme-ink: #202722;
+  --ac-team-theme-line: #d7ded4;
+  --ac-team-theme-muted: #687269;
+  --ac-team-theme-surface: #fafbf8;
+  color-scheme: light;
+}
+:where([data-theme="dark"], .dark) .ac-team-grid {
+  --ac-team-theme-ink: #edf2eb;
+  --ac-team-theme-line: #3d483e;
+  --ac-team-theme-muted: #a7b3a3;
+  --ac-team-theme-surface: #191e1b;
+  color-scheme: dark;
+}
+:where([data-theme="dark"], .dark) .ac-team-grid :is(button, a):focus-visible { outline-color: var(--ac-team-ink); }

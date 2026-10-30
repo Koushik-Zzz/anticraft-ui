@@ -5,9 +5,9 @@
   --ac-scroll-expand-view: 800px;
   --ac-scroll-expand-content-height: 0px;
   --ac-scroll-expand-footer-height: 112px;
-  --ac-scroll-expand-paper: #131414;
-  --ac-scroll-expand-ink: #f3f4ee;
-  --ac-scroll-expand-muted: #bfc1b9;
+  --ac-scroll-expand-paper: var(--ac-scroll-expand-theme-paper, #131414);
+  --ac-scroll-expand-ink: var(--ac-scroll-expand-theme-ink, #f3f4ee);
+  --ac-scroll-expand-muted: var(--ac-scroll-expand-theme-muted, #bfc1b9);
   --ac-scroll-expand-accent: #c7ff4b;
   --ac-scroll-expand-pin-height: max(580px, calc(var(--ac-scroll-expand-view) * .97), var(--ac-scroll-expand-content-height));
   position: relative;
@@ -39,7 +39,7 @@
   align-items: center;
   gap: 24px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #f3f4ee45;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 27%, transparent);
   font-size: clamp(9px, 1cqw, 12px);
   font-weight: 500;
   letter-spacing: .06em;
@@ -155,12 +155,12 @@
 .ac-scroll-expand-action:hover span { transform: translate(3px, -3px); }
 .ac-scroll-expand-action:focus-visible { outline: 2px solid var(--ac-scroll-expand-accent); outline-offset: 6px; }
 .ac-scroll-expand-chapters { display: flex; justify-content: space-between; gap: 14px; margin: 0 0 11px; padding: 0; list-style: none; }
-.ac-scroll-expand-chapters li { display: flex; gap: 13px; align-items: baseline; color: #f3f4ee70; font-size: clamp(9px, 1cqw, 11px); line-height: 1.4; }
+.ac-scroll-expand-chapters li { display: flex; gap: 13px; align-items: baseline; color: color-mix(in srgb, currentColor 65%, transparent); font-size: clamp(9px, 1cqw, 11px); line-height: 1.4; }
 .ac-scroll-expand-chapters li span { font-size: 8px; }
 .ac-scroll-expand-chapters [aria-current='step'] { color: var(--ac-scroll-expand-ink); }
 .ac-scroll-expand-chapters [aria-current='step'] span { color: var(--ac-scroll-expand-accent); }
-.ac-scroll-expand-progress { display: block; width: 100%; height: 1px; border: 0; border-radius: 0; background: #f3f4ee3d; color: var(--ac-scroll-expand-accent); appearance: none; }
-.ac-scroll-expand-progress::-webkit-progress-bar { background: #f3f4ee3d; }
+.ac-scroll-expand-progress { display: block; width: 100%; height: 1px; border: 0; border-radius: 0; background: color-mix(in srgb, currentColor 24%, transparent); color: var(--ac-scroll-expand-accent); appearance: none; }
+.ac-scroll-expand-progress::-webkit-progress-bar { background: color-mix(in srgb, currentColor 24%, transparent); }
 .ac-scroll-expand-progress::-webkit-progress-value { background: var(--ac-scroll-expand-accent); }
 .ac-scroll-expand-progress::-moz-progress-bar { background: var(--ac-scroll-expand-accent); }
 
@@ -198,4 +198,32 @@
   .ac-scroll-expand-description { top: auto; bottom: calc(var(--ac-scroll-expand-footer-height) + 52px); opacity: 1; transform: none; color: var(--ac-scroll-expand-ink); }
   .ac-scroll-expand-frame-label, .ac-scroll-expand-frame-cross { display: none; }
   .ac-scroll-expand-action span { transition: none; }
+}
+
+
+/* Neutral framing changes with the page; footage keeps its dark overlay. */
+:where([data-theme="light"]) .ac-scroll-expand-hero { --ac-scroll-expand-theme-paper: #fafbf8; --ac-scroll-expand-theme-ink: #202722; --ac-scroll-expand-theme-muted: #687269; color-scheme: light; }
+:where([data-theme="dark"], .dark) .ac-scroll-expand-hero { --ac-scroll-expand-theme-paper: #191e1b; --ac-scroll-expand-theme-ink: #edf2eb; --ac-scroll-expand-theme-muted: #a7b3a3; color-scheme: dark; }
+.ac-scroll-expand-frame-label { color: #f3f4ee; }
+:where([data-theme="light"]) .ac-scroll-expand-topline,
+:where([data-theme="light"]) .ac-scroll-expand-footer { color: color-mix(in srgb, #202722 calc(100% - var(--ac-scroll-expand-immersion) * 100%), #f3f4ee); }
+:where([data-theme="light"]) .ac-scroll-expand-chapters [aria-current='step'] { color: inherit; }
+@media (prefers-reduced-motion: reduce) {
+  :where([data-theme="light"]) .ac-scroll-expand-hero { --ac-scroll-expand-theme-ink: #f3f4ee; --ac-scroll-expand-theme-muted: #bfc1b9; }
+  :where([data-theme="light"]) .ac-scroll-expand-topline,
+  :where([data-theme="light"]) .ac-scroll-expand-footer { color: #f3f4ee; }
+}
+/* Keep the mobile caption readable where the partial image crosses the light page. */
+@media (prefers-reduced-motion: no-preference) {
+  @container (max-width: 600px) {
+    :where([data-theme="light"]) .ac-scroll-expand-description {
+      width: min(calc(66% + 18px), calc(27ch + 18px));
+      margin-left: -9px;
+      padding: 6px 8px;
+      border: 1px solid #d7ded4;
+      border-radius: 3px;
+      background: rgb(250 251 248 / 94%);
+      color: #202722;
+    }
+  }
 }

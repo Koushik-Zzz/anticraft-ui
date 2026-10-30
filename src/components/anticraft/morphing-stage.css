@@ -5,9 +5,9 @@
   min-height: 260px;
   overflow: hidden;
   isolation: isolate;
-  color: var(--ac-morph-ink, #252620);
-  background: var(--ac-morph-surface, #eeece1);
-  border: 1px solid var(--ac-morph-line, rgb(37 38 32 / 16%));
+  color: var(--ac-morph-ink, var(--ac-morphing-stage-theme-ink, #252620));
+  background: var(--ac-morph-surface, var(--ac-morphing-stage-theme-paper, #eeece1));
+  border: 1px solid var(--ac-morph-line, var(--ac-morphing-stage-theme-line, rgb(37 38 32 / 16%)));
   font-family: inherit;
 }
 
@@ -23,7 +23,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
-  scrollbar-color: var(--ac-morph-scrollbar, #aaa99f) transparent;
+  scrollbar-color: var(--ac-morph-scrollbar, var(--ac-morphing-stage-theme-scrollbar, #aaa99f)) transparent;
 }
 
 .ac-morph-scroll:focus-visible {
@@ -41,7 +41,7 @@
   display: grid;
   grid-template-rows: 56px minmax(0, 1fr) 48px;
   overflow: hidden;
-  background: var(--ac-morph-surface, #eeece1);
+  background: var(--ac-morph-surface, var(--ac-morphing-stage-theme-paper, #eeece1));
 }
 
 .ac-morph-heading {
@@ -253,4 +253,18 @@
   .ac-morph-chapter { transition: none; }
   .ac-morph-artwork,
   .ac-morph-outline { will-change: auto; }
+}
+
+/* Neutral defaults follow the page theme; explicit component colors keep priority. */
+:where([data-theme="light"], .light) .ac-morph-stage {
+  --ac-morphing-stage-theme-paper: #f8f9f4;
+  --ac-morphing-stage-theme-ink: #252620;
+  --ac-morphing-stage-theme-line: rgb(37 38 32 / 16%);
+  --ac-morphing-stage-theme-scrollbar: #aaa99f;
+}
+:where([data-theme="dark"], .dark) .ac-morph-stage {
+  --ac-morphing-stage-theme-paper: #20251e;
+  --ac-morphing-stage-theme-ink: #e8eddf;
+  --ac-morphing-stage-theme-line: rgb(232 237 223 / 18%);
+  --ac-morphing-stage-theme-scrollbar: #626b59;
 }

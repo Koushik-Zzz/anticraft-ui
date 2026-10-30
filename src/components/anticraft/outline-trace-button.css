@@ -1,8 +1,4 @@
 .ac-outline-trace-button {
-  --ac-trace-surface: #282b26;
-  --ac-trace-ink: #f4f4e9;
-  --ac-trace-accent: #d5ef96;
-  --ac-trace-line: #ffffff38;
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -11,10 +7,10 @@
   min-height: 52px;
   max-width: 100%;
   padding: 15px 23px;
-  border: 1px solid var(--ac-trace-line);
+  border: 1px solid var(--ac-trace-line, var(--ac-outline-trace-button-theme-line, #ffffff38));
   border-radius: var(--ac-trace-radius, 4px);
-  background: var(--ac-trace-surface);
-  color: var(--ac-trace-ink);
+  background: var(--ac-trace-surface, var(--ac-outline-trace-button-theme-paper, #282b26));
+  color: var(--ac-trace-ink, var(--ac-outline-trace-button-theme-ink, #f4f4e9));
   font: inherit;
   font-size: 14px;
   font-weight: 500;
@@ -33,7 +29,7 @@
   height: calc(100% + 2px);
   overflow: visible;
   fill: none;
-  stroke: var(--ac-trace-accent);
+  stroke: var(--ac-trace-accent, var(--ac-outline-trace-button-theme-accent, #d5ef96));
   stroke-width: 1.5;
   pointer-events: none;
 }
@@ -52,17 +48,31 @@
   line-height: 1;
   transition: color .2s, transform .35s;
 }
-.ac-outline-trace-button:focus-visible { outline: 2px solid var(--ac-trace-accent); outline-offset: 5px; }
+.ac-outline-trace-button:focus-visible { outline: 2px solid var(--ac-trace-accent, var(--ac-outline-trace-button-theme-accent, #d5ef96)); outline-offset: 5px; }
 .ac-outline-trace-button:focus-visible:not(:disabled) .ac-outline-trace-button__line rect { stroke-dashoffset: 0; }
-.ac-outline-trace-button:focus-visible:not(:disabled) .ac-outline-trace-button__mark { color: var(--ac-trace-accent); }
-.ac-outline-trace-button:active:not(:disabled) { background: color-mix(in srgb, var(--ac-trace-surface), white 8%); }
+.ac-outline-trace-button:focus-visible:not(:disabled) .ac-outline-trace-button__mark { color: var(--ac-trace-accent, var(--ac-outline-trace-button-theme-accent, #d5ef96)); }
+.ac-outline-trace-button:active:not(:disabled) { background: color-mix(in srgb, var(--ac-trace-surface, var(--ac-outline-trace-button-theme-paper, #282b26)), white 8%); }
 .ac-outline-trace-button:disabled { opacity: .45; cursor: not-allowed; }
 @media (hover: hover) and (pointer: fine) {
   .ac-outline-trace-button:hover:not(:disabled) .ac-outline-trace-button__line rect { stroke-dashoffset: 0; }
-  .ac-outline-trace-button:hover:not(:disabled) .ac-outline-trace-button__mark { color: var(--ac-trace-accent); transform: translate(2px, -2px); }
+  .ac-outline-trace-button:hover:not(:disabled) .ac-outline-trace-button__mark { color: var(--ac-trace-accent, var(--ac-outline-trace-button-theme-accent, #d5ef96)); transform: translate(2px, -2px); }
 }
 @media (prefers-reduced-motion: reduce) {
   .ac-outline-trace-button__line rect,
   .ac-outline-trace-button__mark { transition: none; }
   .ac-outline-trace-button__mark { transform: none !important; }
+}
+
+/* Neutral defaults follow the page theme; explicit component colors keep priority. */
+:where([data-theme="light"], .light) .ac-outline-trace-button {
+  --ac-outline-trace-button-theme-paper: #f6f8f2;
+  --ac-outline-trace-button-theme-ink: #282e23;
+  --ac-outline-trace-button-theme-line: #29332650;
+  --ac-outline-trace-button-theme-accent: #607b32;
+}
+:where([data-theme="dark"], .dark) .ac-outline-trace-button {
+  --ac-outline-trace-button-theme-paper: #282b26;
+  --ac-outline-trace-button-theme-ink: #f4f4e9;
+  --ac-outline-trace-button-theme-line: #ffffff38;
+  --ac-outline-trace-button-theme-accent: #d5ef96;
 }

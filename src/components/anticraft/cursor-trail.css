@@ -7,8 +7,8 @@
   height: var(--ac-trail-height, 360px);
   min-height: 280px;
   overflow: hidden;
-  background: var(--ac-trail-background, #ece9e0);
-  color: var(--ac-trail-color, #2c3029);
+  background: var(--ac-trail-background, var(--ac-cursor-trail-theme-paper, #ece9e0));
+  color: var(--ac-trail-color, var(--ac-cursor-trail-theme-ink, #2c3029));
 }
 
 .ac-trail-field {
@@ -88,7 +88,7 @@
   gap: 0 14px;
   min-width: 0;
   padding: 4px 16px;
-  border-top: 1px solid var(--ac-trail-line, #2c302927);
+  border-top: 1px solid var(--ac-trail-line, var(--ac-cursor-trail-theme-line, #2c302927));
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
   font-size: 9px;
   line-height: 1.4;
@@ -194,4 +194,16 @@
   .ac-trail-hover-instruction,
   .ac-trail-touch-instruction { display: none; }
   .ac-trail-motion-instruction { display: inline; }
+}
+
+/* Neutral defaults follow the page theme; explicit component colors keep priority. */
+:where([data-theme="light"], .light) .ac-cursor-trail {
+  --ac-cursor-trail-theme-paper: #f8f9f4;
+  --ac-cursor-trail-theme-ink: #2c3029;
+  --ac-cursor-trail-theme-line: #2c302927;
+}
+:where([data-theme="dark"], .dark) .ac-cursor-trail {
+  --ac-cursor-trail-theme-paper: #20251e;
+  --ac-cursor-trail-theme-ink: #e8eddf;
+  --ac-cursor-trail-theme-line: #e8eddf30;
 }
