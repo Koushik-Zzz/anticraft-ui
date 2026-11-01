@@ -1,5 +1,12 @@
 "use client";
 
+export { AppCatalog } from './AppCatalog';
+export type { AppCatalogProps, AppCatalogItem } from './AppCatalog';
+export { IntegrationMarquee } from './IntegrationMarquee';
+export type { IntegrationMarqueeProps, IntegrationMarqueeItem, IntegrationConnection } from './IntegrationMarquee';
+export { AgentActivityWall } from './AgentActivityWall';
+export type { AgentActivityWallProps, AgentActivityItem } from './AgentActivityWall';
+
 export { ImageHotspots } from './ImageHotspots';
 export type { ImageHotspotsProps, ImageHotspotItem } from './ImageHotspots';
 export { ExpandableGallery } from './ExpandableGallery';

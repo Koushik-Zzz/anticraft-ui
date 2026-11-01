@@ -4,6 +4,69 @@
   "homepage": "http://localhost:5173",
   "items": [
     {
+      "name": "app-catalog",
+      "type": "registry:component",
+      "title": "App Catalog",
+      "description": "A ruled app directory with pastel icons and a large introduction.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/AppCatalog.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/AppCatalog.tsx"
+        },
+        {
+          "path": "src/components/anticraft/app-catalog.css",
+          "type": "registry:file",
+          "target": "components/anticraft/app-catalog.css"
+        }
+      ]
+    },
+    {
+      "name": "integration-marquee",
+      "type": "registry:component",
+      "title": "Integration Marquee",
+      "description": "Alternating logo ribbons and an illustrative connection-status sequence.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/IntegrationMarquee.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/IntegrationMarquee.tsx"
+        },
+        {
+          "path": "src/components/anticraft/integration-marquee.css",
+          "type": "registry:file",
+          "target": "components/anticraft/integration-marquee.css"
+        }
+      ]
+    },
+    {
+      "name": "agent-activity-wall",
+      "type": "registry:component",
+      "title": "Agent Activity Wall",
+      "description": "Opposing columns of agent requests and results with tool badges.",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "src/components/anticraft/AgentActivityWall.tsx",
+          "type": "registry:component",
+          "target": "components/anticraft/AgentActivityWall.tsx"
+        },
+        {
+          "path": "src/components/anticraft/agent-activity-wall.css",
+          "type": "registry:file",
+          "target": "components/anticraft/agent-activity-wall.css"
+        }
+      ]
+    },
+    {
       "name": "snap-delete",
       "type": "registry:component",
       "title": "Snap Delete",

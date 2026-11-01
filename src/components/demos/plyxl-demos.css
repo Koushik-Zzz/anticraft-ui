@@ -1,0 +1,12 @@
+.demo.plyxl-demo { display:block; width:100%; height:auto!important; min-height:0; padding:0; overflow:hidden; border-radius:0; background:#fcfbff; color:#181630; }
+.plyxl-demo > section { min-width:0; }
+.component-playground:has(> .plyxl-demo) { height:680px; overflow:auto; scrollbar-width:thin; }
+.component-playground > .plyxl-demo { height:auto!important; min-height:100%; }
+.hero-thumbnail-stage .plyxl-demo { height:840px!important; overflow:hidden; }
+.hero-thumbnail-stage .plyxl-demo > section { padding-top:48px; }
+.hero-thumbnail-stage .plyxl-demo .ac-integration-marquee__controls,.hero-thumbnail-stage .plyxl-demo .ac-agent-wall__controls { display:none; }
+.hero-standalone-preview > .plyxl-demo { min-height:calc(100svh - 40px); }
+.hero-standalone-preview > .plyxl-demo--apps { padding-top:0; }
+.hero-standalone-preview .plyxl-demo--integrations > section { padding-top:64px; }
+:where([data-theme='dark'],.dark) .demo.plyxl-demo { background:#1b1a22; color:#f4f2fb; }
+@media (max-width:640px) { .component-playground:has(> .plyxl-demo) { height:650px; } }

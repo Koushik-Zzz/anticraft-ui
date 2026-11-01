@@ -41,6 +41,7 @@ import { ConvergingStreamsDemo } from './converging-streams-demo';
 import { LogoOrbitDemo } from './logo-orbit-demo';
 import { ParticleTextDemo } from './particle-text-demo';
 import { SnapDeleteDemo } from './snap-delete-demo';
+import { AppCatalogDemo, IntegrationMarqueeDemo, AgentActivityWallDemo } from './plyxl-demos';
 import './diagram-demos.css';
 
 export interface DemoOptions { accent?: string; intensity?: number; paused?: boolean; }
@@ -58,6 +59,9 @@ export function ComponentDemo({ slug, options = {} }: { slug: string; options?: 
   const [ambientPaused, setAmbientPaused] = useState(false);
   const isPaused = options.paused ?? ambientPaused;
   const pauseControl = <button className="replay-button ambient-pause" onClick={() => setAmbientPaused(!ambientPaused)} aria-pressed={isPaused}>{isPaused ? 'Play motion' : 'Pause motion'}</button>;
+  if (id === 'app-catalog') return <AppCatalogDemo/>;
+  if (id === 'integration-marquee') return <IntegrationMarqueeDemo paused={options.paused}/>;
+  if (id === 'agent-activity-wall') return <AgentActivityWallDemo paused={options.paused}/>;
   if (id === 'snap-delete') return <SnapDeleteDemo/>;
   if (id === 'orbit-network') return <OrbitNetworkDemo paused={options.paused}/>;
   if (id === 'particle-text') return <ParticleTextDemo paused={options.paused}/>;
