@@ -22,7 +22,7 @@ export interface AppCatalogProps {
 }
 
 /** A ruled app directory. Supply icons as ordinary SVG, images, or React nodes. */
-export function AppCatalog({ items, eyebrow = 'App Store', title = 'Or start from one that’s already written.', description, onItemSelect, className = '' }: AppCatalogProps) {
+export function AppCatalog({ items, eyebrow = 'App Store', title = 'Start with the essentials.', description, onItemSelect, className = '' }: AppCatalogProps) {
   const uid = useId();
   return <section className={`ac-app-catalog ${className}`.trim()} aria-labelledby={`${uid}-title`}>
     <div className="ac-app-catalog__layout">

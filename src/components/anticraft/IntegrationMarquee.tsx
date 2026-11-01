@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import './integration-marquee.css';
 
 export interface IntegrationMarqueeItem { id: string; label: string; logo: ReactNode; }
@@ -16,8 +16,10 @@ export interface IntegrationMarqueeProps {
   className?: string;
 }
 
+const defaultDurations = [120,140,130];
+
 /** Three seamless logo ribbons and an illustrative connection-status sequence. */
-export function IntegrationMarquee({ rows, connections = [], title = 'Works with the tools you already use.', durations = [120,140,130], paused = false, cycleConnections = true, showControls = true, className = '' }: IntegrationMarqueeProps) {
+export function IntegrationMarquee({ rows, connections = [], title = 'Bring your everyday tools together.', durations = defaultDurations, paused = false, cycleConnections = true, showControls = true, className = '' }: IntegrationMarqueeProps) {
   const uid = useId();
   const root = useRef<HTMLElement>(null);
   const [held, setHeld] = useState(false);
@@ -66,6 +68,16 @@ export function IntegrationMarquee({ rows, connections = [], title = 'Works with
     return () => window.clearTimeout(timer);
   },[running,cycleConnections,connections.length,index,phase]);
   const displayedPhase = environment.reduced || !cycleConnections ? 'connected' : phase;
+  // Connection-status updates must not rebuild the moving logo strips.
+  const ribbons = useMemo(() => <div className="ac-integration-marquee__rows">
+    {rows.filter(row=>row.length>0).map((row,rowIndex)=><div className="ac-integration-marquee__row" key={rowIndex}>
+      <div className="ac-integration-marquee__track" style={{'--ac-integration-copies':copies[rowIndex]??3,'--ac-integration-duration':`${Number.isFinite(durations[rowIndex])?Math.max(20,Math.min(300,durations[rowIndex])):120}s` } as CSSProperties} data-reverse={rowIndex%2===1}>
+        {Array.from({length:copies[rowIndex]??3},(_,copy)=>copy).map(copy=><div className="ac-integration-marquee__group" key={copy} aria-hidden={copy>0?true:undefined} role={copy===0?'list':undefined} aria-label={copy===0?`Integration row ${rowIndex+1}`:undefined}>
+          {row.map(item=><span className="ac-integration-marquee__tile" key={item.id} title={item.label} role={copy===0?'listitem':undefined}><span role={copy===0?'img':undefined} aria-label={copy===0?item.label:undefined}>{item.logo}</span></span>)}
+        </div>)}
+      </div>
+    </div>)}
+  </div>,[rows,copies,durations]);
   return <section ref={root} className={`ac-integration-marquee ${className}`.trim()} aria-labelledby={`${uid}-title`} data-running={running}>
     <div className="ac-integration-marquee__header">
       <h2 id={`${uid}-title`}>{title}</h2>
@@ -75,15 +87,7 @@ export function IntegrationMarquee({ rows, connections = [], title = 'Works with
         <span className="ac-integration-marquee__status" data-connected={displayedPhase==='connected'}><svg viewBox="0 0 16 16" fill="none" aria-hidden="true">{displayedPhase==='connected'?<path d="m3 8 3 3 7-7"/>:<path className="ac-integration-marquee__spinner" d="M13 8a5 5 0 1 1-3-4.58"/>}</svg>{displayedPhase==='connected'?'Connected':displayedPhase==='syncing'?'Syncing':'Connecting'}</span>
       </div>}
     </div>
-    <div className="ac-integration-marquee__rows">
-      {rows.filter(row=>row.length>0).map((row,rowIndex)=><div className="ac-integration-marquee__row" key={rowIndex}>
-        <div className="ac-integration-marquee__track" style={{'--ac-integration-copies':copies[rowIndex]??3,'--ac-integration-duration':`${Number.isFinite(durations[rowIndex])?Math.max(20,Math.min(300,durations[rowIndex])):120}s` } as CSSProperties} data-reverse={rowIndex%2===1}>
-          {Array.from({length:copies[rowIndex]??3},(_,copy)=>copy).map(copy=><div className="ac-integration-marquee__group" key={copy} aria-hidden={copy>0?true:undefined} role={copy===0?'list':undefined} aria-label={copy===0?`Integration row ${rowIndex+1}`:undefined}>
-            {row.map(item=><span className="ac-integration-marquee__tile" key={item.id} title={item.label} role={copy===0?'listitem':undefined}><span role={copy===0?'img':undefined} aria-label={copy===0?item.label:undefined}>{item.logo}</span></span>)}
-          </div>)}
-        </div>
-      </div>)}
-    </div>
+    {ribbons}
     {showControls && <div className="ac-integration-marquee__controls"><button type="button" onClick={()=>setHeld(value=>!value)} disabled={paused||environment.reduced} aria-pressed={held||paused}>{environment.reduced?'Motion reduced':held||paused?'Play motion':'Pause motion'}</button></div>}
   </section>;
 }

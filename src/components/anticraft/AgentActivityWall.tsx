@@ -26,7 +26,7 @@ export interface AgentActivityWallProps {
 }
 
 /** Opposing vertical streams of requests and completed work, with a static accessible copy. */
-export function AgentActivityWall({ columns, title='An agent that does everything.', durations=[64,76,70], paused=false, showControls=true, className='' }: AgentActivityWallProps) {
+export function AgentActivityWall({ columns, title='Put everyday work in motion.', durations=[64,76,70], paused=false, showControls=true, className='' }: AgentActivityWallProps) {
   const uid = useId();
   const root = useRef<HTMLElement>(null);
   const [held,setHeld] = useState(false);

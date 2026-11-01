@@ -1,6 +1,6 @@
 import type { ComponentDefinition } from './catalog';
 
-const inspiration={name:'Plyxl',url:'https://plyxl.com/',note:'A close recreation of the App Store, connected tools, and agent activity sections supplied as the visual reference. Demo names, copy, and artwork identify the reference; replace them with your own content.'};
+const inspiration={name:'Plyxl',url:'https://plyxl.com/',note:'The ruled app grid, logo ribbons and opposing activity columns take their visual structure from this reference. Demo copy is independent; artwork credits are in the repository.'};
 export const plyxlComponents:ComponentDefinition[]=[
   {slug:'app-catalog',title:'App Catalog',category:'Sections',tag:'New',file:'AppCatalog.tsx',cssFile:'app-catalog.css',
    description:'A rounded, ruled app grid with pastel icons and a large editorial introduction.',
@@ -20,7 +20,7 @@ export function Example() {
    props:[
     {name:'items',type:'AppCatalogItem[]',default:'Required',description:'Unique id, title, description, ReactNode icon and background color; optional iconColor and href. Supply your own icon assets.'},
     {name:'eyebrow',type:'string',default:"'App Store'",description:'Small label above the introduction. Empty text hides it.'},
-    {name:'title',type:'ReactNode',default:'Reference heading',description:'Large heading beside the grid; wraps naturally with balanced text.'},
+    {name:'title',type:'ReactNode',default:'Start with the essentials.',description:'Large heading beside the grid; wraps naturally with balanced text.'},
     {name:'description',type:'ReactNode',default:'undefined',description:'Supporting copy below the heading.'},
     {name:'onItemSelect',type:'(id: string) => void',default:'undefined',description:'Adds native buttons to items without href. Items with href remain normal links and also call the callback.'},
     {name:'className',type:'string',default:"''",description:'Additional classes. Customize --ac-app-surface, --ac-app-ink, --ac-app-muted, --ac-app-line, --ac-app-hover and --ac-app-font.'},
@@ -48,7 +48,7 @@ export function Example() {
    props:[
     {name:'rows',type:'IntegrationMarqueeItem[][]',default:'Required',description:'Logo rows with unique item ids, accessible labels and ReactNode logo artwork. Each row repeats decoratively to fill the available width and loop seamlessly.'},
     {name:'connections',type:'IntegrationConnection[]',default:'[]',description:'Optional illustrative status cards with id, name, detail and logo. This visual sequence does not connect real accounts.'},
-    {name:'title',type:'ReactNode',default:'Reference heading',description:'Large heading above the logo rows.'},
+    {name:'title',type:'ReactNode',default:'Bring your everyday tools together.',description:'Large heading above the logo rows.'},
     {name:'durations',type:'number[]',default:'[120, 140, 130]',description:'Seconds per row cycle, clamped to 20–300. The middle row moves in the opposite direction.'},
     {name:'cycleConnections',type:'boolean',default:'true',description:'Cycles connection examples through signing in, syncing and connected states. False keeps the current card connected.'},
     {name:'paused / showControls',type:'boolean',default:'false / true',description:'External pause override and native pause-control visibility. Reduced motion and hidden/offscreen state stop the sequence.'},
@@ -68,7 +68,7 @@ export function Example() {
 }`,
    props:[
     {name:'columns',type:'AgentActivityItem[][]',default:'Required',description:'Up to three columns. Each card has unique id, name, role, request, response and color; optional initial, mention, mentionColor, ReactNode avatar and tool logos. Columns repeat decoratively to fill the activity window.'},
-    {name:'title',type:'ReactNode',default:'Reference heading',description:'Heading above the activity columns.'},
+    {name:'title',type:'ReactNode',default:'Put everyday work in motion.',description:'Heading above the activity columns.'},
     {name:'durations',type:'number[]',default:'[64, 76, 70]',description:'Seconds per column cycle, clamped to 20–300; the middle column moves down while the others move up.'},
     {name:'paused / showControls',type:'boolean',default:'false / true',description:'External pause override and native pause-control visibility.'},
     {name:'className',type:'string',default:"''",description:'Additional classes. Customize --ac-agent-surface, --ac-agent-ink, --ac-agent-muted, --ac-agent-line, --ac-agent-avatar and --ac-agent-font.'},
