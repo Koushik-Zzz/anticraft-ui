@@ -8,8 +8,8 @@ export const plyxlComponents:ComponentDefinition[]=[
 
 export function Example() {
   return <AppCatalog
-    title="Start with the tools your team needs."
-    description="Choose an app, then make it your own."
+    title="The tools to run your business."
+    description="Manage jobs, customers, invoices and more in one place."
     items={[
       { id: 'jobs', title: 'Jobs', description: 'Plan the week and track the work.', color: '#87b376', iconColor: '#081f00', icon: <span>▥</span>, href: '/apps/jobs' },
       { id: 'customers', title: 'Customers', description: 'Keep customer details in one place.', color: '#f4a594', iconColor: '#4c1b11', icon: <span>▣</span>, href: '/apps/customers' },
@@ -20,7 +20,7 @@ export function Example() {
    props:[
     {name:'items',type:'AppCatalogItem[]',default:'Required',description:'Unique id, title, description, ReactNode icon and background color; optional iconColor and href. Supply your own icon assets.'},
     {name:'eyebrow',type:'string',default:"'App Store'",description:'Small label above the introduction. Empty text hides it.'},
-    {name:'title',type:'ReactNode',default:'Start with the essentials.',description:'Large heading beside the grid; wraps naturally with balanced text.'},
+    {name:'title',type:'ReactNode',default:'The tools to run your business.',description:'Large heading beside the grid; wraps naturally with balanced text.'},
     {name:'description',type:'ReactNode',default:'undefined',description:'Supporting copy below the heading.'},
     {name:'onItemSelect',type:'(id: string) => void',default:'undefined',description:'Adds native buttons to items without href. Items with href remain normal links and also call the callback.'},
     {name:'className',type:'string',default:"''",description:'Additional classes. Customize --ac-app-surface, --ac-app-ink, --ac-app-muted, --ac-app-line, --ac-app-hover and --ac-app-font.'},

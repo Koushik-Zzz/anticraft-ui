@@ -21,7 +21,7 @@ const apps:AppCatalogItem[]=[
   ['notes','Notes','Capture meeting notes and decisions.','chat','#a8dcff','#054363'],
 ].map(([id,title,description,symbol,color,iconColor])=>({id,title,description,color,iconColor,icon:<svg viewBox="0 0 48 48" aria-hidden="true" style={{'--ico-ink':'currentColor','--ico-tint':`color-mix(in srgb,currentColor 44%,${color})`} as CSSProperties}><use href={`${asset}app-icons.svg#${symbol}`}/></svg>}));
 
-export function AppCatalogDemo(){return <div className="demo plyxl-demo plyxl-demo--apps"><AppCatalog items={apps} description="Ready-to-use apps for everyday work. Pick one and make it your own."/></div>;}
+export function AppCatalogDemo(){return <div className="demo plyxl-demo plyxl-demo--apps"><AppCatalog items={apps} description="Manage jobs, customers, invoices and more in one place."/></div>;}
 
 const rowData=[
   [['gmail','Gmail'],['googlesheets','Google Sheets'],['slack','Slack'],['quickbooks','QuickBooks'],['shopify','Shopify'],['airtable','Airtable'],['clickup','ClickUp'],['zoom','Zoom'],['excel','Excel'],['calendly','Calendly'],['zendesk','Zendesk'],['facebook','Facebook'],['canva','Canva'],['discord','Discord'],['freshbooks','FreshBooks'],['zoho','Zoho']],
